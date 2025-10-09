@@ -1,7 +1,7 @@
 {
   "banner": {
     "red": {
-      "message": "Ainult SINULE! <s>Tegutse kohe</s> Võta rahulikult, lõppeb:",
+      "message": "Tegutse kohe? Võta rahulikult — lõppeb:",
       "loading": "laadimine…",
       "countdownFormat": "{{years}}a {{days}}p {{hours}}t {{minutes}}m {{seconds}}s"
     },
@@ -10,7 +10,9 @@
     }
   },
   "hero": {
-    "title": "MIKS SEE LEHT \nNII VÄLJA NÄEB?!",
+    "title": "HÕIVU OMA DIGITSEADMED",
+    "titleDefault": "HÕIVU OMA DIGITSEADMED",
+    "titlePhone": "HÕIVU OMA TELEFON",
     "subtitle": "Sest see on sinu esimene õppetund, kuidas saada gadgetTameriks"
   },
   "slides": {
@@ -163,7 +165,8 @@
   "comment": {
     "form": {
       "error": "Palun kirjuta enne midagi!",
-      "success": "Kommentaar postitatud! (Tegelikult mitte, aga visuaalselt töötab 😉)"
+      "success": "Kommentaar postitatud! (Tegelikult mitte, aga visuaalselt töötab 😉)",
+      "invalidEmail": "Palun sisesta kehtiv e-posti aadress."
     }
   },
   "footer": {

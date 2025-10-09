@@ -1,24 +1,22 @@
 {
   "banner": {
     "red": {
-      "message": "Just for YOU! <s>Act fast</s> Take your time, ends in:",
+      "message": "Act fast? Take your time — ends in:",
       "loading": "loading…",
       "countdownFormat": "{{years}}y {{days}}d {{hours}}h {{minutes}}m {{seconds}}s"
     },
     "yellow": {
-      "message": "🚨 Special Offer Banner — create urgency, make you act fast! 🚨"
-    }
   },
   "hero": {
-    "title": "WHY DOES THIS PAGE \nLOOK LIKE THIS?!",
-    "subtitle": "Because it's your first lesson in becoming a gadgetTamer"
+    "title": "become a gadgetTamer",
+    "titleDefault": "become a gadgetTamer",
+    "titlePhone": "become a gadgetTamer",
+    "subtitle": "your first training on Taming your {{target}} starts now"
   },
   "slides": {
     "whySimilar": {
       "title": "Why Do All Websites Look the Same?",
       "intro": "Homepages, landing pages, sales pages—often impersonal, copy-paste templates. But there's a reason: proven patterns that work. Feeling the \"rush\" and urgency is part of the formula.",
-      "note": "every website is designed to grab your attention and guide you toward a decision - to enter your credit card details. Let's break the illusion wide open!"
-    },
     "specialOffer": {
       "title": "Special Offer",
       "copy": "🚨 Special Offer Banner — create urgency, make you act fast! 🚨"
@@ -95,7 +93,10 @@
     "personalNote": {
       "title": "Personal Note",
       "body": "My marketing partner says I'm doing everything wrong—and she's almost always right. The tested way usually works, but I'd rather trust honesty over polish. Sure, that loses some sales, but at least I sleep better at night (well… when I'm not writing web pages at 4:30 AM).",
-      "commentPlaceholder": "Share your thoughts...",
+      "commentHeading": "You must be furious - I got the math wrong!",
+      "commentPlaceholder": "so here's a comment box for you to leave your corrections ... angrily",
+      "commentEmailLabel": "if you wish to get a reply then leave your email",
+      "commentEmailPlaceholder": "if you wish to get a reply then leave your email",
       "commentButton": "Post comment"
     },
     "aboutMe": {
@@ -105,6 +106,14 @@
     "aboutGadgetTaming": {
       "title": "About gadgetTaming",
       "body": "gadgetTaming is about understanding how websites really work, beyond templates, and using that knowledge to stand out. Yes, the end goal is sales, but done in a way that respects human attention."
+    },
+    "recap": {
+      "title": "Recap",
+      "patterns": "Websites reuse proven persuasion patterns because they consistently guide visitors toward action.",
+      "data": "Your browser leaks a data trail—browser, device, referrer, even rough location—before you click anything.",
+      "popups": "Pop-ups are timed nudges; annoying, yes, but effective when matched to behavior.",
+      "trust": "Trust is earned with proof: testimonials, track record, and transparent storytelling.",
+      "action": "All of these tactics converge on one decision: the final call to action."
     },
     "callToAction": {
       "title": "Call to Action",
@@ -163,7 +172,8 @@
   "comment": {
     "form": {
       "error": "Please write something first!",
-      "success": "Comment posted! (Not really, but visually it works 😉)"
+      "success": "Comment posted! (Not really, but visually it works 😉)",
+      "invalidEmail": "Please enter a valid email address."
     }
   },
   "footer": {

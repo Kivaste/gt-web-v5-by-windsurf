@@ -7,17 +7,24 @@
   <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
-  <div id="redBanner" class="top-banner" aria-live="polite" data-i18n="banner.red.message">
-    Just for YOU! <s>Act fast</s> Take your time, ends in:&nbsp;<span id="countdown" data-i18n="banner.red.loading">loading…</span>
+  <div id="redBanner" class="top-banner" aria-live="polite">
+    <span class="top-banner-text" data-i18n="banner.red.message">Act fast? Take your time — ends in:</span>
+    <span id="countdown" class="top-banner-countdown" data-i18n="banner.red.loading">loading…</span>
   </div>
   <header class="hero slide" data-slide-title="Welcome">
-    <h1 data-i18n="hero.title">WHY DOES THIS PAGE 
-LOOK LIKE THIS?!</h1>
-    <p data-i18n="hero.subtitle">Because it's your first lesson in becoming a gadgetTamer</p>
+    <div class="hero-body">
+      <h1 data-i18n="hero.title">become a gadgetTamer</h1>
+      <p data-i18n="hero.subtitle">your first training on Taming your devices starts now</p>
+    </div>
+    <a href="#whySimilar" class="scroll-indicator" aria-label="Scroll to next section">
+      <svg class="scroll-indicator__arrow" viewBox="0 0 32 32" aria-hidden="true">
+        <path d="M5.2 10.4 L16 24 L26.8 10.4" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+    </a>
   </header>
 
   <main>
-    <section class="slide" data-slide-title="Why Similar">
+    <section class="slide" id="whySimilar" data-slide-title="Why Similar">
       <h2 data-i18n="slides.whySimilar.title">Why Do All Websites Look the Same?</h2>
       <p data-i18n="slides.whySimilar.intro">Homepages, landing pages, sales pages—often impersonal, copy-paste templates. But there's a reason: proven patterns that work. Feeling the "rush" and urgency is part of the formula.</p>
       <p><em data-i18n="slides.whySimilar.note">every website is designed to grab your attention and guide you toward a decision - to enter your credit card details. Let's break the illusion wide open!</em></p>
@@ -155,20 +162,32 @@ LOOK LIKE THIS?!</h1>
 
       <!-- Simple comment form -->
       <div class="comment-form" style="margin-top: 24px;">
+        <h3 data-i18n="slides.personalNote.commentHeading">You must be furious - I got the math wrong!</h3>
         <textarea 
           id="commentText" 
-          placeholder="Share your thoughts..."
+          placeholder="so here's a comment box for you to leave your corrections ... angrily"
           data-i18n-placeholder="slides.personalNote.commentPlaceholder"
           rows="4"
           style="width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 8px; font-family: inherit; font-size: 1rem; resize: vertical;"
         ></textarea>
+        <div class="comment-email-wrapper">
+          <label for="commentEmail" data-i18n="slides.personalNote.commentEmailLabel">if you wish to get a reply then leave your email</label>
+          <input 
+            type="email"
+            id="commentEmail"
+            placeholder="if you wish to get a reply then leave your email"
+            data-i18n-placeholder="slides.personalNote.commentEmailPlaceholder"
+          />
+          <span id="commentEmailError" class="input-inline-error">not a valid email</span>
+        </div>
         <button 
           type="button" 
           id="btnPostComment"
-          style="margin-top: 12px; background: #28a745; color: #fff; border: none; padding: 12px 24px; border-radius: 8px; font-size: 1rem; cursor: pointer; font-weight: 600;"
+          class="comment-submit"
+          disabled
           data-i18n="slides.personalNote.commentButton"
         >Post comment</button>
-        <div id="commentStatus" style="margin-top: 8px; color: #28a745; font-weight: 600;"></div>
+        <div id="commentStatus" class="comment-status" aria-live="polite"></div>
       </div>
     </section>
 
@@ -180,6 +199,17 @@ LOOK LIKE THIS?!</h1>
     <section class="slide" data-slide-title="About gadgetTaming">
       <h2 data-i18n="slides.aboutGadgetTaming.title">About gadgetTaming</h2>
       <p data-i18n="slides.aboutGadgetTaming.body">gadgetTaming is about understanding how websites really work, beyond templates, and using that knowledge to stand out. Yes, the end goal is sales, but done in a way that respects human attention.</p>
+    </section>
+
+    <section class="slide" data-slide-title="Recap">
+      <h2 data-i18n="slides.recap.title">Recap</h2>
+      <ul class="recap-list">
+        <li data-i18n="slides.recap.patterns">Websites reuse proven persuasion patterns because they consistently guide visitors toward action.</li>
+        <li data-i18n="slides.recap.data">Your browser leaks a data trail—browser, device, referrer, even rough location—before you click anything.</li>
+        <li data-i18n="slides.recap.popups">Pop-ups are timed nudges; annoying, yes, but effective when matched to behavior.</li>
+        <li data-i18n="slides.recap.trust">Trust is earned with proof: testimonials, track record, and transparent storytelling.</li>
+        <li data-i18n="slides.recap.action">All of these tactics converge on one decision: the final call to action.</li>
+      </ul>
     </section>
 
     <section class="slide" data-slide-title="Call to Action">

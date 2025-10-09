@@ -15,6 +15,37 @@ function updateCountdownText() {
   countdownEl.textContent = formatTemplate(template, { years, days, hours, minutes, seconds });
 }
 
+function applyHeroTitleVariant() {
+  const heroTitleEl = document.querySelector('[data-i18n="hero.title"]');
+  if (!heroTitleEl) return;
+
+  const deviceType = detectDeviceType().toLowerCase();
+  let key = 'hero.titleDefault';
+
+  if (deviceType === 'mobile') {
+    key = 'hero.titlePhone';
+  }
+
+  const existing = heroTitleEl.innerHTML;
+  const fallbackVariant = t('hero.title') || existing;
+  const variant = t(key) || fallbackVariant || existing;
+  if (variant) {
+    heroTitleEl.innerHTML = variant;
+  }
+}
+
+function applyHeroSubtitleVariant() {
+  const heroSubtitleEl = document.querySelector('[data-i18n="hero.subtitle"]');
+  if (!heroSubtitleEl) return;
+
+  const deviceType = detectDeviceType().toLowerCase();
+  const target = deviceType === 'mobile' ? 'phone' : 'devices';
+
+  const fallback = 'your first training on Taming your {{target}} starts now';
+  const template = t('hero.subtitle', fallback) || fallback;
+  heroSubtitleEl.innerHTML = formatTemplate(template, { target });
+}
+
 function tickCountdown() {
   seconds--;
   if (seconds < 0) {
@@ -115,6 +146,9 @@ function applyTranslations() {
     }
   });
 
+  applyHeroTitleVariant();
+  applyHeroSubtitleVariant();
+
   document.querySelectorAll('[data-i18n-placeholder]').forEach((el) => {
     const key = el.dataset.i18nPlaceholder;
     const value = t(key);
@@ -197,6 +231,7 @@ mediaReduce.addEventListener?.("change", (e) => (reduceMotion = e.matches));
 const bannerSlide = document.getElementById("bannerSlide");
 const redBanner = document.getElementById("redBanner");
 const freeMaterialsSlide = document.getElementById("freeMaterialsSlide");
+const whyPopupSlide = document.getElementById("whyPopupSection");
 
 // ===== Slide Controller =====
 class SlideController {
@@ -209,6 +244,7 @@ class SlideController {
     this.unlockTimer = null;
     this.redBannerShown = false;
     this.freeMaterialsIndex = -1;
+    this.whyPopupIndex = -1;
 
     this.refresh();
     this.observer = null;
@@ -220,6 +256,7 @@ class SlideController {
     this.slides = Array.from(document.querySelectorAll('.slide'));
     this.bannerIndex = this.slides.indexOf(bannerSlide);
     this.freeMaterialsIndex = this.slides.indexOf(freeMaterialsSlide);
+    this.whyPopupIndex = this.slides.indexOf(whyPopupSlide);
   }
 
   setupObserver() {
@@ -254,6 +291,10 @@ class SlideController {
   }
 
   goTo(index, { source = "generic" } = {}) {
+    if (!hasSeen('why-popup') && this.whyPopupIndex !== -1 && this.index <= this.whyPopupIndex && index > this.whyPopupIndex) {
+      index = this.whyPopupIndex;
+      checkPopupWhySection();
+    }
     if (this.locked) return this.activeTransition;
     if (index < 0 || index >= this.slides.length) return this.activeTransition;
 
@@ -300,8 +341,21 @@ class SlideController {
   }
 
   handleIndexChange(index) {
+    if (!hasSeen('why-popup') && this.whyPopupIndex !== -1 && index > this.whyPopupIndex) {
+      const guardSlide = this.slides[this.whyPopupIndex];
+      if (guardSlide) {
+        if (reduceMotion) {
+          guardSlide.scrollIntoView();
+        } else {
+          guardSlide.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+      index = this.whyPopupIndex;
+      checkPopupWhySection();
+    }
     this.index = index;
     this.updateRedBanner();
+    trackTopReturn(index);
   }
 
   updateRedBanner() {
@@ -331,6 +385,18 @@ class SlideController {
 }
 
 const slideController = new SlideController();
+
+let highestSlideIndexReached = 0;
+
+function trackTopReturn(index) {
+  if (index > highestSlideIndexReached) {
+    highestSlideIndexReached = index;
+  }
+
+  if (index === 0 && highestSlideIndexReached > 1) {
+    showPopup("fast-to-top", null);
+  }
+}
 
 function goToSlide(index, options) {
   if (popupOpen) return;
@@ -529,6 +595,10 @@ function onPopupKeydown(e) {
     hidePopup();
     return;
   }
+  if (e.key === "ArrowUp" || e.key === "ArrowDown" || e.key === "PageUp" || e.key === "PageDown" || e.key === "Home" || e.key === "End") {
+    e.preventDefault();
+    return;
+  }
   if (e.key === "Tab") {
     const focusables = popup.querySelectorAll('button,[href],input,select,textarea,[tabindex]:not([tabindex="-1"])');
     const list = Array.from(focusables).filter(el => !el.hasAttribute("disabled") && el.offsetParent !== null);
@@ -556,6 +626,21 @@ function checkPopupWhySection() {
 
   if (viewportMid >= halfY && rect.bottom > 0 && rect.top < window.innerHeight) {
     showPopup(reason, rect);
+    return;
+  }
+
+  if (!checkPopupWhySection._observer && 'IntersectionObserver' in window) {
+    checkPopupWhySection._observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          observer.disconnect();
+          checkPopupWhySection._observer = null;
+          const entryRect = entry.target.getBoundingClientRect();
+          showPopup(reason, entryRect);
+        }
+      });
+    }, { threshold: 0.45 });
+    checkPopupWhySection._observer.observe(whySection);
   }
 }
 
@@ -569,8 +654,12 @@ function onFastTopScroll() {
   const dy = lastScrollY - y;
   const dt = Math.max(1, now - lastScrollT);
   const velocity = (dy / dt) * 1000;
+  const distanceQuickReturn = dy > 400;
+  const timeQuickReturn = dt < 800;
 
-  if (y < 200 && velocity > 1600) showPopup(reason, null);
+  if (y < 200 && (velocity > 1200 || (distanceQuickReturn && timeQuickReturn))) {
+    showPopup(reason, null);
+  }
 
   lastScrollY = y;
   lastScrollT = now;
@@ -717,12 +806,44 @@ btnFetchIP?.addEventListener("click", fetchIpLocation);
 const btnPostComment = document.getElementById("btnPostComment");
 const commentText = document.getElementById("commentText");
 const commentStatus = document.getElementById("commentStatus");
+const commentEmail = document.getElementById("commentEmail");
+const commentEmailError = document.getElementById("commentEmailError");
+
+function isValidEmail(value) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+}
+
+function updateCommentButtonState() {
+  if (!btnPostComment) return;
+  const hasContent = Boolean(commentText?.value?.trim());
+  btnPostComment.disabled = !hasContent;
+}
+
+commentText?.addEventListener("input", () => {
+  if (commentStatus) commentStatus.textContent = "";
+  updateCommentButtonState();
+});
+
+commentEmail?.addEventListener("input", () => {
+  if (commentStatus) commentStatus.textContent = "";
+  if (commentEmailError) commentEmailError.classList.remove("is-visible");
+  commentEmail?.classList.remove("is-invalid");
+});
 
 btnPostComment?.addEventListener("click", () => {
   const text = commentText?.value?.trim();
+  const email = commentEmail?.value?.trim();
   if (!text) {
     commentStatus.textContent = t('comment.form.error', 'Please write something first!');
     commentStatus.style.color = "#d32f2f";
+    return;
+  }
+
+  if (email && !isValidEmail(email)) {
+    commentStatus.textContent = "";
+    commentEmail?.classList.add("is-invalid");
+    if (commentEmailError) commentEmailError.classList.add("is-visible");
+    commentEmail?.focus();
     return;
   }
 
@@ -730,11 +851,17 @@ btnPostComment?.addEventListener("click", () => {
   commentStatus.style.color = "#28a745";
 
   if (commentText) commentText.value = "";
+  if (commentEmail) commentEmail.value = "";
+  commentEmail?.classList.remove("is-invalid");
+  if (commentEmailError) commentEmailError.classList.remove("is-visible");
+  updateCommentButtonState();
 
   setTimeout(() => {
     if (commentStatus) commentStatus.textContent = "";
   }, 3000);
 });
+
+updateCommentButtonState();
 
 // ===== Cookie detection (third-party) =====
 const thirdPartyCookiesStatus = document.getElementById("thirdPartyCookiesStatus");
@@ -791,10 +918,26 @@ btnClearData?.addEventListener("click", () => {
 
 // ===== Initialize everything on load =====
 document.addEventListener("DOMContentLoaded", async () => {
-  await initializeLocalization();
+  try {
+    await initializeLocalization();
+  } catch (err) {
+    console.error("Localization failed", err);
+  }
+
+  applyHeroTitleVariant();
+  applyHeroSubtitleVariant();
+  startCountdownIfNeeded();
+
+  const scrollIndicator = document.querySelector(".scroll-indicator");
+  if (scrollIndicator) {
+    window.setTimeout(() => {
+      scrollIndicator.classList.add("is-visible");
+    }, 1800);
+  }
+
   slideController.refresh();
   slideController.setupObserver();
   initStaticStats();
   checkPopupWhySection();
-  check3PCookies();
+  fetchIpLocation();
 });
