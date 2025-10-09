@@ -1,0 +1,45 @@
+Current order
+1. Welcome (hero)
+2. Why Similar (pattern reveal)
+3. Special Offer (yellow banner)
+4. Why Trust Us
+5. Free Materials
+6. Data Trail
+
+Observations
+- Strong hook, but persuasion banner precedes trust building.
+- Data Trail is powerful proof but arrives late.
+- "Free Materials" feels softer than the banner CTA.
+
+Proposed order
+1. Welcome (hook)
+2. Why Similar (context/problem)
+3. Data Trail (reveal how you’re already tracked)
+4. Why Trust Us (authority/credibility)
+5. Special Offer (high-urgency CTA)
+6. Free Materials (lower-friction fallback)
+
+Rationale
+- Establish problem, then show evidence to raise stakes before asking for trust.
+- Place credibility before any hard sell to avoid resistance.
+- Finish with a softer offer so readers who skip the urgent CTA still convert.
+
+
+Final slide order after update:
+1. Welcome
+2. Why Similar
+3. Special Offer
+4. Data Trail
+5. Cookies
+6. A/B Testing
+7. Free Materials
+8. Why Pop-Up
+9. Why Trust Us
+10. FAQ (new)
+11. Pricing & Guarantees
+12. Personal Note
+13. About Me
+14. About gadgetTaming
+15. Call to Action (merged with What You Can Buy)
+16. Footer
+

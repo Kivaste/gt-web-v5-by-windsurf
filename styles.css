@@ -1,0 +1,496 @@
+/* =========================
+   Tokens
+   ========================= */
+:root {
+  --text: #333;
+  --text-strong: #111;
+  --bg: #fff;
+  --hero-bg: #f6f7f9;
+  --yellow: #f8b400;
+  --green: #28a745;
+  --red: #d32f2f;
+
+  --banner-height: 72px;
+  --ease-smooth: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur-fade: 3500ms;
+
+  --banner-fixed-offset: 0px;
+}
+
+/* =========================
+   Base + Slides
+   ========================= */
+* { 
+  box-sizing: border-box; 
+}
+
+html, body { 
+  margin: 0; 
+  padding: 0; 
+  height: 100%; 
+}
+
+html {
+  scroll-snap-type: y mandatory;
+  scroll-padding-top: var(--banner-fixed-offset, 0px);
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+html::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: var(--text);
+  background: var(--bg);
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+body.red-banner-visible {
+  --banner-fixed-offset: 64px;
+}
+
+body.modal-open { 
+  overflow: hidden; 
+}
+
+body.scrolling { 
+  scroll-snap-type: none; 
+}
+
+.slide {
+  min-height: 100vh;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  padding: 40px 20px;
+  text-align: left;
+}
+
+.slide.slide-hidden {
+  scroll-snap-align: none;
+  scroll-snap-stop: normal;
+  pointer-events: none;
+  visibility: hidden;
+  height: 0;
+  min-height: 0;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+}
+
+/* =========================
+   Hero
+   ========================= */
+.hero {
+  background: var(--hero-bg);
+  color: #000;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.06), 0 2px 6px rgba(0,0,0,0.04);
+}
+
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 30px;
+  line-height: 1.2;
+  white-space: pre-line;
+}
+
+.hero p {
+  font-size: 1.3rem;
+  font-weight: 600;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* =========================
+   Sections
+   ========================= */
+section {
+  max-width: 900px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+section h2 { 
+  color: var(--text-strong); 
+}
+
+#bannerSlide {
+  align-content: center;
+  justify-items: center;
+}
+
+/* =========================
+   Special offer banner
+   ========================= */
+.banner {
+  position: relative;
+  background: var(--yellow);
+  color: #111;
+  height: var(--banner-height);
+  width: 100%;
+  max-width: 900px;
+  padding: 0 20px;
+  box-sizing: border-box;
+  border-radius: 8px;
+
+  font-weight: 700;
+  font-size: 1.5rem;
+  line-height: 1.25;
+
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
+  text-align: center;
+}
+
+.top-banner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: var(--red);
+  color: #fff;
+  text-align: center;
+  padding: 20px 32px;
+  font-weight: 700;
+  font-size: 1.45rem;
+  line-height: 1.35;
+  transform: translateY(-100%);
+  transition: transform 0.35s var(--ease-smooth), opacity 0.35s var(--ease-smooth);
+  opacity: 0;
+  z-index: 1100;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.18);
+}
+
+.top-banner.is-visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.top-banner-countdown {
+  display: block;
+  margin-top: 8px;
+  font-size: 1.1rem;
+}
+
+/* =========================
+   CTA
+   ========================= */
+.cta { 
+  text-align: center; 
+  margin-top: 20px; 
+}
+
+.cta button {
+  background: var(--green);
+  color: #fff;
+  border: none;
+  padding: 15px 30px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.cta button:hover { 
+  filter: brightness(0.95); 
+}
+
+.cta button:focus-visible { 
+  outline: 3px solid #000; 
+  outline-offset: 3px; 
+}
+
+/* =========================
+   Footer
+   ========================= */
+footer { 
+  display: grid; 
+  place-items: center; 
+}
+
+/* =========================
+   Popup modal
+   ========================= */
+.popup {
+  position: fixed; 
+  inset: 0; 
+  z-index: 2000;
+  display: grid; 
+  place-items: center;
+  background: rgba(0, 0, 0, 0.4);
+  opacity: 0; 
+  pointer-events: none;
+  transition: opacity 280ms var(--ease-smooth);
+}
+
+.popup.open { 
+  opacity: 1; 
+  pointer-events: auto; 
+}
+
+.popup-scaler {
+  width: 100vw; 
+  height: 100vh;
+  transform-origin: var(--origin-x, 50vw) var(--origin-y, 50vh);
+  transform: scale(0.86);
+  transition: transform 320ms var(--ease-smooth);
+  display: grid; 
+  place-items: center;
+}
+
+.popup.open .popup-scaler { 
+  transform: scale(1); 
+}
+
+.popup-dialog {
+  background: #fff; 
+  color: var(--text);
+  width: min(92vw, 560px);
+  border-radius: 14px;
+  box-shadow: 0 30px 70px rgba(0,0,0,0.25), 0 8px 20px rgba(0,0,0,0.18);
+  padding: 24px; 
+  position: relative;
+}
+
+.popup-dialog:focus { 
+  outline: none; 
+}
+
+.popup-close {
+  position: absolute; 
+  top: 10px; 
+  right: 10px;
+  background: transparent; 
+  border: none;
+  font-size: 1.5rem; 
+  line-height: 1; 
+  cursor: pointer;
+}
+
+.popup-actions {
+  margin-top: 20px; 
+  display: flex; 
+  gap: 12px; 
+  justify-content: center;
+}
+
+.btn-primary {
+  background: var(--green); 
+  color: #fff; 
+  border: none;
+  padding: 12px 18px; 
+  border-radius: 8px; 
+  font-size: 1rem; 
+  cursor: pointer;
+}
+
+.btn-primary:hover { 
+  filter: brightness(0.95); 
+}
+
+.btn-ghost {
+  background: transparent; 
+  border: 2px solid #ddd; 
+  color: #000;
+  padding: 10px 16px; 
+  border-radius: 8px; 
+  font-size: 1rem; 
+  cursor: pointer;
+}
+
+.btn-ghost:hover { 
+  background: #f5f5f5; 
+}
+
+/* =========================
+   Data Trail visuals
+   ========================= */
+.stats-list { 
+  list-style: none; 
+  margin: 0; 
+  padding: 0; 
+}
+
+.stats-list li {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 8px;
+  align-items: center;
+  padding: 6px 0;
+  border-top: 1px dashed #eee;
+}
+
+.stats-list li:first-child { 
+  border-top: none; 
+}
+
+.stats-list .k { 
+  color: #666; 
+}
+
+.stats-list .v { 
+  color: var(--text-strong); 
+}
+
+.linklike {
+  background: none;
+  border: none;
+  color: #0b5dd7;
+  text-decoration: underline;
+  cursor: pointer;
+  font: inherit;
+  padding: 0;
+}
+
+.linklike:hover { 
+  color: #083e91; 
+}
+
+.popups-row { 
+  grid-template-columns: 1fr; 
+}
+
+.popups-meta { 
+  display: grid; 
+  grid-template-columns: 1fr auto; 
+  gap: 8px; 
+  align-items: center; 
+}
+
+.progress {
+  width: 100%; 
+  height: 8px; 
+  background: #f0f0f0;
+  border-radius: 6px; 
+  overflow: hidden; 
+  margin-top: 6px;
+}
+
+.progress-bar { 
+  height: 100%; 
+  background: linear-gradient(90deg, #28a745, #66c56f); 
+  width: 0%; 
+}
+
+.clicks-row { 
+  grid-template-columns: 1fr; 
+}
+
+.click-list { 
+  margin: 6px 0 0 0; 
+  padding-left: 16px; 
+  max-height: 150px; 
+  overflow: auto; 
+}
+
+.click-list li { 
+  font-size: 0.95rem; 
+}
+
+/* =========================
+   Cookies tools
+   ========================= */
+.cookie-tools { 
+  margin-top: 12px; 
+  border-top: 1px dashed #eee; 
+  padding-top: 10px; 
+}
+
+.tool-row {
+  display: grid;
+  grid-template-columns: 1fr auto auto auto;
+  gap: 10px;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  white-space: nowrap;
+}
+
+.status-allowed { 
+  background: #e8f5e9; 
+  color: #1b5e20; 
+}
+
+.status-blocked { 
+  background: #ffebee; 
+  color: #b71c1c; 
+}
+
+.status-unknown { 
+  background: #e3f2fd; 
+  color: #0d47a1; 
+}
+
+/* =========================
+   Reduced motion
+   ========================= */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  
+  .banner,
+  .banner::after,
+  .banner-layer,
+  .popup,
+  .popup-scaler,
+  .dot-nav button {
+    transition: none !important;
+  }
+}
+
+/* =========================
+   Mobile responsiveness
+   ========================= */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+  
+  .hero p {
+    font-size: 1.1rem;
+  }
+  
+  .banner {
+    font-size: 1.2rem;
+  }
+  
+  .banner-layer {
+    font-size: 1.2rem;
+  }
+  
+  .dot-nav {
+    display: none;
+  }
+  
+  .tool-row {
+    grid-template-columns: 1fr auto;
+    gap: 8px;
+  }
+  
+  .tool-row > a,
+  .tool-row > button:nth-child(3) {
+    grid-column: 1 / -1;
+  }
+}
+  
