@@ -1,0 +1,171 @@
+{
+  "banner": {
+    "red": {
+      "message": "Just for YOU! <s>Act fast</s> Take your time, ends in:",
+      "loading": "loading…"
+    },
+    "yellow": {
+      "message": "🚨 Special Offer Banner — create urgency, make you act fast! 🚨"
+    }
+  },
+  "hero": {
+    "title": "WHY DOES THIS PAGE \nLOOK LIKE THIS?!",
+    "subtitle": "Because it's your first lesson in becoming a gadgetTamer"
+  },
+  "slides": {
+    "whySimilar": {
+      "title": "Why Do All Websites Look the Same?",
+      "intro": "Homepages, landing pages, sales pages—often impersonal, copy-paste templates. But there's a reason: proven patterns that work. Feeling the \"rush\" and urgency is part of the formula.",
+      "note": "every website is designed to grab your attention and guide you toward a decision - to enter your credit card details. Let's break the illusion wide open!"
+    },
+    "specialOffer": {
+      "title": "Special Offer",
+      "copy": "🚨 Special Offer Banner — create urgency, make you act fast! 🚨"
+    },
+    "dataTrail": {
+      "title": "Your Data Trail (aka: your browser is a snitch)",
+      "lede": "Relax—this is the kind of stuff almost every site watches. We're just telling you about it like decent humans.",
+      "browserLabel": "Browser",
+      "osLabel": "OS",
+      "deviceLabel": "Device",
+      "referrerLabel": "Referrer",
+      "locationLabel": "Location (IP)",
+      "refreshButton": "Refresh",
+      "timeLabel": "Time on site",
+      "popupsSeenLabel": "Pop-ups seen",
+      "buttonsClickedLabel": "Buttons clicked",
+      "noneYet": "None yet",
+      "note": "Note: We fetch a rough, IP‑based location automatically (no GPS — just city/region/country from your IP)."
+    },
+    "cookies": {
+      "title": "Everybody loves cookies! (until they follow you) 🍪",
+      "lede": "Not the chocolate-chip kind. Cookies are tiny text crumbs your browser saves so sites can remember things about you. Handy… and also a little clingy.",
+      "firstParty": "<strong>First-party cookies:</strong> set by the site you're on — logins, carts, \"remember me,\" that sort of useful stuff.",
+      "thirdParty": "<strong>Third-party cookies:</strong> set by outsiders embedded on the page (ad networks, social widgets, analytics). That's how the same folks can spot you across many sites.",
+      "sessionPersistent": "<strong>Session vs. persistent:</strong> session cookies vanish when you close the tab; persistent cookies stick around for days or months, like glitter after a craft accident.",
+      "retargTitle": "Retargeting in 4 steps (aka \"why am I seeing those exact shoes?\")",
+      "retargStep1": "You check out Product X on Site A. A tiny \"ad pixel\" from AdCo loads.",
+      "retargStep2": "AdCo drops a <em>third‑party</em> cookie: \"User looked at Product X.\"",
+      "retargStep3": "Later on Site B (also running AdCo), your browser presents that cookie to AdCo.",
+      "retargStep4": "AdCo recognizes you and serves an ad for Product X everywhere, forever. Or at least until the cookie expires.",
+      "thirdPartyLabel": "Third-party cookies",
+      "retestButton": "Re-test",
+      "externalLink": "External test",
+      "clearDataButton": "Clear site data",
+      "note": "Note: Many browsers now block third-party cookies by default. Retargeting still happens via newer tricks (first-party tracking, server-side stitching, hashed emails). The game evolves."
+    },
+    "abTesting": {
+      "title": "A/B Testing: stop guessing, start splitting",
+      "lede": "Marketing opinions are free. Evidence is expensive. Here's the cheap version:",
+      "points": [
+        "Pick one thing to mess with: headline, button text, price anchoring, whatever.",
+        "Randomly show A or B to visitors. No peeking at the results \"just to check.\"",
+        "Measure one clear metric (clicks, signups, buys). Not \"feelings.\"",
+        "Let it run long enough to matter. \"We got 12 clicks\" is not a conclusion.",
+        "Winner goes live. Loser goes to the big archive in the sky."
+      ],
+      "note": "Serious A/B requires tooling or backend logic. This is your heads-up that \"best practices\" are just hypotheses with a good PR team."
+    },
+    "freeMaterials": {
+      "title": "Free Materials",
+      "body": "Are they really free though? The price is your email and attention.<br>If this page doesn't convince you today, perhaps tomorrow's inbox message will?"
+    },
+    "whyPopup": {
+      "title": "Why a Pop-Up?",
+      "body": "A pop-up is your final \"don't leave yet\" moment—either timed with urgency or triggered as you close the page. Annoying? Maybe. Effective? Definitely."
+    },
+    "whyTrustUs": {
+      "title": "Why Trust Us?",
+      "body": "We've got courses completed, certificates earned, happy clients, glowing reviews, and yes—we love showing that off. Because credibility matters."
+    },
+    "faq": {
+      "title": "FAQ",
+      "q1": "Is this really different from any other landing page?",
+      "a1": "Yes—because you now understand the persuasion levers being pulled on every other site you visit.",
+      "q2": "Do I have to buy something right away?",
+      "a2": "Nope. Absorb the lessons, sleep on it, and come back when you're ready to tame your gadgets.",
+      "q3": "Will you spam me?",
+      "a3": "Only with useful, human-written insights. No bots, no blanket blasts."
+    },
+    "pricing": {
+      "title": "Pricing & Guarantees",
+      "body": "Everything sounds amazing—but wait, there's always a discount lurking at the end. Don't forget: money-back guarantee, because peace of mind sells as well as the product itself."
+    },
+    "personalNote": {
+      "title": "Personal Note",
+      "body": "My marketing partner says I'm doing everything wrong—and she's almost always right. The tested way usually works, but I'd rather trust honesty over polish. Sure, that loses some sales, but at least I sleep better at night (well… when I'm not writing web pages at 4:30 AM).",
+      "commentPlaceholder": "Share your thoughts...",
+      "commentButton": "Post comment"
+    },
+    "aboutMe": {
+      "title": "About Me",
+      "body": "I'm building this approach because personality beats blandness. I believe trust grows when you see I'm not hiding behind cookie-cutter methods. This is who I am."
+    },
+    "aboutGadgetTaming": {
+      "title": "About gadgetTaming",
+      "body": "gadgetTaming is about understanding how websites really work, beyond templates, and using that knowledge to stand out. Yes, the end goal is sales, but done in a way that respects human attention."
+    },
+    "callToAction": {
+      "title": "Call to Action",
+      "body": "At the end of the day, there's one road: Order. Buy. Add to cart. Book. Send inquiry. All paths lead here.",
+      "offer": "What you can buy: Courses, insights, and practical guidance on taming the wild world of online marketing and website building. Not sold as magic tricks—but as real tools you can actually use."
+    }
+  },
+  "popups": {
+    "whyPopup": {
+      "title": "Here's your pop-up!",
+      "desc": "This is exactly what we were talking about—timed to grab your attention right when you're learning about pop-ups. Meta, right?",
+      "primary": "I see what you did there",
+      "secondary": "Close"
+    },
+    "fastToTop": {
+      "title": "Back to the top already?",
+      "desc": "Here's a 2‑minute summary of what matters most — and your next step.",
+      "primary": "Get the summary",
+      "secondary": "No thanks"
+    },
+    "exitIntent": {
+      "title": "Wait — before you go",
+      "desc": "Grab the free field guide to spotting persuasion patterns so your attention stays yours.",
+      "primary": "Get the field guide",
+      "secondary": "No thanks"
+    },
+    "dialog": {
+      "closeAria": "Close dialog"
+    }
+  },
+  "buttons": {
+    "ctaPrimary": "👉 Take Action Now",
+    "noThanks": "No thanks"
+  },
+  "stats": {
+    "referrer": {
+      "direct": "Direct"
+    },
+    "location": {
+      "loading": "Loading…",
+      "unknown": "Unknown",
+      "unavailable": "Unavailable",
+      "detecting": "Detecting…"
+    }
+  },
+  "cookies": {
+    "status": {
+      "checking": "Checking…",
+      "allowed": "Allowed",
+      "blocked": "Blocked",
+      "likelyBlocked": "Likely Blocked",
+      "cleared": "✓ Cleared",
+      "failed": "✗ Failed"
+    }
+  },
+  "comment": {
+    "form": {
+      "error": "Please write something first!",
+      "success": "Comment posted! (Not really, but visually it works 😉)"
+    }
+  },
+  "footer": {
+    "copy": "© 2024 gadgetTamer. Honest websites. Better sleep. Stronger trust."
+  }
+}

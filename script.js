@@ -50,6 +50,7 @@ mediaReduce.addEventListener?.("change", (e) => (reduceMotion = e.matches));
 // Core DOM references
 const bannerSlide = document.getElementById("bannerSlide");
 const redBanner = document.getElementById("redBanner");
+const freeMaterialsSlide = document.getElementById("freeMaterialsSlide");
 
 // ===== Slide Controller =====
 class SlideController {
@@ -61,6 +62,7 @@ class SlideController {
     this.activeTransition = Promise.resolve();
     this.unlockTimer = null;
     this.redBannerShown = false;
+    this.freeMaterialsIndex = -1;
 
     this.refresh();
     this.observer = null;
@@ -71,6 +73,7 @@ class SlideController {
   refresh() {
     this.slides = Array.from(document.querySelectorAll('.slide'));
     this.bannerIndex = this.slides.indexOf(bannerSlide);
+    this.freeMaterialsIndex = this.slides.indexOf(freeMaterialsSlide);
   }
 
   setupObserver() {
@@ -156,12 +159,27 @@ class SlideController {
   }
 
   updateRedBanner() {
-    if (!redBanner || this.bannerIndex === -1 || this.redBannerShown) return;
-    if (this.index > this.bannerIndex) {
-      redBanner.classList.add('is-visible');
-      document.body.classList.add('red-banner-visible');
-      this.redBannerShown = true;
-      startCountdownIfNeeded();
+    if (!redBanner) return;
+    const passedBanner = this.bannerIndex !== -1 && this.index > this.bannerIndex;
+    const atOrBeyondFree = this.freeMaterialsIndex !== -1 && this.index >= this.freeMaterialsIndex;
+
+    if (atOrBeyondFree) {
+      redBanner.classList.remove('is-visible');
+      document.body.classList.remove('red-banner-visible');
+      return;
+    }
+
+    if (passedBanner) {
+      if (!this.redBannerShown) {
+        redBanner.classList.add('is-visible');
+        document.body.classList.add('red-banner-visible');
+        this.redBannerShown = true;
+        startCountdownIfNeeded();
+      }
+    } else {
+      redBanner.classList.remove('is-visible');
+      document.body.classList.remove('red-banner-visible');
+      this.redBannerShown = false;
     }
   }
 }
@@ -325,6 +343,7 @@ function showPopup(reason, originRect = null) {
   popup.classList.add("open");
   document.body.classList.add("modal-open");
   document.documentElement.classList.add("modal-open");
+  document.removeEventListener('keydown', handleKeyNav);
   popupOpen = true;
 
   focusRestoreEl = document.activeElement instanceof HTMLElement ? document.activeElement : null;
@@ -344,6 +363,7 @@ function hidePopup() {
   popup.setAttribute("aria-hidden", "true");
   document.body.classList.remove("modal-open");
   document.documentElement.classList.remove("modal-open");
+  document.addEventListener('keydown', handleKeyNav);
 
   document.removeEventListener("keydown", onPopupKeydown);
   popup.removeEventListener("click", onBackdropClick);

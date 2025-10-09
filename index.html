@@ -7,157 +7,158 @@
   <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
-  <div id="redBanner" class="top-banner" aria-live="polite">
-    Just for YOU! <s>Act fast</s> Take your time, ends in:&nbsp;<span id="countdown">loading…</span>
+  <div id="redBanner" class="top-banner" aria-live="polite" data-i18n="banner.red.message">
+    Just for YOU! <s>Act fast</s> Take your time, ends in:&nbsp;<span id="countdown" data-i18n="banner.red.loading">loading…</span>
   </div>
   <header class="hero slide" data-slide-title="Welcome">
-    <h1>WHY DOES THIS PAGE 
+    <h1 data-i18n="hero.title">WHY DOES THIS PAGE 
 LOOK LIKE THIS?!</h1>
-    <p>Because it's your first lesson in becoming a gadgetTamer</p>
+    <p data-i18n="hero.subtitle">Because it's your first lesson in becoming a gadgetTamer</p>
   </header>
 
   <main>
     <section class="slide" data-slide-title="Why Similar">
-      <h2>Why Do All Websites Look the Same?</h2>
-      <p>Homepages, landing pages, sales pages—often impersonal, copy-paste templates. But there's a reason: proven patterns that work. Feeling the "rush" and urgency is part of the formula.</p>
-      <p><em>every website is designed to grab your attention and guide you toward a decision - to enter your credit card details. Let's break the illusion wide open!</em></p>
+      <h2 data-i18n="slides.whySimilar.title">Why Do All Websites Look the Same?</h2>
+      <p data-i18n="slides.whySimilar.intro">Homepages, landing pages, sales pages—often impersonal, copy-paste templates. But there's a reason: proven patterns that work. Feeling the "rush" and urgency is part of the formula.</p>
+      <p><em data-i18n="slides.whySimilar.note">every website is designed to grab your attention and guide you toward a decision - to enter your credit card details. Let's break the illusion wide open!</em></p>
     </section>
 
     <!-- Banner slide: yellow banner centered like other content -->
     <section class="slide" id="bannerSlide" data-slide-title="Special Offer">
-      <div class="banner" id="yellowBanner" aria-live="polite">
+      <div class="banner" id="yellowBanner" aria-live="polite" data-i18n="banner.yellow.message">
         🚨 Special Offer Banner — create urgency, make you act fast! 🚨
       </div>
     </section>
 
     <!-- Data Trail -->
     <section id="dataTrailSection" class="slide" data-slide-title="Data Trail">
-      <h2>Your Data Trail (aka: your browser is a snitch)</h2>
-      <p>Relax—this is the kind of stuff almost every site watches. We're just telling you about it like decent humans.</p>
+      <h2 data-i18n="slides.dataTrail.title">Your Data Trail (aka: your browser is a snitch)</h2>
+      <p data-i18n="slides.dataTrail.lede">Relax—this is the kind of stuff almost every site watches. We're just telling you about it like decent humans.</p>
       <ul class="stats-list">
-        <li><span class="k">Browser</span><span class="v" id="statBrowser">—</span></li>
-        <li><span class="k">OS</span><span class="v" id="statOS">—</span></li>
-        <li><span class="k">Device</span><span class="v" id="statDevice">—</span></li>
-        <li><span class="k">Referrer</span><span class="v" id="statReferrer">—</span></li>
+        <li><span class="k" data-i18n="slides.dataTrail.browserLabel">Browser</span><span class="v" id="statBrowser">—</span></li>
+        <li><span class="k" data-i18n="slides.dataTrail.osLabel">OS</span><span class="v" id="statOS">—</span></li>
+        <li><span class="k" data-i18n="slides.dataTrail.deviceLabel">Device</span><span class="v" id="statDevice">—</span></li>
+        <li><span class="k" data-i18n="slides.dataTrail.referrerLabel">Referrer</span><span class="v" id="statReferrer">—</span></li>
         <li>
-          <span class="k">Location (IP)</span>
+          <span class="k" data-i18n="slides.dataTrail.locationLabel">Location (IP)</span>
           <span class="v">
-            <span id="statLocation">Detecting…</span>
-            <button type="button" id="btnFetchIP" class="linklike">Refresh</button>
+            <span id="statLocation" data-i18n="stats.location.detecting">Detecting…</span>
+            <button type="button" id="btnFetchIP" class="linklike" data-i18n="slides.dataTrail.refreshButton">Refresh</button>
           </span>
         </li>
-        <li><span class="k">Time on site</span><span class="v" id="statTime">00:00</span></li>
+        <li><span class="k" data-i18n="slides.dataTrail.timeLabel">Time on site</span><span class="v" id="statTime">00:00</span></li>
         <li class="popups-row">
           <div class="popups-meta">
-            <span class="k">Pop-ups seen</span><span class="v" id="statPopupCount">0/3</span>
+            <span class="k" data-i18n="slides.dataTrail.popupsSeenLabel">Pop-ups seen</span><span class="v" id="statPopupCount">0/3</span>
           </div>
           <div class="progress"><div id="statPopupBar" class="progress-bar" style="width:0%"></div></div>
         </li>
         <li class="clicks-row">
-          <span class="k">Buttons clicked</span>
-          <ul id="statButtonsList" class="click-list">
-            <li>None yet</li>
+          <span class="k" data-i18n="slides.dataTrail.buttonsClickedLabel">Buttons clicked</span>
+          <ul id="statButtonsList" class="click-list" data-i18n-empty="slides.dataTrail.noneYet">
+            <li data-i18n="slides.dataTrail.noneYet">None yet</li>
           </ul>
         </li>
       </ul>
-      <small>Note: We fetch a rough, IP‑based location automatically (no GPS — just city/region/country from your IP).</small>
+      <small data-i18n="slides.dataTrail.note">Note: We fetch a rough, IP‑based location automatically (no GPS — just city/region/country from your IP).</small>
     </section>
 
     <!-- Cookies -->
     <section id="cookiesSection" class="slide" data-slide-title="Cookies">
-      <h2>Everybody loves cookies! (until they follow you) 🍪</h2>
-      <p>Not the chocolate‑chip kind. Cookies are tiny text crumbs your browser saves so sites can remember things about you. Handy… and also a little clingy.</p>
+      <h2 data-i18n="slides.cookies.title">Everybody loves cookies! (until they follow you) 🍪</h2>
+      <p data-i18n="slides.cookies.lede">Not the chocolate‑chip kind. Cookies are tiny text crumbs your browser saves so sites can remember things about you. Handy… and also a little clingy.</p>
 
       <ul>
-        <li><strong>First‑party cookies:</strong> set by the site you're on — logins, carts, "remember me," that sort of useful stuff.</li>
-        <li><strong>Third‑party cookies:</strong> set by outsiders embedded on the page (ad networks, social widgets, analytics). That's how the same folks can spot you across many sites.</li>
-        <li><strong>Session vs. persistent:</strong> session cookies vanish when you close the tab; persistent cookies stick around for days or months, like glitter after a craft accident.</li>
+        <li data-i18n="slides.cookies.firstParty"><strong>First‑party cookies:</strong> set by the site you're on — logins, carts, "remember me," that sort of useful stuff.</li>
+        <li data-i18n="slides.cookies.thirdParty"><strong>Third‑party cookies:</strong> set by outsiders embedded on the page (ad networks, social widgets, analytics). That's how the same folks can spot you across many sites.</li>
+        <li data-i18n="slides.cookies.sessionPersistent"><strong>Session vs. persistent:</strong> session cookies vanish when you close the tab; persistent cookies stick around for days or months, like glitter after a craft accident.</li>
       </ul>
 
-      <h3>Retargeting in 4 steps (aka "why am I seeing those exact shoes?")</h3>
+      <h3 data-i18n="slides.cookies.retargTitle">Retargeting in 4 steps (aka "why am I seeing those exact shoes?")</h3>
       <ol>
-        <li>You check out Product X on Site A. A tiny "ad pixel" from AdCo loads.</li>
-        <li>AdCo drops a <em>third‑party</em> cookie: "User looked at Product X."</li>
-        <li>Later on Site B (also running AdCo), your browser presents that cookie to AdCo.</li>
-        <li>AdCo recognizes you and serves an ad for Product X everywhere, forever. Or at least until the cookie expires.</li>
+        <li data-i18n="slides.cookies.retargStep1">You check out Product X on Site A. A tiny "ad pixel" from AdCo loads.</li>
+        <li data-i18n="slides.cookies.retargStep2">AdCo drops a <em>third‑party</em> cookie: "User looked at Product X."</li>
+        <li data-i18n="slides.cookies.retargStep3">Later on Site B (also running AdCo), your browser presents that cookie to AdCo.</li>
+        <li data-i18n="slides.cookies.retargStep4">AdCo recognizes you and serves an ad for Product X everywhere, forever. Or at least until the cookie expires.</li>
       </ol>
 
       <div class="cookie-tools">
         <div class="tool-row">
-          <span class="k">Third‑party cookies</span>
+          <span class="k" data-i18n="slides.cookies.thirdPartyLabel">Third‑party cookies</span>
           <span class="v">
-            <span id="thirdPartyCookiesStatus" class="status-badge status-unknown">Checking…</span>
+            <span id="thirdPartyCookiesStatus" class="status-badge status-unknown" data-i18n="cookies.status.checking">Checking…</span>
           </span>
-          <button type="button" id="btnRecheck3P" class="linklike">Re‑test</button>
-          <a class="linklike" href="https://www.whatismybrowser.com/detect/are-third-party-cookies-enabled" target="_blank" rel="noopener">External test</a>
+          <button type="button" id="btnRecheck3P" class="linklike" data-i18n="slides.cookies.retestButton">Re‑test</button>
+          <a class="linklike" href="https://www.whatismybrowser.com/detect/are-third-party-cookies-enabled" target="_blank" rel="noopener" data-i18n="slides.cookies.externalLink">External test</a>
         </div>
 
         <div class="tool-row">
-          <button type="button" id="btnClearData" class="btn-ghost">Clear site data</button>
+          <button type="button" id="btnClearData" class="btn-ghost" data-i18n="slides.cookies.clearDataButton">Clear site data</button>
           <span id="siteDataStatus" aria-live="polite"></span>
         </div>
       </div>
 
-      <small>Note: Many browsers now block third‑party cookies by default. Retargeting still happens via newer tricks (first‑party tracking, server‑side stitching, hashed emails). The game evolves.</small>
+      <small data-i18n="slides.cookies.note">Note: Many browsers now block third‑party cookies by default. Retargeting still happens via newer tricks (first-party tracking, server-side stitching, hashed emails). The game evolves.</small>
     </section>
 
     <!-- A/B Testing -->
     <section id="abTestingSection" class="slide" data-slide-title="A/B Testing">
-      <h2>A/B Testing: stop guessing, start splitting</h2>
-      <p>Marketing opinions are free. Evidence is expensive. Here's the cheap version:</p>
+      <h2 data-i18n="slides.abTesting.title">A/B Testing: stop guessing, start splitting</h2>
+      <p data-i18n="slides.abTesting.lede">Marketing opinions are free. Evidence is expensive. Here's the cheap version:</p>
       <ul>
-        <li>Pick one thing to mess with: headline, button text, price anchoring, whatever.</li>
-        <li>Randomly show A or B to visitors. No peeking at the results "just to check."</li>
-        <li>Measure one clear metric (clicks, signups, buys). Not "feelings."</li>
-        <li>Let it run long enough to matter. "We got 12 clicks" is not a conclusion.</li>
-        <li>Winner goes live. Loser goes to the big archive in the sky.</li>
+        <li data-i18n="slides.abTesting.points.0">Pick one thing to mess with: headline, button text, price anchoring, whatever.</li>
+        <li data-i18n="slides.abTesting.points.1">Randomly show A or B to visitors. No peeking at the results "just to check."</li>
+        <li data-i18n="slides.abTesting.points.2">Measure one clear metric (clicks, signups, buys). Not "feelings."</li>
+        <li data-i18n="slides.abTesting.points.3">Let it run long enough to matter. "We got 12 clicks" is not a conclusion.</li>
+        <li data-i18n="slides.abTesting.points.4">Winner goes live. Loser goes to the big archive in the sky.</li>
       </ul>
-      <small>Serious A/B requires tooling or backend logic. This is your heads‑up that "best practices" are just hypotheses with a good PR team.</small>
+      <small data-i18n="slides.abTesting.note">Serious A/B requires tooling or backend logic. This is your heads-up that "best practices" are just hypotheses with a good PR team.</small>
     </section>
 
-    <section class="slide" data-slide-title="Free Materials">
-      <h2>Free Materials</h2>
-      <p>Are they really free though? The price is your email and attention. 
+    <section class="slide" id="freeMaterialsSlide" data-slide-title="Free Materials">
+      <h2 data-i18n="slides.freeMaterials.title">Free Materials</h2>
+      <p data-i18n="slides.freeMaterials.body">Are they really free though? The price is your email and attention. 
       <br>If this page doesn't convince you today, perhaps tomorrow's inbox message will?</p>
     </section>
 
     <!-- For popup trigger -->
     <section id="whyPopupSection" class="slide" data-slide-title="Why Pop-Up">
-      <h2>Why a Pop-Up?</h2>
-      <p>A pop-up is your final "don't leave yet" moment—either timed with urgency or triggered as you close the page. Annoying? Maybe. Effective? Definitely.</p>
+      <h2 data-i18n="slides.whyPopup.title">Why a Pop-Up?</h2>
+      <p data-i18n="slides.whyPopup.body">A pop-up is your final "don't leave yet" moment—either timed with urgency or triggered as you close the page. Annoying? Maybe. Effective? Definitely.</p>
     </section>
 
     <section class="slide" data-slide-title="Trust">
-      <h2>Why Trust Us?</h2>
-      <p>We've got courses completed, certificates earned, happy clients, glowing reviews, and yes—we love showing that off. Because credibility matters.</p>
+      <h2 data-i18n="slides.whyTrustUs.title">Why Trust Us?</h2>
+      <p data-i18n="slides.whyTrustUs.body">We've got courses completed, certificates earned, happy clients, glowing reviews, and yes—we love showing that off. Because credibility matters.</p>
     </section>
 
     <section class="slide" data-slide-title="FAQ">
-      <h2>FAQ</h2>
+      <h2 data-i18n="slides.faq.title">FAQ</h2>
       <dl>
-        <dt>Is this really different from any other landing page?</dt>
-        <dd>Yes—because you now understand the persuasion levers being pulled on every other site you visit.</dd>
-        <dt>Do I have to buy something right away?</dt>
-        <dd>Nope. Absorb the lessons, sleep on it, and come back when you're ready to tame your gadgets.</dd>
-        <dt>Will you spam me?</dt>
-        <dd>Only with useful, human-written insights. No bots, no blanket blasts.</dd>
+        <dt data-i18n="slides.faq.q1">Is this really different from any other landing page?</dt>
+        <dd data-i18n="slides.faq.a1">Yes—because you now understand the persuasion levers being pulled on every other site you visit.</dd>
+        <dt data-i18n="slides.faq.q2">Do I have to buy something right away?</dt>
+        <dd data-i18n="slides.faq.a2">Nope. Absorb the lessons, sleep on it, and come back when you're ready to tame your gadgets.</dd>
+        <dt data-i18n="slides.faq.q3">Will you spam me?</dt>
+        <dd data-i18n="slides.faq.a3">Only with useful, human-written insights. No bots, no blanket blasts.</dd>
       </dl>
     </section>
 
     <section class="slide" data-slide-title="Pricing">
-      <h2>Pricing & Guarantees</h2>
-      <p>Everything sounds amazing—but wait, there's always a discount lurking at the end. Don't forget: money-back guarantee, because peace of mind sells as well as the product itself.</p>
+      <h2 data-i18n="slides.pricing.title">Pricing & Guarantees</h2>
+      <p data-i18n="slides.pricing.body">Everything sounds amazing—but wait, there's always a discount lurking at the end. Don't forget: money-back guarantee, because peace of mind sells as well as the product itself.</p>
     </section>
 
     <section class="slide" data-slide-title="Personal Note">
-      <h2>Personal Note</h2>
-      <p>My marketing partner says I'm doing everything wrong—and she's almost always right. The tested way usually works, but I'd rather trust honesty over polish. Sure, that loses some sales, but at least I sleep better at night (well… when I'm not writing web pages at 4:30 AM).</p>
+      <h2 data-i18n="slides.personalNote.title">Personal Note</h2>
+      <p data-i18n="slides.personalNote.body">My marketing partner says I'm doing everything wrong—and she's almost always right. The tested way usually works, but I'd rather trust honesty over polish. Sure, that loses some sales, but at least I sleep better at night (well… when I'm not writing web pages at 4:30 AM).</p>
 
       <!-- Simple comment form -->
       <div class="comment-form" style="margin-top: 24px;">
         <textarea 
           id="commentText" 
           placeholder="Share your thoughts..."
+          data-i18n-placeholder="slides.personalNote.commentPlaceholder"
           rows="4"
           style="width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 8px; font-family: inherit; font-size: 1rem; resize: vertical;"
         ></textarea>
@@ -165,45 +166,46 @@ LOOK LIKE THIS?!</h1>
           type="button" 
           id="btnPostComment"
           style="margin-top: 12px; background: #28a745; color: #fff; border: none; padding: 12px 24px; border-radius: 8px; font-size: 1rem; cursor: pointer; font-weight: 600;"
+          data-i18n="slides.personalNote.commentButton"
         >Post comment</button>
         <div id="commentStatus" style="margin-top: 8px; color: #28a745; font-weight: 600;"></div>
       </div>
     </section>
 
     <section class="slide" data-slide-title="About Me">
-      <h2>About Me</h2>
-      <p>I'm building this approach because personality beats blandness. I believe trust grows when you see I'm not hiding behind cookie-cutter methods. This is who I am.</p>
+      <h2 data-i18n="slides.aboutMe.title">About Me</h2>
+      <p data-i18n="slides.aboutMe.body">I'm building this approach because personality beats blandness. I believe trust grows when you see I'm not hiding behind cookie-cutter methods. This is who I am.</p>
     </section>
 
     <section class="slide" data-slide-title="About gadgetTaming">
-      <h2>About gadgetTaming</h2>
-      <p>gadgetTaming is about understanding how websites really work, beyond templates, and using that knowledge to stand out. Yes, the end goal is sales, but done in a way that respects human attention.</p>
+      <h2 data-i18n="slides.aboutGadgetTaming.title">About gadgetTaming</h2>
+      <p data-i18n="slides.aboutGadgetTaming.body">gadgetTaming is about understanding how websites really work, beyond templates, and using that knowledge to stand out. Yes, the end goal is sales, but done in a way that respects human attention.</p>
     </section>
 
     <section class="slide" data-slide-title="Call to Action">
-      <h2>Call to Action</h2>
-      <p>At the end of the day, there's one road: Order. Buy. Add to cart. Book. Send inquiry. All paths lead here.</p>
-      <p><strong>What you can buy:</strong> Courses, insights, and practical guidance on taming the wild world of online marketing and website building. Not sold as magic tricks—but as real tools you can actually use.</p>
+      <h2 data-i18n="slides.callToAction.title">Call to Action</h2>
+      <p data-i18n="slides.callToAction.body">At the end of the day, there's one road: Order. Buy. Add to cart. Book. Send inquiry. All paths lead here.</p>
+      <p data-i18n="slides.callToAction.offer"><strong>What you can buy:</strong> Courses, insights, and practical guidance on taming the wild world of online marketing and website building. Not sold as magic tricks—but as real tools you can actually use.</p>
       <div class="cta">
-        <button type="button">👉 Take Action Now</button>
+        <button type="button" data-i18n="buttons.ctaPrimary">👉 Take Action Now</button>
       </div>
     </section>
   </main>
 
   <footer class="slide" data-slide-title="Footer">
-    <p>&copy; 2024 gadgetTamer. Honest websites. Better sleep. Stronger trust.</p>
+    <p data-i18n="footer.copy">&copy; 2024 gadgetTamer. Honest websites. Better sleep. Stronger trust.</p>
   </footer>
 
   <!-- Modal popup -->
   <div id="popup" class="popup" role="dialog" aria-modal="true" aria-labelledby="popupTitle" aria-describedby="popupDesc" aria-hidden="true">
     <div class="popup-scaler">
       <div class="popup-dialog" tabindex="-1">
-        <button class="popup-close" aria-label="Close dialog">×</button>
-        <h3 id="popupTitle">Wait — before you go</h3>
-        <p id="popupDesc">Get our free field guide to spotting persuasion patterns (and keeping your attention yours).</p>
+        <button class="popup-close" aria-label="Close dialog" data-i18n-aria-label="popups.dialog.closeAria">×</button>
+        <h3 id="popupTitle" data-i18n="popups.exitIntent.title">Wait — before you go</h3>
+        <p id="popupDesc" data-i18n="popups.exitIntent.desc">Get our free field guide to spotting persuasion patterns (and keeping your attention yours).</p>
         <div class="popup-actions">
-          <button class="btn-primary">Get the guide</button>
-          <button class="btn-ghost" data-close>No thanks</button>
+          <button class="btn-primary" data-i18n="popups.exitIntent.primary">Get the guide</button>
+          <button class="btn-ghost" data-close data-i18n="popups.exitIntent.secondary">No thanks</button>
         </div>
       </div>
     </div>
