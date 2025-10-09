@@ -683,15 +683,14 @@ window.addEventListener("scroll", () => {
 }, { passive: true });
 
 // ===== Data Trail: live stats =====
-const statBrowser = document.getElementById("statBrowser");
-const statOS = document.getElementById("statOS");
-const statDevice = document.getElementById("statDevice");
-const statReferrer = document.getElementById("statReferrer");
-const statLocation = document.getElementById("statLocation");
-const statTime = document.getElementById("statTime");
-const statPopupCount = document.getElementById("statPopupCount");
-const statPopupBar = document.getElementById("statPopupBar");
-const statButtonsList = document.getElementById("statButtonsList");
+const storyDevice = document.getElementById("storyDevice");
+const storyReferrer = document.getElementById("storyReferrer");
+const storyLocation = document.getElementById("storyLocation");
+const storyISP = document.getElementById("storyISP");
+const storyASN = document.getElementById("storyASN");
+const storyTime = document.getElementById("storyTime");
+const storyPopups = document.getElementById("storyPopups");
+const storyButtons = document.getElementById("storyButtons");
 const btnFetchIP = document.getElementById("btnFetchIP");
 
 let sessionStart = Date.now();
@@ -742,24 +741,50 @@ function formatTime(ms) {
   return (h ? `${h}:` : "") + `${m}`.padStart(2, "0") + ":" + `${s}`.padStart(2, "0");
 }
 
+function describeDevice() {
+  const os = detectOS();
+  const deviceType = detectDeviceType();
+
+  if (deviceType === "Mobile") {
+    if (os === "Android") return "an Android Phone";
+    if (os === "iOS") return "an iPhone";
+    return "a mobile device";
+  }
+
+  if (deviceType === "Tablet") {
+    if (os === "Android") return "an Android Tablet";
+    if (os === "iOS") return "an iPad";
+    return "a tablet";
+  }
+
+  if (os === "macOS") return "a Mac";
+  if (os === "Windows") return "a Windows PC";
+  if (os && os !== "Unknown") return `a ${os} device`;
+  return "a device";
+}
+
+function describeReferrer() {
+  const referrer = document.referrer;
+  if (!referrer) return "straight from the address bar";
+  return `from ${getReferrerHost()}`;
+}
+
 function initStaticStats() {
-  statBrowser && (statBrowser.textContent = detectBrowser());
-  statOS && (statOS.textContent = detectOS());
-  statDevice && (statDevice.textContent = detectDeviceType());
-  statReferrer && (statReferrer.textContent = getReferrerHost());
+  if (storyDevice) storyDevice.textContent = describeDevice();
+  if (storyReferrer) storyReferrer.textContent = describeReferrer();
+  if (storyButtons) storyButtons.textContent = storyButtons.dataset.defaultText || t('slides.dataTrail.noneYet', 'None yet');
   updatePopupStats();
 }
 
 function updateTimeOnSite() {
-  statTime && (statTime.textContent = formatTime(Date.now() - sessionStart));
+  storyTime && (storyTime.textContent = formatTime(Date.now() - sessionStart));
 }
 setInterval(updateTimeOnSite, 1000);
 
 function updatePopupStats() {
   const count = POPUP_REASONS_LIST.reduce((acc, r) => acc + (hasSeen(r) ? 1 : 0), 0);
   const total = POPUP_REASONS_LIST.length;
-  if (statPopupCount) statPopupCount.textContent = `${count}/${total}`;
-  if (statPopupBar) statPopupBar.style.width = `${(count / total) * 100}%`;
+  if (storyPopups) storyPopups.textContent = `${count}/${total}`;
 }
 
 function labelForButton(btn) {
@@ -775,19 +800,21 @@ document.addEventListener("click", (e) => {
 });
 
 function renderButtonClicks() {
-  if (!statButtonsList) return;
+  if (!storyButtons) return;
   const entries = Object.entries(buttonClicks).sort((a, b) => b[1] - a[1]).slice(0, 8);
-  const emptyKey = statButtonsList.dataset.i18nEmpty;
-  const emptyValue = t(emptyKey, 'None yet');
-  statButtonsList.innerHTML = entries.length
-    ? entries.map(([k, v]) => `<li>${k} — ${v}</li>`).join("")
-    : `<li>${emptyValue}</li>`;
+  if (!entries.length) {
+    storyButtons.textContent = storyButtons.dataset.defaultText || t('slides.dataTrail.noneYet', 'None yet');
+    return;
+  }
+  storyButtons.textContent = entries.map(([k, v]) => `${k} — ${v}`).join(', ');
 }
 
 async function fetchIpLocation() {
-  if (!statLocation) return;
+  if (!storyLocation) return;
   try {
-    statLocation.textContent = t('stats.location.loading', 'Loading…');
+    storyLocation.textContent = `(${t('stats.location.loading', 'Loading…')})`;
+    if (storyISP) storyISP.textContent = t('stats.isp.loading', 'Loading…');
+    if (storyASN) storyASN.textContent = t('stats.asn.loading', 'Loading…');
     const res = await fetch("https://ipapi.co/json/");
     if (!res.ok) throw new Error("IP service unavailable");
     const data = await res.json();
@@ -795,19 +822,26 @@ async function fetchIpLocation() {
     const region = data.region || "";
     const country = data.country_name || data.country || "";
     const parts = [city, region, country].filter(Boolean);
-    statLocation.textContent = parts.length ? parts.join(", ") : t('stats.location.unknown', 'Unknown');
+    const place = parts.length ? parts.join(", ") : t('stats.location.unknown', 'Unknown');
+    storyLocation.textContent = `(${place})`;
+    if (storyISP) storyISP.textContent = data.org || t('stats.isp.unknown', 'Unknown');
+    if (storyASN) storyASN.textContent = data.asn ? `${data.asn} ${data.asn_name || ''}`.trim() : t('stats.asn.unknown', 'Unknown');
   } catch (err) {
-    statLocation.textContent = t('stats.location.unavailable', 'Unavailable');
+    storyLocation.textContent = `(${t('stats.location.unavailable', 'Unavailable')})`;
+    if (storyISP) storyISP.textContent = t('stats.isp.unavailable', 'Unavailable');
+    if (storyASN) storyASN.textContent = t('stats.asn.unavailable', 'Unavailable');
   }
 }
-btnFetchIP?.addEventListener("click", fetchIpLocation);
+btnFetchIP?.addEventListener("click", (event) => {
+  event.preventDefault();
+  fetchIpLocation();
+});
 
 // ===== Comment form handler =====
 const btnPostComment = document.getElementById("btnPostComment");
 const commentText = document.getElementById("commentText");
 const commentStatus = document.getElementById("commentStatus");
 const commentEmail = document.getElementById("commentEmail");
-const commentEmailError = document.getElementById("commentEmailError");
 
 function isValidEmail(value) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
@@ -816,7 +850,9 @@ function isValidEmail(value) {
 function updateCommentButtonState() {
   if (!btnPostComment) return;
   const hasContent = Boolean(commentText?.value?.trim());
-  btnPostComment.disabled = !hasContent;
+  const emailValue = commentEmail?.value?.trim();
+  const emailIsValid = !emailValue || isValidEmail(emailValue);
+  btnPostComment.disabled = !(hasContent && emailIsValid);
 }
 
 commentText?.addEventListener("input", () => {
@@ -826,8 +862,7 @@ commentText?.addEventListener("input", () => {
 
 commentEmail?.addEventListener("input", () => {
   if (commentStatus) commentStatus.textContent = "";
-  if (commentEmailError) commentEmailError.classList.remove("is-visible");
-  commentEmail?.classList.remove("is-invalid");
+  updateCommentButtonState();
 });
 
 btnPostComment?.addEventListener("click", () => {
@@ -840,9 +875,8 @@ btnPostComment?.addEventListener("click", () => {
   }
 
   if (email && !isValidEmail(email)) {
-    commentStatus.textContent = "";
-    commentEmail?.classList.add("is-invalid");
-    if (commentEmailError) commentEmailError.classList.add("is-visible");
+    commentStatus.textContent = t('comment.form.errorEmail', 'Please enter a valid email.');
+    commentStatus.style.color = "#d32f2f";
     commentEmail?.focus();
     return;
   }
@@ -852,8 +886,6 @@ btnPostComment?.addEventListener("click", () => {
 
   if (commentText) commentText.value = "";
   if (commentEmail) commentEmail.value = "";
-  commentEmail?.classList.remove("is-invalid");
-  if (commentEmailError) commentEmailError.classList.remove("is-visible");
   updateCommentButtonState();
 
   setTimeout(() => {

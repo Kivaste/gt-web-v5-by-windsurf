@@ -41,33 +41,11 @@
     <section id="dataTrailSection" class="slide" data-slide-title="Data Trail">
       <h2 data-i18n="slides.dataTrail.title">Your Data Trail (aka: your browser is a snitch)</h2>
       <p data-i18n="slides.dataTrail.lede">Relax—this is the kind of stuff almost every site watches. We're just telling you about it like decent humans.</p>
-      <ul class="stats-list">
-        <li><span class="k" data-i18n="slides.dataTrail.browserLabel">Browser</span><span class="v" id="statBrowser">—</span></li>
-        <li><span class="k" data-i18n="slides.dataTrail.osLabel">OS</span><span class="v" id="statOS">—</span></li>
-        <li><span class="k" data-i18n="slides.dataTrail.deviceLabel">Device</span><span class="v" id="statDevice">—</span></li>
-        <li><span class="k" data-i18n="slides.dataTrail.referrerLabel">Referrer</span><span class="v" id="statReferrer">—</span></li>
-        <li>
-          <span class="k" data-i18n="slides.dataTrail.locationLabel">Location (IP)</span>
-          <span class="v">
-            <span id="statLocation" data-i18n="stats.location.detecting">Detecting…</span>
-            <button type="button" id="btnFetchIP" class="linklike" data-i18n="slides.dataTrail.refreshButton">Refresh</button>
-          </span>
-        </li>
-        <li><span class="k" data-i18n="slides.dataTrail.timeLabel">Time on site</span><span class="v" id="statTime">00:00</span></li>
-        <li class="popups-row">
-          <div class="popups-meta">
-            <span class="k" data-i18n="slides.dataTrail.popupsSeenLabel">Pop-ups seen</span><span class="v" id="statPopupCount">0/3</span>
-          </div>
-          <div class="progress"><div id="statPopupBar" class="progress-bar" style="width:0%"></div></div>
-        </li>
-        <li class="clicks-row">
-          <span class="k" data-i18n="slides.dataTrail.buttonsClickedLabel">Buttons clicked</span>
-          <ul id="statButtonsList" class="click-list" data-i18n-empty="slides.dataTrail.noneYet">
-            <li data-i18n="slides.dataTrail.noneYet">None yet</li>
-          </ul>
-        </li>
-      </ul>
-      <small data-i18n="slides.dataTrail.note">Note: We fetch a rough, IP‑based location automatically (no GPS — just city/region/country from your IP).</small>
+      <div class="data-story">
+        <p>I don't know who you are, but I do know that you are browsing on <strong><span id="storyDevice">—</span></strong>. You came here <strong><span id="storyReferrer">—</span></strong>. I don't know where you are exactly, but if you want me to guess* then <a href="#" id="btnFetchIP" class="linklike">click here</a> <span id="storyLocation" class="story-location">—</span>.</p>
+        <p>You've been on this site for <strong><span id="storyTime">00:00</span></strong> and you've seen <strong><span id="storyPopups">0/3</span></strong> pop-ups. You have clicked these buttons: <span id="storyButtons" data-default-text="None yet">None yet</span>. Your connection is currently routed through <strong><span id="storyISP">—</span></strong> (<span id="storyASN">—</span>).</p>
+      </div>
+      <small data-i18n="slides.dataTrail.note">* Note: We fetch a rough, IP‑based location automatically (no GPS — just city/region/country from your IP).</small>
     </section>
 
     <!-- Cookies -->
@@ -161,24 +139,23 @@
       <p data-i18n="slides.personalNote.body">My marketing partner says I'm doing everything wrong—and she's almost always right. The tested way usually works, but I'd rather trust honesty over polish. Sure, that loses some sales, but at least I sleep better at night (well… when I'm not writing web pages at 4:30 AM).</p>
 
       <!-- Simple comment form -->
-      <div class="comment-form" style="margin-top: 24px;">
+      <div class="comment-form">
         <h3 data-i18n="slides.personalNote.commentHeading">You must be furious - I got the math wrong!</h3>
         <textarea 
           id="commentText" 
-          placeholder="so here's a comment box for you to leave your corrections ... angrily"
+          placeholder="so here's a comment box for you to leave angry corrections ... and that's how they get the engagement"
           data-i18n-placeholder="slides.personalNote.commentPlaceholder"
-          rows="4"
+          rows="3"
           style="width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 8px; font-family: inherit; font-size: 1rem; resize: vertical;"
         ></textarea>
         <div class="comment-email-wrapper">
-          <label for="commentEmail" data-i18n="slides.personalNote.commentEmailLabel">if you wish to get a reply then leave your email</label>
+          <label for="commentEmail" data-i18n="slides.personalNote.commentEmailLabel">If you wish to get a reply then leave your email*</label>
           <input 
             type="email"
             id="commentEmail"
-            placeholder="if you wish to get a reply then leave your email"
+            placeholder="* not a newsletter signup"
             data-i18n-placeholder="slides.personalNote.commentEmailPlaceholder"
           />
-          <span id="commentEmailError" class="input-inline-error">not a valid email</span>
         </div>
         <button 
           type="button" 

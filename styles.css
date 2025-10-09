@@ -1,3 +1,53 @@
+.data-story {
+  background: rgba(15, 23, 42, 0.04);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 14px;
+  padding: clamp(18px, 3vw, 28px);
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #111;
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.05);
+}
+
+.data-story p {
+  margin: 0 0 14px;
+}
+
+.data-story p:last-of-type {
+  margin-bottom: 0;
+}
+
+.data-story .linklike {
+  font-weight: 600;
+}
+
+.data-story .story-location {
+  display: inline-block;
+  margin-left: 6px;
+}
+
+.data-story strong {
+  color: #0f172a;
+}
+
+.data-story #storyButtons {
+  font-style: italic;
+}
+
+.slide[data-slide-title="Personal Note"] .comment-form {
+  margin-top: 12px;
+  display: grid;
+  gap: 12px;
+}
+
+.comment-form h3 {
+  margin: 0;
+}
+
+.comment-form textarea {
+  margin: 0;
+}
+
 .sr-only {
   position: absolute;
   width: 1px;
