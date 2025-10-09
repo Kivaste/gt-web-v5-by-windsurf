@@ -11,7 +11,8 @@ let countdownTimerId = null;
 
 function updateCountdownText() {
   if (!countdownEl) return;
-  countdownEl.textContent = `${years}y ${days}d ${hours}h ${minutes}m ${seconds}s`;
+  const template = t('banner.red.countdownFormat', '{{years}}y {{days}}d {{hours}}h {{minutes}}m {{seconds}}s');
+  countdownEl.textContent = formatTemplate(template, { years, days, hours, minutes, seconds });
 }
 
 function tickCountdown() {
@@ -40,6 +41,151 @@ function startCountdownIfNeeded() {
   if (countdownTimerId !== null) return;
   updateCountdownText();
   countdownTimerId = window.setInterval(tickCountdown, 1000);
+}
+
+// ===== Localization =====
+const DEFAULT_LOCALE = 'en';
+const LOCALE_STORAGE_KEY = 'gt-locale';
+const AVAILABLE_LOCALES = ['en', 'et'];
+let translations = {};
+let fallbackTranslations = {};
+let currentLocale = DEFAULT_LOCALE;
+let fallbackLoaded = false;
+const loggedMissingKeys = new Set();
+
+function lookup(source, path) {
+  if (!source) return undefined;
+  const segments = path.split('.');
+  let value = source;
+  for (const segment of segments) {
+    if (value && Object.prototype.hasOwnProperty.call(value, segment)) {
+      value = value[segment];
+    } else {
+      return undefined;
+    }
+  }
+  return value;
+}
+
+function logMissingKey(locale, key) {
+  const id = `${locale}:${key}`;
+  if (loggedMissingKeys.has(id)) return;
+  loggedMissingKeys.add(id);
+  const suffix = locale === 'fallback' ? ' (fallback locale)' : '';
+  console.warn(`[i18n] Missing translation key "${key}" for locale "${locale}"${suffix}.`);
+}
+
+function t(path, fallback = '') {
+  if (!path) return fallback;
+  const direct = lookup(translations, path);
+  if (direct !== undefined) return direct;
+
+  const fb = lookup(fallbackTranslations, path);
+  if (fb !== undefined) {
+    logMissingKey(currentLocale, path);
+    return fb;
+  }
+
+  logMissingKey('fallback', path);
+  return fallback;
+}
+
+function deriveLocaleFromPath() {
+  const segments = (window.location.pathname || '').split('/').filter(Boolean);
+  if (!segments.length) return null;
+  const last = segments[segments.length - 1].toLowerCase();
+  return AVAILABLE_LOCALES.includes(last) ? last : null;
+}
+
+function formatTemplate(template, values) {
+  if (typeof template !== 'string') return '';
+  return template.replace(/\{\{\s*(\w+)\s*\}\}/g, (match, key) => {
+     return Object.prototype.hasOwnProperty.call(values, key) ? values[key] : match;
+  });
+}
+
+function applyTranslations() {
+  document.documentElement.lang = currentLocale;
+
+  document.querySelectorAll('[data-i18n]').forEach((el) => {
+    const key = el.dataset.i18n;
+    const value = t(key);
+    if (value) {
+      el.innerHTML = value;
+    }
+  });
+
+  document.querySelectorAll('[data-i18n-placeholder]').forEach((el) => {
+    const key = el.dataset.i18nPlaceholder;
+    const value = t(key);
+    if (value) {
+      el.setAttribute('placeholder', value);
+    }
+  });
+
+  document.querySelectorAll('[data-i18n-aria-label]').forEach((el) => {
+    const key = el.dataset.i18nAriaLabel;
+    const value = t(key);
+    if (value) {
+      el.setAttribute('aria-label', value);
+    }
+  });
+
+  renderButtonClicks();
+  updateCountdownText();
+}
+
+function localizePopupCopy() {
+  const map = {
+    'why-popup': 'whyPopup',
+    'fast-to-top': 'fastToTop',
+    'exit-intent': 'exitIntent'
+  };
+
+  Object.entries(map).forEach(([reason, key]) => {
+    const entry = POPUP_COPY[reason];
+    if (!entry) return;
+    entry.title = t(`popups.${key}.title`, entry.title);
+    entry.desc = t(`popups.${key}.desc`, entry.desc);
+    entry.primary = t(`popups.${key}.primary`, entry.primary);
+    entry.secondary = t(`popups.${key}.secondary`, entry.secondary);
+  });
+}
+
+async function loadLocaleData(locale) {
+  const candidate = AVAILABLE_LOCALES.includes(locale) ? locale : DEFAULT_LOCALE;
+  const response = await fetch(`content/${candidate}.json`, { cache: 'no-store' });
+  if (!response.ok) throw new Error(`Failed to load locale: ${candidate}`);
+  return { data: await response.json(), locale: candidate };
+}
+
+async function setLocale(locale) {
+  try {
+    if (locale === currentLocale && Object.keys(translations).length) return;
+    const { data, locale: resolved } = await loadLocaleData(locale);
+    translations = data;
+    currentLocale = resolved;
+    localStorage.setItem(LOCALE_STORAGE_KEY, currentLocale);
+    applyTranslations();
+    localizePopupCopy();
+  } catch (err) {
+    if (locale !== DEFAULT_LOCALE) {
+      await setLocale(DEFAULT_LOCALE);
+    }
+  }
+}
+
+async function initializeLocalization() {
+  if (!fallbackLoaded) {
+    const { data } = await loadLocaleData(DEFAULT_LOCALE);
+    fallbackTranslations = data;
+    fallbackLoaded = true;
+  }
+
+  const urlLocale = deriveLocaleFromPath();
+  const stored = localStorage.getItem(LOCALE_STORAGE_KEY);
+  const initial = urlLocale || (stored && AVAILABLE_LOCALES.includes(stored) ? stored : DEFAULT_LOCALE);
+  await setLocale(initial);
 }
 
 // Motion preference
@@ -491,11 +637,11 @@ function detectOS() {
 
 function getReferrerHost() {
   const ref = document.referrer;
-  if (!ref) return "Direct";
+  if (!ref) return t('stats.referrer.direct', 'Direct');
   try {
     return new URL(ref).hostname;
   } catch {
-    return "Direct";
+    return t('stats.referrer.direct', 'Direct');
   }
 }
 
@@ -542,15 +688,17 @@ document.addEventListener("click", (e) => {
 function renderButtonClicks() {
   if (!statButtonsList) return;
   const entries = Object.entries(buttonClicks).sort((a, b) => b[1] - a[1]).slice(0, 8);
+  const emptyKey = statButtonsList.dataset.i18nEmpty;
+  const emptyValue = t(emptyKey, 'None yet');
   statButtonsList.innerHTML = entries.length
     ? entries.map(([k, v]) => `<li>${k} — ${v}</li>`).join("")
-    : `<li>None yet</li>`;
+    : `<li>${emptyValue}</li>`;
 }
 
 async function fetchIpLocation() {
   if (!statLocation) return;
   try {
-    statLocation.textContent = "Loading…";
+    statLocation.textContent = t('stats.location.loading', 'Loading…');
     const res = await fetch("https://ipapi.co/json/");
     if (!res.ok) throw new Error("IP service unavailable");
     const data = await res.json();
@@ -558,9 +706,9 @@ async function fetchIpLocation() {
     const region = data.region || "";
     const country = data.country_name || data.country || "";
     const parts = [city, region, country].filter(Boolean);
-    statLocation.textContent = parts.length ? parts.join(", ") : "Unknown";
+    statLocation.textContent = parts.length ? parts.join(", ") : t('stats.location.unknown', 'Unknown');
   } catch (err) {
-    statLocation.textContent = "Unavailable";
+    statLocation.textContent = t('stats.location.unavailable', 'Unavailable');
   }
 }
 btnFetchIP?.addEventListener("click", fetchIpLocation);
@@ -573,12 +721,12 @@ const commentStatus = document.getElementById("commentStatus");
 btnPostComment?.addEventListener("click", () => {
   const text = commentText?.value?.trim();
   if (!text) {
-    commentStatus.textContent = "Please write something first!";
+    commentStatus.textContent = t('comment.form.error', 'Please write something first!');
     commentStatus.style.color = "#d32f2f";
     return;
   }
 
-  commentStatus.textContent = "Comment posted! (Not really, but visually it works 😉)";
+  commentStatus.textContent = t('comment.form.success', 'Comment posted! (Not really, but visually it works 😉)');
   commentStatus.style.color = "#28a745";
 
   if (commentText) commentText.value = "";
@@ -594,7 +742,7 @@ const btnRecheck3P = document.getElementById("btnRecheck3P");
 
 async function check3PCookies() {
   if (!thirdPartyCookiesStatus) return;
-  thirdPartyCookiesStatus.textContent = "Checking…";
+  thirdPartyCookiesStatus.textContent = t('cookies.status.checking', 'Checking…');
   thirdPartyCookiesStatus.className = "status-badge status-unknown";
 
   try {
@@ -603,14 +751,14 @@ async function check3PCookies() {
     const hasThirdParty = document.cookie.includes("test");
 
     if (hasThirdParty) {
-      thirdPartyCookiesStatus.textContent = "Allowed";
+      thirdPartyCookiesStatus.textContent = t('cookies.status.allowed', 'Allowed');
       thirdPartyCookiesStatus.className = "status-badge status-allowed";
     } else {
-      thirdPartyCookiesStatus.textContent = "Blocked";
+      thirdPartyCookiesStatus.textContent = t('cookies.status.blocked', 'Blocked');
       thirdPartyCookiesStatus.className = "status-badge status-blocked";
     }
   } catch {
-    thirdPartyCookiesStatus.textContent = "Likely Blocked";
+    thirdPartyCookiesStatus.textContent = t('cookies.status.likelyBlocked', 'Likely Blocked');
     thirdPartyCookiesStatus.className = "status-badge status-blocked";
   }
 }
@@ -629,20 +777,21 @@ btnClearData?.addEventListener("click", () => {
       document.cookie = c.replace(/^ +/, "").replace(/=.*/, `=;expires=${new Date().toUTCString()};path=/`);
     });
     if (siteDataStatus) {
-      siteDataStatus.textContent = "✓ Cleared";
+      siteDataStatus.textContent = t('cookies.status.cleared', '✓ Cleared');
       siteDataStatus.style.color = "#28a745";
       setTimeout(() => { siteDataStatus.textContent = ""; }, 2000);
     }
   } catch {
     if (siteDataStatus) {
-      siteDataStatus.textContent = "✗ Failed";
+      siteDataStatus.textContent = t('cookies.status.failed', '✗ Failed');
       siteDataStatus.style.color = "#d32f2f";
     }
   }
 });
 
 // ===== Initialize everything on load =====
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
+  await initializeLocalization();
   slideController.refresh();
   slideController.setupObserver();
   initStaticStats();

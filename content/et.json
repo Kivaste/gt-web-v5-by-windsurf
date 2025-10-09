@@ -1,0 +1,181 @@
+{
+  "banner": {
+    "red": {
+      "message": "Ainult SINULE! <s>Tegutse kohe</s> Võta rahulikult, lõppeb:",
+      "loading": "laadimine…",
+      "countdownFormat": "{{years}}a {{days}}p {{hours}}t {{minutes}}m {{seconds}}s"
+    },
+    "yellow": {
+      "message": "🚨 Eripakkumine — loome kiireloomulisuse, et sa tegutseksid! 🚨"
+    }
+  },
+  "hero": {
+    "title": "MIKS SEE LEHT \nNII VÄLJA NÄEB?!",
+    "subtitle": "Sest see on sinu esimene õppetund, kuidas saada gadgetTameriks"
+  },
+  "slides": {
+    "whySimilar": {
+      "title": "Miks näevad kõik veebilehed ühesugused välja?",
+      "intro": "Kodulehed, maandumislehed, müügilehed — sageli isikupäratud kopeeritud mallid. Aga sellel on põhjus: tõestatud mustrid töötavad. See \"kiirustunne\" ja kiireloomulisus on osa valemist.",
+      "note": "iga veebisait on loodud haarama su tähelepanu ja juhtima sind otsuseni — sisesta oma kaardiandmed. Lõhume selle illusiooni!"
+    },
+    "specialOffer": {
+      "title": "Eripakkumine",
+      "copy": "🚨 Eripakkumine — loome kiireloomulisuse, et sa tegutseksid! 🚨"
+    },
+    "dataTrail": {
+      "title": "Sinu andmejälg (ehk: sinu brauser on pealekaebaja)",
+      "lede": "Rahune — peaaegu iga sait jälgib sarnast infot. Me lihtsalt räägime sellest ausalt.",
+      "browserLabel": "Brauser",
+      "osLabel": "OS",
+      "deviceLabel": "Seade",
+      "referrerLabel": "Viitaja",
+      "locationLabel": "Asukoht (IP)",
+      "refreshButton": "Värskenda",
+      "timeLabel": "Aeg lehel",
+      "popupsSeenLabel": "Avanenud hüpikaknaid",
+      "buttonsClickedLabel": "Vajutatud nuppe",
+      "noneYet": "Veel pole",
+      "note": "Märkus: toome IP-põhise ligikaudse asukoha (pole GPS-i — ainult linn/maakond/riik sinu IP põhjal)."
+    },
+    "cookies": {
+      "title": "Kõigile meeldivad küpsised! (kuni need sind jälitavad) 🍪",
+      "lede": "Mitte šokolaadiküpsised. Küpsised on väikesed tekstijupid, mida brauser salvestab, et saidid saaksid sinust meeles pidada. Mugav… ja pisut pealetükkiv.",
+      "firstParty": "<strong>Esmaküpsised:</strong> salvestab leht, millel oled — sisselogimine, ostukorv, \"mäleta mind\" jne.",
+      "thirdParty": "<strong>Kolmandate osapoolte küpsised:</strong> tulevad väliste teenuste (reklaamivõrgud, sotsiaalvidinad, analüütika) kaudu. Nii tuntakse sind ära paljudel lehtedel.",
+      "sessionPersistent": "<strong>Seanss vs. püsivad:</strong> seansiküpsised kaovad, kui taba sulgeda; püsivad jäävad päevadeks või kuudeks — nagu sära, mis ei kao.",
+      "retargTitle": "Retargeting 4 sammuga (ehk \"miks mulle neid samu kingi näidatakse?\")",
+      "retargStep1": "Vaatad toodet X saidil A. Reklaamipiksel laadib end.",
+      "retargStep2": "AdCo jätab <em>kolmanda osapoole</em> küpsise: \"Kasutaja vaatas toodet X.\"",
+      "retargStep3": "Hiljem saidil B (kus AdCo samuti on) näitab brauser seda küpsist.",
+      "retargStep4": "AdCo tunneb su ära ja näitab sulle igal pool toodet X. Vähemalt kuni küpsis aegub.",
+      "thirdPartyLabel": "Kolmandate osapoolte küpsised",
+      "retestButton": "Testi uuesti",
+      "externalLink": "Väline test",
+      "clearDataButton": "Puhasta andmed",
+      "note": "Märkus: paljud brauserid blokeerivad nüüd vaikimisi kolmandate osapoolte küpsiseid. Retargeting toimib endiselt uute trikkidega (esmase osapoole jälgimine, serveripoolne sidumine, räsi e-posti). Mäng muutub."
+    },
+    "abTesting": {
+      "title": "A/B testimine: lõpeta oletamine, alusta võrdlemist",
+      "lede": "Turundusarvamused on tasuta. Tõendid on kallid. Siin on odav versioon:",
+      "points": [
+        "Vali üks asi, millega katsetada: pealkiri, nupu tekst, hinnastus, mis iganes.",
+        "Näita juhuslikult varianti A või B. Ära vaata tulemusi \"niisama kontrolliks.\"",
+        "Mõõda üht selget näitajat (klikke, registreerumisi, oste). Mitte \"tundeid.\"",
+        "Lase sel piisavalt kaua joosta. \"Saime 12 klikki\" pole järeldus.",
+        "Võitja läheb live'i. Kaotaja arhiveeritakse."
+      ],
+      "note": "Tõsine A/B testimine vajab tööriistu või taustasüsteeme. See on meeldetuletus, et \"parimad praktikad\" on vaid hästi turundatud hüpoteesid."
+    },
+    "freeMaterials": {
+      "title": "Tasuta materjalid",
+      "body": "Kas need on päriselt tasuta? Hind on sinu e-post ja tähelepanu.<br>Kui see leht ei veena sind täna, ehk veenab homme saabuv kiri."
+    },
+    "whyPopup": {
+      "title": "Miks hüpikaken?",
+      "body": "Hüpikaken on viimane \"ära veel lahku\" hetk — ajastatud kiireloomulisusega või käivitub, kui tabad sulgeda. Tüütu? Võib-olla. Tõhus? Kindlasti."
+    },
+    "whyTrustUs": {
+      "title": "Miks meid usaldada?",
+      "body": "Meil on lõpetatud kursused, sertifikaadid, rahulolevad kliendid, kiitvad arvustused — ja meile meeldib seda näidata. Sest usaldus loeb."
+    },
+    "faq": {
+      "title": "KKK",
+      "q1": "Kas see on teistmoodi kui teised maandumislehed?",
+      "a1": "Jah — sest nüüd mõistad sa, milliseid mõjutusvõtteid teised lehed kasutavad.",
+      "q2": "Kas ma pean kohe midagi ostma?",
+      "a2": "Ei pea. Võta info vastu, maga selle üle ja tule tagasi, kui oled valmis oma seadmed ohjesse võtma.",
+      "q3": "Kas te spämmite mind?",
+      "a3": "Ainult kasulike, inimeste kirjutatud mõtetega. Pole bote, pole masspostitusi."
+    },
+    "pricing": {
+      "title": "Hinnad ja garantiid",
+      "body": "Kõik kõlab suurepäraselt — aga muidugi on lõpus allahindlus. Ja ära unusta: raha tagasi garantii, sest meelerahu müüb sama hästi kui toode ise."
+    },
+    "personalNote": {
+      "title": "Isiklik märkus",
+      "body": "Mu turunduspartner ütleb, et teen kõike valesti — ja tal on peaaegu alati õigus. Testitud viis töötab tavaliselt, aga ma usaldan pigem ausust kui läiget. Jah, see maksab mõne müügi, aga vähemalt magan paremini (kui ma just kell 4:30 veebilehti ei kirjuta).",
+      "commentPlaceholder": "Jaga oma mõtteid...",
+      "commentButton": "Postita kommentaar"
+    },
+    "aboutMe": {
+      "title": "Minust",
+      "body": "Ehitan seda lähenemist, sest isikupära võidab steriilsuse. Usaldus kasvab, kui näed, et ma ei peida end koopiamallide taha. See olengi mina."
+    },
+    "aboutGadgetTaming": {
+      "title": "gadgetTamingust",
+      "body": "gadgetTaming aitab mõista, kuidas veeb päriselt töötab, mitte lihtsalt mallide kaudu, ja kasutada seda eristumiseks. Jah, eesmärk on müük, aga seda tehakse viisil, mis austab inimeste tähelepanu."
+    },
+    "callToAction": {
+      "title": "Kutse tegutsemiseks",
+      "body": "Lõpuks viib kõik ühele rajale: Telli. Osta. Lisa korvi. Broneeri. Saada päring. Kõik teed viivad siia.",
+      "offer": "Mida saad osta: kursused, teadmised ja praktilised juhised, et taltsutada metsikut veebimaailma. Mitte maagilised trikid, vaid päris tööriistad."
+    }
+  },
+  "popups": {
+    "whyPopup": {
+      "title": "Siin ongi su hüpik!",
+      "desc": "Täpselt sellest me rääkisime — ajastatud nii, et see haarab su tähelepanu just hüpikakende peatükis. Meta, eks?",
+      "primary": "Ma sain aru",
+      "secondary": "Sulge"
+    },
+    "fastToTop": {
+      "title": "Juba tagasi üles?",
+      "desc": "Siin on 2-minutiline kokkuvõte kõige olulisemast — ja sinu järgmine samm.",
+      "primary": "Võta kokkuvõte",
+      "secondary": "Ei aitäh"
+    },
+    "exitIntent": {
+      "title": "Oota — enne kui lähed",
+      "desc": "Võta tasuta välikäsiraamat mõjutusmustrite märkamiseks, et su tähelepanu jääks sinule.",
+      "primary": "Võta käsiraamat",
+      "secondary": "Ei aitäh"
+    },
+    "dialog": {
+      "closeAria": "Sulge dialoog"
+    }
+  },
+  "buttons": {
+    "ctaPrimary": "👉 Tegutse kohe",
+    "noThanks": "Ei aitäh"
+  },
+  "stats": {
+    "referrer": {
+      "direct": "Otse"
+    },
+    "location": {
+      "loading": "Laadin…",
+      "unknown": "Tundmatu",
+      "unavailable": "Pole saadaval",
+      "detecting": "Tuvastan…"
+    }
+  },
+  "cookies": {
+    "status": {
+      "checking": "Kontrollin…",
+      "allowed": "Lubatud",
+      "blocked": "Blokeeritud",
+      "likelyBlocked": "Tõenäoliselt blokeeritud",
+      "cleared": "✓ Puhastatud",
+      "failed": "✗ Ebaõnnestus"
+    }
+  },
+  "comment": {
+    "form": {
+      "error": "Palun kirjuta enne midagi!",
+      "success": "Kommentaar postitatud! (Tegelikult mitte, aga visuaalselt töötab 😉)"
+    }
+  },
+  "footer": {
+    "copy": "© 2024 gadgetTamer. Ausad veebid. Parem uni. Rohkem usaldust."
+  },
+  "ui": {
+    "language": {
+      "label": "Keel",
+      "options": {
+        "en": "Inglise",
+        "et": "Eesti"
+      }
+    }
+  }
+}

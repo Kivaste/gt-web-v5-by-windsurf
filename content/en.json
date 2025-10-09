@@ -2,7 +2,8 @@
   "banner": {
     "red": {
       "message": "Just for YOU! <s>Act fast</s> Take your time, ends in:",
-      "loading": "loading…"
+      "loading": "loading…",
+      "countdownFormat": "{{years}}y {{days}}d {{hours}}h {{minutes}}m {{seconds}}s"
     },
     "yellow": {
       "message": "🚨 Special Offer Banner — create urgency, make you act fast! 🚨"
@@ -167,5 +168,14 @@
   },
   "footer": {
     "copy": "© 2024 gadgetTamer. Honest websites. Better sleep. Stronger trust."
+  },
+  "ui": {
+    "language": {
+      "label": "Language",
+      "options": {
+        "en": "English",
+        "et": "Estonian"
+      }
+    }
   }
 }
