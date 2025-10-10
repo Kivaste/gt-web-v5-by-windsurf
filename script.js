@@ -706,6 +706,8 @@ const storyButtonsList = document.getElementById("storyButtonsList");
 const btnFetchIP = document.getElementById("btnFetchIP");
 const abTestButtons = Array.from(document.querySelectorAll(".ab-test-button"));
 const abTestCopy = document.getElementById("abTestCopy");
+const abTestingInstruction = document.getElementById("abTestingInstruction");
+const accordions = Array.from(document.querySelectorAll('[data-accordion]'));
 
 let selectedAbVariant = null;
 
@@ -862,6 +864,33 @@ function abTestLabelFor(variant, fallback) {
   return fallback;
 }
 
+function normalizeAbTestText(text) {
+  if (!text) return "";
+  return text
+    .replace(/^\s*[AB]\.\s*/, "")
+    .replace(/\s*\n\s*/g, " ")
+    .replace(/\s{2,}/g, " ")
+    .trim();
+}
+
+function composeAbTestCopy(variant, fallback) {
+  const base = abTestLabelFor(variant, fallback);
+  const cleaned = normalizeAbTestText(base);
+  if (!cleaned) return "Cool.";
+  const withPeriod = /[.!?]$/.test(cleaned) ? cleaned : `${cleaned}.`;
+  const safe = escapeHtml(withPeriod);
+  return `Cool. <em>${safe}</em>`;
+}
+
+function updateAbTestInstruction() {
+  if (!abTestingInstruction) return;
+  const device = detectDeviceType();
+  const isTouch = device === "Mobile" || device === "Tablet";
+  const key = isTouch ? "slides.abTesting.line1Tap" : "slides.abTesting.line1";
+  const fallback = isTouch ? "Pick your favorite (tap):" : "Pick your favorite (click):";
+  abTestingInstruction.textContent = t(key, fallback);
+}
+
 function setAbTestSelection(variant) {
   selectedAbVariant = variant || null;
   abTestButtons.forEach((btn) => {
@@ -870,11 +899,11 @@ function setAbTestSelection(variant) {
   });
   if (abTestCopy) {
     if (!variant) {
-      abTestCopy.textContent = "";
+      abTestCopy.innerHTML = "Cool.";
     } else {
       const activeButton = abTestButtons.find((btn) => btn.dataset.variant === variant);
-      const fallback = (activeButton?.textContent || "").trim();
-      abTestCopy.textContent = abTestLabelFor(variant, fallback);
+      const fallback = normalizeAbTestText(activeButton?.textContent || "");
+      abTestCopy.innerHTML = composeAbTestCopy(variant, fallback);
     }
   }
 }
@@ -889,6 +918,45 @@ abTestButtons.forEach((btn) => {
 });
 
 setAbTestSelection(null);
+updateAbTestInstruction();
+
+accordions.forEach((accordion) => {
+  const triggers = Array.from(accordion.querySelectorAll('[data-accordion-trigger]'));
+  const panels = Array.from(accordion.querySelectorAll('[data-accordion-panel]'));
+
+  function closeAll(exceptId) {
+    triggers.forEach((trigger) => {
+      const controls = trigger.getAttribute("aria-controls");
+      const isMatch = controls === exceptId;
+      trigger.setAttribute("aria-expanded", isMatch ? "true" : "false");
+    });
+
+    panels.forEach((panel) => {
+      if (panel.id === exceptId) {
+        panel.hidden = false;
+      } else {
+        panel.hidden = true;
+      }
+    });
+  }
+
+  triggers.forEach((trigger) => {
+    trigger.addEventListener("click", () => {
+      const controls = trigger.getAttribute("aria-controls");
+      const isOpen = trigger.getAttribute("aria-expanded") === "true";
+
+      if (isOpen) {
+        trigger.setAttribute("aria-expanded", "false");
+        panels.forEach((panel) => {
+          if (panel.id === controls) panel.hidden = true;
+        });
+        return;
+      }
+
+      closeAll(controls);
+    });
+  });
+});
 
 function setLocationDisplay(place, connector, isp, hyphen, asn) {
   const hasContent = Boolean(place) || Boolean(isp);
@@ -1121,5 +1189,6 @@ document.addEventListener("DOMContentLoaded", async () => {
   slideController.refresh();
   slideController.setupObserver();
   initStaticStats();
+  updateAbTestInstruction();
   checkPopupWhySection();
 });

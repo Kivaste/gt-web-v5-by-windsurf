@@ -8,13 +8,13 @@
         - [ ] Websites aren't brochures, rather fine-tuned decision engines guiding you to one endgame - entering your credit card details. 
         - [ ] The rush, the urgency, the pressure? That's not excitement, that's conversion optimization you're feeling. 
         - [ ] Ready to peek into the belly of the beast?
-- [ ] bannerSlide
-    - [ ] title: Special Offer
-- [ ] redBannerSlide
-    - [ ] title: Slow Down
+- [x] bannerSlide
+    - [x] title: Special Offer
+- [x] redBannerSlide
+    - [x] title: Slow Down
 - [x] dataTrailSection
     - [x] title: Data > Oil
-    - [ ] if location is unavailable: 'Location unavailable · connecting through unavailable network' then replace it with 'Location unavailable - sorry, doesn't always work:(' and make it all bold
+    - [x] if location is unavailable: 'Location unavailable · connecting through unavailable network' then replace it with 'Location unavailable - sorry, doesn't always work:(' and make it all bold
     - [x] Add text to the end: 'Spooky? That's nothing compared to what you'll learn next!'
     - [x] move the spooky text to a new paragraph below the buttons list
     - [x] make it underlined and bold 
@@ -22,7 +22,7 @@
     - [x] change the button ' — ' to ': '
     - [x] add the first button 'Guess my location: 0'
     - [x] remove the ASP part from end of the location/connecting through 
-- [ ] cookiesSection
+- [x] cookiesSection
     - [x] title: Cookies or Stalkers?
 - [ ] abTestingSection
     - [x] title: Survival of the fittest
@@ -36,7 +36,7 @@
 - [ ] whyPopupSection
     - [ ] title: Why a Pop-Up?
     - [ ] popup why-popup
-        - [ ] title: Here's your pop-up!
+        - [ ] title: Here's your pop-up! => Right on cue
         - [ ] body: brain explode meme
         - [ ] buttons green: Mindblowing 
         - [ ] buttons gray: Annoying as f

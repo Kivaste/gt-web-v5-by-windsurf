@@ -75,10 +75,10 @@
     <!-- A/B Testing -->
     <section id="abTestingSection" class="slide" data-slide-title="A/B Testing">
       <h2 data-i18n="slides.abTesting.title">Survival of the fittest</h2>
-      <p data-i18n="slides.abTesting.line1">Pick your favorite (click):</p>
+      <p id="abTestingInstruction" data-i18n="slides.abTesting.line1">Pick your favorite (click):</p>
       <div class="ab-test-options" role="group" aria-label="A/B test options">
-        <button type="button" id="btnAbTestA" class="ab-test-button" data-variant="A" aria-pressed="false" aria-label="Select variant A" data-i18n="slides.abTesting.optionA">Cool. Opinions are vibes, revenue decides.</button>
-        <button type="button" id="btnAbTestB" class="ab-test-button" data-variant="B" aria-pressed="false" aria-label="Select variant B" data-i18n="slides.abTesting.optionB">Cute. Hunches are cheap, data is truth.</button>
+        <button type="button" id="btnAbTestA" class="ab-test-button" data-variant="A" aria-pressed="false" aria-label="Select variant A" data-i18n="slides.abTesting.optionA">A. Opinions are vibes,<br> revenue decides</button>
+        <button type="button" id="btnAbTestB" class="ab-test-button" data-variant="B" aria-pressed="false" aria-label="Select variant B" data-i18n="slides.abTesting.optionB">B. Hunches are cheap,<br> data is truth</button>
       </div>
       <p id="abTestCopy" class="ab-test-copy" aria-live="polite"></p>
       <p data-i18n="slides.abTesting.line4">Split 100,000 visitors - half see A, half see B. Let the wallets vote.</p>
@@ -114,14 +114,68 @@
 
     <section id="faqSection" class="slide" data-slide-title="FAQ">
       <h2 data-i18n="slides.faq.title">FAQ</h2>
-      <dl>
-        <dt data-i18n="slides.faq.q1">Is this really different from any other landing page?</dt>
-        <dd data-i18n="slides.faq.a1">Yes—because you now understand the persuasion levers being pulled on every other site you visit.</dd>
-        <dt data-i18n="slides.faq.q2">Do I have to buy something right away?</dt>
-        <dd data-i18n="slides.faq.a2">Nope. Absorb the lessons, sleep on it, and come back when you're ready to tame your gadgets.</dd>
-        <dt data-i18n="slides.faq.q3">Will you spam me?</dt>
-        <dd data-i18n="slides.faq.a3">Only with useful, human-written insights. No bots, no blanket blasts.</dd>
-      </dl>
+      <div class="faq-accordion" data-accordion>
+        <article class="faq-item">
+          <button
+            type="button"
+            class="faq-question"
+            id="faq-question-1"
+            aria-expanded="false"
+            aria-controls="faq-answer-1"
+            data-accordion-trigger
+            data-i18n="slides.faq.q1"
+          >Is this really different from any other landing page?</button>
+          <div
+            class="faq-answer"
+            id="faq-answer-1"
+            role="region"
+            aria-labelledby="faq-question-1"
+            data-accordion-panel
+            data-i18n="slides.faq.a1"
+            hidden
+          >Yes—because you now understand the persuasion levers being pulled on every other site you visit.</div>
+        </article>
+        <article class="faq-item">
+          <button
+            type="button"
+            class="faq-question"
+            id="faq-question-2"
+            aria-expanded="false"
+            aria-controls="faq-answer-2"
+            data-accordion-trigger
+            data-i18n="slides.faq.q2"
+          >Do I have to buy something right away?</button>
+          <div
+            class="faq-answer"
+            id="faq-answer-2"
+            role="region"
+            aria-labelledby="faq-question-2"
+            data-accordion-panel
+            data-i18n="slides.faq.a2"
+            hidden
+          >Nope. Absorb the lessons, sleep on it, and come back when you're ready to tame your gadgets.</div>
+        </article>
+        <article class="faq-item">
+          <button
+            type="button"
+            class="faq-question"
+            id="faq-question-3"
+            aria-expanded="false"
+            aria-controls="faq-answer-3"
+            data-accordion-trigger
+            data-i18n="slides.faq.q3"
+          >Will you spam me?</button>
+          <div
+            class="faq-answer"
+            id="faq-answer-3"
+            role="region"
+            aria-labelledby="faq-question-3"
+            data-accordion-panel
+            data-i18n="slides.faq.a3"
+            hidden
+          >Only with useful, human-written insights. No bots, no blanket blasts.</div>
+        </article>
+      </div>
     </section>
 
     <section id="pricingSection" class="slide" data-slide-title="Pricing">
@@ -144,11 +198,11 @@
           style="width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 8px; font-family: inherit; font-size: 1rem; resize: vertical;"
         ></textarea>
         <div class="comment-email-wrapper">
-          <label for="commentEmail" data-i18n="slides.personalNote.commentEmailLabel">If you wish to get a reply then leave your email*</label>
+          <label for="commentEmail" data-i18n="slides.personalNote.commentEmailLabel">If you wish to get a reply then leave your email</label>
           <input 
             type="email"
             id="commentEmail"
-            placeholder="* not a newsletter signup"
+            placeholder="Not a newsletter signup"
             data-i18n-placeholder="slides.personalNote.commentEmailPlaceholder"
           />
         </div>

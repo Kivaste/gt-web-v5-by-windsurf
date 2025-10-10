@@ -58,8 +58,9 @@
     "abTesting": {
       "title": "Survival of the fittest",
       "line1": "Pick your favorite (click):",
-      "optionA": "Cool. Opinions are vibes, revenue decides.",
-      "optionB": "Cute. Hunches are cheap, data is truth.",
+      "line1Tap": "Pick your favorite (tap):",
+      "optionA": "A. Opinions are vibes,\nrevenue decides",
+      "optionB": "B. Hunches are cheap,\ndata is truth",
       "line4": "Split 100,000 visitors - half see A, half see B. Let the wallets vote.",
       "line5": "That's called A/B testing. Like Darwin for profits."
     },
