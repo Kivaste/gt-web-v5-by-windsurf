@@ -22,14 +22,16 @@
     - [x] change the button ' — ' to ': '
     - [x] add the first button 'Guess my location: 0'
     - [x] remove the ASP part from end of the location/connecting through 
-- [ ] hookedModelSlide
-    - [ ] title: Hooked Model Interactive Exercise
 - [ ] cookiesSection
-    - [ ] title: Cookies or Stalkers?
+    - [x] title: Cookies or Stalkers?
 - [ ] abTestingSection
-    - [ ] title: A/B Testing: stop guessing, start splitting
+    - [x] title: Survival of the fittest
+- [ ] hookedModelSlide
+    - [x] title: Hooked Model Interactive Exercise => Let's get you HOOKED!
+    - [x] remove all the current content
+    - [ ] embed the exercise
 - [ ] freeMaterialsSlide
-    - [ ] title: Free Materials
+    - [x] title: Free Materials
     - [ ] add email collection via Kit
 - [ ] whyPopupSection
     - [ ] title: Why a Pop-Up?
@@ -82,33 +84,47 @@
 
 
 
+Cookies - sweet or clingy?
 
-Because conversion beats originality. The playbook is predictable: bold promise, social proof, urgency, bright Call-to-Action. That jolt of FOMO? Designed.
+Your barista remembers your latte and your name. Sweet!
+First‑party cookies do that - login, preferences, that shopping cart you abandoned.
 
-
-
-Why Do All Websites Look the Same?
-
-Because the formula works.
-
-Same templates. Same urgency tactics. Same endgame: your credit card number. 
-
-That rush you're feeling? You're being optimized.
-
-Let's decode the scam.  
+Guy in a van? Different vibe.
+Third‑party cookies follow you everywhere, log everything, report to advertisers. That abandoned cart haunting every page? That's them.
 
 
- It's not
-Every homepage, landing page, sales page—same playbook. Create urgency, manufacture FOMO, guide you to checkout. 
+----
+to recap perhaps
 
+for better knowledge retention you should be doing the recap, but let me help you this time.
 
+There are two industries that call their customers 'Users': tech and the shady guys close to the entrance of a rave party.
 
- aren’t brochures; they’re decision machines. Compress time, spike FOMO, swipe card. Spell broken.
-
-Notice how every homepage feels the same?
-
-
-------
+If you feel that your gadets are controlling you, instead of the other way around then know that it's not your fault, it is by design!
 
 
 
+Survival of the fittest
+
+Select which of these two do you like better?
+
+That's your opinion, everybody has one. But if we randomly split that 50% of site users see A and the other 50% B. If we then let thousands or even millions of users see each we can clearly see which brought in more money.  
+
+This is called A/B testing.
+---
+Survival of the Fittest
+
+Which do you like: A or B? 
+
+Cute. Split traffic randomly 50/50, let thousands vote with their wallets, and keep whichever makes more money. That’s A/B testing.
+
+
+Pick your favorite (click):
+
+A  B
+
+Cool. Opinions are vibes, revenue decides.  
+
+Split 100,000 visitors - half see A, half see B. Let the wallets vote. 
+
+That's called A/B testing. Like Darwin for profits.

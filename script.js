@@ -709,6 +709,26 @@ let sessionStart = Date.now();
 let buttonClicks = Object.create(null);
 buttonClicks["Guess my location"] = 0;
 
+function escapeHtml(text) {
+  if (text === undefined || text === null) return "";
+  return String(text).replace(/[&<>"']/g, (char) => {
+    switch (char) {
+      case "&":
+        return "&amp;";
+      case "<":
+        return "&lt;";
+      case ">":
+        return "&gt;";
+      case '"':
+        return "&quot;";
+      case "'":
+        return "&#39;";
+      default:
+        return char;
+    }
+  });
+}
+
 function detectDeviceType() {
   const ua = navigator.userAgent || "";
   if (/iPad|Tablet/i.test(ua)) return "Tablet";
@@ -778,14 +798,14 @@ function describeDevice() {
 
 function describeReferrerSentence() {
   const referrer = document.referrer;
-  if (!referrer) {
-    return "by typing or pasting gadgetTamer.com <strong>directly to your address bar</strong>.";
-  }
   const host = getReferrerHost();
-  if (!host || host === t('stats.referrer.direct', 'Direct')) {
-    return "by typing or pasting gadgetTamer.com <strong>directly to your address bar</strong>.";
+  const directLabel = t('stats.referrer.direct', 'Direct');
+  const isDirect = !referrer || !host || host === directLabel;
+  if (isDirect) {
+    return "and you came here directly with <strong>gadgetTamer.com</strong> on your address bar.";
   }
-  return `by clicking a link on <strong>${host}</strong>.`;
+  const escapedHost = escapeHtml(host);
+  return `and <strong>${escapedHost}</strong> sent you here.`;
 }
 
 function splitArticleAndNoun(text) {
@@ -838,8 +858,13 @@ function setLocationDisplay(place, connector, isp, hyphen, asn) {
     storyLocation.classList.toggle("is-populated", hasContent);
   }
   if (storyLocationPlace) {
-    const safePlace = place === undefined || place === null || place === "" ? "\u00A0" : place;
-    storyLocationPlace.textContent = safePlace;
+    if (!place) {
+      storyLocationPlace.textContent = "\u00A0";
+    } else {
+      const escaped = escapeHtml(place);
+      const highlightPlace = !connector && !isp;
+      storyLocationPlace.innerHTML = highlightPlace ? `<strong>${escaped}</strong>` : escaped;
+    }
   }
   if (storyLocationConnector) storyLocationConnector.textContent = connector || "";
   if (storyLocationISP) storyLocationISP.textContent = isp || "";
@@ -902,17 +927,28 @@ async function fetchIpLocation() {
     const { connector, isp, hyphen, asn } = formatConnectionParts(data);
     setLocationDisplay(place, connector, isp, hyphen, asn);
   } catch (err) {
-    const place = t('stats.location.unavailable', 'Location unavailable');
-    const fallback = {
-      org: t('stats.isp.unavailable', 'unavailable network'),
-    };
-    const { connector, isp, hyphen, asn } = formatConnectionParts(fallback);
-    setLocationDisplay(place, connector, isp, hyphen, asn);
+    const place = t('stats.location.unavailable', "Location unavailable - sorry, doesn't always work:(");
+    setLocationDisplay(place, '', '', '', '');
   }
 }
 btnFetchIP?.addEventListener("click", (event) => {
   event.preventDefault();
   fetchIpLocation();
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.defaultPrevented) return;
+  if (event.key !== "Enter" || event.repeat) return;
+  if (event.ctrlKey || event.altKey || event.metaKey || event.shiftKey) return;
+  const target = event.target;
+  if (!target) return;
+  const tagName = target.tagName;
+  const isEditable = target.isContentEditable;
+  if (isEditable) return;
+  if (tagName === "TEXTAREA" || tagName === "INPUT" || tagName === "SELECT" || tagName === "BUTTON") {
+    return;
+  }
+  btnFetchIP?.click();
 });
 
 // ===== Comment form handler =====

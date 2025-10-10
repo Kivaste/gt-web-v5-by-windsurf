@@ -39,8 +39,9 @@
       "note": "* Fetching a rough, IP address based location (no GPS)"
     },
     "cookies": {
-      "title": "Cookies or Stalkers?",
-      "lede": "Not the chocolate-chip kind. Cookies are tiny text crumbs your browser saves so sites can remember things about you. Handy… and also a little clingy.",
+      "title": "Cookies - sweet or clingy?",
+      "paragraph1": "Your barista remembers your latte and your name. Sweet!<br>First-party cookies do that - login, preferences, that shopping cart you abandoned.",
+      "paragraph2": "Guy in a van? Different vibe.<br>Third-party cookies follow you everywhere, log everything, report to advertisers. That abandoned cart haunting every page? That's them.",
       "firstParty": "<strong>First-party cookies:</strong> set by the site you're on — logins, carts, \"remember me,\" that sort of useful stuff.",
       "sessionPersistent": "<strong>Session vs. persistent:</strong> session cookies vanish when you close the tab; persistent cookies stick around for days or months, like glitter after a craft accident.",
       "retargTitle": "Retargeting in 4 steps (aka \"why am I seeing those exact shoes?\")",
@@ -55,7 +56,7 @@
       "note": "Note: Many browsers now block third-party cookies by default. Retargeting still happens via newer tricks (first-party tracking, server-side stitching, hashed emails). The game evolves."
     },
     "abTesting": {
-      "title": "A/B Testing: survival of the fittest",
+      "title": "Survival of the fittest",
       "lede": "Marketing opinions are free. Evidence is expensive. Here's the cheap version:",
       "points": [
         "Pick one thing to mess with: headline, button text, price anchoring, whatever.",
@@ -105,19 +106,19 @@
       "body": "I'm building this approach because personality beats blandness. I believe trust grows when you see I'm not hiding behind cookie-cutter methods. This is who I am."
     },
     "aboutGadgetTaming": {
-      "title": "About gadgetTaming",
       "body": "gadgetTaming is about understanding how websites really work, beyond templates, and using that knowledge to stand out. Yes, the end goal is sales, but done in a way that respects human attention."
     },
     "recap": {
       "title": "Recap",
       "patterns": "Websites reuse proven persuasion patterns because they consistently guide visitors toward action.",
+      "intro": "You're surfing on {{device}} {{referrer}} Not sure where you are, but I can make a guess* ...",
       "data": "Your browser leaks a data trail—browser, device, referrer, even rough location—before you click anything.",
       "popups": "Pop-ups are timed nudges; annoying, yes, but effective when matched to behavior.",
       "trust": "Trust is earned with proof: testimonials, track record, and transparent storytelling.",
       "action": "All of these tactics converge on one decision: the final call to action."
     },
     "callToAction": {
-      "title": "Call to Action",
+{{ ... }}
       "body": "At the end of the day, there's one road: Order. Buy. Add to cart. Book. Send inquiry. All paths lead here.",
       "offer": "What you can buy: Courses, insights, and practical guidance on taming the wild world of online marketing and website building. Not sold as magic tricks—but as real tools you can actually use."
     }
@@ -156,7 +157,7 @@
     "location": {
       "loading": "Loading…",
       "unknown": "Unknown",
-      "unavailable": "Unavailable",
+      "unavailable": "Location unavailable - sorry, doesn't always work:(",
       "detecting": "Detecting…"
     }
   },

@@ -45,8 +45,7 @@
     <section id="dataTrailSection" class="slide" data-slide-title="Data Trail">
       <h2 data-i18n="slides.dataTrail.title">Data &gt; Oil</h2>
       <div class="data-story">
-        <p class="data-story__intro">I don't know who you are, but I do know that you are browsing on <span id="storyDeviceArticle"></span><strong><span id="storyDeviceNoun">—</span></strong> and you got here <span id="storyReferrerSentence">—</span></p>
-        <p class="data-story__hint">I don't know where you are exactly, but if you want me to guess* then use the button below.</p>
+        <p class="data-story__intro">You're surfing on <span id="storyDeviceArticle"></span><strong><span id="storyDeviceNoun">—</span></strong> <span id="storyReferrerSentence">—</span> Not sure where you are, but I can make a guess* ...</p>
         <div class="data-story__actions">
           <button type="button" id="btnFetchIP" class="btn-primary" data-i18n="slides.dataTrail.guessButton">Guess my location</button>
         </div>
@@ -57,8 +56,8 @@
             <span id="storyLocationISP" class="data-story__location-isp"></span>
           </p>
         </div>
-        <small class="data-story__location-note" data-i18n="slides.dataTrail.note">* Fetching a rough, IP address based location (no GPS)</small>
-        <p>You've been on this site for <strong><span id="storyTime">00:00</span></strong>, seen <strong><span id="storyPopups">0/3</span></strong> pop-ups and clicked these buttons:</p>
+        <small class="data-story__location-note" data-i18n="slides.dataTrail.note">* Fetching a rough, IP address based, location (no GPS)</small>
+        <p class="data-story__stats">You've spent here <strong><span id="storyTime">00:00</span></strong>, seen <strong><span id="storyPopups">0/3</span></strong> pop-ups and clicked these buttons:</p>
         <ul id="storyButtonsList" class="data-story__buttons" data-default-text="None yet">
           <li>None yet</li>
         </ul>
@@ -66,61 +65,16 @@
       </div>
     </section>
 
-    <!-- Hooked Model Interactive Exercise -->
-    <section id="hookedModelSlide" class="slide" data-slide-title="Hooked Model Exercise">
-      <h2>Hooked Model Interactive Exercise</h2>
-      <p>Map the trigger → action → reward → investment loop that keeps visitors returning. Use what you just learned to spot the hooks on this page.</p>
-      <div class="hooked-model-steps">
-        <ol>
-          <li><strong>Trigger:</strong> What prompts the visitor to start?</li>
-          <li><strong>Action:</strong> Which micro-step do they take next?</li>
-          <li><strong>Variable Reward:</strong> What feedback or tease keeps them intrigued?</li>
-          <li><strong>Investment:</strong> How do they invest (data, time, commitment) so they return?</li>
-        </ol>
-      </div>
-    </section>
-
     <!-- Cookies -->
     <section id="cookiesSection" class="slide" data-slide-title="Cookies">
-      <h2 data-i18n="slides.cookies.title">Cookies or Stalkers?</h2>
-      <p data-i18n="slides.cookies.lede">Not the chocolate‑chip kind. Cookies are tiny text crumbs your browser saves so sites can remember things about you. Handy… and also a little clingy.</p>
-
-      <ul>
-        <li data-i18n="slides.cookies.firstParty"><strong>First‑party cookies:</strong> set by the site you're on — logins, carts, "remember me," that sort of useful stuff.</li>
-        <li data-i18n="slides.cookies.thirdParty"><strong>Third‑party cookies:</strong> set by outsiders embedded on the page (ad networks, social widgets, analytics). That's how the same folks can spot you across many sites.</li>
-        <li data-i18n="slides.cookies.sessionPersistent"><strong>Session vs. persistent:</strong> session cookies vanish when you close the tab; persistent cookies stick around for days or months, like glitter after a craft accident.</li>
-      </ul>
-
-      <h3 data-i18n="slides.cookies.retargTitle">Retargeting in 4 steps (aka "why am I seeing those exact shoes?")</h3>
-      <ol>
-        <li data-i18n="slides.cookies.retargStep1">You check out Product X on Site A. A tiny "ad pixel" from AdCo loads.</li>
-        <li data-i18n="slides.cookies.retargStep2">AdCo drops a <em>third‑party</em> cookie: "User looked at Product X."</li>
-        <li data-i18n="slides.cookies.retargStep3">Later on Site B (also running AdCo), your browser presents that cookie to AdCo.</li>
-        <li data-i18n="slides.cookies.retargStep4">AdCo recognizes you and serves an ad for Product X everywhere, forever. Or at least until the cookie expires.</li>
-      </ol>
-
-      <div class="cookie-tools">
-        <div class="tool-row">
-          <span class="k" data-i18n="slides.cookies.thirdPartyLabel">Third‑party cookies</span>
-          <span class="v">
-            <span id="thirdPartyCookiesStatus" class="status-badge status-unknown" data-i18n="cookies.status.checking">Checking…</span>
-          </span>
-          <button type="button" id="btnRecheck3P" class="linklike" data-i18n="slides.cookies.retestButton">Re‑test</button>
-          <a class="linklike" href="https://www.whatismybrowser.com/detect/are-third-party-cookies-enabled" target="_blank" rel="noopener" data-i18n="slides.cookies.externalLink">External test</a>
-        </div>
-
-        <div class="tool-row">
-          <button type="button" id="btnClearData" class="btn-ghost" data-i18n="slides.cookies.clearDataButton">Clear site data</button>
-          <span id="siteDataStatus" aria-live="polite"></span>
-        </div>
-      </div>
-
-      <small data-i18n="slides.cookies.note">Note: Many browsers now block third‑party cookies by default. Retargeting still happens via newer tricks (first-party tracking, server-side stitching, hashed emails). The game evolves.</small>
+      <h2 data-i18n="slides.cookies.title">Cookies - sweet or clingy?</h2>
+      <p data-i18n="slides.cookies.paragraph1" class="cookies-copy">Your barista remembers your latte and your name. Sweet!<br>First-party cookies do that - login, preferences, that shopping cart you abandoned.</p>
+      <p data-i18n="slides.cookies.paragraph2" class="cookies-copy">Guy in a van? Different vibe.<br>Third-party cookies follow you everywhere, log everything, report to advertisers. That abandoned cart haunting every page? That's them.</p>
     </section>
 
     <!-- A/B Testing -->
     <section id="abTestingSection" class="slide" data-slide-title="A/B Testing">
-      <h2 data-i18n="slides.abTesting.title">A/B Testing: survival of the fittest</h2>
+      <h2 data-i18n="slides.abTesting.title">Survival of the fittest</h2>
       <p data-i18n="slides.abTesting.lede">Marketing opinions are free. Evidence is expensive. Here's the cheap version:</p>
       <ul>
         <li data-i18n="slides.abTesting.points.0">Pick one thing to mess with: headline, button text, price anchoring, whatever.</li>
@@ -130,6 +84,16 @@
         <li data-i18n="slides.abTesting.points.4">Winner goes live. Loser goes to the big archive in the sky.</li>
       </ul>
       <small data-i18n="slides.abTesting.note">Serious A/B requires tooling or backend logic. This is your heads-up that "best practices" are just hypotheses with a good PR team.</small>
+    </section>
+
+    <!-- Hooked Model Interactive Exercise -->
+    <section id="hookedModelSlide" class="slide" data-slide-title="Hooked Model Exercise">
+      <h2>Let's get you HOOKED!</h2>
+      <div class="hooked-embed hooked-embed--solo">
+        <div class="hooked-embed-placeholder" role="status" aria-live="polite">
+          Interactive exercise embed coming soon…
+        </div>
+      </div>
     </section>
 
     <section class="slide" id="freeMaterialsSlide" data-slide-title="Free Materials">
