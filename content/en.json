@@ -57,15 +57,11 @@
     },
     "abTesting": {
       "title": "Survival of the fittest",
-      "lede": "Marketing opinions are free. Evidence is expensive. Here's the cheap version:",
-      "points": [
-        "Pick one thing to mess with: headline, button text, price anchoring, whatever.",
-        "Randomly show A or B to visitors. No peeking at the results \"just to check.\"",
-        "Measure one clear metric (clicks, signups, buys). Not \"feelings.\"",
-        "Let it run long enough to matter. \"We got 12 clicks\" is not a conclusion.",
-        "Winner goes live. Loser goes to the big archive in the sky."
-      ],
-      "note": "Serious A/B requires tooling or backend logic. This is your heads-up that \"best practices\" are just hypotheses with a good PR team."
+      "line1": "Pick your favorite (click):",
+      "optionA": "Cool. Opinions are vibes, revenue decides.",
+      "optionB": "Cute. Hunches are cheap, data is truth.",
+      "line4": "Split 100,000 visitors - half see A, half see B. Let the wallets vote.",
+      "line5": "That's called A/B testing. Like Darwin for profits."
     },
     "freeMaterials": {
       "title": "Free Materials",

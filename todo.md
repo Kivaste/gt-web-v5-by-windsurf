@@ -124,7 +124,26 @@ Pick your favorite (click):
 A  B
 
 Cool. Opinions are vibes, revenue decides.  
+Cute. Hunches are cheap, data is truth.
 
 Split 100,000 visitors - half see A, half see B. Let the wallets vote. 
 
-That's called A/B testing. Like Darwin for profits.
+That's called A/B testing. Like Darwin for profits. 
+
+
+
+
+Tech at it's best
+
+productivity
+creativity
+connection
+
+Tech at it's worst
+
+distraction
+pure consumption
+loneliness
+
+I've experienced the highest peaks and the lowerst black holes. Hence I'm a Technophile and a Tehnocritic (Technosceptic)
+

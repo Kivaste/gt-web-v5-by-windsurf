@@ -704,6 +704,10 @@ const storyTime = document.getElementById("storyTime");
 const storyPopups = document.getElementById("storyPopups");
 const storyButtonsList = document.getElementById("storyButtonsList");
 const btnFetchIP = document.getElementById("btnFetchIP");
+const abTestButtons = Array.from(document.querySelectorAll(".ab-test-button"));
+const abTestCopy = document.getElementById("abTestCopy");
+
+let selectedAbVariant = null;
 
 let sessionStart = Date.now();
 let buttonClicks = Object.create(null);
@@ -851,6 +855,40 @@ document.addEventListener("click", (e) => {
   buttonClicks[label] = (buttonClicks[label] || 0) + 1;
   renderButtonClicks();
 });
+
+function abTestLabelFor(variant, fallback) {
+  if (variant === "A") return t('slides.abTesting.optionA', fallback);
+  if (variant === "B") return t('slides.abTesting.optionB', fallback);
+  return fallback;
+}
+
+function setAbTestSelection(variant) {
+  selectedAbVariant = variant || null;
+  abTestButtons.forEach((btn) => {
+    const isActive = variant !== null && btn.dataset.variant === variant;
+    btn.setAttribute("aria-pressed", isActive ? "true" : "false");
+  });
+  if (abTestCopy) {
+    if (!variant) {
+      abTestCopy.textContent = "";
+    } else {
+      const activeButton = abTestButtons.find((btn) => btn.dataset.variant === variant);
+      const fallback = (activeButton?.textContent || "").trim();
+      abTestCopy.textContent = abTestLabelFor(variant, fallback);
+    }
+  }
+}
+
+abTestButtons.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const variant = btn.dataset.variant;
+    if (!variant) return;
+    if (selectedAbVariant === variant) return;
+    setAbTestSelection(variant);
+  });
+});
+
+setAbTestSelection(null);
 
 function setLocationDisplay(place, connector, isp, hyphen, asn) {
   const hasContent = Boolean(place) || Boolean(isp);
