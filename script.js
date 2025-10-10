@@ -831,15 +831,13 @@ document.addEventListener("click", (e) => {
 });
 
 function setLocationDisplay(place, connector, isp, hyphen, asn) {
+  const hasContent = Boolean(place) || Boolean(isp);
   if (storyLocation) {
-    const hasContent = Boolean((place && place.trim()) || (isp && isp.trim()) || (asn && asn.trim()));
     storyLocation.classList.toggle("is-populated", hasContent);
   }
   if (storyLocationPlace) {
     const safePlace = place === undefined || place === null || place === "" ? "\u00A0" : place;
     storyLocationPlace.textContent = safePlace;
-  } else if (storyLocation) {
-    storyLocation.textContent = place || "\u00A0";
   }
   if (storyLocationConnector) storyLocationConnector.textContent = connector || "";
   if (storyLocationISP) storyLocationISP.textContent = isp || "";
@@ -859,14 +857,16 @@ function resetButtonList() {
 
 function renderButtonClicks() {
   if (!storyButtonsList) return;
-  const entries = Object.entries(buttonClicks).sort((a, b) => b[1] - a[1]).slice(0, 8);
+  const entries = Object.entries(buttonClicks)
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 8);
   if (!entries.length) {
     resetButtonList();
     return;
   }
 
   storyButtonsList.innerHTML = entries
-    .map(([k, v]) => `<li>${k} — ${v}</li>`)
+    .map(([label, count]) => `<li>${label} — ${count}</li>`)
     .join("");
 }
 
@@ -877,13 +877,13 @@ function formatConnectionParts(data) {
     asn = `${data.asn}`.trim();
   }
   const hyphen = asn ? " - " : "";
-  return { isp, hyphen, asn };
+  const connector = isp ? " · connecting through " : "";
+  return { connector, isp, hyphen, asn };
 }
 
 async function fetchIpLocation() {
   if (!storyLocation) return;
   try {
-    setLocationDisplay("", "", "", "", "");
     const res = await fetch("https://ipapi.co/json/");
     if (!res.ok) throw new Error("IP service unavailable");
     const data = await res.json();
@@ -892,18 +892,15 @@ async function fetchIpLocation() {
     const country = data.country_name || data.country || "";
     const placeParts = [city, region, country].filter(Boolean);
     const place = placeParts.length ? placeParts.join(", ") : t('stats.location.unknown', 'Unknown location');
-    const { isp, hyphen, asn } = formatConnectionParts(data);
-    const connectorText = isp ? " · connecting through " : "";
-    setLocationDisplay(place, connectorText, isp, hyphen, asn);
+    const { connector, isp, hyphen, asn } = formatConnectionParts(data);
+    setLocationDisplay(place, connector, isp, hyphen, asn);
   } catch (err) {
     const place = t('stats.location.unavailable', 'Location unavailable');
     const fallback = {
       org: t('stats.isp.unavailable', 'unavailable network'),
-      asn: ""
     };
-    const { isp, hyphen, asn } = formatConnectionParts(fallback);
-    const connectorText = isp ? " · connecting through " : "";
-    setLocationDisplay(place, connectorText, isp, hyphen, asn);
+    const { connector, isp, hyphen, asn } = formatConnectionParts(fallback);
+    setLocationDisplay(place, connector, isp, hyphen, asn);
   }
 }
 btnFetchIP?.addEventListener("click", (event) => {
@@ -915,7 +912,6 @@ btnFetchIP?.addEventListener("click", (event) => {
 const btnPostComment = document.getElementById("btnPostComment");
 const commentText = document.getElementById("commentText");
 const commentStatus = document.getElementById("commentStatus");
-const commentEmail = document.getElementById("commentEmail");
 
 function isValidEmail(value) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);

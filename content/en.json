@@ -19,7 +19,7 @@
       "intro": "Homepages, landing pages, sales pages—often impersonal, copy-paste templates. But there's a reason: proven patterns that work. Feeling the \"rush\" and urgency is part of the formula.",
     "specialOffer": {
       "title": "Special Offer",
-      "copy": "🚨 Special Offer Banner — create urgency, make you act fast! 🚨"
+      "copy": "🚨 Special Offer Banner - creates urgency, pushes you to act fast! 🚨"
     },
     "dataTrail": {
       "title": "Data > Oil",
@@ -35,7 +35,7 @@
       "note": "* Fetching a rough, IP address based location (no GPS)"
     },
     "cookies": {
-      "title": "Everybody loves cookies! (until they follow you) 🍪",
+      "title": "Cookies or Stalkers?",
       "lede": "Not the chocolate-chip kind. Cookies are tiny text crumbs your browser saves so sites can remember things about you. Handy… and also a little clingy.",
       "firstParty": "<strong>First-party cookies:</strong> set by the site you're on — logins, carts, \"remember me,\" that sort of useful stuff.",
       "sessionPersistent": "<strong>Session vs. persistent:</strong> session cookies vanish when you close the tab; persistent cookies stick around for days or months, like glitter after a craft accident.",

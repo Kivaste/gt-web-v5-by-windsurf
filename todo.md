@@ -1,43 +1,78 @@
-General plan
-1. work on copy
-2. fix popups 
-    - why a popup text to the first popup that appears
-    - leaving and scrolling to the top as the default text unless the popup section hasn't happened then why a popup
-3. add email collection via Kit
-4. add hooked model exercise
-5. webinar CTA
-
-popup
-    brain explode meme
-    mindblowing vs annoying as f
-
-popup on exit intent
-    I encourage you to not leave before doing the interactive exercise
-    buttons: continue scrolling vs jump straight to the exercise
-
-popup on scroll to top
-    what are you doing back in the top of the page? The content is down there!
-    buttons: Start from the top vs jump back to where you were
-
-- [ ] General
-    - [ ] add a slide 'Hooked model interactive exercise' between the data and cookies
-- [ ] Banner
-    - [ ] '🚨 Special Offer Banner — create urgency, make you act fast! 🚨' => '🚨 Special Offer Banner - creates urgency, pushes you to act fast! 🚨'
-- [ ] Data > Oil
-    - [ ] Add text to the end: 'Spooky? That's nothing compared to what you'll learn next!'
-    - [ ] 
-    - [ ] 
-- [ ] Cookies
-    - [ ] title: 'Cookies or Stalkers?'
-    - [ ] 
-    - [ ] 
-- [ ] Pop-ups?
-- [ ] FAQ
-    - [ ] make it to accordion
-    - [ ] 
-- [ ] Personal Note
-    - [ ] adjust the copy: 
+- [ ] redBanner
+    - [ ] title: <s>Act fast</s> Take your time, ends in:
+- [ ] heroSlide
+    - [ ] title: become a gadgetTamer
+- [ ] whySimilar
+    - [ ] title: Why Do All Websites Look the Same?
+- [ ] bannerSlide
+    - [ ] title: Special Offer
+- [ ] redBannerSlide
+    - [ ] title: Slow Down
+- [x] dataTrailSection
+    - [x] title: Data > Oil
+    - [x] Add text to the end: 'Spooky? That's nothing compared to what you'll learn next!'
+        - [x] move the spooky text to a new paragraph below the buttons list
+        - [x] make it underlined and bold 
+        - [x] put the buttons into 3 columns and fill them row-by-row
+        - [x] change the button ' — ' to ': '
+        - [x] add the first button 'Guess my location: 0'
+        - [x] remove the ASP part from end of the location/connecting through 
+- [ ] hookedModelSlide
+    - [ ] title: Hooked Model Interactive Exercise
+- [ ] cookiesSection
+    - [ ] title: Cookies or Stalkers?
+- [ ] abTestingSection
+    - [ ] title: A/B Testing: stop guessing, start splitting
+- [ ] freeMaterialsSlide
+    - [ ] title: Free Materials
+    - [ ] add email collection via Kit
+- [ ] whyPopupSection
+    - [ ] title: Why a Pop-Up?
+    - [ ] popup why-popup
+        - [ ] title: Here's your pop-up!
+        - [ ] body: brain explode meme
+        - [ ] buttons green: Mindblowing 
+        - [ ] buttons gray: Annoying as f
+    - [ ] popup fast-to-top
+        - [ ] title: Back to the top already?
+        - [ ] body: I encourage you to not leave before doing the interactive exercise
+        - [ ] buttons green: Start from the top
+        - [ ] buttons gray: Jump back to where you were
+    - [ ] popup exit-intent
+        - [ ] title: Wait — before you go
+        - [ ] body: what are you doing back in the top of the page? The content is down there!
+        - [ ] buttons green: Start from the top
+        - [ ] buttons gray: jump back to where you were
+- [ ] trustSection
+    - [ ] title: Why Trust Us?
+- [ ] faqSection
+    - [ ] title: FAQ
+    - [ ] make it into an accordion menu - all the questions visible, no click the answer becomes visible and only one answer can be visible at the time so opening a new one closes the previous
+- [ ] pricingSection
+    - [ ] title: Pricing & Guarantees
+- [ ] personalNoteSection
+    - [ ] title: Personal Note
     - [ ] comment form - how to save it when using google firebase for hosting
+- [ ] aboutMeSection
+    - [ ] title: About Me
+- [ ] aboutGadgetTamingSection
+    - [ ] title: About gadgetTaming
+- [ ] recapSection
+    - [ ] title: Recap
+- [ ] callToActionSection
+    - [ ] title: Call to Action
+    - [ ] webinar CTA
+- [ ] footer
+    - [ ] title: Footer
 
 
 
+--------
+
+
+Why do websites look like clones?
+Because conversion beats originality. The playbook is predictable: bold promise, social proof, urgency, bright Call-to-Action. That jolt of FOMO? Designed.
+
+These aren’t brochures, they’re fine-tuned decision engines guiding you to enter your credit card details. 
+
+Ready to peek into the belly of the beast?
