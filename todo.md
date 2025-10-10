@@ -11,12 +11,12 @@
 - [x] dataTrailSection
     - [x] title: Data > Oil
     - [x] Add text to the end: 'Spooky? That's nothing compared to what you'll learn next!'
-        - [x] move the spooky text to a new paragraph below the buttons list
-        - [x] make it underlined and bold 
-        - [x] put the buttons into 3 columns and fill them row-by-row
-        - [x] change the button ' — ' to ': '
-        - [x] add the first button 'Guess my location: 0'
-        - [x] remove the ASP part from end of the location/connecting through 
+    - [x] move the spooky text to a new paragraph below the buttons list
+    - [x] make it underlined and bold 
+    - [x] put the buttons into 3 columns and fill them row-by-row
+    - [x] change the button ' — ' to ': '
+    - [x] add the first button 'Guess my location: 0'
+    - [x] remove the ASP part from end of the location/connecting through 
 - [ ] hookedModelSlide
     - [ ] title: Hooked Model Interactive Exercise
 - [ ] cookiesSection
@@ -48,6 +48,7 @@
 - [ ] faqSection
     - [ ] title: FAQ
     - [ ] make it into an accordion menu - all the questions visible, no click the answer becomes visible and only one answer can be visible at the time so opening a new one closes the previous
+    - [ ] add a new first question: 
 - [ ] pricingSection
     - [ ] title: Pricing & Guarantees
 - [ ] personalNoteSection
@@ -68,11 +69,16 @@
 
 
 --------
+- [ ] hosting
+    - [ ] google firebase
+    - [ ] cloudflare worker?
+- [ ] posthog for analytics
+--------
 
 
 Why do websites look like clones?
 Because conversion beats originality. The playbook is predictable: bold promise, social proof, urgency, bright Call-to-Action. That jolt of FOMO? Designed.
 
-These aren’t brochures, they’re fine-tuned decision engines guiding you to enter your credit card details. 
+These aren’t brochures, they’re fine-tuned decision engines guiding you to enter your credit card detail. 
 
 Ready to peek into the belly of the beast?

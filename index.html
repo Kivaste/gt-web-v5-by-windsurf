@@ -47,15 +47,13 @@
         <p class="data-story__intro">I don't know who you are, but I do know that you are browsing on <span id="storyDeviceArticle"></span><strong><span id="storyDeviceNoun">—</span></strong> and you got here <span id="storyReferrerSentence">—</span></p>
         <p class="data-story__hint">I don't know where you are exactly, but if you want me to guess* then use the button below.</p>
         <div class="data-story__actions">
-          <button type="button" id="btnFetchIP" class="btn-primary">Guess my location</button>
+          <button type="button" id="btnFetchIP" class="btn-primary" data-i18n="slides.dataTrail.guessButton">Guess my location</button>
         </div>
         <div class="data-story__location-card">
           <p class="data-story__location" id="storyLocation" aria-live="polite">
             <span id="storyLocationPlace" class="data-story__location-place">&nbsp;</span>
             <span id="storyLocationConnector" class="data-story__location-connector"></span>
             <span id="storyLocationISP" class="data-story__location-isp"></span>
-            <span id="storyLocationHyphen" class="data-story__location-hyphen"></span>
-            <span id="storyLocationASN" class="data-story__location-asn"></span>
           </p>
         </div>
         <small class="data-story__location-note" data-i18n="slides.dataTrail.note">* Fetching a rough, IP address based location (no GPS)</small>

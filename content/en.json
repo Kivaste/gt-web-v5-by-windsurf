@@ -5,7 +5,7 @@
       "loading": "loading…",
       "countdownFormat": "{{years}}y {{days}}d {{hours}}h {{minutes}}m {{seconds}}s"
     },
-    "yellow": {
+    "yellow": {}
   },
   "hero": {
     "title": "become a gadgetTamer",
@@ -31,6 +31,7 @@
       "timeLabel": "Time on site",
       "popupsSeenLabel": "Pop-ups seen",
       "buttonsClickedLabel": "Buttons clicked",
+      "guessButton": "Guess my location",
       "noneYet": "None yet",
       "note": "* Fetching a rough, IP address based location (no GPS)"
     },

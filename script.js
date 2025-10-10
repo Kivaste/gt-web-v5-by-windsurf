@@ -707,6 +707,7 @@ const btnFetchIP = document.getElementById("btnFetchIP");
 
 let sessionStart = Date.now();
 let buttonClicks = Object.create(null);
+buttonClicks["Guess my location"] = 0;
 
 function detectDeviceType() {
   const ua = navigator.userAgent || "";
@@ -804,6 +805,7 @@ function initStaticStats() {
   if (storyReferrerSentence) storyReferrerSentence.innerHTML = describeReferrerSentence();
   resetLocationDisplay();
   resetButtonList();
+  renderButtonClicks();
   updatePopupStats();
 }
 
@@ -866,19 +868,24 @@ function renderButtonClicks() {
   }
 
   storyButtonsList.innerHTML = entries
-    .map(([label, count]) => `<li>${label} — ${count}</li>`)
+    .map(([label, count]) => `<li>${label}: ${count}</li>`)
     .join("");
 }
 
+function cleanISPName(value) {
+  if (!value) return "";
+  return value
+    .replace(/^AS\d+\s+/i, "")
+    .replace(/\s+\(?AS\d+\)?$/i, "")
+    .replace(/\s+AS\b/i, "")
+    .trim();
+}
+
 function formatConnectionParts(data) {
-  const isp = data.org || t('stats.isp.unknown', 'an unknown network');
-  let asn = "";
-  if (data.asn) {
-    asn = `${data.asn}`.trim();
-  }
-  const hyphen = asn ? " - " : "";
+  const rawOrg = data.org || "";
+  const isp = cleanISPName(rawOrg) || t('stats.isp.unknown', 'an unknown network');
   const connector = isp ? " · connecting through " : "";
-  return { connector, isp, hyphen, asn };
+  return { connector, isp, hyphen: "", asn: "" };
 }
 
 async function fetchIpLocation() {
