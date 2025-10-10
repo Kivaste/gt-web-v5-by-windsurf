@@ -15,8 +15,11 @@
   },
   "slides": {
     "whySimilar": {
-      "title": "Why Do All Websites Look the Same?",
-      "intro": "Homepages, landing pages, sales pages—often impersonal, copy-paste templates. But there's a reason: proven patterns that work. Feeling the \"rush\" and urgency is part of the formula.",
+      "title": "Why do websites look like clones?",
+      "paragraph1": "Websites aren't brochures. They're fine-tuned decision engines nudging you to one outcome: your credit card.",
+      "paragraph2": "The rush? The urgency? The pressure? Not signs of excitement! That's conversion optimization you're feeling.",
+      "paragraph3": "Ready to peek into the belly of the beast?"
+    },
     "specialOffer": {
       "title": "Special Offer",
       "copy": "🚨 Special Offer Banner - creates urgency, pushes you to act fast! 🚨"
@@ -52,7 +55,7 @@
       "note": "Note: Many browsers now block third-party cookies by default. Retargeting still happens via newer tricks (first-party tracking, server-side stitching, hashed emails). The game evolves."
     },
     "abTesting": {
-      "title": "A/B Testing: stop guessing, start splitting",
+      "title": "A/B Testing: survival of the fittest",
       "lede": "Marketing opinions are free. Evidence is expensive. Here's the cheap version:",
       "points": [
         "Pick one thing to mess with: headline, button text, price anchoring, whatever.",
