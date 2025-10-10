@@ -22,23 +22,20 @@
       "note": "iga veebisait on loodud haarama su tähelepanu ja juhtima sind otsuseni — sisesta oma kaardiandmed. Lõhume selle illusiooni!"
     },
     "specialOffer": {
-      "title": "Eripakkumine",
-      "copy": "🚨 Eripakkumine — loome kiireloomulisuse, et sa tegutseksid! 🚨"
+      "title": "Eripakkumine"
     },
     "dataTrail": {
-      "title": "Sinu andmejälg (ehk: sinu brauser on pealekaebaja)",
-      "lede": "Rahune — peaaegu iga sait jälgib sarnast infot. Me lihtsalt räägime sellest ausalt.",
+      "title": "Andmed > Nafta",
       "browserLabel": "Brauser",
       "osLabel": "OS",
       "deviceLabel": "Seade",
       "referrerLabel": "Viitaja",
       "locationLabel": "Asukoht (IP)",
-      "refreshButton": "Värskenda",
       "timeLabel": "Aeg lehel",
       "popupsSeenLabel": "Avanenud hüpikaknaid",
       "buttonsClickedLabel": "Vajutatud nuppe",
       "noneYet": "Veel pole",
-      "note": "Märkus: toome IP-põhise ligikaudse asukoha (pole GPS-i — ainult linn/maakond/riik sinu IP põhjal)."
+      "note": "* Tuvastame ligikaudse IP-aadressi põhise asukoha (pole GPS-i)"
     },
     "cookies": {
       "title": "Kõigile meeldivad küpsised! (kuni need sind jälitavad) 🍪",

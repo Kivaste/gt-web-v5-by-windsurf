@@ -7,12 +7,19 @@ let seconds = 99;
 
 // Countdown DOM reference
 const countdownEl = document.getElementById("countdown");
+const inlineCountdownSelector = '[data-countdown-el]';
 let countdownTimerId = null;
 
 function updateCountdownText() {
-  if (!countdownEl) return;
+  const targets = [];
+  if (countdownEl) targets.push(countdownEl);
+  document.querySelectorAll(inlineCountdownSelector).forEach((el) => targets.push(el));
+  if (!targets.length) return;
   const template = t('banner.red.countdownFormat', '{{years}}y {{days}}d {{hours}}h {{minutes}}m {{seconds}}s');
-  countdownEl.textContent = formatTemplate(template, { years, days, hours, minutes, seconds });
+  const text = formatTemplate(template, { years, days, hours, minutes, seconds });
+  targets.forEach((el) => {
+    el.textContent = text;
+  });
 }
 
 function applyHeroTitleVariant() {
@@ -68,7 +75,7 @@ function tickCountdown() {
 }
 
 function startCountdownIfNeeded() {
-  if (!countdownEl) return;
+  if (!countdownEl && !document.querySelector(inlineCountdownSelector)) return;
   if (countdownTimerId !== null) return;
   updateCountdownText();
   countdownTimerId = window.setInterval(tickCountdown, 1000);
@@ -229,8 +236,11 @@ mediaReduce.addEventListener?.("change", (e) => (reduceMotion = e.matches));
 
 // Core DOM references
 const bannerSlide = document.getElementById("bannerSlide");
+const redBannerSlide = document.getElementById("redBannerSlide");
+const yellowBanner = document.getElementById("yellowBanner");
 const redBanner = document.getElementById("redBanner");
 const freeMaterialsSlide = document.getElementById("freeMaterialsSlide");
+const dataTrailSection = document.getElementById("dataTrailSection");
 const whyPopupSlide = document.getElementById("whyPopupSection");
 
 // ===== Slide Controller =====
@@ -240,10 +250,12 @@ class SlideController {
     this.index = 0;
     this.locked = false;
     this.bannerIndex = -1;
+    this.redBannerIndex = -1;
     this.activeTransition = Promise.resolve();
     this.unlockTimer = null;
     this.redBannerShown = false;
     this.freeMaterialsIndex = -1;
+    this.dataTrailIndex = -1;
     this.whyPopupIndex = -1;
 
     this.refresh();
@@ -255,8 +267,10 @@ class SlideController {
   refresh() {
     this.slides = Array.from(document.querySelectorAll('.slide'));
     this.bannerIndex = this.slides.indexOf(bannerSlide);
+    this.redBannerIndex = this.slides.indexOf(redBannerSlide);
     this.freeMaterialsIndex = this.slides.indexOf(freeMaterialsSlide);
     this.whyPopupIndex = this.slides.indexOf(whyPopupSlide);
+    this.dataTrailIndex = this.slides.indexOf(dataTrailSection);
   }
 
   setupObserver() {
@@ -358,25 +372,20 @@ class SlideController {
     trackTopReturn(index);
   }
 
-  updateRedBanner() {
+  updateRedBanner(forceShow = false) {
     if (!redBanner) return;
-    const passedBanner = this.bannerIndex !== -1 && this.index > this.bannerIndex;
-    const atOrBeyondFree = this.freeMaterialsIndex !== -1 && this.index >= this.freeMaterialsIndex;
+    const atRedBannerSlide = this.redBannerIndex !== -1 && this.index === this.redBannerIndex;
+    const atDataTrailSlide = this.dataTrailIndex !== -1 && this.index === this.dataTrailIndex;
+    const shouldShow = forceShow || atRedBannerSlide || atDataTrailSlide;
 
-    if (atOrBeyondFree) {
-      redBanner.classList.remove('is-visible');
-      document.body.classList.remove('red-banner-visible');
-      return;
-    }
-
-    if (passedBanner) {
+    if (shouldShow) {
       if (!this.redBannerShown) {
         redBanner.classList.add('is-visible');
         document.body.classList.add('red-banner-visible');
         this.redBannerShown = true;
         startCountdownIfNeeded();
       }
-    } else {
+    } else if (this.redBannerShown) {
       redBanner.classList.remove('is-visible');
       document.body.classList.remove('red-banner-visible');
       this.redBannerShown = false;
@@ -449,23 +458,22 @@ function handleWheel(e) {
 
   if (slideController.locked) return;
 
-  // Accumulate wheel delta
+  // Accumulate wheel delta magnitude
   wheelDelta += Math.abs(e.deltaY);
 
   // Clear existing wheel timeout
   clearTimeout(wheelTimeout);
 
-  // Set a new timeout to reset the accumulated delta
+  // Reset accumulation after a short pause
   wheelTimeout = setTimeout(() => {
     wheelDelta = 0;
-  }, 150); // Reset after 150ms of no scrolling
+  }, 150);
 
-  // Only proceed if we've accumulated enough delta or it's a "big" scroll
+  // Require either several small ticks or one large tick
   if (wheelDelta < 50 && Math.abs(e.deltaY) < 50) return;
 
-  // Reset accumulated delta
+  // Trigger slide move and cooldown
   wheelDelta = 0;
-
   const direction = e.deltaY > 0 ? 1 : -1;
   goToRelative(direction, { source: 'wheel' });
   const cooldown = reduceMotion ? 700 : 720;
@@ -683,14 +691,18 @@ window.addEventListener("scroll", () => {
 }, { passive: true });
 
 // ===== Data Trail: live stats =====
-const storyDevice = document.getElementById("storyDevice");
-const storyReferrer = document.getElementById("storyReferrer");
+const storyDeviceArticle = document.getElementById("storyDeviceArticle");
+const storyDeviceNoun = document.getElementById("storyDeviceNoun");
+const storyReferrerSentence = document.getElementById("storyReferrerSentence");
 const storyLocation = document.getElementById("storyLocation");
-const storyISP = document.getElementById("storyISP");
-const storyASN = document.getElementById("storyASN");
+const storyLocationPlace = document.getElementById("storyLocationPlace");
+const storyLocationConnector = document.getElementById("storyLocationConnector");
+const storyLocationISP = document.getElementById("storyLocationISP");
+const storyLocationHyphen = document.getElementById("storyLocationHyphen");
+const storyLocationASN = document.getElementById("storyLocationASN");
 const storyTime = document.getElementById("storyTime");
 const storyPopups = document.getElementById("storyPopups");
-const storyButtons = document.getElementById("storyButtons");
+const storyButtonsList = document.getElementById("storyButtonsList");
 const btnFetchIP = document.getElementById("btnFetchIP");
 
 let sessionStart = Date.now();
@@ -763,16 +775,35 @@ function describeDevice() {
   return "a device";
 }
 
-function describeReferrer() {
+function describeReferrerSentence() {
   const referrer = document.referrer;
-  if (!referrer) return "straight from the address bar";
-  return `from ${getReferrerHost()}`;
+  if (!referrer) {
+    return "by typing or pasting gadgetTamer.com <strong>directly to your address bar</strong>.";
+  }
+  const host = getReferrerHost();
+  if (!host || host === t('stats.referrer.direct', 'Direct')) {
+    return "by typing or pasting gadgetTamer.com <strong>directly to your address bar</strong>.";
+  }
+  return `by clicking a link on <strong>${host}</strong>.`;
+}
+
+function splitArticleAndNoun(text) {
+  if (!text) return { article: "", noun: "" };
+  const match = text.match(/^(a|an)\s+/i);
+  if (!match) return { article: "", noun: text };
+  const article = match[0];
+  const noun = text.slice(article.length);
+  return { article, noun };
 }
 
 function initStaticStats() {
-  if (storyDevice) storyDevice.textContent = describeDevice();
-  if (storyReferrer) storyReferrer.textContent = describeReferrer();
-  if (storyButtons) storyButtons.textContent = storyButtons.dataset.defaultText || t('slides.dataTrail.noneYet', 'None yet');
+  const devicePhrase = describeDevice();
+  const { article, noun } = splitArticleAndNoun(devicePhrase);
+  if (storyDeviceArticle) storyDeviceArticle.textContent = article;
+  if (storyDeviceNoun) storyDeviceNoun.textContent = noun || "—";
+  if (storyReferrerSentence) storyReferrerSentence.innerHTML = describeReferrerSentence();
+  resetLocationDisplay();
+  resetButtonList();
   updatePopupStats();
 }
 
@@ -799,37 +830,80 @@ document.addEventListener("click", (e) => {
   renderButtonClicks();
 });
 
+function setLocationDisplay(place, connector, isp, hyphen, asn) {
+  if (storyLocation) {
+    const hasContent = Boolean((place && place.trim()) || (isp && isp.trim()) || (asn && asn.trim()));
+    storyLocation.classList.toggle("is-populated", hasContent);
+  }
+  if (storyLocationPlace) {
+    const safePlace = place === undefined || place === null || place === "" ? "\u00A0" : place;
+    storyLocationPlace.textContent = safePlace;
+  } else if (storyLocation) {
+    storyLocation.textContent = place || "\u00A0";
+  }
+  if (storyLocationConnector) storyLocationConnector.textContent = connector || "";
+  if (storyLocationISP) storyLocationISP.textContent = isp || "";
+  if (storyLocationHyphen) storyLocationHyphen.textContent = hyphen || "";
+  if (storyLocationASN) storyLocationASN.textContent = asn || "";
+}
+
+function resetLocationDisplay() {
+  setLocationDisplay(undefined, "", "", "", "");
+}
+
+function resetButtonList() {
+  if (!storyButtonsList) return;
+  const defaultText = storyButtonsList.dataset.defaultText || t('slides.dataTrail.noneYet', 'None yet');
+  storyButtonsList.innerHTML = `<li>${defaultText}</li>`;
+}
+
 function renderButtonClicks() {
-  if (!storyButtons) return;
+  if (!storyButtonsList) return;
   const entries = Object.entries(buttonClicks).sort((a, b) => b[1] - a[1]).slice(0, 8);
   if (!entries.length) {
-    storyButtons.textContent = storyButtons.dataset.defaultText || t('slides.dataTrail.noneYet', 'None yet');
+    resetButtonList();
     return;
   }
-  storyButtons.textContent = entries.map(([k, v]) => `${k} — ${v}`).join(', ');
+
+  storyButtonsList.innerHTML = entries
+    .map(([k, v]) => `<li>${k} — ${v}</li>`)
+    .join("");
+}
+
+function formatConnectionParts(data) {
+  const isp = data.org || t('stats.isp.unknown', 'an unknown network');
+  let asn = "";
+  if (data.asn) {
+    asn = `${data.asn}`.trim();
+  }
+  const hyphen = asn ? " - " : "";
+  return { isp, hyphen, asn };
 }
 
 async function fetchIpLocation() {
   if (!storyLocation) return;
   try {
-    storyLocation.textContent = `(${t('stats.location.loading', 'Loading…')})`;
-    if (storyISP) storyISP.textContent = t('stats.isp.loading', 'Loading…');
-    if (storyASN) storyASN.textContent = t('stats.asn.loading', 'Loading…');
+    setLocationDisplay("", "", "", "", "");
     const res = await fetch("https://ipapi.co/json/");
     if (!res.ok) throw new Error("IP service unavailable");
     const data = await res.json();
     const city = data.city || "";
     const region = data.region || "";
     const country = data.country_name || data.country || "";
-    const parts = [city, region, country].filter(Boolean);
-    const place = parts.length ? parts.join(", ") : t('stats.location.unknown', 'Unknown');
-    storyLocation.textContent = `(${place})`;
-    if (storyISP) storyISP.textContent = data.org || t('stats.isp.unknown', 'Unknown');
-    if (storyASN) storyASN.textContent = data.asn ? `${data.asn} ${data.asn_name || ''}`.trim() : t('stats.asn.unknown', 'Unknown');
+    const placeParts = [city, region, country].filter(Boolean);
+    const place = placeParts.length ? placeParts.join(", ") : t('stats.location.unknown', 'Unknown location');
+    const { isp, hyphen, asn } = formatConnectionParts(data);
+    const connectorText = isp ? " · connecting through " : "";
+    setLocationDisplay(place, connectorText, isp, hyphen, asn);
   } catch (err) {
-    storyLocation.textContent = `(${t('stats.location.unavailable', 'Unavailable')})`;
-    if (storyISP) storyISP.textContent = t('stats.isp.unavailable', 'Unavailable');
-    if (storyASN) storyASN.textContent = t('stats.asn.unavailable', 'Unavailable');
+    const place = t('stats.location.unavailable', 'Location unavailable');
+    const fallback = {
+      org: t('stats.isp.unavailable', 'unavailable network'),
+      asn: ""
+    };
+    const { isp, hyphen, asn } = formatConnectionParts(fallback);
+    const connectorText = isp ? " · connecting through " : "";
+    setLocationDisplay(place, connectorText, isp, hyphen, asn);
   }
 }
 btnFetchIP?.addEventListener("click", (event) => {
@@ -971,5 +1045,4 @@ document.addEventListener("DOMContentLoaded", async () => {
   slideController.setupObserver();
   initStaticStats();
   checkPopupWhySection();
-  fetchIpLocation();
 });

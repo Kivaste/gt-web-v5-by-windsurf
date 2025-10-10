@@ -1,7 +1,7 @@
 {
   "banner": {
     "red": {
-      "message": "Act fast? Take your time — ends in:",
+      "message": "<s>Act fast</s> Take your time, ends in:",
       "loading": "loading…",
       "countdownFormat": "{{years}}y {{days}}d {{hours}}h {{minutes}}m {{seconds}}s"
     },
@@ -22,25 +22,22 @@
       "copy": "🚨 Special Offer Banner — create urgency, make you act fast! 🚨"
     },
     "dataTrail": {
-      "title": "Your Data Trail (aka: your browser is a snitch)",
-      "lede": "Relax—this is the kind of stuff almost every site watches. We're just telling you about it like decent humans.",
+      "title": "Data > Oil",
       "browserLabel": "Browser",
       "osLabel": "OS",
       "deviceLabel": "Device",
       "referrerLabel": "Referrer",
-      "locationLabel": "Location (IP)",
       "refreshButton": "Refresh",
       "timeLabel": "Time on site",
       "popupsSeenLabel": "Pop-ups seen",
       "buttonsClickedLabel": "Buttons clicked",
       "noneYet": "None yet",
-      "note": "Note: We fetch a rough, IP‑based location automatically (no GPS — just city/region/country from your IP)."
+      "note": "* Fetching a rough, IP address based location (no GPS)"
     },
     "cookies": {
       "title": "Everybody loves cookies! (until they follow you) 🍪",
       "lede": "Not the chocolate-chip kind. Cookies are tiny text crumbs your browser saves so sites can remember things about you. Handy… and also a little clingy.",
       "firstParty": "<strong>First-party cookies:</strong> set by the site you're on — logins, carts, \"remember me,\" that sort of useful stuff.",
-      "thirdParty": "<strong>Third-party cookies:</strong> set by outsiders embedded on the page (ad networks, social widgets, analytics). That's how the same folks can spot you across many sites.",
       "sessionPersistent": "<strong>Session vs. persistent:</strong> session cookies vanish when you close the tab; persistent cookies stick around for days or months, like glitter after a craft accident.",
       "retargTitle": "Retargeting in 4 steps (aka \"why am I seeing those exact shoes?\")",
       "retargStep1": "You check out Product X on Site A. A tiny \"ad pixel\" from AdCo loads.",

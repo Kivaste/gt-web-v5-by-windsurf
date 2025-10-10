@@ -8,7 +8,7 @@
 </head>
 <body>
   <div id="redBanner" class="top-banner" aria-live="polite">
-    <span class="top-banner-text" data-i18n="banner.red.message">Act fast? Take your time — ends in:</span>
+    <span class="top-banner-text" data-i18n="banner.red.message"><s>Act fast</s> Take your time, ends in:</span>
     <span id="countdown" class="top-banner-countdown" data-i18n="banner.red.loading">loading…</span>
   </div>
   <header class="hero slide" data-slide-title="Welcome">
@@ -32,20 +32,38 @@
 
     <!-- Banner slide: yellow banner centered like other content -->
     <section class="slide" id="bannerSlide" data-slide-title="Special Offer">
-      <div class="banner" id="yellowBanner" aria-live="polite" data-i18n="banner.yellow.message">
-        🚨 Special Offer Banner — create urgency, make you act fast! 🚨
+      <div class="banner" id="yellowBanner" aria-live="polite">
+        <span class="banner__copy" data-i18n="banner.yellow.message">🚨 Special Offer Banner — create urgency, make you act fast! 🚨</span>
       </div>
     </section>
 
+    <!-- Transition slide showing the red banner only -->
+    <section class="slide" id="redBannerSlide" data-slide-title="Slow Down"></section>
+
     <!-- Data Trail -->
     <section id="dataTrailSection" class="slide" data-slide-title="Data Trail">
-      <h2 data-i18n="slides.dataTrail.title">Your Data Trail (aka: your browser is a snitch)</h2>
-      <p data-i18n="slides.dataTrail.lede">Relax—this is the kind of stuff almost every site watches. We're just telling you about it like decent humans.</p>
+      <h2 data-i18n="slides.dataTrail.title">Data &gt; Oil</h2>
       <div class="data-story">
-        <p>I don't know who you are, but I do know that you are browsing on <strong><span id="storyDevice">—</span></strong>. You came here <strong><span id="storyReferrer">—</span></strong>. I don't know where you are exactly, but if you want me to guess* then <a href="#" id="btnFetchIP" class="linklike">click here</a> <span id="storyLocation" class="story-location">—</span>.</p>
-        <p>You've been on this site for <strong><span id="storyTime">00:00</span></strong> and you've seen <strong><span id="storyPopups">0/3</span></strong> pop-ups. You have clicked these buttons: <span id="storyButtons" data-default-text="None yet">None yet</span>. Your connection is currently routed through <strong><span id="storyISP">—</span></strong> (<span id="storyASN">—</span>).</p>
+        <p class="data-story__intro">I don't know who you are, but I do know that you are browsing on <span id="storyDeviceArticle"></span><strong><span id="storyDeviceNoun">—</span></strong> and you got here <span id="storyReferrerSentence">—</span></p>
+        <p class="data-story__hint">I don't know where you are exactly, but if you want me to guess* then use the button below.</p>
+        <div class="data-story__actions">
+          <button type="button" id="btnFetchIP" class="btn-primary">Guess my location</button>
+        </div>
+        <div class="data-story__location-card">
+          <p class="data-story__location" id="storyLocation" aria-live="polite">
+            <span id="storyLocationPlace" class="data-story__location-place">&nbsp;</span>
+            <span id="storyLocationConnector" class="data-story__location-connector"></span>
+            <span id="storyLocationISP" class="data-story__location-isp"></span>
+            <span id="storyLocationHyphen" class="data-story__location-hyphen"></span>
+            <span id="storyLocationASN" class="data-story__location-asn"></span>
+          </p>
+        </div>
+        <small class="data-story__location-note" data-i18n="slides.dataTrail.note">* Fetching a rough, IP address based location (no GPS)</small>
+        <p>You've been on this site for <strong><span id="storyTime">00:00</span></strong>, seen <strong><span id="storyPopups">0/3</span></strong> pop-ups and clicked these buttons:</p>
+        <ul id="storyButtonsList" class="data-story__buttons" data-default-text="None yet">
+          <li>None yet</li>
+        </ul>
       </div>
-      <small data-i18n="slides.dataTrail.note">* Note: We fetch a rough, IP‑based location automatically (no GPS — just city/region/country from your IP).</small>
     </section>
 
     <!-- Cookies -->

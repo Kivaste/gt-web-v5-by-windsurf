@@ -1,12 +1,11 @@
+
+
 .data-story {
-  background: rgba(15, 23, 42, 0.04);
-  border: 1px solid rgba(15, 23, 42, 0.08);
-  border-radius: 14px;
-  padding: clamp(18px, 3vw, 28px);
   font-size: 1.05rem;
   line-height: 1.6;
   color: #111;
-  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.05);
+  display: grid;
+  gap: clamp(10px, 1.4vw, 16px);
 }
 
 .data-story p {
@@ -15,6 +14,14 @@
 
 .data-story p:last-of-type {
   margin-bottom: 0;
+}
+
+.data-story__intro {
+  margin-bottom: 6px;
+}
+
+.data-story__hint {
+  margin-bottom: 4px;
 }
 
 .data-story .linklike {
@@ -32,6 +39,91 @@
 
 .data-story #storyButtons {
   font-style: italic;
+}
+
+
+.data-story__actions {
+  display: flex;
+  justify-content: center;
+  margin: clamp(0px, 0.8vw, 6px) 0 0;
+}
+
+.data-story__actions .btn-primary {
+  min-width: 200px;
+}
+
+.data-story__location {
+  text-align: center;
+  font-weight: 600;
+  color: #0f172a;
+  min-height: 1.5em;
+  margin: 0 0 clamp(14px, 2vw, 20px);
+  opacity: 0;
+  transition: opacity 240ms ease;
+  will-change: opacity;
+}
+
+.data-story__location-place {
+  font-weight: 700;
+}
+
+.data-story__location-connector {
+  font-weight: 500;
+}
+
+.data-story__location-isp {
+  font-weight: 700;
+}
+
+.data-story__location-hyphen,
+.data-story__location-asn {
+  font-weight: 500;
+}
+
+.data-story__location.is-populated {
+  opacity: 1;
+}
+
+.data-story__buttons {
+  list-style: disc;
+  padding-left: 22px;
+  margin: 0 0 clamp(16px, 2vw, 22px);
+  display: grid;
+  gap: 6px;
+  font-weight: 500;
+  color: #0f172a;
+}
+
+.data-story__buttons li {
+  text-align: left;
+}
+
+
+.data-story__location-card {
+  border: 1px solid rgba(15, 23, 42, 0.14);
+  border-radius: 12px;
+  padding: clamp(8px, 2.1vw, 14px);
+  background: rgba(15, 23, 42, 0.02);
+  display: grid;
+  gap: 4px;
+  margin-bottom: -12px;
+}
+
+.data-story__location-note {
+  display: block;
+  font-size: 0.8rem;
+  color: #94a3b8;
+  margin-top: 0;
+  margin-left: 16px;
+}
+
+@media (max-width: 640px) {
+  .data-story__location {
+    min-height: 3.2em;
+  }
+  .data-story__location-card {
+    padding: clamp(10px, 5vw, 18px);
+  }
 }
 
 .slide[data-slide-title="Personal Note"] .comment-form {
@@ -340,15 +432,24 @@ section h2 {
 }
 
 #bannerSlide {
-  align-content: center;
-  justify-items: center;
+  position: relative;
+  min-height: 100vh;
+  padding: clamp(24px, 6vh, 52px) 0;
+  overflow: hidden;
+}
+
+#redBannerSlide {
+  position: relative;
+  min-height: 100vh;
 }
 
 /* =========================
    Special offer banner
    ========================= */
 .banner {
-  position: relative;
+  position: absolute;
+  left: 50%;
+  top: 50%;
   background: var(--yellow);
   color: #111;
   height: var(--banner-height);
@@ -366,6 +467,25 @@ section h2 {
   align-items: center;
   justify-content: center;
   text-align: center;
+  transform: translate(-50%, -50%);
+  transition: transform 420ms var(--ease-smooth), opacity 420ms var(--ease-smooth);
+  box-shadow: 0 18px 36px rgba(248, 180, 0, 0.2);
+}
+
+.banner.is-transitioning {
+  pointer-events: none;
+}
+
+.banner.is-exiting {
+  transform: translate(-50%, calc(-100% - clamp(24px, 6vh, 52px)));
+  opacity: 0;
+}
+
+.banner__copy {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(10px, 3vw, 18px);
 }
 
 .top-banner {
@@ -546,6 +666,13 @@ footer {
   background: var(--green);
   color: #fff;
   box-shadow: 0 8px 20px rgba(40, 167, 69, 0.28);
+  border: none;
+  border-radius: 6px;
+  padding: 12px 22px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
 }
 
 .btn-primary:hover {
