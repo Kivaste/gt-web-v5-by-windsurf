@@ -1,13 +1,12 @@
-- [ ] redBanner
-    - [ ] title: <s>Act fast</s> Take your time, ends in:
+- [x] redBanner
+    - [x] title: <s>Act fast</s> Take your time, ends in:
 - [x] heroSlide
     - [x] title: become a gadgetTamer
-- [ ] whySimilar
-    - [ ] title: Why Do All Websites Look the Same? => Why do websites look like clones?
-    - [ ] replace current copy with 3 paragraphs:
-        - [ ] Websites aren't brochures, rather fine-tuned decision engines guiding you to one endgame - entering your credit card details. 
-        - [ ] The rush, the urgency, the pressure? That's not excitement, that's conversion optimization you're feeling. 
-        - [ ] Ready to peek into the belly of the beast?
+- [x] whySimilar
+    - [x] replace current copy with 3 paragraphs:
+        - [x] Websites aren't brochures, rather fine-tuned decision engines guiding you to one endgame - entering your credit card details. 
+        - [x] The rush, the urgency, the pressure? That's not excitement, that's conversion optimization you're feeling. 
+        - [x] Ready to peek into the belly of the beast?
 - [x] bannerSlide
     - [x] title: Special Offer
 - [x] redBannerSlide

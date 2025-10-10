@@ -9,7 +9,7 @@
 }
 
 .data-story p {
-  margin: 0 0 14px;
+  margin: 0 0 1em;
 }
 
 .data-story p:last-of-type {
@@ -83,6 +83,10 @@
   text-align: left;
 }
 
+.slide:not(.hero) p {
+  margin: 0 0 1em;
+}
+
 .data-story__stats {
   margin: 0 0 8.4px;
 }
@@ -126,8 +130,8 @@
 }
 
 #whySimilar h2 {
-  justify-self: center;
-  text-align: center;
+  justify-self: start;
+  text-align: left;
 }
 
 #whySimilar p {
@@ -147,7 +151,7 @@
 
 .cookies-copy {
   text-align: left;
-  margin: 0 0 clamp(16px, 2vw, 20px);
+  margin: 0 0 1em;
 }
 
 .hooked-embed {
@@ -176,7 +180,7 @@
 .ab-test-options {
   display: grid;
   gap: clamp(10px, 1.8vw, 16px);
-  margin: clamp(4px, 1.2vw, 10px) 0 clamp(8px, 2vw, 14px);
+  margin: clamp(4px, 1.2vw, 10px) 0 clamp(18px, 3vw, 32px);
   justify-items: start;
   width: 100%;
 }
@@ -215,7 +219,7 @@
 }
 
 .ab-test-copy {
-  margin: clamp(4px, 1vw, 8px) 0 clamp(8px, 1.6vw, 12px);
+  margin: 0 0 1em;
   max-width: min(600px, 100%);
   min-height: 1.6em;
   text-align: left;
@@ -226,7 +230,7 @@
 }
 
 #abTestingSection p {
-  margin: clamp(4px, 1vw, 8px) 0;
+  margin: 0 0 1em;
   text-align: left;
   max-width: min(620px, 100%);
 }
@@ -236,7 +240,7 @@
 }
 
 #freeMaterialsSlide p {
-  margin: clamp(10px, 2vw, 18px) 0;
+  margin: 0 0 1em;
   text-align: left;
   max-width: min(620px, 100%);
 }
@@ -259,7 +263,7 @@
 }
 
 #callToActionSection p {
-  margin: clamp(10px, 2vw, 18px) 0;
+  margin: 0 0 1em;
   text-align: left;
   max-width: min(620px, 100%);
 }
