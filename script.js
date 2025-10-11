@@ -22,6 +22,37 @@ function updateCountdownText() {
   });
 }
 
+let activePopupReason = null;
+
+function onPopupPrimaryClick() {
+  if (!popupOpen) return;
+  const reason = activePopupReason;
+  hidePopup();
+  if (reason === "fast-to-top") {
+    const hash = btnPrimary?.getAttribute("data-target-hash") || furthestSlideHash();
+    const targetSlide = hash ? document.querySelector(hash) : null;
+    if (targetSlide) {
+      const targetIndex = slideController.slides.indexOf(targetSlide);
+      if (targetIndex !== -1) {
+        goToSlide(targetIndex, { source: "popup" });
+      } else {
+        targetSlide.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth" });
+      }
+    } else {
+      goToSlide(Math.max(1, highestSlideIndexReached), { source: "popup" });
+    }
+  }
+}
+
+function onPopupSecondaryClick() {
+  if (!popupOpen) return;
+  const reason = activePopupReason;
+  hidePopup();
+  if (reason === "fast-to-top") {
+    goToSlide(0, { source: "popup" });
+  }
+}
+
 function applyHeroTitleVariant() {
   const heroTitleEl = document.querySelector('[data-i18n="hero.title"]');
   if (!heroTitleEl) return;
@@ -396,6 +427,19 @@ class SlideController {
 const slideController = new SlideController();
 
 let highestSlideIndexReached = 0;
+const slideIdByIndex = [];
+(function buildSlideIndexMap() {
+  const slides = Array.from(document.querySelectorAll('.slide'));
+  slides.forEach((slide, idx) => {
+    slideIdByIndex[idx] = slide.getAttribute('id') || null;
+  });
+})();
+
+function furthestSlideHash() {
+  const targetIndex = Math.max(0, highestSlideIndexReached);
+  const id = slideIdByIndex[targetIndex];
+  return id ? `#${id}` : '#whySimilar';
+}
 
 function trackTopReturn(index) {
   if (index > highestSlideIndexReached) {
@@ -493,6 +537,9 @@ const popupDesc = popup?.querySelector("#popupDesc");
 const btnPrimary = popup?.querySelector(".btn-primary");
 const btnGhost = popup?.querySelector(".btn-ghost");
 
+btnPrimary?.addEventListener("click", onPopupPrimaryClick);
+btnGhost?.addEventListener("click", onPopupSecondaryClick);
+
 const whySection = document.getElementById("whyPopupSection");
 
 const seenReasons = new Set();
@@ -510,16 +557,16 @@ let focusRestoreEl = null;
 
 const POPUP_COPY = {
   "why-popup": {
-    title: "Here's your pop-up!",
-    desc: "This is exactly what we were talking about—timed to grab your attention right when you're learning about pop-ups. Meta, right?",
-    primary: "I see what you did there",
-    secondary: "Close"
+    title: "Right on cue",
+    descHtml: `<div style="width:100%;height:0;padding-bottom:66%;position:relative;overflow:hidden;"><img src="content/the-universe-tim-and-eric-mind-blown.gif" alt="Mind blown" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" /></div>`,
+    primary: "Mindblowing",
+    secondary: "Annoying as f"
   },
   "fast-to-top": {
     title: "Back to the top already?",
-    desc: "Here's a 2‑minute summary of what matters most — and your next step.",
-    primary: "Get the summary",
-    secondary: "No thanks"
+    desc: "what are you doing back in the top of the page? The content is down there!",
+    primary: "jump back to where you were",
+    secondary: "Start from the top"
   },
   "exit-intent": {
     title: "Wait — before you go",
@@ -552,9 +599,28 @@ function showPopup(reason, originRect = null) {
   updatePopupStats();
 
   const copy = POPUP_COPY[reason] || POPUP_COPY["why-popup"];
-  popupTitle && (popupTitle.textContent = copy.title);
-  popupDesc && (popupDesc.textContent = copy.desc);
-  btnPrimary && (btnPrimary.textContent = copy.primary);
+  if (popupTitle) {
+    popupTitle.textContent = copy.title;
+  }
+  if (popupDesc) {
+    if (copy.descHtml) {
+      popupDesc.innerHTML = copy.descHtml;
+    } else if (typeof copy.desc === "string") {
+      popupDesc.textContent = copy.desc;
+    } else {
+      popupDesc.textContent = "";
+    }
+  }
+  if (btnPrimary) {
+    btnPrimary.textContent = copy.primary;
+    if (reason === "fast-to-top") {
+      btnPrimary.setAttribute("data-target-hash", furthestSlideHash());
+      btnPrimary.dataset.popupAction = "return";
+    } else {
+      btnPrimary.removeAttribute("data-target-hash");
+      delete btnPrimary.dataset.popupAction;
+    }
+  }
   btnGhost && (btnGhost.textContent = copy.secondary);
 
   setPopupOriginFromRect(originRect);
@@ -564,6 +630,7 @@ function showPopup(reason, originRect = null) {
   document.body.classList.add("modal-open");
   document.documentElement.classList.add("modal-open");
   document.removeEventListener('keydown', handleKeyNav);
+  activePopupReason = reason;
   popupOpen = true;
 
   focusRestoreEl = document.activeElement instanceof HTMLElement ? document.activeElement : null;
@@ -589,6 +656,7 @@ function hidePopup() {
   popup.removeEventListener("click", onBackdropClick);
   popupClose?.removeEventListener("click", hidePopup);
   popupGhostClose?.removeEventListener("click", hidePopup);
+  activePopupReason = null;
 
   if (focusRestoreEl) { focusRestoreEl.focus(); focusRestoreEl = null; }
 }

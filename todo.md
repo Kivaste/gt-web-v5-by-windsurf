@@ -35,20 +35,20 @@
 - [ ] whyPopupSection
     - [ ] title: Why a Pop-Up?
     - [ ] popup why-popup
-        - [ ] title: Here's your pop-up! => Right on cue
+        - [x] title: Here's your pop-up! => Right on cue
         - [ ] body: brain explode meme
-        - [ ] buttons green: Mindblowing 
-        - [ ] buttons gray: Annoying as f
-    - [ ] popup fast-to-top
-        - [ ] title: Back to the top already?
+        - [x] buttons green: Mindblowing 
+        - [x] buttons gray: Annoying as f
+    - [ ] popup exit-intent
+        - [ ] title:  Wait — before you go
         - [ ] body: I encourage you to not leave before doing the interactive exercise
         - [ ] buttons green: Start from the top
         - [ ] buttons gray: Jump back to where you were
-    - [ ] popup exit-intent
-        - [ ] title: Wait — before you go
+    - [ ] popup fast-to-top
+        - [ ] title: Back to the top already?
         - [ ] body: what are you doing back in the top of the page? The content is down there!
-        - [ ] buttons green: Start from the top
-        - [ ] buttons gray: jump back to where you were
+        - [ ] buttons green: jump back to where you were
+        - [ ] buttons gray: Start from the top
 - [ ] trustSection
     - [ ] title: Why Trust Us?
 - [ ] faqSection
