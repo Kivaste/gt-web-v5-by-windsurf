@@ -146,3 +146,33 @@ loneliness
 
 I've experienced the highest peaks and the lowerst black holes. Hence I'm a Technophile and a Tehnocritic (Technosceptic)
 
+
+
+Reorder slides:
+
+Hero / Welcome — header#heroSlide
+Why Similar — section#whySimilar
+Special Offer — section#bannerSlide
+Slow Down — section#redBannerSlide
+Personal Note — section#personalNoteSection
+Call to Action — section#callToActionSection
+Free Materials — section#freeMaterialsSlide
+Tricks — section#tricksSection - add this
+Data Trail — section#dataTrailSection
+Cookies — section#cookiesSection
+A/B Testing — section#abTestingSection
+Recap — section#recapSection
+About gadgetTaming — section#aboutGadgetTamingSection
+About Me — section#aboutMeSection
+
+
+remove these:
+
+Why Pop-Up — section#whyPopupSection
+Hooked Model Exercise — section#hookedModelSlide
+Social Trust — section#trustSection
+FAQ — section#faqSection
+Pricing — section#pricingSection
+Footer — footer.slide
+
+

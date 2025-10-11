@@ -13,8 +13,7 @@
   </div>
   <header id="heroSlide" class="hero slide" data-slide-title="Welcome">
     <div class="hero-body">
-      <h1 data-i18n="hero.title">become a gadgetTamer</h1>
-      <p data-i18n="hero.subtitle">your first training on Taming your devices starts now</p>
+      <h1 data-i18n="hero.title">Why is this page so weird?</h1>
     </div>
     <a href="#whySimilar" class="scroll-indicator" aria-label="Scroll to next section">
       <svg class="scroll-indicator__arrow" viewBox="0 0 32 32" aria-hidden="true">
@@ -40,6 +39,61 @@
 
     <!-- Transition slide showing the red banner only -->
     <section class="slide" id="redBannerSlide" data-slide-title="Slow Down"></section>
+
+    <section id="personalNoteSection" class="slide" data-slide-title="Personal Note">
+      <h2 data-i18n="slides.personalNote.title">Personal Note</h2>
+      <p data-i18n="slides.personalNote.body">My marketing partner says I'm doing everything wrong—and she's almost always right. The tested way usually works, but I'd rather trust honesty over polish. Sure, that loses some sales, but at least I sleep better at night (well… when I'm not writing web pages at 4:30 AM).</p>
+
+      <!-- Simple comment form -->
+      <div class="comment-form">
+        <h3 data-i18n="slides.personalNote.commentHeading">You must be furious - I got the math wrong!</h3>
+        <textarea 
+          id="commentText" 
+          placeholder="so here's a comment box for you to leave angry corrections ... and that's how they get the engagement"
+          data-i18n-placeholder="slides.personalNote.commentPlaceholder"
+          rows="3"
+          style="width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 8px; font-family: inherit; font-size: 1rem; resize: vertical;"
+        ></textarea>
+        <div class="comment-email-wrapper">
+          <label for="commentEmail" data-i18n="slides.personalNote.commentEmailLabel">If you wish to get a reply then leave your email</label>
+          <input 
+            type="email"
+            id="commentEmail"
+            placeholder="Not a newsletter signup"
+            data-i18n-placeholder="slides.personalNote.commentEmailPlaceholder"
+          />
+        </div>
+        <button 
+          type="button" 
+          id="btnPostComment"
+          class="comment-submit"
+          disabled
+          data-i18n="slides.personalNote.commentButton"
+        >Post comment</button>
+        <div id="commentStatus" class="comment-status" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section id="callToActionSection" class="slide" data-slide-title="Call to Action">
+      <h2 data-i18n="slides.callToAction.title">Call to Action</h2>
+      <p data-i18n="slides.callToAction.body">At the end of the day, there's one road: Order. Buy. Add to cart. Book. Send inquiry. All paths lead here.</p>
+      <p data-i18n="slides.callToAction.offer"><strong>What you can buy:</strong> Courses, insights, and practical guidance on taming the wild world of online marketing and website building. Not sold as magic tricks—but as real tools you can actually use.</p>
+      <div class="cta">
+        <button type="button" data-i18n="buttons.ctaPrimary">👉 Take Action Now</button>
+      </div>
+    </section>
+
+    <section class="slide" id="freeMaterialsSlide" data-slide-title="Free Materials">
+      <h2 data-i18n="slides.freeMaterials.title">Free Materials</h2>
+      <p data-i18n="slides.freeMaterials.body">Are they really free though? The price is your email and attention. 
+      <br>If this page doesn't convince you today, perhaps tomorrow's inbox message will?</p>
+    </section>
+
+    <section id="tricksSection" class="slide" data-slide-title="Tricks">
+      <h2 data-i18n="slides.tricks.title">Persuasion tricks in plain sight</h2>
+      <p data-i18n="slides.tricks.body">Your interface isn't neutral. Inline prompts, progress meters, social proof — every microcopy push keeps you moving forward.</p>
+      <p data-i18n="slides.tricks.body2">Spot scarcity timers, risk-free guarantees, checkout microcopy, unstoppable autoplay. Once you see them, you can't unsee them.</p>
+    </section>
 
     <!-- Data Trail -->
     <section id="dataTrailSection" class="slide" data-slide-title="Data Trail">
@@ -85,148 +139,8 @@
       <p data-i18n="slides.abTesting.line5">That's called A/B testing. Like Darwin for profits.</p>
     </section>
 
-    <!-- Hooked Model Interactive Exercise -->
-    <section id="hookedModelSlide" class="slide" data-slide-title="Hooked Model Exercise">
-      <h2>Let's get you HOOKED!</h2>
-      <div class="hooked-embed hooked-embed--solo">
-        <div class="hooked-embed-placeholder" role="status" aria-live="polite">
-          Interactive exercise embed coming soon…
-        </div>
-      </div>
-    </section>
-
-    <section class="slide" id="freeMaterialsSlide" data-slide-title="Free Materials">
-      <h2 data-i18n="slides.freeMaterials.title">Free Materials</h2>
-      <p data-i18n="slides.freeMaterials.body">Are they really free though? The price is your email and attention. 
-      <br>If this page doesn't convince you today, perhaps tomorrow's inbox message will?</p>
-    </section>
-
     <!-- For popup trigger -->
-    <section id="whyPopupSection" class="slide" data-slide-title="Why Pop-Up">
-      <h2 data-i18n="slides.whyPopup.title">Why a Pop-Up?</h2>
-      <p data-i18n="slides.whyPopup.body">A pop-up is your final "don't leave yet" moment—either timed with urgency or triggered as you close the page. Annoying? Maybe. Effective? Definitely.</p>
-    </section>
-
-    <section id="trustSection" class="slide" data-slide-title="Trust">
-      <h2 data-i18n="slides.whyTrustUs.title">Why Trust Us?</h2>
-      <p data-i18n="slides.whyTrustUs.body">We've got courses completed, certificates earned, happy clients, glowing reviews, and yes—we love showing that off. Because credibility matters.</p>
-    </section>
-
-    <section id="faqSection" class="slide" data-slide-title="FAQ">
-      <h2 data-i18n="slides.faq.title">FAQ</h2>
-      <div class="faq-accordion" data-accordion>
-        <article class="faq-item">
-          <button
-            type="button"
-            class="faq-question"
-            id="faq-question-1"
-            aria-expanded="false"
-            aria-controls="faq-answer-1"
-            data-accordion-trigger
-            data-i18n="slides.faq.q1"
-          >Is this really different from any other landing page?</button>
-          <div
-            class="faq-answer"
-            id="faq-answer-1"
-            role="region"
-            aria-labelledby="faq-question-1"
-            data-accordion-panel
-            data-i18n="slides.faq.a1"
-            hidden
-          >Yes—because you now understand the persuasion levers being pulled on every other site you visit.</div>
-        </article>
-        <article class="faq-item">
-          <button
-            type="button"
-            class="faq-question"
-            id="faq-question-2"
-            aria-expanded="false"
-            aria-controls="faq-answer-2"
-            data-accordion-trigger
-            data-i18n="slides.faq.q2"
-          >Do I have to buy something right away?</button>
-          <div
-            class="faq-answer"
-            id="faq-answer-2"
-            role="region"
-            aria-labelledby="faq-question-2"
-            data-accordion-panel
-            data-i18n="slides.faq.a2"
-            hidden
-          >Nope. Absorb the lessons, sleep on it, and come back when you're ready to tame your gadgets.</div>
-        </article>
-        <article class="faq-item">
-          <button
-            type="button"
-            class="faq-question"
-            id="faq-question-3"
-            aria-expanded="false"
-            aria-controls="faq-answer-3"
-            data-accordion-trigger
-            data-i18n="slides.faq.q3"
-          >Will you spam me?</button>
-          <div
-            class="faq-answer"
-            id="faq-answer-3"
-            role="region"
-            aria-labelledby="faq-question-3"
-            data-accordion-panel
-            data-i18n="slides.faq.a3"
-            hidden
-          >Only with useful, human-written insights. No bots, no blanket blasts.</div>
-        </article>
-      </div>
-    </section>
-
-    <section id="pricingSection" class="slide" data-slide-title="Pricing">
-      <h2 data-i18n="slides.pricing.title">Pricing & Guarantees</h2>
-      <p data-i18n="slides.pricing.body">Everything sounds amazing—but wait, there's always a discount lurking at the end. Don't forget: money-back guarantee, because peace of mind sells as well as the product itself.</p>
-    </section>
-
-    <section id="personalNoteSection" class="slide" data-slide-title="Personal Note">
-      <h2 data-i18n="slides.personalNote.title">Personal Note</h2>
-      <p data-i18n="slides.personalNote.body">My marketing partner says I'm doing everything wrong—and she's almost always right. The tested way usually works, but I'd rather trust honesty over polish. Sure, that loses some sales, but at least I sleep better at night (well… when I'm not writing web pages at 4:30 AM).</p>
-
-      <!-- Simple comment form -->
-      <div class="comment-form">
-        <h3 data-i18n="slides.personalNote.commentHeading">You must be furious - I got the math wrong!</h3>
-        <textarea 
-          id="commentText" 
-          placeholder="so here's a comment box for you to leave angry corrections ... and that's how they get the engagement"
-          data-i18n-placeholder="slides.personalNote.commentPlaceholder"
-          rows="3"
-          style="width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 8px; font-family: inherit; font-size: 1rem; resize: vertical;"
-        ></textarea>
-        <div class="comment-email-wrapper">
-          <label for="commentEmail" data-i18n="slides.personalNote.commentEmailLabel">If you wish to get a reply then leave your email</label>
-          <input 
-            type="email"
-            id="commentEmail"
-            placeholder="Not a newsletter signup"
-            data-i18n-placeholder="slides.personalNote.commentEmailPlaceholder"
-          />
-        </div>
-        <button 
-          type="button" 
-          id="btnPostComment"
-          class="comment-submit"
-          disabled
-          data-i18n="slides.personalNote.commentButton"
-        >Post comment</button>
-        <div id="commentStatus" class="comment-status" aria-live="polite"></div>
-      </div>
-    </section>
-
-    <section id="aboutMeSection" class="slide" data-slide-title="About Me">
-      <h2 data-i18n="slides.aboutMe.title">About Me</h2>
-      <p data-i18n="slides.aboutMe.body">I'm building this approach because personality beats blandness. I believe trust grows when you see I'm not hiding behind cookie-cutter methods. This is who I am.</p>
-    </section>
-
-    <section id="aboutGadgetTamingSection" class="slide" data-slide-title="About gadgetTaming">
-      <h2 data-i18n="slides.aboutGadgetTaming.title">About gadgetTaming</h2>
-      <p data-i18n="slides.aboutGadgetTaming.body">gadgetTaming is about understanding how websites really work, beyond templates, and using that knowledge to stand out. Yes, the end goal is sales, but done in a way that respects human attention.</p>
-    </section>
-
+    
     <section id="recapSection" class="slide" data-slide-title="Recap">
       <h2 data-i18n="slides.recap.title">Recap</h2>
       <ul class="recap-list">
@@ -238,19 +152,16 @@
       </ul>
     </section>
 
-    <section id="callToActionSection" class="slide" data-slide-title="Call to Action">
-      <h2 data-i18n="slides.callToAction.title">Call to Action</h2>
-      <p data-i18n="slides.callToAction.body">At the end of the day, there's one road: Order. Buy. Add to cart. Book. Send inquiry. All paths lead here.</p>
-      <p data-i18n="slides.callToAction.offer"><strong>What you can buy:</strong> Courses, insights, and practical guidance on taming the wild world of online marketing and website building. Not sold as magic tricks—but as real tools you can actually use.</p>
-      <div class="cta">
-        <button type="button" data-i18n="buttons.ctaPrimary">👉 Take Action Now</button>
-      </div>
+    <section id="aboutGadgetTamingSection" class="slide" data-slide-title="About gadgetTaming">
+      <h2 data-i18n="slides.aboutGadgetTaming.title">About gadgetTaming</h2>
+      <p data-i18n="slides.aboutGadgetTaming.body">gadgetTaming is about understanding how websites really work, beyond templates, and using that knowledge to stand out. Yes, the end goal is sales, but done in a way that respects human attention.</p>
+    </section>
+
+    <section id="aboutMeSection" class="slide" data-slide-title="About Me">
+      <h2 data-i18n="slides.aboutMe.title">About Me</h2>
+      <p data-i18n="slides.aboutMe.body">I'm building this approach because personality beats blandness. I believe trust grows when you see I'm not hiding behind cookie-cutter methods. This is who I am.</p>
     </section>
   </main>
-
-  <footer class="slide" data-slide-title="Footer">
-    <p data-i18n="footer.copy">&copy; 2024 gadgetTamer. Honest websites. Better sleep. Stronger trust.</p>
-  </footer>
 
   <!-- Modal popup -->
   <div id="popup" class="popup" role="dialog" aria-modal="true" aria-labelledby="popupTitle" aria-describedby="popupDesc" aria-hidden="true">

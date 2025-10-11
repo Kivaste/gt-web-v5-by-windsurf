@@ -10,10 +10,9 @@
     }
   },
   "hero": {
-    "title": "HÕIVU OMA DIGITSEADMED",
-    "titleDefault": "HÕIVU OMA DIGITSEADMED",
-    "titlePhone": "HÕIVU OMA TELEFON",
-    "subtitle": "Sest see on sinu esimene õppetund, kuidas saada gadgetTameriks"
+    "title": "Miks see leht niivõrd veider on?",
+    "titleDefault": "Miks see leht niivõrd veider on?",
+    "titlePhone": "Miks see leht niivõrd veider on?"
   },
   "slides": {
     "whySimilar": {
@@ -69,6 +68,11 @@
     "freeMaterials": {
       "title": "Tasuta materjalid",
       "body": "Kas need on päriselt tasuta? Hind on sinu e-post ja tähelepanu.<br>Kui see leht ei veena sind täna, ehk veenab homme saabuv kiri."
+    },
+    "tricks": {
+      "title": "Mõjutusnipid otse silme ees",
+      "body": "Ükski kasutajaliides pole neutraalne. Vahepeal teksti, edenemisribad, sotsiaalne tõestus — iga mikrotekst nügib sind edasi.",
+      "body2": "Pane tähele nappuse-taimikuid, riskivabu garantiisid, kassasõnumeid, peatumatut automängu. Kui korra näed, ei unusta enam."
     },
     "whyPopup": {
       "title": "Miks hüpikaken?",
@@ -132,6 +136,10 @@
     },
     "dialog": {
       "closeAria": "Sulge dialoog"
+    },
+    "shared": {
+      "primary": "Sain aru",
+      "secondary": "Sulge"
     }
   },
   "buttons": {

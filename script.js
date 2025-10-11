@@ -208,20 +208,8 @@ function applyTranslations() {
 }
 
 function localizePopupCopy() {
-  const map = {
-    'why-popup': 'whyPopup',
-    'fast-to-top': 'fastToTop',
-    'exit-intent': 'exitIntent'
-  };
-
-  Object.entries(map).forEach(([reason, key]) => {
-    const entry = POPUP_COPY[reason];
-    if (!entry) return;
-    entry.title = t(`popups.${key}.title`, entry.title);
-    entry.desc = t(`popups.${key}.desc`, entry.desc);
-    entry.primary = t(`popups.${key}.primary`, entry.primary);
-    entry.secondary = t(`popups.${key}.secondary`, entry.secondary);
-  });
+  if (!popupOpen) return;
+  applyPopupCopy(getSharedPopupCopy());
 }
 
 async function loadLocaleData(locale) {
@@ -406,8 +394,7 @@ class SlideController {
   updateRedBanner(forceShow = false) {
     if (!redBanner) return;
     const atRedBannerSlide = this.redBannerIndex !== -1 && this.index === this.redBannerIndex;
-    const atDataTrailSlide = this.dataTrailIndex !== -1 && this.index === this.dataTrailIndex;
-    const shouldShow = forceShow || atRedBannerSlide || atDataTrailSlide;
+    const shouldShow = forceShow || atRedBannerSlide;
 
     if (shouldShow) {
       if (!this.redBannerShown) {
@@ -416,10 +403,16 @@ class SlideController {
         this.redBannerShown = true;
         startCountdownIfNeeded();
       }
+      if (atRedBannerSlide) {
+        scheduleRedBannerPopup();
+      } else {
+        clearRedBannerPopupTimer();
+      }
     } else if (this.redBannerShown) {
       redBanner.classList.remove('is-visible');
       document.body.classList.remove('red-banner-visible');
       this.redBannerShown = false;
+      clearRedBannerPopupTimer();
     }
   }
 }
@@ -550,32 +543,62 @@ function markSeen(reason) {
   seenReasons.add(reason);
 }
 
+function hasSeenAnyPopup() {
+  return seenReasons.size > 0;
+}
+
 let popupOpen = false;
 let lastScrollY = window.scrollY;
 let lastScrollT = performance.now();
 let focusRestoreEl = null;
+let redBannerPopupTimer = null;
 
-const POPUP_COPY = {
-  "why-popup": {
-    title: "Right on cue",
-    descHtml: `<div style="width:100%;height:0;padding-bottom:66%;position:relative;overflow:hidden;"><img src="content/the-universe-tim-and-eric-mind-blown.gif" alt="Mind blown" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" /></div>`,
-    primary: "Mindblowing",
-    secondary: "Annoying as f"
-  },
-  "fast-to-top": {
-    title: "Back to the top already?",
-    desc: "what are you doing back in the top of the page? The content is down there!",
-    primary: "jump back to where you were",
-    secondary: "Start from the top"
-  },
-  "exit-intent": {
-    title: "Wait — before you go",
-    desc: "Grab the free field guide to spotting persuasion patterns so your attention stays yours.",
-    primary: "Get the field guide",
-    secondary: "No thanks"
+const POPUP_REASONS_LIST = ["why-popup", "fast-to-top", "exit-intent", "red-banner"];
+
+function clearRedBannerPopupTimer() {
+  if (redBannerPopupTimer) {
+    clearTimeout(redBannerPopupTimer);
+    redBannerPopupTimer = null;
   }
-};
-const POPUP_REASONS_LIST = ["why-popup", "fast-to-top", "exit-intent"];
+}
+
+function scheduleRedBannerPopup() {
+  if (hasSeenAnyPopup() || popupOpen) return;
+  clearRedBannerPopupTimer();
+  redBannerPopupTimer = setTimeout(() => {
+    redBannerPopupTimer = null;
+    if (hasSeenAnyPopup() || popupOpen) return;
+    if (slideController?.index !== undefined && slideController.redBannerIndex !== -1 && slideController.index !== slideController.redBannerIndex) {
+      return;
+    }
+    const rect = redBannerSlide?.getBoundingClientRect?.() || null;
+    showPopup('red-banner', rect);
+  }, 1300);
+}
+
+function getSharedPopupCopy() {
+  return {
+    title: t('slides.whyPopup.title', "Why a Pop-Up?"),
+    desc: t('slides.whyPopup.body', "A pop-up is your final \"don't leave yet\" moment—either timed with urgency or triggered as you close the page. Annoying? Maybe. Effective? Definitely."),
+    primary: t('popups.shared.primary', "Got it"),
+    secondary: t('popups.shared.secondary', "Close")
+  };
+}
+
+function applyPopupCopy(copy) {
+  if (popupTitle) {
+    popupTitle.textContent = copy.title;
+  }
+  if (popupDesc) {
+    popupDesc.textContent = copy.desc;
+  }
+  if (btnPrimary) {
+    btnPrimary.textContent = copy.primary;
+  }
+  if (btnGhost) {
+    btnGhost.textContent = copy.secondary;
+  }
+}
 
 function setPopupOriginFromRect(rect) {
   if (!popupScaler) return;
@@ -593,26 +616,15 @@ function setPopupOriginFromRect(rect) {
 
 function showPopup(reason, originRect = null) {
   if (!popup || popupOpen) return;
-  if (hasSeen(reason)) return;
+  if (hasSeenAnyPopup()) return;
 
+  clearRedBannerPopupTimer();
   markSeen(reason);
   updatePopupStats();
 
-  const copy = POPUP_COPY[reason] || POPUP_COPY["why-popup"];
-  if (popupTitle) {
-    popupTitle.textContent = copy.title;
-  }
-  if (popupDesc) {
-    if (copy.descHtml) {
-      popupDesc.innerHTML = copy.descHtml;
-    } else if (typeof copy.desc === "string") {
-      popupDesc.textContent = copy.desc;
-    } else {
-      popupDesc.textContent = "";
-    }
-  }
+  const copy = getSharedPopupCopy();
+  applyPopupCopy(copy);
   if (btnPrimary) {
-    btnPrimary.textContent = copy.primary;
     if (reason === "fast-to-top") {
       btnPrimary.setAttribute("data-target-hash", furthestSlideHash());
       btnPrimary.dataset.popupAction = "return";
@@ -621,7 +633,6 @@ function showPopup(reason, originRect = null) {
       delete btnPrimary.dataset.popupAction;
     }
   }
-  btnGhost && (btnGhost.textContent = copy.secondary);
 
   setPopupOriginFromRect(originRect);
 
@@ -694,7 +705,7 @@ function onPopupKeydown(e) {
 function checkPopupWhySection() {
   if (!whySection) return;
   const reason = "why-popup";
-  if (hasSeen(reason) || popupOpen) return;
+  if (hasSeenAnyPopup() || popupOpen) return;
 
   const rect = whySection.getBoundingClientRect();
   const viewportMid = window.innerHeight / 2;
@@ -723,7 +734,7 @@ function checkPopupWhySection() {
 // Trigger 2: rapid scroll to top
 function onFastTopScroll() {
   const reason = "fast-to-top";
-  if (hasSeen(reason) || popupOpen) return;
+  if (hasSeenAnyPopup() || popupOpen) return;
 
   const now = performance.now();
   const y = window.scrollY;
@@ -744,7 +755,7 @@ function onFastTopScroll() {
 // Trigger 3: exit intent
 function onMouseOut(e) {
   const reason = "exit-intent";
-  if (hasSeen(reason) || popupOpen) return;
+  if (hasSeenAnyPopup() || popupOpen) return;
   if (!e.relatedTarget && e.clientY <= 0) {
     showPopup(reason, null);
     document.removeEventListener("mouseout", onMouseOut);
@@ -1251,7 +1262,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   if (scrollIndicator) {
     window.setTimeout(() => {
       scrollIndicator.classList.add("is-visible");
-    }, 1800);
+    }, 1500);
   }
 
   slideController.refresh();

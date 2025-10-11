@@ -8,10 +8,9 @@
     "yellow": {}
   },
   "hero": {
-    "title": "become a gadgetTamer",
-    "titleDefault": "become a gadgetTamer",
-    "titlePhone": "become a gadgetTamer",
-    "subtitle": "your first training on Taming your {{target}} starts now"
+    "title": "Why is this page so weird?",
+    "titleDefault": "Why is this page so weird?",
+    "titlePhone": "Why is this page so weird?"
   },
   "slides": {
     "whySimilar": {
@@ -67,6 +66,11 @@
     "freeMaterials": {
       "title": "Free Materials",
       "body": "Are they really free though? The price is your email and attention.<br>If this page doesn't convince you today, perhaps tomorrow's inbox message will?"
+    },
+    "tricks": {
+      "title": "Persuasion tricks in plain sight",
+      "body": "Your interface isn't neutral. Inline prompts, progress meters, social proof — every microcopy push keeps you moving forward.",
+      "body2": "Spot scarcity timers, risk-free guarantees, checkout microcopy, unstoppable autoplay. Once you see them, you can't unsee them."
     },
     "whyPopup": {
       "title": "Why a Pop-Up?",
@@ -141,6 +145,10 @@
     },
     "dialog": {
       "closeAria": "Close dialog"
+    },
+    "shared": {
+      "primary": "I see what you did there",
+      "secondary": "Close"
     }
   },
   "buttons": {
