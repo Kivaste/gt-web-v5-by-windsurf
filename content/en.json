@@ -14,10 +14,10 @@
   },
   "slides": {
     "whySimilar": {
-      "title": "Why do websites look like clones?",
-      "paragraph1": "Websites aren't brochures. They're fine-tuned decision engines nudging you to one outcome: your credit card.",
-      "paragraph2": "The rush? The urgency? The pressure? Not signs of excitement! That's conversion optimization you're feeling.",
-      "paragraph3": "Ready to peek into the belly of the beast?"
+      "title": "Most websites look the same",
+      "paragraph1": "Their job is not to inform you, they're fine-tuned machines guiding you to enter your credit card.",
+      "paragraph2": "The urgency and pressure? Not signs of excitement! That's conversion optimization you're feeling.",
+      "paragraph3": "Let's dig deeper?"
     },
     "specialOffer": {
       "title": "Special Offer",
@@ -65,39 +65,32 @@
     },
     "freeMaterials": {
       "title": "Free Materials",
-      "body": "Are they really free though? The price is your email and attention.<br>If this page doesn't convince you today, perhaps tomorrow's inbox message will?"
+      "body": "The price is your email and attention. If this page doesn't convince you today, perhaps tomorrow's inbox message will?"
     },
     "tricks": {
       "title": "Persuasion tricks in plain sight",
       "body": "Your interface isn't neutral. Inline prompts, progress meters, social proof — every microcopy push keeps you moving forward.",
       "body2": "Spot scarcity timers, risk-free guarantees, checkout microcopy, unstoppable autoplay. Once you see them, you can't unsee them."
     },
-    "whyPopup": {
-      "title": "Why a Pop-Up?",
-      "body": "A pop-up is your final \"don't leave yet\" moment—either timed with urgency or triggered as you close the page. Annoying? Maybe. Effective? Definitely."
-    },
-    "whyTrustUs": {
-      "title": "Why Trust Us?",
-      "body": "We've got courses completed, certificates earned, happy clients, glowing reviews, and yes—we love showing that off. Because credibility matters."
-    },
-    "faq": {
-      "title": "FAQ",
-      "q1": "Is this really different from any other landing page?",
-      "a1": "Yes—because you now understand the persuasion levers being pulled on every other site you visit.",
-      "q2": "Do I have to buy something right away?",
-      "a2": "Nope. Absorb the lessons, sleep on it, and come back when you're ready to tame your gadgets.",
-      "q3": "Will you spam me?",
-      "a3": "Only with useful, human-written insights. No bots, no blanket blasts."
-    },
-    "pricing": {
-      "title": "Pricing & Guarantees",
-      "body": "Everything sounds amazing—but wait, there's always a discount lurking at the end. Don't forget: money-back guarantee, because peace of mind sells as well as the product itself."
-    },
     "personalNote": {
       "title": "Personal Note",
-      "body": "My marketing partner says I'm doing everything wrong—and she's almost always right. The tested way usually works, but I'd rather trust honesty over polish. Sure, that loses some sales, but at least I sleep better at night (well… when I'm not writing web pages at 4:30 AM).",
+      "body": "My gf's a marketer. Says this site breaks all the rules. <br><br>Good! Those rules Hooked me for years - games, videos, social feeds, porn, gambling, doomscrolling news. Ruined my sleep, physical and mental health, relationships. <br><br>I'm not anti-tech. I'm a techie, I love tech! I'm just anti-ad-driven-manipulative-design and against our attention being sold for pennies. You're not broken. Your brain's been hacked. Let's get it back by <strong>taming your <span class=\"personal-note-rotator\">phone</span></strong>",
+      "rotatingItems": [
+        "gadgets",
+        "phone",
+        "computer",
+        "attention",
+        "social media",
+        "tech",
+        "news",
+        "emails",
+        "ads"
+      ]
+    },
+    "comments": {
+      "title": "Comments",
       "commentHeading": "You must be furious - I got the math wrong!",
-      "commentPlaceholder": "so here's a comment box for you to leave your corrections ... angrily",
+      "commentPlaceholder": "99.99% DOES NOT EQUAL ONE IN A MILLION! IDIOT!\n\n(gotcha - got the engagement I was looking for)",
       "commentEmailLabel": "if you wish to get a reply then leave your email",
       "commentEmailPlaceholder": "if you wish to get a reply then leave your email",
       "commentButton": "Post comment"
@@ -107,6 +100,7 @@
       "body": "I'm building this approach because personality beats blandness. I believe trust grows when you see I'm not hiding behind cookie-cutter methods. This is who I am."
     },
     "aboutGadgetTaming": {
+      "title": "About gadgetTaming",
       "body": "gadgetTaming is about understanding how websites really work, beyond templates, and using that knowledge to stand out. Yes, the end goal is sales, but done in a way that respects human attention."
     },
     "recap": {
@@ -125,30 +119,14 @@
     }
   },
   "popups": {
-    "whyPopup": {
-      "title": "Here's your pop-up!",
-      "desc": "This is exactly what we were talking about—timed to grab your attention right when you're learning about pop-ups. Meta, right?",
-      "primary": "I see what you did there",
-      "secondary": "Close"
-    },
-    "fastToTop": {
-      "title": "Back to the top already?",
-      "desc": "Here's a 2‑minute summary of what matters most — and your next step.",
-      "primary": "Get the summary",
-      "secondary": "No thanks"
-    },
-    "exitIntent": {
-      "title": "Wait — before you go",
-      "desc": "Grab the free field guide to spotting persuasion patterns so your attention stays yours.",
-      "primary": "Get the field guide",
-      "secondary": "No thanks"
-    },
     "dialog": {
       "closeAria": "Close dialog"
     },
     "shared": {
-      "primary": "I see what you did there",
-      "secondary": "Close"
+      "title": "Why a Pop-Up?",
+      "desc": "A pop-up is your final \"don't leave yet\" moment—either timed with urgency or triggered as you close the page. Annoying? Maybe. Effective? Definitely.",
+      "primary": "I see what's going on!",
+      "secondary": "WTF is happening?"
     }
   },
   "buttons": {

@@ -15,19 +15,19 @@
     <div class="hero-body">
       <h1 data-i18n="hero.title">Why is this page so weird?</h1>
     </div>
-    <a href="#whySimilar" class="scroll-indicator" aria-label="Scroll to next section">
+    <button type="button" class="scroll-indicator" aria-label="Scroll to next section">
       <svg class="scroll-indicator__arrow" viewBox="0 0 32 32" aria-hidden="true">
         <path d="M5.2 10.4 L16 24 L26.8 10.4" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
       </svg>
-    </a>
+    </button>
   </header>
 
   <main>
     <section class="slide" id="whySimilar" data-slide-title="Why Similar">
-      <h2 data-i18n="slides.whySimilar.title">Why do websites look like clones?</h2>
-      <p data-i18n="slides.whySimilar.paragraph1">Websites aren't brochures. They're fine-tuned decision engines nudging you to one outcome: your credit card.</p>
-      <p data-i18n="slides.whySimilar.paragraph2">The rush? The urgency? The pressure? Not signs of excitement! That's conversion optimization you're feeling.</p>
-      <p data-i18n="slides.whySimilar.paragraph3">Ready to peek into the belly of the beast?</p>
+      <h2 data-i18n="slides.whySimilar.title">Most websites look the same</h2>
+      <p data-i18n="slides.whySimilar.paragraph1">Their job is not to inform you, they're fine-tuned machines guiding you to enter your credit card.</p>
+      <p data-i18n="slides.whySimilar.paragraph2">The urgency and pressure? Not signs of excitement! That's conversion optimization you're feeling.</p>
+      <p data-i18n="slides.whySimilar.paragraph3">Let's dig deeper?</p>
     </section>
 
     <!-- Banner slide: yellow banner centered like other content -->
@@ -42,36 +42,8 @@
 
     <section id="personalNoteSection" class="slide" data-slide-title="Personal Note">
       <h2 data-i18n="slides.personalNote.title">Personal Note</h2>
-      <p data-i18n="slides.personalNote.body">My marketing partner says I'm doing everything wrong—and she's almost always right. The tested way usually works, but I'd rather trust honesty over polish. Sure, that loses some sales, but at least I sleep better at night (well… when I'm not writing web pages at 4:30 AM).</p>
+      <p data-i18n="slides.personalNote.body">My gf's a marketer. Says this site breaks all the rules. <br><br>Good! Those rules Hooked me for years - games, videos, social feeds, porn, gambling, doomscrolling news. Ruined my sleep, physical and mental health, relationships. <br><br>I'm not anti-tech. I'm a techie, I love tech! I'm just anti-ad-driven-manipulative-design and against our attention being sold for pennies. You're not broken. Your brain's been hacked. Let's get it back by <strong>taming your <span class="personal-note-rotator">phone</span></strong></p>
 
-      <!-- Simple comment form -->
-      <div class="comment-form">
-        <h3 data-i18n="slides.personalNote.commentHeading">You must be furious - I got the math wrong!</h3>
-        <textarea 
-          id="commentText" 
-          placeholder="so here's a comment box for you to leave angry corrections ... and that's how they get the engagement"
-          data-i18n-placeholder="slides.personalNote.commentPlaceholder"
-          rows="3"
-          style="width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 8px; font-family: inherit; font-size: 1rem; resize: vertical;"
-        ></textarea>
-        <div class="comment-email-wrapper">
-          <label for="commentEmail" data-i18n="slides.personalNote.commentEmailLabel">If you wish to get a reply then leave your email</label>
-          <input 
-            type="email"
-            id="commentEmail"
-            placeholder="Not a newsletter signup"
-            data-i18n-placeholder="slides.personalNote.commentEmailPlaceholder"
-          />
-        </div>
-        <button 
-          type="button" 
-          id="btnPostComment"
-          class="comment-submit"
-          disabled
-          data-i18n="slides.personalNote.commentButton"
-        >Post comment</button>
-        <div id="commentStatus" class="comment-status" aria-live="polite"></div>
-      </div>
     </section>
 
     <section id="callToActionSection" class="slide" data-slide-title="Call to Action">
@@ -83,10 +55,51 @@
       </div>
     </section>
 
-    <section class="slide" id="freeMaterialsSlide" data-slide-title="Free Materials">
+    <section id="aboutMeSection" class="slide" data-slide-title="About Me">
+      <h2 data-i18n="slides.aboutMe.title">About Me</h2>
+      <p data-i18n="slides.aboutMe.body">I'm building this approach because personality beats blandness. I believe trust grows when you see I'm not hiding behind cookie-cutter methods. This is who I am.</p>
+    </section>
+
+    <section id="aboutGadgetTamingSection" class="slide" data-slide-title="About gadgetTaming">
+      <h2 data-i18n="slides.aboutGadgetTaming.title">About gadgetTaming</h2>
+      <p data-i18n="slides.aboutGadgetTaming.body">gadgetTaming is about understanding how websites really work, beyond templates, and using that knowledge to stand out. Yes, the end goal is sales, but done in a way that respects human attention.</p>
+    </section>
+
+    <section id="commentsSection" class="slide" data-slide-title="Comments">
+      <h2 data-i18n="slides.comments.title">Comments</h2>
+
+      <div class="comment-form">
+        <h3 data-i18n="slides.comments.commentHeading">You must be furious - I got the math wrong!</h3>
+        <textarea 
+          id="commentText" 
+          placeholder="99.99% DOES NOT EQUAL ONE IN A MILLION! IDIOT!&#10;&#10;(gotcha - got the engagement I was looking for)"
+          data-i18n-placeholder="slides.comments.commentPlaceholder"
+          rows="3"
+          style="width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 8px; font-family: inherit; font-size: 1rem; resize: vertical;"
+        ></textarea>
+        <div class="comment-email-wrapper">
+          <label for="commentEmail" data-i18n="slides.comments.commentEmailLabel">If you wish to get a reply then leave your email</label>
+          <input 
+            type="email"
+            id="commentEmail"
+            placeholder="Not a newsletter signup"
+            data-i18n-placeholder="slides.comments.commentEmailPlaceholder"
+          />
+        </div>
+        <button 
+          type="button" 
+          id="btnPostComment"
+          class="comment-submit"
+          disabled
+          data-i18n="slides.comments.commentButton"
+        >Post comment</button>
+        <div id="commentStatus" class="comment-status" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section id="freeMaterialsSlide" class="slide" data-slide-title="Free Materials">
       <h2 data-i18n="slides.freeMaterials.title">Free Materials</h2>
-      <p data-i18n="slides.freeMaterials.body">Are they really free though? The price is your email and attention. 
-      <br>If this page doesn't convince you today, perhaps tomorrow's inbox message will?</p>
+      <p data-i18n="slides.freeMaterials.body">The price is your email and attention. If this page doesn't convince you today, perhaps tomorrow's inbox message will?</p>
     </section>
 
     <section id="tricksSection" class="slide" data-slide-title="Tricks">
@@ -139,8 +152,6 @@
       <p data-i18n="slides.abTesting.line5">That's called A/B testing. Like Darwin for profits.</p>
     </section>
 
-    <!-- For popup trigger -->
-    
     <section id="recapSection" class="slide" data-slide-title="Recap">
       <h2 data-i18n="slides.recap.title">Recap</h2>
       <ul class="recap-list">
@@ -152,14 +163,13 @@
       </ul>
     </section>
 
-    <section id="aboutGadgetTamingSection" class="slide" data-slide-title="About gadgetTaming">
-      <h2 data-i18n="slides.aboutGadgetTaming.title">About gadgetTaming</h2>
-      <p data-i18n="slides.aboutGadgetTaming.body">gadgetTaming is about understanding how websites really work, beyond templates, and using that knowledge to stand out. Yes, the end goal is sales, but done in a way that respects human attention.</p>
-    </section>
-
-    <section id="aboutMeSection" class="slide" data-slide-title="About Me">
-      <h2 data-i18n="slides.aboutMe.title">About Me</h2>
-      <p data-i18n="slides.aboutMe.body">I'm building this approach because personality beats blandness. I believe trust grows when you see I'm not hiding behind cookie-cutter methods. This is who I am.</p>
+    <section id="callToActionSectionSecondary" class="slide" data-slide-title="Call to Action">
+      <h2 data-i18n="slides.callToAction.title">Call to Action</h2>
+      <p data-i18n="slides.callToAction.body">At the end of the day, there's one road: Order. Buy. Add to cart. Book. Send inquiry. All paths lead here.</p>
+      <p data-i18n="slides.callToAction.offer"><strong>What you can buy:</strong> Courses, insights, and practical guidance on taming the wild world of online marketing and website building. Not sold as magic tricks—but as real tools you can actually use.</p>
+      <div class="cta">
+        <button type="button" data-i18n="buttons.ctaPrimary">👉 Take Action Now</button>
+      </div>
     </section>
   </main>
 
@@ -168,11 +178,11 @@
     <div class="popup-scaler">
       <div class="popup-dialog" tabindex="-1">
         <button class="popup-close" aria-label="Close dialog" data-i18n-aria-label="popups.dialog.closeAria">×</button>
-        <h3 id="popupTitle" data-i18n="popups.exitIntent.title">Wait — before you go</h3>
-        <p id="popupDesc" data-i18n="popups.exitIntent.desc">Get our free field guide to spotting persuasion patterns (and keeping your attention yours).</p>
+        <h3 id="popupTitle" data-i18n="popups.shared.title">Why a Pop-Up?</h3>
+        <p id="popupDesc" data-i18n="popups.shared.desc">A pop-up is your final "don't leave yet" moment—either timed with urgency or triggered as you close the page. Annoying? Maybe. Effective? Definitely.</p>
         <div class="popup-actions">
-          <button class="btn-primary" data-i18n="popups.exitIntent.primary">Get the guide</button>
-          <button class="btn-ghost" data-close data-i18n="popups.exitIntent.secondary">No thanks</button>
+          <button class="btn-primary" data-i18n="popups.shared.primary">I see what's going on!</button>
+          <button class="btn-ghost" data-close data-i18n="popups.shared.secondary">WTF is happening?</button>
         </div>
       </div>
     </div>

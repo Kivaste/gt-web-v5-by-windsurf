@@ -134,97 +134,6 @@
   text-align: left;
 }
 
-#whySimilar p {
-  justify-self: stretch;
-  text-align: left;
-}
-
-#cookiesSection {
-  justify-items: stretch;
-  text-align: left;
-}
-
-#cookiesSection h2 {
-  margin-inline: 0;
-  width: auto;
-}
-
-.cookies-copy {
-  text-align: left;
-  margin: 0 0 1em;
-}
-
-.hooked-embed {
-  display: flex;
-  justify-content: center;
-}
-
-.hooked-embed--solo {
-  padding: clamp(20px, 4vw, 32px) 0;
-}
-
-.hooked-embed-placeholder {
-  display: grid;
-  place-items: center;
-  width: min(100%, 980px);
-  aspect-ratio: 16 / 9;
-  border: 2px dashed rgba(15, 23, 42, 0.22);
-  border-radius: 22px;
-  color: #0f172a;
-  font-weight: 600;
-  background: rgba(148, 163, 184, 0.08);
-  padding: clamp(20px, 3vw, 28px);
-  box-shadow: 0 32px 58px -40px rgba(15, 23, 42, 0.38);
-}
-
-.ab-test-options {
-  display: grid;
-  gap: clamp(10px, 1.8vw, 16px);
-  margin: clamp(4px, 1.2vw, 10px) 0 clamp(18px, 3vw, 32px);
-  justify-items: start;
-  width: 100%;
-}
-
-.ab-test-button {
-  width: clamp(200px, 36vw, 320px);
-  padding: clamp(12px, 2vw, 16px) clamp(18px, 3vw, 24px);
-  border-radius: 10px;
-  background: linear-gradient(135deg, #e2e8f0, #cbd5f5);
-  border: none;
-  color: #0f172a;
-  font-weight: 600;
-  font-size: clamp(0.95rem, 1.1vw + 0.4rem, 1.05rem);
-  box-shadow: 0 10px 22px -16px rgba(15, 23, 42, 0.4);
-  transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease, color 160ms ease;
-  text-align: center;
-  display: grid;
-  align-content: center;
-  gap: 6px;
-}
-
-.ab-test-button:is(:hover, :focus-visible) {
-  transform: translateY(-2px);
-  box-shadow: 0 16px 28px -18px rgba(15, 23, 42, 0.45);
-  background: linear-gradient(135deg, #d8def0, #bfc9e8);
-}
-
-.ab-test-button[aria-pressed="true"] {
-  background: linear-gradient(135deg, #22c55e, #16a34a);
-  color: #022c22;
-  box-shadow: 0 20px 36px -20px rgba(34, 197, 94, 0.6);
-}
-
-.ab-test-button[aria-pressed="true"]:is(:hover, :focus-visible) {
-  transform: translateY(-3px);
-}
-
-.ab-test-copy {
-  margin: 0 0 1em;
-  max-width: min(600px, 100%);
-  min-height: 1.6em;
-  text-align: left;
-}
-
 #abTestingSection {
   justify-items: start;
 }
@@ -245,98 +154,43 @@
   max-width: min(620px, 100%);
 }
 
-#personalNoteSection {
+#personalNoteSection,
+#commentsSection {
   justify-items: start;
 }
 
-#personalNoteSection .comment-form {
+#cookiesSection {
+  justify-items: start;
+}
+
+#cookiesSection h2 {
+  justify-self: start;
+  text-align: left;
+}
+
+.comment-form {
   justify-items: start;
   text-align: left;
 }
 
-#personalNoteSection .comment-form .comment-submit {
+.comment-form .comment-submit {
   justify-self: start;
+}
+
+.personal-note-rotator {
+  font-weight: 700;
 }
 
 #callToActionSection {
   justify-items: start;
 }
 
-#callToActionSection p {
+#callToActionSection p,
+#cookiesSection p,
+#cookiesSection .cookies-copy {
   margin: 0 0 1em;
   text-align: left;
   max-width: min(620px, 100%);
-}
-
-.faq-accordion {
-  width: 100%;
-  display: grid;
-  gap: clamp(12px, 2vw, 20px);
-}
-
-.faq-item {
-  border: 1px solid rgba(15, 23, 42, 0.12);
-  border-radius: 14px;
-  overflow: hidden;
-  background: rgba(255, 255, 255, 0.82);
-  box-shadow: 0 16px 36px -28px rgba(15, 23, 42, 0.35);
-  backdrop-filter: blur(6px);
-}
-
-.faq-question {
-  width: 100%;
-  padding: clamp(16px, 3vw, 22px) clamp(16px, 3vw, 28px);
-  font-size: clamp(1rem, 1.4vw + 0.4rem, 1.18rem);
-  font-weight: 600;
-  text-align: left;
-  border: none;
-  background: linear-gradient(130deg, rgba(248, 250, 252, 0.95), rgba(241, 245, 249, 0.85));
-  color: #0f172a;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: clamp(12px, 2vw, 18px);
-  transition: background 160ms ease, color 160ms ease, padding 160ms ease;
-}
-
-.faq-question::after {
-  content: "+";
-  font-size: 1.2em;
-  font-weight: 700;
-  color: inherit;
-  transition: transform 160ms ease;
-}
-
-.faq-question[aria-expanded="true"]::after {
-  transform: rotate(45deg);
-}
-
-.faq-question:is(:hover, :focus-visible) {
-  background: linear-gradient(130deg, rgba(226, 232, 240, 0.95), rgba(203, 213, 225, 0.85));
-  outline: none;
-}
-
-.faq-answer {
-  padding: clamp(16px, 3vw, 22px) clamp(16px, 3vw, 28px);
-  border-top: 1px solid rgba(15, 23, 42, 0.08);
-  line-height: 1.6;
-  color: rgba(15, 23, 42, 0.86);
-  background: rgba(248, 250, 252, 0.9);
-}
-
-@media (max-width: 640px) {
-  .hooked-embed-placeholder {
-    aspect-ratio: 10 / 9;
-  }
-
-  .ab-test-button {
-    width: min(100%, 340px);
-  }
-
-  .faq-question {
-    font-size: clamp(1rem, 3.6vw, 1.1rem);
-  }
 }
 
 @media (max-width: 640px) {
@@ -570,21 +424,18 @@ body.scrolling {
    Hero
    ========================= */
 .hero {
-  background: var(--hero-bg);
+  background: transparent;
   color: #000;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.06), 0 2px 6px rgba(0,0,0,0.04);
-  text-align: center;
-  padding: 80px 40px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-height: 100vh;
+  box-shadow: none;
+  position: relative;
+  overflow: hidden;
 }
 
 .hero h1 {
   font-size: 3rem;
   font-weight: 800;
-  margin-bottom: 30px;
+  margin: 0 auto 30px;
+  text-align: center;
   line-height: 1.2;
 }
 
@@ -594,7 +445,9 @@ body.scrolling {
   align-items: center;
   justify-content: center;
   flex: 1;
-  padding-top: clamp(80px, 14vh, 160px);
+  width: 100%;
+  padding-top: clamp(40px, 8vh, 100px);
+  padding-bottom: clamp(40px, 8vh, 100px);
 }
 
 .hero p {
@@ -606,11 +459,17 @@ body.scrolling {
 }
 
 .scroll-indicator {
-  margin-top: auto;
-  margin-bottom: clamp(28px, 5vh, 88px);
-  display: inline-block;
+  position: absolute;
+  left: 50%;
+  bottom: clamp(32px, 8vh, 80px);
+  transform: translate(-50%, 0);
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
   color: rgba(0, 0, 0, 0.22);
-  text-decoration: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
   animation: arrowFloat 2.4s ease-in-out infinite;
   transition: transform 180ms ease, color 180ms ease, opacity 260ms ease;
   opacity: 0;
@@ -637,8 +496,8 @@ body.scrolling {
 }
 
 @keyframes arrowFloat {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(8px); }
+  0%, 100% { transform: translate(-50%, 0); }
+  50% { transform: translate(-50%, 8px); }
 }
 
 /* =========================
@@ -774,7 +633,7 @@ section h2 {
 .cta {
   margin-top: 28px;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .cta button {

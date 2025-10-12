@@ -26,31 +26,14 @@ let activePopupReason = null;
 
 function onPopupPrimaryClick() {
   if (!popupOpen) return;
-  const reason = activePopupReason;
   hidePopup();
-  if (reason === "fast-to-top") {
-    const hash = btnPrimary?.getAttribute("data-target-hash") || furthestSlideHash();
-    const targetSlide = hash ? document.querySelector(hash) : null;
-    if (targetSlide) {
-      const targetIndex = slideController.slides.indexOf(targetSlide);
-      if (targetIndex !== -1) {
-        goToSlide(targetIndex, { source: "popup" });
-      } else {
-        targetSlide.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth" });
-      }
-    } else {
-      goToSlide(Math.max(1, highestSlideIndexReached), { source: "popup" });
-    }
-  }
+  slideController?.goNext?.({ source: "popup-primary" });
 }
 
 function onPopupSecondaryClick() {
   if (!popupOpen) return;
-  const reason = activePopupReason;
   hidePopup();
-  if (reason === "fast-to-top") {
-    goToSlide(0, { source: "popup" });
-  }
+  slideController?.goNext?.({ source: "popup-secondary" });
 }
 
 function applyHeroTitleVariant() {
@@ -173,6 +156,50 @@ function formatTemplate(template, values) {
   });
 }
 
+function getPersonalNoteRotatingItems() {
+  const key = 'slides.personalNote.rotatingItems';
+  const direct = lookup(translations, key);
+  if (Array.isArray(direct) && direct.length) return direct.slice();
+  const fallback = lookup(fallbackTranslations, key);
+  if (Array.isArray(fallback) && fallback.length) return fallback.slice();
+  return PERSONAL_NOTE_ROTATOR_FALLBACK.slice();
+}
+
+function stopPersonalNoteRotator() {
+  if (personalNoteRotatorInterval !== null) {
+    clearInterval(personalNoteRotatorInterval);
+    personalNoteRotatorInterval = null;
+  }
+}
+
+function initPersonalNoteRotator() {
+  const rotator = document.querySelector('.personal-note-rotator');
+  stopPersonalNoteRotator();
+
+  if (!rotator) {
+    return;
+  }
+
+  const items = getPersonalNoteRotatingItems();
+  if (!items.length) {
+    rotator.textContent = '';
+    return;
+  }
+
+  rotator.setAttribute('aria-live', 'polite');
+  rotator.setAttribute('aria-atomic', 'true');
+
+  let index = 0;
+  const setItem = () => {
+    rotator.textContent = items[index];
+    index = (index + 1) % items.length;
+  };
+
+  setItem();
+
+  personalNoteRotatorInterval = window.setInterval(setItem, 1600);
+}
+
 function applyTranslations() {
   document.documentElement.lang = currentLocale;
 
@@ -203,6 +230,7 @@ function applyTranslations() {
     }
   });
 
+  initPersonalNoteRotator();
   renderButtonClicks();
   updateCountdownText();
 }
@@ -251,7 +279,23 @@ async function initializeLocalization() {
 // Motion preference
 const mediaReduce = window.matchMedia("(prefers-reduced-motion: reduce)");
 let reduceMotion = mediaReduce.matches;
-mediaReduce.addEventListener?.("change", (e) => (reduceMotion = e.matches));
+const PERSONAL_NOTE_ROTATOR_FALLBACK = [
+  "phone",
+  "computer",
+  "attention",
+  "gadgets",
+  "social media",
+  "tech",
+  "news",
+  "emails",
+  "ads"
+];
+let personalNoteRotatorInterval = null;
+
+mediaReduce.addEventListener?.("change", (e) => {
+  reduceMotion = e.matches;
+  initPersonalNoteRotator();
+});
 
 // Core DOM references
 const bannerSlide = document.getElementById("bannerSlide");
@@ -260,7 +304,6 @@ const yellowBanner = document.getElementById("yellowBanner");
 const redBanner = document.getElementById("redBanner");
 const freeMaterialsSlide = document.getElementById("freeMaterialsSlide");
 const dataTrailSection = document.getElementById("dataTrailSection");
-const whyPopupSlide = document.getElementById("whyPopupSection");
 
 // ===== Slide Controller =====
 class SlideController {
@@ -275,7 +318,6 @@ class SlideController {
     this.redBannerShown = false;
     this.freeMaterialsIndex = -1;
     this.dataTrailIndex = -1;
-    this.whyPopupIndex = -1;
 
     this.refresh();
     this.observer = null;
@@ -288,7 +330,6 @@ class SlideController {
     this.bannerIndex = this.slides.indexOf(bannerSlide);
     this.redBannerIndex = this.slides.indexOf(redBannerSlide);
     this.freeMaterialsIndex = this.slides.indexOf(freeMaterialsSlide);
-    this.whyPopupIndex = this.slides.indexOf(whyPopupSlide);
     this.dataTrailIndex = this.slides.indexOf(dataTrailSection);
   }
 
@@ -324,10 +365,6 @@ class SlideController {
   }
 
   goTo(index, { source = "generic" } = {}) {
-    if (!hasSeen('why-popup') && this.whyPopupIndex !== -1 && this.index <= this.whyPopupIndex && index > this.whyPopupIndex) {
-      index = this.whyPopupIndex;
-      checkPopupWhySection();
-    }
     if (this.locked) return this.activeTransition;
     if (index < 0 || index >= this.slides.length) return this.activeTransition;
 
@@ -374,18 +411,6 @@ class SlideController {
   }
 
   handleIndexChange(index) {
-    if (!hasSeen('why-popup') && this.whyPopupIndex !== -1 && index > this.whyPopupIndex) {
-      const guardSlide = this.slides[this.whyPopupIndex];
-      if (guardSlide) {
-        if (reduceMotion) {
-          guardSlide.scrollIntoView();
-        } else {
-          guardSlide.scrollIntoView({ behavior: 'smooth' });
-        }
-      }
-      index = this.whyPopupIndex;
-      checkPopupWhySection();
-    }
     this.index = index;
     this.updateRedBanner();
     trackTopReturn(index);
@@ -533,8 +558,6 @@ const btnGhost = popup?.querySelector(".btn-ghost");
 btnPrimary?.addEventListener("click", onPopupPrimaryClick);
 btnGhost?.addEventListener("click", onPopupSecondaryClick);
 
-const whySection = document.getElementById("whyPopupSection");
-
 const seenReasons = new Set();
 function hasSeen(reason) {
   return seenReasons.has(reason);
@@ -553,7 +576,7 @@ let lastScrollT = performance.now();
 let focusRestoreEl = null;
 let redBannerPopupTimer = null;
 
-const POPUP_REASONS_LIST = ["why-popup", "fast-to-top", "exit-intent", "red-banner"];
+const POPUP_REASONS_LIST = ["fast-to-top", "exit-intent", "red-banner"];
 
 function clearRedBannerPopupTimer() {
   if (redBannerPopupTimer) {
@@ -578,10 +601,10 @@ function scheduleRedBannerPopup() {
 
 function getSharedPopupCopy() {
   return {
-    title: t('slides.whyPopup.title', "Why a Pop-Up?"),
-    desc: t('slides.whyPopup.body', "A pop-up is your final \"don't leave yet\" moment—either timed with urgency or triggered as you close the page. Annoying? Maybe. Effective? Definitely."),
-    primary: t('popups.shared.primary', "Got it"),
-    secondary: t('popups.shared.secondary', "Close")
+    title: t('popups.shared.title', "Why a Pop-Up?"),
+    desc: t('popups.shared.desc', "A pop-up is your final \"don't leave yet\" moment—either timed with urgency or triggered as you close the page. Annoying? Maybe. Effective? Definitely."),
+    primary: t('popups.shared.primary', "I see what's going on!"),
+    secondary: t('popups.shared.secondary', "WTF is happening?")
   };
 }
 
@@ -625,13 +648,8 @@ function showPopup(reason, originRect = null) {
   const copy = getSharedPopupCopy();
   applyPopupCopy(copy);
   if (btnPrimary) {
-    if (reason === "fast-to-top") {
-      btnPrimary.setAttribute("data-target-hash", furthestSlideHash());
-      btnPrimary.dataset.popupAction = "return";
-    } else {
-      btnPrimary.removeAttribute("data-target-hash");
-      delete btnPrimary.dataset.popupAction;
-    }
+    btnPrimary.removeAttribute("data-target-hash");
+    delete btnPrimary.dataset.popupAction;
   }
 
   setPopupOriginFromRect(originRect);
@@ -701,37 +719,7 @@ function onPopupKeydown(e) {
   }
 }
 
-// Trigger 1: "Why a Pop-Up?" slide comes into view
-function checkPopupWhySection() {
-  if (!whySection) return;
-  const reason = "why-popup";
-  if (hasSeenAnyPopup() || popupOpen) return;
-
-  const rect = whySection.getBoundingClientRect();
-  const viewportMid = window.innerHeight / 2;
-  const halfY = rect.top + rect.height * 0.5;
-
-  if (viewportMid >= halfY && rect.bottom > 0 && rect.top < window.innerHeight) {
-    showPopup(reason, rect);
-    return;
-  }
-
-  if (!checkPopupWhySection._observer && 'IntersectionObserver' in window) {
-    checkPopupWhySection._observer = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          observer.disconnect();
-          checkPopupWhySection._observer = null;
-          const entryRect = entry.target.getBoundingClientRect();
-          showPopup(reason, entryRect);
-        }
-      });
-    }, { threshold: 0.45 });
-    checkPopupWhySection._observer.observe(whySection);
-  }
-}
-
-// Trigger 2: rapid scroll to top
+// Trigger 1: rapid scroll to top
 function onFastTopScroll() {
   const reason = "fast-to-top";
   if (hasSeenAnyPopup() || popupOpen) return;
@@ -752,7 +740,7 @@ function onFastTopScroll() {
   lastScrollT = now;
 }
 
-// Trigger 3: exit intent
+// Trigger 2: exit intent
 function onMouseOut(e) {
   const reason = "exit-intent";
   if (hasSeenAnyPopup() || popupOpen) return;
@@ -765,7 +753,6 @@ document.addEventListener("mouseout", onMouseOut);
 
 // Wire popup scroll listeners
 window.addEventListener("scroll", () => {
-  checkPopupWhySection();
   onFastTopScroll();
 }, { passive: true });
 
@@ -1263,11 +1250,20 @@ document.addEventListener("DOMContentLoaded", async () => {
     window.setTimeout(() => {
       scrollIndicator.classList.add("is-visible");
     }, 1500);
+
+    scrollIndicator.addEventListener("click", () => {
+      if (typeof slideController?.goNext === "function") {
+        slideController.goNext({ source: "hero-arrow" });
+      } else {
+        const nextSlide = document.querySelector("#whySimilar");
+        nextSlide?.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth" });
+      }
+    });
   }
 
   slideController.refresh();
   slideController.setupObserver();
   initStaticStats();
   updateAbTestInstruction();
-  checkPopupWhySection();
+  initPersonalNoteRotator();
 });
