@@ -55,11 +55,9 @@
       "note": "Note: Many browsers now block third-party cookies by default. Retargeting still happens via newer tricks (first-party tracking, server-side stitching, hashed emails). The game evolves."
     },
     "abTesting": {
-      "title": "Survival of the fittest",
-      "line1": "Pick your favorite (click):",
-      "line1Tap": "Pick your favorite (tap):",
-      "optionA": "A. Opinions are vibes,\nrevenue decides",
-      "optionB": "B. Hunches are cheap,\ndata is truth",
+      "title": "Choose A or B",
+      "optionA": "A. Opinions are vibes, revenue decides",
+      "optionB": "B. Hunches are cheap, data is truth",
       "line4": "Split 100,000 visitors - half see A, half see B. Let the wallets vote.",
       "line5": "That's called A/B testing. Like Darwin for profits."
     },
@@ -74,7 +72,9 @@
     },
     "personalNote": {
       "title": "Personal Note",
-      "body": "My gf's a marketer. Says this site breaks all the rules. <br><br>Good! Those rules Hooked me for years - games, videos, social feeds, porn, gambling, doomscrolling news. Ruined my sleep, physical and mental health, relationships. <br><br>I'm not anti-tech. I'm a techie, I love tech! I'm just anti-ad-driven-manipulative-design and against our attention being sold for pennies. You're not broken. Your brain's been hacked. Let's get it back by <strong>taming your <span class=\"personal-note-rotator\">phone</span></strong>",
+      "paragraph1": "My gf's a marketer. Says this site breaks all the rules. Good! Those rules Hooked me for years - games, videos, social feeds, porn, gambling, doomscrolling news. Ruined my sleep, physical and mental health, relationships.",
+      "paragraph2": "I'm not anti-tech. I'm a techie, I love tech! I'm just anti-ad-driven-manipulative-design and against our attention being sold for pennies.",
+      "paragraph3": "You're not broken. Your brain's been hacked. Let's get it back by <strong>taming your <span class=\"personal-note-rotator\">phone</span></strong>",
       "rotatingItems": [
         "gadgets",
         "phone",

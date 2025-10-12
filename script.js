@@ -772,7 +772,6 @@ const storyButtonsList = document.getElementById("storyButtonsList");
 const btnFetchIP = document.getElementById("btnFetchIP");
 const abTestButtons = Array.from(document.querySelectorAll(".ab-test-button"));
 const abTestCopy = document.getElementById("abTestCopy");
-const abTestingInstruction = document.getElementById("abTestingInstruction");
 const accordions = Array.from(document.querySelectorAll('[data-accordion]'));
 
 let selectedAbVariant = null;
@@ -946,15 +945,6 @@ function composeAbTestCopy(variant, fallback) {
   const withPeriod = /[.!?]$/.test(cleaned) ? cleaned : `${cleaned}.`;
   const safe = escapeHtml(withPeriod);
   return `Cool. <em>${safe}</em>`;
-}
-
-function updateAbTestInstruction() {
-  if (!abTestingInstruction) return;
-  const device = detectDeviceType();
-  const isTouch = device === "Mobile" || device === "Tablet";
-  const key = isTouch ? "slides.abTesting.line1Tap" : "slides.abTesting.line1";
-  const fallback = isTouch ? "Pick your favorite (tap):" : "Pick your favorite (click):";
-  abTestingInstruction.textContent = t(key, fallback);
 }
 
 function setAbTestSelection(variant) {
@@ -1264,6 +1254,5 @@ document.addEventListener("DOMContentLoaded", async () => {
   slideController.refresh();
   slideController.setupObserver();
   initStaticStats();
-  updateAbTestInstruction();
-  initPersonalNoteRotator();
+  updateAbTestSelection(null, { silent: true });
 });
