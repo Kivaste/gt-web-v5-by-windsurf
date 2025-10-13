@@ -32,6 +32,8 @@
       "locationLabel": "Asukoht (IP)",
       "timeLabel": "Aeg lehel",
       "popupsSeenLabel": "Avanenud hüpikaknaid",
+      "popupSeen": "hüpik nähtud",
+      "popupNotSeen": "hüpikut pole nähtud",
       "buttonsClickedLabel": "Vajutatud nuppe",
       "noneYet": "Veel pole",
       "note": "* Tuvastame ligikaudse IP-aadressi põhise asukoha (pole GPS-i)"
@@ -54,20 +56,24 @@
       "note": "Märkus: paljud brauserid blokeerivad nüüd vaikimisi kolmandate osapoolte küpsiseid. Retargeting toimib endiselt uute trikkidega (esmase osapoole jälgimine, serveripoolne sidumine, räsi e-posti). Mäng muutub."
     },
     "abTesting": {
-      "title": "A/B testimine: lõpeta oletamine, alusta võrdlemist",
-      "lede": "Turundusarvamused on tasuta. Tõendid on kallid. Siin on odav versioon:",
-      "points": [
+      "title": "Vali A või B",
+      "optionA": "A. Arvamused on tunded, tulu otsustab",
+      "optionB": "B. Intuitsioon on odav, andmed on tõde",
+      "steps": [
         "Vali üks asi, millega katsetada: pealkiri, nupu tekst, hinnastus, mis iganes.",
         "Näita juhuslikult varianti A või B. Ära vaata tulemusi \"niisama kontrolliks.\"",
         "Mõõda üht selget näitajat (klikke, registreerumisi, oste). Mitte \"tundeid.\"",
         "Lase sel piisavalt kaua joosta. \"Saime 12 klikki\" pole järeldus.",
         "Võitja läheb live'i. Kaotaja arhiveeritakse."
       ],
-      "note": "Tõsine A/B testimine vajab tööriistu või taustasüsteeme. See on meeldetuletus, et \"parimad praktikad\" on vaid hästi turundatud hüpoteesid."
+      "note": "Tõsine A/B testimine vajab tööriistu või taustasüsteeme. See on meeldetuletus, et \"parimad praktikad\" on vaid hästi turundatud hüpoteesid.",
+      "copyA": "Jaga 100 000 külastajat – pool näeb A-d, pool B-d. Las rahakotid hääletavad.<br>Seda nimetatakse A/B testiks. Nagu Darwin kasumi jaoks.",
+      "copyB": "Näita juhuslikult pooltele A ja teistele B. Kumb tekst toob rohkem müüki, jääb alles. Ellujäämine kõige sobinumale."
     },
     "freeMaterials": {
-      "title": "Tasuta materjalid",
-      "body": "Kas need on päriselt tasuta? Hind on sinu e-post ja tähelepanu.<br>Kui see leht ei veena sind täna, ehk veenab homme saabuv kiri."
+      "title": "Tasuta* materjalid",
+      "body": "*Hind: sinu e-post ja tähelepanu. Ei konverdi täna? Proovime homme uuesti.",
+      "body2": "Välja arvatud siin. Ei mingit e-posti ega tärni. Lihtsalt keri tasuta materjalideni ;)"
     },
     "tricks": {
       "title": "Mõjutusnipid otse silme ees",
@@ -98,8 +104,8 @@
     "personalNote": {
       "title": "Isiklik märkus",
       "paragraph1": "Turundajad ütlevad, et teen valesti – see leht rikub kõiki reegleid.",
-      "paragraph2": "Kiirustamine ja surve? Pole ärevuse märgid! See on konversioonide optimeerimine, mis nügib sind sisestama oma kaardiandmeid.",
-      "paragraph3": "Ma ei ole tehnoloogiavastane. Olen ise tehnikahuviline ja armastan oma vidinaid! Ma olen lihtsalt <em>reklaamipõhise manipuleeriva disaini vastu</em> ja <em>selle vastu, et meie tähelepanu müüakse</em> sentide eest.",
+      "paragraph2": "Kiirustamine ja surve? Pole elevus! Lihtsalt konversioonide optimeerimine, mis jahib su kaardiandmeid.",
+      "paragraph3": "Ma ei ole tehnoloogiavastane. Olen ise tehnikahuviline ja olen päris kiindunud oma vidinatesse! Ma olen lihtsalt <em>reklaamipõhise manipuleeriva disaini vastu</em> ja <em>selle vastu, et meie tähelepanu müüakse</em> sentide eest.",
       "paragraph4": "Sa ei ole katki. Sinu aju on häkitud. Võtame selle tagasi ja hakkame <strong>taltsutama sinu <span class=\"personal-note-rotator\">telefoni</span></strong>",
       "body": "Mu turunduspartner ütleb, et teen kõike valesti — ja tal on peaaegu alati õigus. Testitud viis töötab tavaliselt, aga ma usaldan pigem ausust kui läiget. Jah, see maksab mõne müügi, aga vähemalt magan paremini (kui ma just kell 4:30 veebilehti ei kirjuta).",
       "commentPlaceholder": "Jaga oma mõtteid...",
@@ -114,11 +120,14 @@
       "body": "gadgetTaming aitab mõista, kuidas veeb päriselt töötab, mitte lihtsalt mallide kaudu, ja kasutada seda eristumiseks. Jah, eesmärk on müük, aga seda tehakse viisil, mis austab inimeste tähelepanu."
     },
     "callToAction": {
-      "title": "Kõik teed viivad <s>Rooma</s> CTA-ni",
-      "body": "CTA = Call To Action. Telli. Osta. Lisa korvi. Broneeri. Registreeru. Saada päring.<br>Tegevus muutub, aga alati peaks olema <strong>ainult üks värviline</strong> selge CTA! (<em>tundub, et olen selle kihva pannud</em>)",
-      "offer": "Loodan, et su peas taob nüüd küsimus: \"Noo ... mida sa tahad, et ma ostaksin?\" Täiuslik! Ole alati skeptiline; see teeb sinust <strong>1. taseme gadgetTameri</strong>. Aga mul on pakkuda enamat.",
-      "notReadyHeading": "<strong>Pole veel valmis?</strong>",
-      "notReadyBody": "Keri lihtsalt allapoole, et saada teada rohkem minu, gadgetTamingu ja sind mõjutavate võtete kohta."
+      "title": "<em>\"Noo ... mida sa tahad, et ma ostaksin?\"</em>",
+      "body": "Iga leht juhib ühele asjale: CTA (Call To Action). Telli. Osta. Liitu. Broneeri. Registreeru. Saada päring.<br><strong>Ainult üks värviline nupp ja üks eesmärk.</strong> (<em>Jah, selle reegli rikkusin ka mina</em>)",
+      "offer": "Hea instinkt! Ole alati skeptiline! Oled nüüd saanud <strong>1. taseme gadgetTamer</strong>.",
+      "notReady": "<strong>Pole veel valmis?</strong><br>Keri lihtsalt allapoole, et saada teada rohkem minu, gadgetTamingu ja sind mõjutavate võtete kohta."
+    },
+    "callToActionSecondary": {
+      "title": "Peaaegu 2. taseme gadgetTamer",
+      "body": "Ükskõik milline neist viib sind kohale ja kaugemale. See on kas teekonna lõpp või millegi uue algus – sinu otsus."
     }
   },
   "popups": {
@@ -150,6 +159,12 @@
   },
   "buttons": {
     "ctaPrimary": "👉 Tegutse kohe",
+    "ctaWebinar": "Tasuta <br>veebiseminar",
+    "ctaCourseSelf": "Kursus: <br>iseseisev tempo",
+    "ctaCourseLive": "Kursus: <br>live-kohort",
+    "ctaTeamTraining": "Meeskonna <br>koolitus",
+    "ctaScheduleCall": "Avastus <br>kõne",
+    "ctaDonate": "Anneta",
     "noThanks": "Ei aitäh"
   },
   "stats": {

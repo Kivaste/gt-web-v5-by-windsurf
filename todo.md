@@ -317,8 +317,96 @@ Just scroll down to learn more about: me, gadgetTaming and the tricks used again
 
 "Sooo ... what do you want me to buy?"
 
-If that's the question pounding in your head then I've done a good job. Always be skeptical! This makes you level 1 gadgetTamer. But there's a lot more XP to gain.
+If that's the question pounding in your head then I've done a good job. Always be skeptical! This makes you a level 1 gadgetTamer. But there's a lot more XP to gain.
 
 All roads lead to Rome Call To Action (CTA). Order. Buy. Add to cart. Book. Sign up. Send inquiry.
 The action varies but there should always be just one colorful clear CTA! (seems I've screwed this up as well)
 
+-----
+I hope you’re asking that, always be skeptical! You are now a level 1 gadgetTamer.
+
+
+
+
+All roads should lead to one loud CTA—this one.
+
+
+Good instinct! Always be skeptical! You are now a level 1 gadgetTamer.
+
+
+
+Every page funnels to one thing: the CTA (Call To Action). Order. Buy. Subscribe. Book. Sign up. Send inquiry.
+Just one button, one color, one goal.
+
+(Yeah, I broke that rule too.)
+
+
+
+
+
+
+    Register for a free webinar
+        Free Webinar
+        Register Free
+        Save My Seat
+        Attend Free
+        Claim Spot
+        RSVP Free
+
+    Buy self-paced course
+        Buy Course
+        Get Course
+        Start Course
+        Enroll Now
+        Start Now
+        Get Access
+
+    Buy cohort-based live training
+        Join the Cohort
+        Enroll Live
+        Buy Live Training
+        Join Live Cohort
+        Reserve My Seat
+        Secure My Spot
+
+    Ask for a quote for internal company training
+        Request Quote
+        Get Team Quote
+        Request Pricing
+        Get Company Quote
+        Request Proposal
+        Talk to Sales
+
+    Register for a discovery call
+        Book a Call
+        Schedule Call
+        Book Discovery Call
+        Pick a Time
+        Let’s Talk
+        Book Free Call
+
+
+Free webinar
+Course: self-paced
+Course: live cohorot
+Team training
+Schedule a call
+
+Just one attention grabbing coloful button with a single goal
+
+
+-------
+
+about me
+
+Kert Kivaste is my name and this is my face:
+Supposedly adds credibility.
+
+
+
+..
+I'm a techie who has been abused by tech. Tech has been my passion, my hobbie, my career and my unhealthy coping mechanism and cause for distress. 
+
+----
+
+If you think this site is cool then ... well you gotta fight fire with fire. Please share it :)

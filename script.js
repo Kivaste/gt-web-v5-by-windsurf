@@ -603,7 +603,7 @@ function scheduleRedBannerPopup() {
 function getSharedPopupCopy() {
   return {
     title: t('popups.shared.title', "Why a Pop-Up?"),
-    desc: t('popups.shared.desc', "A pop-up is your final \"don't leave yet\" moment—either timed with urgency or triggered as you close the page. Annoying? Maybe. Effective? Definitely."),
+    desc: t('popups.shared.desc', "Last-ditch guilt trip. Clock runs out or you try to leave.<br>You hate it. It works anyway."),
     primary: t('popups.shared.primary', "I see what's going on!"),
     secondary: t('popups.shared.secondary', "WTF is happening?")
   };
@@ -614,7 +614,7 @@ function applyPopupCopy(copy) {
     popupTitle.textContent = copy.title;
   }
   if (popupDesc) {
-    popupDesc.textContent = copy.desc;
+    popupDesc.innerHTML = copy.desc;
   }
   if (btnPrimary) {
     btnPrimary.textContent = copy.primary;
@@ -907,9 +907,12 @@ function updateTimeOnSite() {
 setInterval(updateTimeOnSite, 1000);
 
 function updatePopupStats() {
-  const count = POPUP_REASONS_LIST.reduce((acc, r) => acc + (hasSeen(r) ? 1 : 0), 0);
-  const total = POPUP_REASONS_LIST.length;
-  if (storyPopups) storyPopups.textContent = `${count}/${total}`;
+  const seenAny = hasSeenAnyPopup();
+  if (storyPopups) {
+    const key = seenAny ? 'slides.dataTrail.popupSeen' : 'slides.dataTrail.popupNotSeen';
+    const fallback = seenAny ? 'seen the pop-up' : 'not seen the pop-up';
+    storyPopups.textContent = t(key, fallback);
+  }
 }
 
 function labelForButton(btn) {
@@ -939,13 +942,20 @@ function normalizeAbTestText(text) {
     .trim();
 }
 
-function composeAbTestCopy(variant, fallback) {
-  const base = abTestLabelFor(variant, fallback);
-  const cleaned = normalizeAbTestText(base);
-  if (!cleaned) return "Cool.";
-  const withPeriod = /[.!?]$/.test(cleaned) ? cleaned : `${cleaned}.`;
-  const safe = escapeHtml(withPeriod);
-  return `Cool. <em>${safe}</em>`;
+function getAbTestCopy(variant) {
+  if (variant === "A") {
+    return t(
+      'slides.abTesting.copyA',
+      "Split 100,000 visitors - half see A, half see B. Let the wallets vote.<br>That's called A/B testing. Like Darwin for profits."
+    );
+  }
+  if (variant === "B") {
+    return t(
+      'slides.abTesting.copyB',
+      "Randomly show half the visitors A others B. Which copy gets more sales remains. Survival of the fittest."
+    );
+  }
+  return "";
 }
 
 function setAbTestSelection(variant) {
@@ -955,13 +965,8 @@ function setAbTestSelection(variant) {
     btn.setAttribute("aria-pressed", isActive ? "true" : "false");
   });
   if (abTestCopy) {
-    if (!variant) {
-      abTestCopy.innerHTML = "Cool.";
-    } else {
-      const activeButton = abTestButtons.find((btn) => btn.dataset.variant === variant);
-      const fallback = normalizeAbTestText(activeButton?.textContent || "");
-      abTestCopy.innerHTML = composeAbTestCopy(variant, fallback);
-    }
+    const copy = variant ? getAbTestCopy(variant) : "";
+    abTestCopy.innerHTML = copy;
   }
 }
 

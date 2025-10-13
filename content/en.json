@@ -16,7 +16,7 @@
     "whySimilar": {
       "title": "Most websites look the same",
       "paragraph1": "Their job is not to inform you, they're fine-tuned machines guiding you to enter your credit card.",
-      "paragraph2": "The urgency and pressure? Not signs of excitement! That's conversion optimization pushing you to enter your credit card details.",
+      "paragraph2": "The urgency and pressure? Not signs of excitement! Just conversion optimization pushing for your credit card details.",
       "paragraph3": "Let's dig deeper?"
     },
     "specialOffer": {
@@ -32,6 +32,8 @@
       "refreshButton": "Refresh",
       "timeLabel": "Time on site",
       "popupsSeenLabel": "Pop-ups seen",
+      "popupSeen": "seen the pop-up",
+      "popupNotSeen": "not seen the pop-up",
       "buttonsClickedLabel": "Buttons clicked",
       "guessButton": "Guess my location",
       "noneYet": "None yet",
@@ -59,11 +61,14 @@
       "optionA": "A. Opinions are vibes, revenue decides",
       "optionB": "B. Hunches are cheap, data is truth",
       "line4": "Split 100,000 visitors - half see A, half see B. Let the wallets vote.",
-      "line5": "That's called A/B testing. Like Darwin for profits."
+      "line5": "That's called A/B testing. Like Darwin for profits.",
+      "copyA": "Split 100,000 visitors - half see A, half see B. Let the wallets vote.<br>That's called A/B testing. Like Darwin for profits.",
+      "copyB": "Randomly show half the visitors A others B. Which copy gets more sales remains. Survival of the fittest."
     },
     "freeMaterials": {
-      "title": "Free Materials",
-      "body": "Actually, the price is your email and attention. If this page doesn't convince you today, perhaps tomorrow's inbox message will?"
+      "title": "Free* materials",
+      "body": "*Price: email and attention. Can't convert you now? We'll try again tomorrow in your inbox.",
+      "body2": "Except here. No email. No asterisk. Just scroll for your free materials ;)"
     },
     "tricks": {
       "title": "Persuasion tricks in plain sight",
@@ -74,7 +79,7 @@
       "title": "Personal Note",
       "paragraph1": "Marketers say I'm doing it wrong, this site breaks all the rules.",
       "paragraph2": "Good! Those rules hooked me for years - games, videos, social feeds, porn, gambling, doomscrolling news. Ruined my sleep, physical and mental health, relationships.",
-      "paragraph3": "I'm not anti-tech. I'm a techie actually and I love my gadgets! I'm just <em>anti-ad-driven-manipulative-design</em> and <em>against our attention being sold</em> for pennies.",
+      "paragraph3": "I'm not anti-tech. I'm a techie actually and I'm quite fond of my gadgets! I'm just <em>anti-ad-driven-manipulative-design</em> and <em>against our attention being sold</em> for pennies.",
       "paragraph4": "You're not broken. Your brain's been hacked. Let's get it back by <strong>taming your <span class=\"personal-note-rotator\">phone</span></strong>",
       "rotatingItems": [
         "gadgets",
@@ -114,11 +119,14 @@
       "action": "All of these tactics converge on one decision: the final call to action."
     },
     "callToAction": {
-      "title": "All roads lead to <s>Rome</s> CTA",
-      "body": "CTA = Call To Action. Order. Buy. Add to cart. Book. Sign up. Send inquiry.<br>The action varies but there should always be <strong>just one colorful</strong> clear CTA! (<em>seems I've screwed this up as well</em>)",
-      "offer": "I hope there's a question pounding in your head: \"Sooo ... what do you want me to buy?\" Perfect! Always be skeptical! This makes you <strong>level 1 gadgetTamer</strong>. But there's a lot of XP to collect still...",
-      "notReadyHeading": "<strong>Not ready yet?</strong>",
-      "notReadyBody": "Just scroll down to learn more about me, gadgetTaming and the tricks used against you."
+      "title": "<em>\"Sooo ... what do you want me to buy?\"</em>",
+      "body": "Every page funnels to one thing: the CTA (Call To Action). Order. Buy. Subscribe. Book. Sign up. Send inquiry.<br><strong>Just one colorful button with a single goal.</strong> (<em>Yeah, I broke that rule too</em>)",
+      "offer": "Good instinct! Always be skeptical! You've now become a <strong>level 1 gadgetTamer</strong>.",
+      "notReady": "<strong>Not ready yet?</strong><br>Just scroll down to learn more about me, gadgetTaming and the tricks used against you."
+    },
+    "callToActionSecondary": {
+      "title": "Almost level 2 gadgetTamer",
+      "body": "Any of these will get you there and beyond. This is either the end of the road or the beginning of something new - your choice."
     },
   },
   "popups": {
@@ -127,13 +135,19 @@
     },
     "shared": {
       "title": "Why a Pop-Up?",
-      "desc": "A pop-up is your final \"don't leave yet\" moment—either timed with urgency or triggered as you close the page. Annoying? Maybe. Effective? Definitely.",
+      "desc": "Last-ditch guilt trip. Clock runs out or you try to leave.<br>You hate it. It works anyway.",
       "primary": "I see what's\ngoing on!",
       "secondary": "WTF is\nhappening?"
     }
   },
   "buttons": {
     "ctaPrimary": "👉 Take Action Now",
+    "ctaWebinar": "Free <br>webinar",
+    "ctaCourseSelf": "Course: <br>self-paced",
+    "ctaCourseLive": "Course: <br>live cohort",
+    "ctaTeamTraining": "Team <br>training",
+    "ctaScheduleCall": "Discovery <br>call",
+    "ctaDonate": "Donate",
     "noThanks": "No thanks"
   },
   "stats": {
