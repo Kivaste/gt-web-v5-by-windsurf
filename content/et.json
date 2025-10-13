@@ -97,6 +97,10 @@
     },
     "personalNote": {
       "title": "Isiklik märkus",
+      "paragraph1": "Turundajad ütlevad, et teen valesti – see leht rikub kõiki reegleid.",
+      "paragraph2": "Kiirustamine ja surve? Pole ärevuse märgid! See on konversioonide optimeerimine, mis nügib sind sisestama oma kaardiandmeid.",
+      "paragraph3": "Ma ei ole tehnoloogiavastane. Olen ise tehnikahuviline ja armastan oma vidinaid! Ma olen lihtsalt <em>reklaamipõhise manipuleeriva disaini vastu</em> ja <em>selle vastu, et meie tähelepanu müüakse</em> sentide eest.",
+      "paragraph4": "Sa ei ole katki. Sinu aju on häkitud. Võtame selle tagasi ja hakkame <strong>taltsutama sinu <span class=\"personal-note-rotator\">telefoni</span></strong>",
       "body": "Mu turunduspartner ütleb, et teen kõike valesti — ja tal on peaaegu alati õigus. Testitud viis töötab tavaliselt, aga ma usaldan pigem ausust kui läiget. Jah, see maksab mõne müügi, aga vähemalt magan paremini (kui ma just kell 4:30 veebilehti ei kirjuta).",
       "commentPlaceholder": "Jaga oma mõtteid...",
       "commentButton": "Postita kommentaar"
@@ -110,9 +114,11 @@
       "body": "gadgetTaming aitab mõista, kuidas veeb päriselt töötab, mitte lihtsalt mallide kaudu, ja kasutada seda eristumiseks. Jah, eesmärk on müük, aga seda tehakse viisil, mis austab inimeste tähelepanu."
     },
     "callToAction": {
-      "title": "Kutse tegutsemiseks",
-      "body": "Lõpuks viib kõik ühele rajale: Telli. Osta. Lisa korvi. Broneeri. Saada päring. Kõik teed viivad siia.",
-      "offer": "Mida saad osta: kursused, teadmised ja praktilised juhised, et taltsutada metsikut veebimaailma. Mitte maagilised trikid, vaid päris tööriistad."
+      "title": "Kõik teed viivad <s>Rooma</s> CTA-ni",
+      "body": "CTA = Call To Action. Telli. Osta. Lisa korvi. Broneeri. Registreeru. Saada päring.<br>Tegevus muutub, aga alati peaks olema <strong>ainult üks värviline</strong> selge CTA! (<em>tundub, et olen selle kihva pannud</em>)",
+      "offer": "Loodan, et su peas taob nüüd küsimus: \"Noo ... mida sa tahad, et ma ostaksin?\" Täiuslik! Ole alati skeptiline; see teeb sinust <strong>1. taseme gadgetTameri</strong>. Aga mul on pakkuda enamat.",
+      "notReadyHeading": "<strong>Pole veel valmis?</strong>",
+      "notReadyBody": "Keri lihtsalt allapoole, et saada teada rohkem minu, gadgetTamingu ja sind mõjutavate võtete kohta."
     }
   },
   "popups": {
@@ -170,12 +176,23 @@
   "comment": {
     "form": {
       "error": "Palun kirjuta enne midagi!",
-      "success": "Kommentaar postitatud! (Tegelikult mitte, aga visuaalselt töötab 😉)",
+      "success": "Kommentaar postitatud! (Tegelikult mitte, aga visuaalselt töötab )",
       "invalidEmail": "Palun sisesta kehtiv e-posti aadress."
     }
   },
   "footer": {
-    "copy": "© 2024 gadgetTamer. Ausad veebid. Parem uni. Rohkem usaldust."
+    "copy": " 2024 gadgetTamer. Ausad veebid. Parem uni. Rohkem usaldust.",
+    "rotatingItems": [
+      "telefoni",
+      "tähelepanu",
+      "sotsiaalmeedia",
+      "arvuti",
+      "e-kirju",
+      "tehnoloogia",
+      "uudised",
+      "reklaamid",
+      "gadgets"
+    ]
   },
   "ui": {
     "language": {

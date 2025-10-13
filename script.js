@@ -191,7 +191,8 @@ function initPersonalNoteRotator() {
 
   let index = 0;
   const setItem = () => {
-    rotator.textContent = items[index];
+    const next = items[index];
+    rotator.textContent = next;
     index = (index + 1) % items.length;
   };
 
@@ -280,14 +281,14 @@ async function initializeLocalization() {
 const mediaReduce = window.matchMedia("(prefers-reduced-motion: reduce)");
 let reduceMotion = mediaReduce.matches;
 const PERSONAL_NOTE_ROTATOR_FALLBACK = [
-  "phone",
-  "computer",
-  "attention",
   "gadgets",
+  "phone",
+  "attention",
   "social media",
+  "computer",
+  "emails",
   "tech",
   "news",
-  "emails",
   "ads"
 ];
 let personalNoteRotatorInterval = null;
@@ -974,7 +975,6 @@ abTestButtons.forEach((btn) => {
 });
 
 setAbTestSelection(null);
-updateAbTestInstruction();
 
 accordions.forEach((accordion) => {
   const triggers = Array.from(accordion.querySelectorAll('[data-accordion-trigger]'));
@@ -1254,5 +1254,5 @@ document.addEventListener("DOMContentLoaded", async () => {
   slideController.refresh();
   slideController.setupObserver();
   initStaticStats();
-  updateAbTestSelection(null, { silent: true });
+  initPersonalNoteRotator();
 });

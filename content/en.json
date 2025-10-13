@@ -8,15 +8,15 @@
     "yellow": {}
   },
   "hero": {
-    "title": "Why is this page so weird?",
-    "titleDefault": "Why is this page so weird?",
-    "titlePhone": "Why is this page so weird?"
+    "title": "why is this page so weird",
+    "titleDefault": "why is this page so weird",
+    "titlePhone": "why is this page so weird"
   },
   "slides": {
     "whySimilar": {
       "title": "Most websites look the same",
       "paragraph1": "Their job is not to inform you, they're fine-tuned machines guiding you to enter your credit card.",
-      "paragraph2": "The urgency and pressure? Not signs of excitement! That's conversion optimization you're feeling.",
+      "paragraph2": "The urgency and pressure? Not signs of excitement! That's conversion optimization pushing you to enter your credit card details.",
       "paragraph3": "Let's dig deeper?"
     },
     "specialOffer": {
@@ -39,7 +39,7 @@
     },
     "cookies": {
       "title": "Cookies - sweet or clingy?",
-      "paragraph1": "Your barista remembers your latte and your name. Sweet!<br>First-party cookies do that - login, preferences, that shopping cart you abandoned.",
+      "paragraph1": "Your barista remembers your latte and your name. Sweet!<br>First-party cookies do that - login, preferences, did you see A or B and that shopping cart you abandoned.",
       "paragraph2": "Guy in a van? Different vibe.<br>Third-party cookies follow you everywhere, log everything, report to advertisers. That abandoned cart haunting every page? That's them.",
       "firstParty": "<strong>First-party cookies:</strong> set by the site you're on — logins, carts, \"remember me,\" that sort of useful stuff.",
       "sessionPersistent": "<strong>Session vs. persistent:</strong> session cookies vanish when you close the tab; persistent cookies stick around for days or months, like glitter after a craft accident.",
@@ -63,7 +63,7 @@
     },
     "freeMaterials": {
       "title": "Free Materials",
-      "body": "The price is your email and attention. If this page doesn't convince you today, perhaps tomorrow's inbox message will?"
+      "body": "Actually, the price is your email and attention. If this page doesn't convince you today, perhaps tomorrow's inbox message will?"
     },
     "tricks": {
       "title": "Persuasion tricks in plain sight",
@@ -72,18 +72,19 @@
     },
     "personalNote": {
       "title": "Personal Note",
-      "paragraph1": "My gf's a marketer. Says this site breaks all the rules. Good! Those rules Hooked me for years - games, videos, social feeds, porn, gambling, doomscrolling news. Ruined my sleep, physical and mental health, relationships.",
-      "paragraph2": "I'm not anti-tech. I'm a techie, I love tech! I'm just anti-ad-driven-manipulative-design and against our attention being sold for pennies.",
-      "paragraph3": "You're not broken. Your brain's been hacked. Let's get it back by <strong>taming your <span class=\"personal-note-rotator\">phone</span></strong>",
+      "paragraph1": "Marketers say I'm doing it wrong, this site breaks all the rules.",
+      "paragraph2": "Good! Those rules hooked me for years - games, videos, social feeds, porn, gambling, doomscrolling news. Ruined my sleep, physical and mental health, relationships.",
+      "paragraph3": "I'm not anti-tech. I'm a techie actually and I love my gadgets! I'm just <em>anti-ad-driven-manipulative-design</em> and <em>against our attention being sold</em> for pennies.",
+      "paragraph4": "You're not broken. Your brain's been hacked. Let's get it back by <strong>taming your <span class=\"personal-note-rotator\">phone</span></strong>",
       "rotatingItems": [
         "gadgets",
         "phone",
-        "computer",
         "attention",
         "social media",
+        "computer",
+        "emails",
         "tech",
         "news",
-        "emails",
         "ads"
       ]
     },
@@ -113,10 +114,12 @@
       "action": "All of these tactics converge on one decision: the final call to action."
     },
     "callToAction": {
-{{ ... }}
-      "body": "At the end of the day, there's one road: Order. Buy. Add to cart. Book. Send inquiry. All paths lead here.",
-      "offer": "What you can buy: Courses, insights, and practical guidance on taming the wild world of online marketing and website building. Not sold as magic tricks—but as real tools you can actually use."
-    }
+      "title": "All roads lead to <s>Rome</s> CTA",
+      "body": "CTA = Call To Action. Order. Buy. Add to cart. Book. Sign up. Send inquiry.<br>The action varies but there should always be <strong>just one colorful</strong> clear CTA! (<em>seems I've screwed this up as well</em>)",
+      "offer": "I hope there's a question pounding in your head: \"Sooo ... what do you want me to buy?\" Perfect! Always be skeptical! This makes you <strong>level 1 gadgetTamer</strong>. But there's a lot of XP to collect still...",
+      "notReadyHeading": "<strong>Not ready yet?</strong>",
+      "notReadyBody": "Just scroll down to learn more about me, gadgetTaming and the tricks used against you."
+    },
   },
   "popups": {
     "dialog": {
@@ -125,8 +128,8 @@
     "shared": {
       "title": "Why a Pop-Up?",
       "desc": "A pop-up is your final \"don't leave yet\" moment—either timed with urgency or triggered as you close the page. Annoying? Maybe. Effective? Definitely.",
-      "primary": "I see what's going on!",
-      "secondary": "WTF is happening?"
+      "primary": "I see what's\ngoing on!",
+      "secondary": "WTF is\nhappening?"
     }
   },
   "buttons": {

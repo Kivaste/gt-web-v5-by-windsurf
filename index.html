@@ -13,7 +13,9 @@
   </div>
   <header id="heroSlide" class="hero slide" data-slide-title="Welcome">
     <div class="hero-body">
-      <h1 data-i18n="hero.title">Why is this page so weird?</h1>
+      <h1>
+        <span data-i18n="hero.title">why is this page so weird</span>
+      </h1>
     </div>
     <button type="button" class="scroll-indicator" aria-label="Scroll to next section">
       <svg class="scroll-indicator__arrow" viewBox="0 0 32 32" aria-hidden="true">
@@ -26,7 +28,7 @@
     <section class="slide" id="whySimilar" data-slide-title="Why Similar">
       <h2 data-i18n="slides.whySimilar.title">Most websites look the same</h2>
       <p data-i18n="slides.whySimilar.paragraph1">Their job is not to inform you, they're fine-tuned machines guiding you to enter your credit card.</p>
-      <p data-i18n="slides.whySimilar.paragraph2">The urgency and pressure? Not signs of excitement! That's conversion optimization you're feeling.</p>
+      <p data-i18n="slides.whySimilar.paragraph2">The urgency and pressure? Not signs of excitement! That's conversion optimization pushing you to enter your credit card details.</p>
       <p data-i18n="slides.whySimilar.paragraph3">Let's dig deeper?</p>
     </section>
 
@@ -42,19 +44,22 @@
 
     <section id="personalNoteSection" class="slide" data-slide-title="Personal Note">
       <h2 data-i18n="slides.personalNote.title">Personal Note</h2>
-      <p data-i18n="slides.personalNote.paragraph1">My gf's a marketer. Says this site breaks all the rules. Good! Those rules hooked me for years — games, videos, social feeds, porn, gambling, doomscrolling news. Ruined my sleep, physical and mental health, relationships.</p>
-      <p data-i18n="slides.personalNote.paragraph2">I'm not anti-tech. I'm a techie, I love tech! I'm just anti-ad-driven-manipulative-design and against our attention being sold for pennies.</p>
-      <p data-i18n="slides.personalNote.paragraph3">You're not broken. Your brain's been hacked. Let's get it back by <strong>taming your <span class="personal-note-rotator">phone</span></strong></p>
+      <p data-i18n="slides.personalNote.paragraph1">Marketers say I'm doing it wrong, this site breaks all the rules.</p>
+      <p data-i18n="slides.personalNote.paragraph2">Good! Those rules hooked me for years - games, videos, social feeds, porn, gambling, doomscrolling news. Ruined my sleep, physical and mental health, relationships.</p>
+      <p data-i18n="slides.personalNote.paragraph3">I'm not anti-tech. I'm a techie actually and I love my gadgets! I'm just <em>anti-ad-driven-manipulative-design</em> and <em>against our attention being sold</em> for pennies.</p>
+      <p data-i18n="slides.personalNote.paragraph4">You're not broken. Your brain's been hacked. Let's get it back by <strong>taming your <span class="personal-note-rotator">phone</span></strong></p>
 
     </section>
 
     <section id="callToActionSection" class="slide" data-slide-title="Call to Action">
-      <h2 data-i18n="slides.callToAction.title">Call to Action</h2>
-      <p data-i18n="slides.callToAction.body">At the end of the day, there's one road: Order. Buy. Add to cart. Book. Send inquiry. All paths lead here.</p>
-      <p data-i18n="slides.callToAction.offer"><strong>What you can buy:</strong> Courses, insights, and practical guidance on taming the wild world of online marketing and website building. Not sold as magic tricks—but as real tools you can actually use.</p>
+      <h2 data-i18n="slides.callToAction.title">All roads lead to <s>Rome</s> CTA</h2>
+      <p data-i18n="slides.callToAction.offer">I hope there's a question pounding in your head: "Sooo ... what do you want me to buy?" Perfect! Always be skeptical! This makes you <strong>level 1 gadgetTamer</strong>. But there's a lot of XP to collect still...</p>
+      <p data-i18n="slides.callToAction.body">CTA = Call To Action. Order. Buy. Add to cart. Book. Sign up. Send inquiry.<br>The action varies but there should always be <strong>just one colorful</strong> clear CTA! (<em>seems I've screwed this up as well</em>)</p>
       <div class="cta">
         <button type="button" data-i18n="buttons.ctaPrimary">👉 Take Action Now</button>
       </div>
+      <p data-i18n="slides.callToAction.notReadyHeading"><strong>Not ready yet?</strong></p>
+      <p data-i18n="slides.callToAction.notReadyBody">Just scroll down to learn more about me, gadgetTaming and the tricks used against you.</p>
     </section>
 
     <section id="aboutMeSection" class="slide" data-slide-title="About Me">
@@ -65,38 +70,6 @@
     <section id="aboutGadgetTamingSection" class="slide" data-slide-title="About gadgetTaming">
       <h2 data-i18n="slides.aboutGadgetTaming.title">About gadgetTaming</h2>
       <p data-i18n="slides.aboutGadgetTaming.body">gadgetTaming is about understanding how websites really work, beyond templates, and using that knowledge to stand out. Yes, the end goal is sales, but done in a way that respects human attention.</p>
-    </section>
-
-    <section id="commentsSection" class="slide" data-slide-title="Comments">
-      <h2 data-i18n="slides.comments.title">Comments</h2>
-
-      <div class="comment-form">
-        <h3 data-i18n="slides.comments.commentHeading">You must be furious - I got the math wrong!</h3>
-        <textarea 
-          id="commentText" 
-          placeholder="99.99% DOES NOT EQUAL ONE IN A MILLION! IDIOT!&#10;&#10;(gotcha - got the engagement I was looking for)"
-          data-i18n-placeholder="slides.comments.commentPlaceholder"
-          rows="3"
-          style="width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 8px; font-family: inherit; font-size: 1rem; resize: vertical;"
-        ></textarea>
-        <div class="comment-email-wrapper">
-          <label for="commentEmail" data-i18n="slides.comments.commentEmailLabel">If you wish to get a reply then leave your email</label>
-          <input 
-            type="email"
-            id="commentEmail"
-            placeholder="Not a newsletter signup"
-            data-i18n-placeholder="slides.comments.commentEmailPlaceholder"
-          />
-        </div>
-        <button 
-          type="button" 
-          id="btnPostComment"
-          class="comment-submit"
-          disabled
-          data-i18n="slides.comments.commentButton"
-        >Post comment</button>
-        <div id="commentStatus" class="comment-status" aria-live="polite"></div>
-      </div>
     </section>
 
     <section id="freeMaterialsSlide" class="slide" data-slide-title="Free Materials">
@@ -149,7 +122,6 @@
         <ul id="storyButtonsList" class="data-story__buttons" data-default-text="None yet">
           <li>None yet</li>
         </ul>
-        <p class="data-story__teaser"><strong><u>Spooky? That's nothing compared to what you'll learn next!</u></strong></p>
       </div>
     </section>
 
@@ -162,6 +134,35 @@
         <li data-i18n="slides.recap.trust">Trust is earned with proof: testimonials, track record, and transparent storytelling.</li>
         <li data-i18n="slides.recap.action">All of these tactics converge on one decision: the final call to action.</li>
       </ul>
+    </section>
+
+    <section id="commentsSection" class="slide" data-slide-title="Comments">
+      <h2 data-i18n="slides.comments.title">Comments</h2>
+
+      <div class="comment-form">
+        <h3 data-i18n="slides.comments.commentHeading">You must be furious - I got the math wrong!</h3>
+        <textarea
+          id="commentText"
+          rows="5"
+        ></textarea>
+        <div class="comment-email-wrapper">
+          <label for="commentEmail" data-i18n="slides.comments.commentEmailLabel">If you wish to get a reply then leave your email</label>
+          <input 
+            type="email"
+            id="commentEmail"
+            placeholder="Not a newsletter signup"
+            data-i18n-placeholder="slides.comments.commentEmailPlaceholder"
+          />
+        </div>
+        <button 
+          type="button" 
+          id="btnPostComment"
+          class="comment-submit"
+          disabled
+          data-i18n="slides.comments.commentButton"
+        >Post comment</button>
+        <div id="commentStatus" class="comment-status" aria-live="polite"></div>
+      </div>
     </section>
 
     <section id="callToActionSectionSecondary" class="slide" data-slide-title="Call to Action">

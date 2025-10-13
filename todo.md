@@ -277,4 +277,48 @@ All of the above is true - I'm a techie who has been abused by tech. Tech has be
 My dad was a programmer so I've had a computer at home since I can remember. My youth was spent gaming all night and then skipping school. 
 
 
-I think I have been ahead of the curve with the struggles as well as the solutions. .
+I think I have been ahead of the curve with the struggles as well as the solutions.
+
+
+-----
+If you think this site is worth sharing then ... well you gotta fight fire with fire. Share it on social media :)
+
+
+
+-----
+
+recap
+which of these have you experienced?
+which of these have the biggest impact on you?
+
+-----
+
+buy, add to cart ...
+
+The action varies but there should always be *just one colorful* clear CTA! (seems I've screwed that up as well)
+
+
+I've done things right if the question in your head now is: "What do you want me to buy?" Always be skeptical, if you got this from me then I've already done a good job. But I can offer more.
+
+----
+
+Register for a free webinar
+Buy self-paced course
+Buy cohort-based live training
+Ask for a quote for internal company training
+Register for a discovery call
+
+
+Not ready yet?
+
+Just scroll down to learn more about: me, gadgetTaming and the tricks used against you.
+
+
+
+"Sooo ... what do you want me to buy?"
+
+If that's the question pounding in your head then I've done a good job. Always be skeptical! This makes you level 1 gadgetTamer. But there's a lot more XP to gain.
+
+All roads lead to Rome Call To Action (CTA). Order. Buy. Add to cart. Book. Sign up. Send inquiry.
+The action varies but there should always be just one colorful clear CTA! (seems I've screwed this up as well)
+
