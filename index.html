@@ -46,7 +46,7 @@
       <h2 data-i18n="slides.personalNote.title">Personal Note</h2>
       <p data-i18n="slides.personalNote.paragraph1">Marketers say I'm doing it wrong, this site breaks all the rules.</p>
       <p data-i18n="slides.personalNote.paragraph2">Good! Those rules hooked me for years - games, videos, social feeds, porn, gambling, doomscrolling news. Ruined my sleep, physical and mental health, relationships.</p>
-      <p data-i18n="slides.personalNote.paragraph3">I'm not anti-tech. I'm a techie actually and I'm quite fond of my gadgets! I'm just <em>anti-ad-driven-manipulative-design</em> and <em>against our attention being sold</em> for pennies.</p>
+      <p data-i18n="slides.personalNote.paragraph3">I'm not anti-tech. I'm quite fond of my gadgets actually! I'm just <em>anti-ad-driven-manipulative-design</em> and <em>against our attention being sold</em> for pennies.</p>
       <p data-i18n="slides.personalNote.paragraph4">You're not broken. Your brain's been hacked. Let's get it back by <strong>taming your <span class="personal-note-rotator">phone</span></strong></p>
 
     </section>
@@ -54,7 +54,7 @@
     <section id="callToActionSection" class="slide" data-slide-title="Call to Action">
       <h2 data-i18n="slides.callToAction.title"><em>"Sooo ... what do you want me to buy?"</em></h2>
       <p data-i18n="slides.callToAction.offer">Good instinct! Always be skeptical! You've now become a <strong>level 1 gadgetTamer</strong>.</p>
-      <p data-i18n="slides.callToAction.body">Every page funnels to one thing: the CTA (Call To Action). Order. Buy. Subscribe. Book. Sign up. Send inquiry.<br><strong>Just one colorful button with a single goal.</strong> (<em>Yeah, I broke that rule too</em>)</p>
+      <p data-i18n="slides.callToAction.body">Every page funnels to one thing: the CTA (Call To Action). Order. Buy. Subscribe. Book. Sign up. Send inquiry.<br><strong>Just one attention grabbing coloful button with a single goal.</strong> (<em>Yeah, I broke that rule too</em>)</p>
       <div class="cta">
         <button type="button" data-i18n="buttons.ctaWebinar">Free <br>webinar</button>
         <button type="button" data-i18n="buttons.ctaCourseSelf">Course: <br>self-paced</button>
@@ -67,25 +67,31 @@
     </section>
 
     <section id="aboutMeSection" class="slide" data-slide-title="About Me">
-      <h2 data-i18n="slides.aboutMe.title">About Me</h2>
+      <h2 data-i18n="slides.aboutMe.title">Who am I?</h2>
       <p data-i18n="slides.aboutMe.body">I'm building this approach because personality beats blandness. I believe trust grows when you see I'm not hiding behind cookie-cutter methods. This is who I am.</p>
     </section>
 
     <section id="aboutGadgetTamingSection" class="slide" data-slide-title="About gadgetTaming">
-      <h2 data-i18n="slides.aboutGadgetTaming.title">About gadgetTaming</h2>
+      <h2 data-i18n="slides.aboutGadgetTaming.title">What is <u>gadgetTaming</u>?</h2>
       <p data-i18n="slides.aboutGadgetTaming.body">gadgetTaming is about understanding how websites really work, beyond templates, and using that knowledge to stand out. Yes, the end goal is sales, but done in a way that respects human attention.</p>
     </section>
 
     <section id="freeMaterialsSlide" class="slide" data-slide-title="Free* materials">
       <h2 data-i18n="slides.freeMaterials.title">Free* materials</h2>
       <p data-i18n="slides.freeMaterials.body">*Price: your email and attention. Can't convert you now? We'll try again tomorrow.</p>
-      <p data-i18n="slides.freeMaterials.body2">Except here. No email. No asterisk. Just scroll for your free materials ;)</p>
+      <p data-i18n="slides.freeMaterials.body2">Except here. No email. No asterisk. Just keep scrolling for your free materials ;)</p>
     </section>
 
     <section id="tricksSection" class="slide" data-slide-title="Tricks">
       <h2 data-i18n="slides.tricks.title">Persuasion tricks in plain sight</h2>
       <p data-i18n="slides.tricks.body">Your interface isn't neutral. Inline prompts, progress meters, social proof — every microcopy push keeps you moving forward.</p>
       <p data-i18n="slides.tricks.body2">Spot scarcity timers, risk-free guarantees, checkout microcopy, unstoppable autoplay. Once you see them, you can't unsee them.</p>
+    </section>
+
+    <section id="hookedSection" class="slide" data-slide-title="Hooked">
+      <h2 data-i18n="slides.hooked.title">Hooked</h2>
+      <p data-i18n="slides.hooked.body">Tech isn't neutral. It's engineered to trigger craving loops with every notification, feed refresh, and streak counter.</p>
+      <p data-i18n="slides.hooked.body2">Once you name the trigger-action-reward cycles, you can break them on purpose — and build healthier ones instead.</p>
     </section>
 
     <!-- Data Trail -->
@@ -109,34 +115,34 @@
     <section id="dataTrailSection" class="slide" data-slide-title="Data Trail">
       <h2 data-i18n="slides.dataTrail.title">Data &gt; Oil</h2>
       <div class="data-story">
-        <p class="data-story__intro">You're surfing on <span id="storyDeviceArticle"></span><strong><span id="storyDeviceNoun">—</span></strong> <span id="storyReferrerSentence">—</span> Not sure where you are, but I can make a guess* ...</p>
-        <div class="data-story__actions">
-          <button type="button" id="btnFetchIP" class="btn-primary" data-i18n="slides.dataTrail.guessButton">Guess my location</button>
-        </div>
-        <div class="data-story__location-card">
-          <p class="data-story__location" id="storyLocation" aria-live="polite">
-            <span id="storyLocationPlace" class="data-story__location-place">&nbsp;</span>
-            <span id="storyLocationConnector" class="data-story__location-connector"></span>
-            <span id="storyLocationISP" class="data-story__location-isp"></span>
-          </p>
-        </div>
-        <small class="data-story__location-note" data-i18n="slides.dataTrail.note">* Fetching a rough, IP address based, location (no GPS)</small>
-        <p class="data-story__stats">You've spent here <strong><span id="storyTime">00:00</span></strong>, <strong><span id="storyPopups" data-i18n="slides.dataTrail.popupNotSeen">not seen the pop-up</span></strong> and clicked these buttons:</p>
-        <ul id="storyButtonsList" class="data-story__buttons" data-default-text="None yet">
-          <li>None yet</li>
+        <ul class="data-story__summary">
+          <li><span data-i18n="slides.dataTrail.summaryDevice">Device:</span> <strong><span id="storyDeviceNoun">—</span></strong></li>
+          <li><span data-i18n="slides.dataTrail.summaryReferrer">Got here:</span> <span id="storyReferrerSentence" data-default-text="directly">directly</span></li>
+          <li><span data-i18n="slides.dataTrail.summaryTime">Time on site:</span> <strong><span id="storyTime">00:00</span></strong></li>
+          <li><span data-i18n="slides.dataTrail.summaryPopups">Pop-up:</span> <strong><span id="storyPopups" data-i18n="slides.dataTrail.popupNotSeen">not seen</span></strong></li>
+          <li>
+            <span data-i18n="slides.dataTrail.summaryButtons">Buttons clicked:</span>
+            <ul id="storyButtonsList" class="data-story__buttons" data-default-text="None yet">
+              <li>None yet</li>
+            </ul>
+          </li>
         </ul>
+        <div class="data-story__actions">
+          <button type="button" id="btnFetchIP" class="btn-primary" data-i18n="slides.dataTrail.guessButton" data-default-text="Want me to guess your location?*">Want me to guess your location?*</button>
+          <small class="data-story__location-note" data-i18n="slides.dataTrail.note">* Fetching a rough, IP address based, location (no GPS)</small>
+        </div>
       </div>
     </section>
 
     <section id="recapSection" class="slide" data-slide-title="Recap">
-      <h2 data-i18n="slides.recap.title">Recap</h2>
+      <h2 data-i18n="slides.recap.title">Which of these has influenced you negatively?</h2>
       <ul class="recap-list">
         <li data-i18n="slides.recap.patterns">Websites reuse proven persuasion patterns because they consistently guide visitors toward action.</li>
         <li data-i18n="slides.recap.data">Your browser leaks a data trail—browser, device, referrer, even rough location—before you click anything.</li>
         <li data-i18n="slides.recap.popups">Pop-ups are timed nudges; annoying, yes, but effective when matched to behavior.</li>
         <li data-i18n="slides.recap.trust">Trust is earned with proof: testimonials, track record, and transparent storytelling.</li>
-        <li data-i18n="slides.recap.action">All of these tactics converge on one decision: the final call to action.</li>
       </ul>
+      <p data-i18n="slides.recap.ready">Ready to level up as a gadgetTamer?</p>
     </section>
 
     <section id="commentsSection" class="slide" data-slide-title="Comments">

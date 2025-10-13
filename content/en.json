@@ -32,10 +32,14 @@
       "refreshButton": "Refresh",
       "timeLabel": "Time on site",
       "popupsSeenLabel": "Pop-ups seen",
-      "popupSeen": "seen the pop-up",
-      "popupNotSeen": "not seen the pop-up",
-      "buttonsClickedLabel": "Buttons clicked",
-      "guessButton": "Guess my location",
+      "popupSeen": "seen",
+      "popupNotSeen": "not seen",
+      "summaryDevice": "Device:",
+      "summaryReferrer": "Got here:",
+      "summaryTime": "Time on site:",
+      "summaryPopups": "Pop-up:",
+      "buttonsClickedLabel": "Buttons clicked:",
+      "guessButton": "Want me to guess your location?*",
       "noneYet": "None yet",
       "note": "* Fetching a rough, IP address based location (no GPS)"
     },
@@ -60,26 +64,29 @@
       "title": "Choose A or B",
       "optionA": "A. Opinions are vibes, revenue decides",
       "optionB": "B. Hunches are cheap, data is truth",
-      "line4": "Split 100,000 visitors - half see A, half see B. Let the wallets vote.",
-      "line5": "That's called A/B testing. Like Darwin for profits.",
-      "copyA": "Split 100,000 visitors - half see A, half see B. Let the wallets vote.<br>That's called A/B testing. Like Darwin for profits.",
-      "copyB": "Randomly show half the visitors A others B. Which copy gets more sales remains. Survival of the fittest."
+      "copyA": "Split 100,000 visitors - half see A, half see B. Let the wallets vote.<br>That's called A/B testing.",
+      "copyB": "Randomly show half the visitors A others B. Which copy gets more sales remains. Digital survival of the fittest aka A/B testing."
     },
     "freeMaterials": {
       "title": "Free* materials",
       "body": "*Price: email and attention. Can't convert you now? We'll try again tomorrow in your inbox.",
-      "body2": "Except here. No email. No asterisk. Just scroll for your free materials ;)"
+      "body2": "Except here. No email. No asterisk. Just keep scrolling for your free materials ;)"
     },
     "tricks": {
       "title": "Persuasion tricks in plain sight",
       "body": "Your interface isn't neutral. Inline prompts, progress meters, social proof — every microcopy push keeps you moving forward.",
       "body2": "Spot scarcity timers, risk-free guarantees, checkout microcopy, unstoppable autoplay. Once you see them, you can't unsee them."
     },
+    "hooked": {
+      "title": "Hooked",
+      "body": "Tech isn't neutral. It's engineered to trigger craving loops with every notification, feed refresh, and streak counter.",
+      "body2": "Once you name the trigger-action-reward cycles, you can break them on purpose — and build healthier ones instead."
+    },
     "personalNote": {
       "title": "Personal Note",
       "paragraph1": "Marketers say I'm doing it wrong, this site breaks all the rules.",
       "paragraph2": "Good! Those rules hooked me for years - games, videos, social feeds, porn, gambling, doomscrolling news. Ruined my sleep, physical and mental health, relationships.",
-      "paragraph3": "I'm not anti-tech. I'm a techie actually and I'm quite fond of my gadgets! I'm just <em>anti-ad-driven-manipulative-design</em> and <em>against our attention being sold</em> for pennies.",
+      "paragraph3": "I'm not anti-tech. I'm quite fond of my gadgets actually! I'm just <em>anti-ad-driven-manipulative-design</em> and <em>against our attention being sold</em> for pennies.",
       "paragraph4": "You're not broken. Your brain's been hacked. Let's get it back by <strong>taming your <span class=\"personal-note-rotator\">phone</span></strong>",
       "rotatingItems": [
         "gadgets",
@@ -102,31 +109,30 @@
       "commentButton": "Post comment"
     },
     "aboutMe": {
-      "title": "About Me",
+      "title": "Who am I?",
       "body": "I'm building this approach because personality beats blandness. I believe trust grows when you see I'm not hiding behind cookie-cutter methods. This is who I am."
     },
     "aboutGadgetTaming": {
-      "title": "About gadgetTaming",
+      "title": "What is <u>gadgetTaming</u>?",
       "body": "gadgetTaming is about understanding how websites really work, beyond templates, and using that knowledge to stand out. Yes, the end goal is sales, but done in a way that respects human attention."
     },
     "recap": {
-      "title": "Recap",
+      "title": "Which of these has influenced you negatively?",
       "patterns": "Websites reuse proven persuasion patterns because they consistently guide visitors toward action.",
-      "intro": "You're surfing on {{device}} {{referrer}} Not sure where you are, but I can make a guess* ...",
       "data": "Your browser leaks a data trail—browser, device, referrer, even rough location—before you click anything.",
       "popups": "Pop-ups are timed nudges; annoying, yes, but effective when matched to behavior.",
       "trust": "Trust is earned with proof: testimonials, track record, and transparent storytelling.",
-      "action": "All of these tactics converge on one decision: the final call to action."
+      "ready": "Ready to level up as a gadgetTamer?"
     },
     "callToAction": {
       "title": "<em>\"Sooo ... what do you want me to buy?\"</em>",
-      "body": "Every page funnels to one thing: the CTA (Call To Action). Order. Buy. Subscribe. Book. Sign up. Send inquiry.<br><strong>Just one colorful button with a single goal.</strong> (<em>Yeah, I broke that rule too</em>)",
-      "offer": "Good instinct! Always be skeptical! You've now become a <strong>level 1 gadgetTamer</strong>.",
+      "body": "Every page funnels to one thing: the CTA (Call To Action). Order. Buy. Subscribe. Book. Sign up. Send inquiry.<br><strong>Just one attention grabbing coloful button with a single goal.</strong> (<em>Yeah, I broke that rule too</em>)",
+      "offer": "Good instinct! Always be skeptical! You've now become a <strong>Level 1 gadgetTamer</strong>.",
       "notReady": "<strong>Not ready yet?</strong><br>Just scroll down to learn more about me, gadgetTaming and the tricks used against you."
     },
     "callToActionSecondary": {
       "title": "Almost level 2 gadgetTamer",
-      "body": "Any of these will get you there and beyond. This is either the end of the road or the beginning of something new - your choice."
+      "body": "Any of these will get you there and beyond. This is either the end of the road or the beginning of redefining how you use your gadgets - your choice."
     },
   },
   "popups": {

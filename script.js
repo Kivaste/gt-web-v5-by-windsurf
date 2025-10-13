@@ -761,12 +761,6 @@ window.addEventListener("scroll", () => {
 const storyDeviceArticle = document.getElementById("storyDeviceArticle");
 const storyDeviceNoun = document.getElementById("storyDeviceNoun");
 const storyReferrerSentence = document.getElementById("storyReferrerSentence");
-const storyLocation = document.getElementById("storyLocation");
-const storyLocationPlace = document.getElementById("storyLocationPlace");
-const storyLocationConnector = document.getElementById("storyLocationConnector");
-const storyLocationISP = document.getElementById("storyLocationISP");
-const storyLocationHyphen = document.getElementById("storyLocationHyphen");
-const storyLocationASN = document.getElementById("storyLocationASN");
 const storyTime = document.getElementById("storyTime");
 const storyPopups = document.getElementById("storyPopups");
 const storyButtonsList = document.getElementById("storyButtonsList");
@@ -774,12 +768,13 @@ const btnFetchIP = document.getElementById("btnFetchIP");
 const abTestButtons = Array.from(document.querySelectorAll(".ab-test-button"));
 const abTestCopy = document.getElementById("abTestCopy");
 const accordions = Array.from(document.querySelectorAll('[data-accordion]'));
+const defaultLocationButtonText = btnFetchIP?.dataset.defaultText || "Want me to guess your location?*";
+const loadingLocationButtonText = btnFetchIP?.dataset.loadingText || "Guess location";
 
 let selectedAbVariant = null;
 
 let sessionStart = Date.now();
 let buttonClicks = Object.create(null);
-buttonClicks["Guess my location"] = 0;
 
 function escapeHtml(text) {
   if (text === undefined || text === null) return "";
@@ -874,10 +869,10 @@ function describeReferrerSentence() {
   const directLabel = t('stats.referrer.direct', 'Direct');
   const isDirect = !referrer || !host || host === directLabel;
   if (isDirect) {
-    return "and you came here directly with <strong>gadgetTamer.com</strong> on your address bar.";
+    return "directly";
   }
   const escapedHost = escapeHtml(host);
-  return `and <strong>${escapedHost}</strong> sent you here.`;
+  return `<strong>${escapedHost}</strong>`;
 }
 
 function splitArticleAndNoun(text) {
@@ -910,7 +905,7 @@ function updatePopupStats() {
   const seenAny = hasSeenAnyPopup();
   if (storyPopups) {
     const key = seenAny ? 'slides.dataTrail.popupSeen' : 'slides.dataTrail.popupNotSeen';
-    const fallback = seenAny ? 'seen the pop-up' : 'not seen the pop-up';
+    const fallback = seenAny ? 'seen' : 'not seen';
     storyPopups.textContent = t(key, fallback);
   }
 }
@@ -922,6 +917,7 @@ function labelForButton(btn) {
 document.addEventListener("click", (e) => {
   const btn = e.target.closest("button");
   if (!btn) return;
+  if (btn === btnFetchIP) return;
   const label = labelForButton(btn);
   buttonClicks[label] = (buttonClicks[label] || 0) + 1;
   renderButtonClicks();
@@ -946,13 +942,13 @@ function getAbTestCopy(variant) {
   if (variant === "A") {
     return t(
       'slides.abTesting.copyA',
-      "Split 100,000 visitors - half see A, half see B. Let the wallets vote.<br>That's called A/B testing. Like Darwin for profits."
+      "Split 100,000 visitors - half see A, half see B. Let the wallets vote.<br>That's called A/B testing."
     );
   }
   if (variant === "B") {
     return t(
       'slides.abTesting.copyB',
-      "Randomly show half the visitors A others B. Which copy gets more sales remains. Survival of the fittest."
+      "Randomly show half the visitors A others B. Which copy gets more sales remains. Digital survival of the fittest aka A/B testing."
     );
   }
   return "";
@@ -1019,28 +1015,21 @@ accordions.forEach((accordion) => {
   });
 });
 
-function setLocationDisplay(place, connector, isp, hyphen, asn) {
+function setLocationDisplay(place, connector, isp) {
+  if (!btnFetchIP) return;
   const hasContent = Boolean(place) || Boolean(isp);
-  if (storyLocation) {
-    storyLocation.classList.toggle("is-populated", hasContent);
+  if (!hasContent) {
+    btnFetchIP.textContent = defaultLocationButtonText;
+    return;
   }
-  if (storyLocationPlace) {
-    if (!place) {
-      storyLocationPlace.textContent = "\u00A0";
-    } else {
-      const escaped = escapeHtml(place);
-      const highlightPlace = !connector && !isp;
-      storyLocationPlace.innerHTML = highlightPlace ? `<strong>${escaped}</strong>` : escaped;
-    }
-  }
-  if (storyLocationConnector) storyLocationConnector.textContent = connector || "";
-  if (storyLocationISP) storyLocationISP.textContent = isp || "";
-  if (storyLocationHyphen) storyLocationHyphen.textContent = hyphen || "";
-  if (storyLocationASN) storyLocationASN.textContent = asn || "";
+
+  const connectionPart = connector && isp ? `${connector}${isp}` : "";
+  const displayText = [place, connectionPart].filter(Boolean).join("");
+  btnFetchIP.textContent = displayText || defaultLocationButtonText;
 }
 
 function resetLocationDisplay() {
-  setLocationDisplay(undefined, "", "", "", "");
+  setLocationDisplay("", "", "");
 }
 
 function resetButtonList() {
@@ -1081,8 +1070,10 @@ function formatConnectionParts(data) {
 }
 
 async function fetchIpLocation() {
-  if (!storyLocation) return;
+  if (!btnFetchIP) return;
   try {
+    btnFetchIP.disabled = true;
+    btnFetchIP.textContent = loadingLocationButtonText;
     const res = await fetch("https://ipapi.co/json/");
     if (!res.ok) throw new Error("IP service unavailable");
     const data = await res.json();
@@ -1091,11 +1082,15 @@ async function fetchIpLocation() {
     const country = data.country_name || data.country || "";
     const placeParts = [city, region, country].filter(Boolean);
     const place = placeParts.length ? placeParts.join(", ") : t('stats.location.unknown', 'Unknown location');
-    const { connector, isp, hyphen, asn } = formatConnectionParts(data);
-    setLocationDisplay(place, connector, isp, hyphen, asn);
+    const { connector, isp } = formatConnectionParts(data);
+    setLocationDisplay(place, connector, isp);
   } catch (err) {
     const place = t('stats.location.unavailable', "Location unavailable - sorry, doesn't always work:(");
-    setLocationDisplay(place, '', '', '', '');
+    setLocationDisplay(place, '', '');
+  } finally {
+    if (btnFetchIP) {
+      btnFetchIP.disabled = false;
+    }
   }
 }
 btnFetchIP?.addEventListener("click", (event) => {

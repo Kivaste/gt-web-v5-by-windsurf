@@ -335,62 +335,6 @@ Good instinct! Always be skeptical! You are now a level 1 gadgetTamer.
 
 
 
-Every page funnels to one thing: the CTA (Call To Action). Order. Buy. Subscribe. Book. Sign up. Send inquiry.
-Just one button, one color, one goal.
-
-(Yeah, I broke that rule too.)
-
-
-
-
-
-
-    Register for a free webinar
-        Free Webinar
-        Register Free
-        Save My Seat
-        Attend Free
-        Claim Spot
-        RSVP Free
-
-    Buy self-paced course
-        Buy Course
-        Get Course
-        Start Course
-        Enroll Now
-        Start Now
-        Get Access
-
-    Buy cohort-based live training
-        Join the Cohort
-        Enroll Live
-        Buy Live Training
-        Join Live Cohort
-        Reserve My Seat
-        Secure My Spot
-
-    Ask for a quote for internal company training
-        Request Quote
-        Get Team Quote
-        Request Pricing
-        Get Company Quote
-        Request Proposal
-        Talk to Sales
-
-    Register for a discovery call
-        Book a Call
-        Schedule Call
-        Book Discovery Call
-        Pick a Time
-        Let’s Talk
-        Book Free Call
-
-
-Free webinar
-Course: self-paced
-Course: live cohorot
-Team training
-Schedule a call
 
 Just one attention grabbing coloful button with a single goal
 
@@ -410,3 +354,24 @@ I'm a techie who has been abused by tech. Tech has been my passion, my hobbie, m
 ----
 
 If you think this site is cool then ... well you gotta fight fire with fire. Please share it :)
+
+
+---
+
+Pricing 
+- 99 97 let's be honest it's a 100
+- 
+Money back guarantee
+Testimonials
+FAQ
+
+
+
+----
+
+Ready for me to solve all your problems?*
+
+
+* this is a 
+
+Spooky? Consider everything you've seen and multiply it with tens or hundreds of millions of people. Spooky is an understatement.

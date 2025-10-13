@@ -80,6 +80,11 @@
       "body": "Ükski kasutajaliides pole neutraalne. Vahepeal teksti, edenemisribad, sotsiaalne tõestus — iga mikrotekst nügib sind edasi.",
       "body2": "Pane tähele nappuse-taimikuid, riskivabu garantiisid, kassasõnumeid, peatumatut automängu. Kui korra näed, ei unusta enam."
     },
+    "hooked": {
+      "title": "Hooked",
+      "body": "Tech pole neutraalne. See on ehitatud selleks, et iga märguande, voouuenduse ja järjestuse kaudu tekitada ihasid.",
+      "body2": "Kui paned nime päästik-tegevus-preemia tsüklitele, saad neid teadlikult murda — ja ehitada asemele tervislikumad harjumused."
+    },
     "whyPopup": {
       "title": "Miks hüpikaken?",
       "body": "Hüpikaken on viimane \"ära veel lahku\" hetk — ajastatud kiireloomulisusega või käivitub, kui tabad sulgeda. Tüütu? Võib-olla. Tõhus? Kindlasti."
@@ -129,6 +134,15 @@
       "title": "Peaaegu 2. taseme gadgetTamer",
       "body": "Ükskõik milline neist viib sind kohale ja kaugemale. See on kas teekonna lõpp või millegi uue algus – sinu otsus."
     }
+  },
+  "recap": {
+    "title": "Millised neist on sind negatiivselt mõjutanud?",
+    "patterns": "Veebid kordavad tõestatud mõjutusmustreid, sest need suunavad külastajaid järjekindlalt tegutsema.",
+    "intro": "Sirvid praegu {{device}} {{referrer}} kaudu. Ma ei tea täpselt, kus sa oled, aga saan ligikaudse aimduse* ...",
+    "data": "Su brauser lekkab andmejada – brauser, seade, viitaja, isegi umbkaudne asukoht – enne kui sa üldse klikid.",
+    "popups": "Hüpikud on ajastatud nügijad; tüütud, kuid õige käitumisega paaritatuna üllatavalt tõhusad.",
+    "trust": "Usaldus tuleb tõenditega: kogemus, kliendid, läbipaistev jutustamine.",
+    "action": "Kõik need taktikad koonduvad ühele otsusele: lõplikule tegevuskutsele."
   },
   "popups": {
     "whyPopup": {
