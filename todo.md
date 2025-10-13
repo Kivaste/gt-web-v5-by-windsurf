@@ -375,3 +375,13 @@ Ready for me to solve all your problems?*
 * this is a 
 
 Spooky? Consider everything you've seen and multiply it with tens or hundreds of millions of people. Spooky is an understatement.
+-----
+
+
+how to improve the code - make a plan of refactoring, removing unused parts, making sure that all the strings are latest in the en.json file. 
+
+
+----
+
+
+Data > Oil / datatrail slide has its content horizontally aligned to the center, I want it to be left-aligned. What could be done?
