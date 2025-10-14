@@ -14,6 +14,8 @@ let accordions = [];
 
 let defaultLocationButtonText = '';
 let loadingLocationButtonText = '';
+const GUESS_LOCATION_LABEL_KEY = 'slides.dataTrail.guessLocationLabel';
+const GUESS_LOCATION_LABEL_FALLBACK = 'Guess location';
 
 let selectedAbVariant = null;
 let sessionStart = Date.now();
@@ -113,11 +115,21 @@ function labelForButton(btn) {
   );
 }
 
+function recordButtonClick(btn) {
+  if (!btn) return;
+  const isGuessLocation = btn === btnFetchIP;
+  const label = isGuessLocation
+    ? t(GUESS_LOCATION_LABEL_KEY, GUESS_LOCATION_LABEL_FALLBACK)
+    : labelForButton(btn);
+  buttonClicks[label] = (buttonClicks[label] || 0) + 1;
+  renderButtonClicks();
+}
+
 function renderButtonClicks() {
   if (!storyButtonsList) return;
   const entries = Object.entries(buttonClicks)
     .sort((a, b) => b[1] - a[1])
-    .slice(0, 8);
+    .slice(0, 5);
   if (!entries.length) {
     resetButtonList();
     return;
@@ -272,9 +284,7 @@ function handleDocumentClick(event) {
   const btn = event.target.closest('button');
   if (!btn) return;
   if (btn === btnFetchIP) return;
-  const label = labelForButton(btn);
-  buttonClicks[label] = (buttonClicks[label] || 0) + 1;
-  renderButtonClicks();
+  recordButtonClick(btn);
 }
 
 function handleKeydown(event) {
@@ -353,6 +363,7 @@ function initDataTrail() {
 
   btnFetchIP?.addEventListener('click', (event) => {
     event.preventDefault();
+    recordButtonClick(btnFetchIP);
     fetchIpLocation();
   });
 

@@ -40,14 +40,16 @@
       "summaryReferrer": "Got here:",
       "summaryTime": "Time on site:",
       "summaryPopups": "Pop-up:",
-      "buttonsClickedLabel": "Buttons clicked:",
+      "statsTitle": "Stats",
+      "buttonsClickedLabel": "Clicks",
       "guessButton": "Want me to guess your location?*",
+      "guessLocationLabel": "Guess location",
       "noneYet": "None yet",
       "note": "* Fetching a rough, IP address based location (no GPS)"
     },
     "cookies": {
       "title": "Cookies - sweet or clingy?",
-      "paragraph1": "Your barista remembers your latte and your name. Sweet!<br>First-party cookies do that - login, preferences, did you see A or B and that shopping cart you abandoned.",
+      "paragraph1": "Your barista remembers your latte and your name. Sweet!<br>First-party cookies do that - login, preferences, did you see A or B, and that shopping cart you abandoned.",
       "paragraph2": "Guy in a van? Different vibe.<br>Third-party cookies follow you everywhere, log everything, report to advertisers. That abandoned cart haunting every page? That's them.",
       "firstParty": "<strong>First-party cookies:</strong> set by the site you're on — logins, carts, \"remember me,\" that sort of useful stuff.",
       "sessionPersistent": "<strong>Session vs. persistent:</strong> session cookies vanish when you close the tab; persistent cookies stick around for days or months, like glitter after a craft accident.",
@@ -103,12 +105,14 @@
       ]
     },
     "comments": {
-      "title": "These tools are too powerful!",
-      "commentHeading": "You must be furious - I got the math wrong!",
+      "title": "It's hopeless!",
+      "intro": "These methods are too powerful. You have no chance against them. Just give up!",
+      "commentHeading": "I don't think you can prove me wrong",
       "commentPlaceholder": "99.99% DOES NOT EQUAL ONE IN A MILLION! IDIOT!\n\n(gotcha - got the engagement I was looking for)",
       "commentEmailLabel": "if you wish to get a reply then leave your email",
-      "commentEmailPlaceholder": "if you wish to get a reply then leave your email",
-      "commentButton": "Post comment"
+      "commentEmailPlaceholder": "not a newsletter signup",
+      "commentButton": "Post comment",
+      "prefill": "YOU'RE AN ABSOLUTE ARSE! OF COURSE I ... ooh, that's how they get the engagement"
     },
     "aboutMe": {
       "title": "Who am I?",
@@ -133,7 +137,7 @@
       "notReady": "<strong>Not ready yet?</strong><br>Just scroll down to learn more about me, gadgetTaming and the tricks used against you."
     },
     "callToActionSecondary": {
-      "title": "Almost level 2 gadgetTamer",
+      "title": "Almost a level 2 <u>gadgetTamer</u>",
       "body": "Any of these will get you there and beyond. This is either the end of the road or the beginning of redefining how you use your gadgets - your choice."
     }
   },

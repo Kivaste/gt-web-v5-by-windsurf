@@ -69,7 +69,7 @@ function initHooked() {
     if (!stageId) {
       slot.classList.remove('is-filled');
       slot.removeAttribute('data-stage');
-      valueEl.textContent = 'Select a stage';
+      valueEl.textContent = `Stage ${slotIndex + 1} slot`;
       if (descEl) {
         descEl.textContent = '';
       }
@@ -85,8 +85,7 @@ function initHooked() {
     slot.setAttribute('data-stage', stage.id);
     valueEl.textContent = stage.title;
     if (descEl) {
-      const examples = stage.examples.join(', ');
-      descEl.textContent = `${stage.summary}. Examples: ${examples}`;
+      descEl.textContent = stage.examples.join(', ');
     }
   }
 

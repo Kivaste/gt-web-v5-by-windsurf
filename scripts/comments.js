@@ -5,6 +5,15 @@ let commentText = null;
 let commentEmail = null;
 let commentStatus = null;
 
+const COMMENT_PLACEHOLDER_KEY = 'slides.comments.prefill';
+const COMMENT_PLACEHOLDER_FALLBACK = "YOU'RE AN ABSOLUTE ARSE! OF COURSE I ... ooh, that's how they get the engagement";
+
+function updateCommentPlaceholder() {
+  if (!commentText) return;
+  const value = t(COMMENT_PLACEHOLDER_KEY, COMMENT_PLACEHOLDER_FALLBACK);
+  commentText.setAttribute('placeholder', value);
+}
+
 function isValidEmail(value) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
 }
@@ -68,11 +77,13 @@ function initComments() {
     return;
   }
 
+  updateCommentPlaceholder();
   commentText.addEventListener('input', handleCommentInput);
   commentEmail?.addEventListener('input', handleCommentInput);
   btnPostComment.addEventListener('click', handleCommentSubmit);
 
   onTranslationsApplied(() => {
+    updateCommentPlaceholder();
     updateCommentButtonState();
   });
 

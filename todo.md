@@ -1,8 +1,16 @@
 - [x] hero page animated navigation should be delayed even when the reduce motion is enabled
 - [x] Copy the hero slide scroll indicator but without the delay and animation (position should be fixed to the bottom of the animation range) and add that for all the pages except red banner and second CTA
-- [ ] Persuasion tricks in plain sight: copy
-- [ ] yellow banner - on mobile: add 10% of height, add a bit of white space to the sides
+- [x] yellow banner - fix mobile: add 10% of height, add a bit of white space to the sides
 - [ ] hooked slide - Select the stage to place in this slot: this selector should act more like a popup or a dropdown menu that comes on top of the other content, rather than an extra container that is hidden and shown on click.
+- [ ] Persuasion tricks in plain sight: copy
+- [ ] Data > Oil: put the button click counters to the second column, right to the device info
+- [ ] comments/These tools are too powerful!: fix the comments box to have the same font, text size etc like the email box'
+
+- [ ] copy changes
+    - [ ] These tools are too powerful! => It's hopeless!
+    - [ ] These methods are too powerful. You have no chance against them. Just give up!
+    - [ ] These could be some of the wrong arguments 
+    - [ ] you're an absolute arse! Of course I ... ooh, that's how they got the engagement!
 
 
 
@@ -11,7 +19,6 @@
 - [ ] Recap: copy
 - [ ] Hooked: interaction
 - [ ] Hooked: copy
-- [ ] Data > Oil: button click counter positioning
 - [ ] Data > Oil: 
 - [ ] CTA slideouts
 
@@ -26,7 +33,7 @@
 
 - [ ] hosting
     - [ ] cloudflare worker
-- [ ] posthog for analyticsz
+- [ ] posthog for analytics
 
 
 
@@ -158,3 +165,86 @@ Ready for me to solve all your problems?*
 --------
 Spooky? Consider everything you've seen and multiply it with tens or hundreds of millions of people. Spooky is an understatement.
 -----
+
+
+
+
+Step-by-Step Testing Plan
+Refresh localization
+Load the site and ensure translations have reinitialized (or manually trigger the localization script) so new strings from 
+content/en.json
+ appear.
+Verify Data Trail layout
+Navigate to the Data > Oil slide and confirm:
+“Stats” and “Clicks” headings align with bullets and are underlined.
+Guess-location button spans the full column width and reduced gap to the note.
+Clicking multiple CTA buttons plus the guess button shows only five bullet entries including the guess button.
+Test Hooked interaction
+
+
+On the Holy grail slide, check that each slot initially reads “Select stage N” centered, and once a stage is chosen the placeholder disappears, showing only the chosen stage and description. Deselect/reassign to ensure placeholders return.
+Inspect Comments slide
+Verify the title “It's hopeless!”, the new intro paragraph, and that the textarea font/size matches the email input. Check that the localization still applies to placeholders and labels.
+Review Tricks slide
+Confirm the heading reads “Some more persuasion tricks in plain sight” and the updated table rows display exactly the new text.
+Regression spot-check
+Scroll through neighboring slides (e.g., Cookies) to confirm the adjusted copy (Oxford comma) appears and that no unexpected layout shifts occurred after the CSS changes.
+Optional cross-device check
+Resize to ≤640px width to ensure Data Trail layout, hooked slots, and comments form remain consistent with the mobile-specific CSS adjustments.
+
+- Button labels (click counter)
+  - "Scroll to next section" → "Scroll next"
+  - "Free webinar" → "Webinar"
+  - "Course: self-paced" → "Self-paced course"
+  - "Course: live cohort" → "Live course"
+  - "Team training" → "Team training"
+  - "Discovery call" → "Book call"
+  - "Donate" → "Donate"
+  - "A" → "Variant A"
+  - "B" → "Variant B"
+  - "Select stage 1" → "Stage 1 slot"
+  - "Select stage 2" → "Stage 2 slot"
+  - "Select stage 3" → "Stage 3 slot"
+  - "Select stage 4" → "Stage 4 slot"
+  - "Close stage selector" → "Close picker"
+  - "Trigger" → "Trigger"
+  - "Action" → "Action"
+  - "Variable Reward" → "Reward"
+  - "Investment" → "Investment"
+  - "Guess location" → "Guess location"
+  - "Post comment" → "Post comment"
+  - "Close dialog" → "Close popup"
+  - "I see what's going on!" → "I see what's going on!"
+  - "WTF is happening?" → "WTF is happening?
+
+
+
+
+Hooked model selector popup:
+1. Rounded corners change to 90degree corners
+2. Stage background full black
+3. close X mark - copy the other pop up look exactly
+4. remove the horizontal line
+5. change copy: 'Select the stage to place in this slot.' => 'Select the stage'
+ 
+ 
+
+Simple behavior in anticipation of reward => Simplest next behavior
+
+
+
+Trigger (scripts/hooked.js:1-7)
+Cue that prompts you to act. 
+Examples: Push notification, Inbox badge, Boredom scroll.
+
+Action (scripts/hooked.js:8-13)
+Simple behavior in anticipation of reward. 
+Examples: Open the app, Swipe to refresh, Tap the play button.
+
+Variable Reward (scripts/hooked.js:14-19)
+Unpredictable payoff that hooks attention. 
+Examples: New likes or comments, Loot drop, Fresh content.
+
+Investment (scripts/hooked.js:20-25)
+Effort that increases the product’s future value. 
+Examples: Upload a photo, Follow friends, Save preferences.

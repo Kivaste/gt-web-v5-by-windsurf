@@ -19,7 +19,7 @@
         <span data-i18n="hero.title">why is this page so weird</span>
       </h1>
     </div>
-    <button type="button" class="scroll-indicator" aria-label="Scroll to next section">
+    <button type="button" class="scroll-indicator" aria-label="Scroll next">
       <svg class="scroll-indicator__arrow" viewBox="0 0 32 32" aria-hidden="true">
         <path d="M5.2 10.4 L16 24 L26.8 10.4" fill="none" stroke="currentColor" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round" />
       </svg>
@@ -58,11 +58,11 @@
       <p data-i18n="slides.callToAction.offer">Good instinct! Always be skeptical! You've now become a <strong>Level 1 <u>gadgetTamer</u></strong>.</p>
       <p data-i18n="slides.callToAction.body">Every page funnels to the CTA (Call To Action). Order. Buy. Subscribe. Book. Become a gadgetTamer. Sign up. Send inquiry. <strong>Just one attention grabbing coloful button with a single goal.</strong> (<em>Yeah, I broke that rule too</em>)</p>
       <div class="cta">
-        <button type="button" data-i18n="buttons.ctaWebinar">Free <br>webinar</button>
-        <button type="button" data-i18n="buttons.ctaCourseSelf">Course: <br>self-paced</button>
-        <button type="button" data-i18n="buttons.ctaCourseLive">Course: <br>live cohort</button>
-        <button type="button" data-i18n="buttons.ctaTeamTraining">Team <br>training</button>
-        <button type="button" data-i18n="buttons.ctaScheduleCall">Discovery <br>call</button>
+        <button type="button" data-i18n="buttons.ctaWebinar">Webinar</button>
+        <button type="button" data-i18n="buttons.ctaCourseSelf">Self-paced course</button>
+        <button type="button" data-i18n="buttons.ctaCourseLive">Live course</button>
+        <button type="button" data-i18n="buttons.ctaTeamTraining">Team training</button>
+        <button type="button" data-i18n="buttons.ctaScheduleCall">Book call</button>
         <button type="button" data-i18n="buttons.ctaDonate">Donate</button>
       </div>
       <p data-i18n="slides.callToAction.notReady"><strong>Not ready yet?</strong><br>Just scroll down to learn more about me, gadgetTaming and the tricks used against you.</p>
@@ -87,8 +87,8 @@
     <section id="abTestingSection" class="slide" data-slide-title="A/B Testing">
       <h2 data-i18n="slides.abTesting.title">Choose A or B</h2>
       <div class="ab-test-options" role="group" aria-label="A/B test options">
-        <button type="button" id="btnAbTestA" class="ab-test-button" data-variant="A" aria-pressed="false" aria-label="Select variant A">A</button>
-        <button type="button" id="btnAbTestB" class="ab-test-button" data-variant="B" aria-pressed="false" aria-label="Select variant B">B</button>
+        <button type="button" id="btnAbTestA" class="ab-test-button" data-variant="A" aria-pressed="false" aria-label="Select variant A">Variant A</button>
+        <button type="button" id="btnAbTestB" class="ab-test-button" data-variant="B" aria-pressed="false" aria-label="Select variant B">Variant B</button>
       </div>
       <p id="abTestCopy" class="ab-test-copy" aria-live="polite"></p>
     </section>
@@ -99,31 +99,27 @@
       <div class="hooked-exercise" data-hooked-exercise>
         <div class="hooked-slots" role="list">
           <button type="button" class="hooked-slot" data-slot="0" role="listitem">
-            <span class="hooked-slot-label">Slot 1</span>
-            <span class="hooked-slot-value" data-slot-value>Select a stage</span>
+            <span class="hooked-slot-value" data-slot-value>Stage 1 slot</span>
             <span class="hooked-slot-desc" data-slot-desc></span>
           </button>
           <button type="button" class="hooked-slot" data-slot="1" role="listitem">
-            <span class="hooked-slot-label">Slot 2</span>
-            <span class="hooked-slot-value" data-slot-value>Select a stage</span>
+            <span class="hooked-slot-value" data-slot-value>Stage 2 slot</span>
             <span class="hooked-slot-desc" data-slot-desc></span>
           </button>
           <button type="button" class="hooked-slot" data-slot="2" role="listitem">
-            <span class="hooked-slot-label">Slot 3</span>
-            <span class="hooked-slot-value" data-slot-value>Select a stage</span>
+            <span class="hooked-slot-value" data-slot-value>Stage 3 slot</span>
             <span class="hooked-slot-desc" data-slot-desc></span>
           </button>
           <button type="button" class="hooked-slot" data-slot="3" role="listitem">
-            <span class="hooked-slot-label">Slot 4</span>
-            <span class="hooked-slot-value" data-slot-value>Select a stage</span>
+            <span class="hooked-slot-value" data-slot-value>Stage 4 slot</span>
             <span class="hooked-slot-desc" data-slot-desc></span>
           </button>
         </div>
         <div class="hooked-picker-overlay" data-stage-overlay hidden>
           <div class="hooked-picker" role="dialog" aria-modal="true" aria-labelledby="hookedPickerTitle">
             <div class="hooked-picker__header">
-              <h3 id="hookedPickerTitle">Select the stage to place in this slot.</h3>
-              <button type="button" class="hooked-picker__close" data-stage-close aria-label="Close stage selector">×</button>
+              <h3 id="hookedPickerTitle">Select the stage</h3>
+              <button type="button" class="hooked-picker__close" data-stage-close aria-label="Close picker">×</button>
             </div>
             <ul class="hooked-stage-list" data-stage-list></ul>
           </div>
@@ -141,18 +137,23 @@
     <section id="dataTrailSection" class="slide" data-slide-title="Data Trail">
       <h2 data-i18n="slides.dataTrail.title">Data &gt; Oil</h2>
       <div class="data-story">
-        <ul class="data-story__summary">
-          <li><span data-i18n="slides.dataTrail.summaryDevice">Device:</span> <strong><span id="storyDeviceNoun">—</span></strong></li>
-          <li><span data-i18n="slides.dataTrail.summaryReferrer">Got here:</span> <span id="storyReferrerSentence" data-default-text="directly">directly</span></li>
-          <li><span data-i18n="slides.dataTrail.summaryTime">Time on site:</span> <strong><span id="storyTime">00:00</span></strong></li>
-          <li><span data-i18n="slides.dataTrail.summaryPopups">Pop-up:</span> <strong><span id="storyPopups" data-i18n="slides.dataTrail.popupNotSeen">not seen</span></strong></li>
-          <li>
-            <span data-i18n="slides.dataTrail.summaryButtons">Buttons clicked:</span>
+        <div class="data-story__summary">
+          <div class="data-story__facts">
+            <p class="data-story__facts-title"><u data-i18n="slides.dataTrail.statsTitle">Stats</u></p>
+            <ul class="data-story__facts-list">
+              <li><span data-i18n="slides.dataTrail.summaryDevice">Device:</span> <strong><span id="storyDeviceNoun">—</span></strong></li>
+              <li><span data-i18n="slides.dataTrail.summaryReferrer">Got here:</span> <span id="storyReferrerSentence" data-default-text="directly">directly</span></li>
+              <li><span data-i18n="slides.dataTrail.summaryTime">Time on site:</span> <strong><span id="storyTime">00:00</span></strong></li>
+              <li><span data-i18n="slides.dataTrail.summaryPopups">Pop-up:</span> <strong><span id="storyPopups" data-i18n="slides.dataTrail.popupNotSeen">not seen</span></strong></li>
+            </ul>
+          </div>
+          <div class="data-story__clicks">
+            <p class="data-story__clicks-title"><strong><u data-i18n="slides.dataTrail.buttonsClickedLabel">Clicks</u></strong></p>
             <ul id="storyButtonsList" class="data-story__buttons" data-default-text="None yet">
               <li>None yet</li>
             </ul>
-          </li>
-        </ul>
+          </div>
+        </div>
         <div class="data-story__actions">
           <button type="button" id="btnFetchIP" class="btn-primary" data-i18n="slides.dataTrail.guessButton" data-default-text="Want me to guess your location?*">Want me to guess your location?*</button>
           <small class="data-story__location-note" data-i18n="slides.dataTrail.note">* Fetching a rough, IP address based, location (no GPS)</small>
@@ -161,7 +162,7 @@
     </section>
 
     <section id="tricksSection" class="slide" data-slide-title="Tricks">
-      <h2 data-i18n="slides.tricks.title">Persuasion tricks in plain sight</h2>
+      <h2 data-i18n="slides.tricks.title">Some more persuasion tricks in plain sight</h2>
       <table class="table-three-column" aria-label="Persuasion tricks examples">
         <thead>
           <tr>
@@ -172,12 +173,12 @@
         </thead>
         <tbody>
           <tr>
-            <td data-label="Element">$99 not $100</td>
+            <td data-label="Element">$99 or $97 not $100</td>
             <td data-label="Goal">Looks cheaper</td>
             <td data-label="Why it works">Brain rounds down</td>
           </tr>
           <tr>
-            <td data-label="Element">Was $500, now $99</td>
+            <td data-label="Element">Total value $469 =&gt; $97</td>
             <td data-label="Goal">Anchor high, discount hard</td>
             <td data-label="Why it works">Feels like a steal</td>
           </tr>
@@ -202,7 +203,7 @@
             <td data-label="Why it works">Sunk cost fallacy</td>
           </tr>
           <tr>
-            <td data-label="Element">Scarcity</td>
+            <td data-label="Element">Just 2 left</td>
             <td data-label="Goal">Panic buy</td>
             <td data-label="Why it works">FOMO kicks in</td>
           </tr>
@@ -219,21 +220,24 @@
       <h2 data-i18n="slides.recap.title">Which of these have influenced you negatively?</h2>
     </section>
 
-    <section id="commentsSection" class="slide" data-slide-title="These tools are too powerful!">
-      <h2 data-i18n="slides.comments.title">These tools are too powerful!</h2>
+    <section id="commentsSection" class="slide" data-slide-title="It's hopeless!">
+      <h2 data-i18n="slides.comments.title">It's hopeless!</h2>
+      <p class="comment-intro" data-i18n="slides.comments.intro">These methods are too powerful. You have no chance against them. Just give up!</p>
 
       <div class="comment-form">
-        <h3 data-i18n="slides.comments.commentHeading">You must be furious - I got the math wrong!</h3>
+        <h3 data-i18n="slides.comments.commentHeading">I don't think you can prove me wrong</h3>
         <textarea
           id="commentText"
           rows="5"
+          placeholder="YOU'RE AN ABSOLUTE ARSE! OF COURSE I ... ooh, that's how they get the engagement"
+          data-i18n-placeholder="slides.comments.prefill"
         ></textarea>
         <div class="comment-email-wrapper">
           <label for="commentEmail" data-i18n="slides.comments.commentEmailLabel">If you wish to get a reply then leave your email</label>
           <input 
             type="email"
             id="commentEmail"
-            placeholder="Not a newsletter signup"
+            placeholder="not a newsletter signup"
             data-i18n-placeholder="slides.comments.commentEmailPlaceholder"
           />
         </div>
@@ -252,11 +256,11 @@
       <h2 data-i18n="slides.callToActionSecondary.title">Almost level 2 gadgetTamer</h2>
       <p data-i18n="slides.callToActionSecondary.body">Any of these will get you there and beyond. This is either the end of the road or the beginning of something new - your choice.</p>
       <div class="cta">
-        <button type="button" data-i18n="buttons.ctaWebinar">Free <br>webinar</button>
-        <button type="button" data-i18n="buttons.ctaCourseSelf">Course: <br>self-paced</button>
-        <button type="button" data-i18n="buttons.ctaCourseLive">Course: <br>live cohort</button>
-        <button type="button" data-i18n="buttons.ctaTeamTraining">Team <br>training</button>
-        <button type="button" data-i18n="buttons.ctaScheduleCall">Discovery <br>call</button>
+        <button type="button" data-i18n="buttons.ctaWebinar">Webinar</button>
+        <button type="button" data-i18n="buttons.ctaCourseSelf">Self-paced course</button>
+        <button type="button" data-i18n="buttons.ctaCourseLive">Live course</button>
+        <button type="button" data-i18n="buttons.ctaTeamTraining">Team training</button>
+        <button type="button" data-i18n="buttons.ctaScheduleCall">Book call</button>
         <button type="button" data-i18n="buttons.ctaDonate">Donate</button>
       </div>
     </section>
