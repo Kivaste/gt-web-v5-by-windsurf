@@ -130,6 +130,72 @@
   text-align: left;
 }
 
+.table-three-column {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 24px;
+  font-size: 1rem;
+  background: #ffffff;
+}
+
+.table-three-column thead th {
+  text-align: left;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #0f172a;
+  padding: 3px 18px;
+}
+
+.table-three-column tbody td {
+  padding: 5px 18px;
+  border-top: 1px solid rgba(15, 23, 42, 0.18);
+  vertical-align: top;
+  color: #111827;
+}
+
+.table-three-column tbody td:first-child {
+  font-weight: 600;
+}
+
+.table-three-column tbody td:last-child {
+  color: #1f2937;
+}
+
+.table-three-column tbody tr:hover td {
+  background: rgba(15, 23, 42, 0.06);
+}
+
+#tricksSection .table-three-column {
+  margin-top: 6px;
+}
+
+@media (max-width: 640px) {
+  .table-three-column thead {
+    display: none;
+  }
+
+  .table-three-column,
+  .table-three-column tbody,
+  .table-three-column tr,
+  .table-three-column td {
+    display: block;
+    width: 100%;
+  }
+
+  .table-three-column tbody td {
+    padding: 3px 0;
+    border-top: none;
+  }
+
+  .table-three-column tbody td::before {
+    content: attr(data-label) ': ';
+    font-weight: 600;
+    display: inline-block;
+    min-width: 110px;
+    color: #0f172a;
+  }
+}
+
 .slide[data-slide-title="Personal Note"] .comment-form {
   margin-top: 12px;
   display: grid;

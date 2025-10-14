@@ -36,6 +36,43 @@ function getDataTrailSection() {
   return document.getElementById('dataTrailSection');
 }
 
+function setupStaticScrollIndicators() {
+  const heroIndicator = document.querySelector('#heroSlide .scroll-indicator');
+  const arrowMarkup = heroIndicator?.querySelector('svg')?.outerHTML ||
+    '<svg class="scroll-indicator__arrow" viewBox="0 0 32 32" aria-hidden="true"><path d="M5.2 10.4 L16 24 L26.8 10.4" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" /></svg>';
+  const ariaLabel = heroIndicator?.getAttribute('aria-label') || 'Scroll to next section';
+
+  const excludedIds = new Set(['heroSlide', 'redBannerSlide', 'callToActionSectionSecondary']);
+
+  const slides = Array.from(document.querySelectorAll('.slide'));
+
+  slides.forEach((slide) => {
+    const id = slide.getAttribute('id') || '';
+    if (excludedIds.has(id)) return;
+    if (slide.querySelector('.scroll-indicator')) return;
+
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'scroll-indicator scroll-indicator--static';
+    button.setAttribute('aria-label', ariaLabel);
+    button.innerHTML = arrowMarkup;
+
+    button.addEventListener('click', () => {
+      const currentSlides = slideController.slides;
+      let targetIndex = currentSlides.indexOf(slide);
+      if (targetIndex === -1) {
+        targetIndex = slides.indexOf(slide);
+      }
+      if (targetIndex === -1) return;
+      const nextIndex = Math.min(currentSlides.length - 1, targetIndex + 1);
+      if (nextIndex === targetIndex) return;
+      slideController.goTo(nextIndex, { source: 'static-scroll-indicator' });
+    });
+
+    slide.appendChild(button);
+  });
+}
+
 function getRedBannerRect() {
   const slide = getRedBannerSlide();
   return slide?.getBoundingClientRect?.() || null;
@@ -316,6 +353,7 @@ function goToRelative(delta, options) {
 function initSlides() {
   slideController.refresh();
   slideController.setupObserver();
+  setupStaticScrollIndicators();
 }
 
 function onSlideChange(fn) {

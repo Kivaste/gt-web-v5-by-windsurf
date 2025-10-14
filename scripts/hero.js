@@ -20,11 +20,7 @@ function setupScrollIndicator() {
     scrollIndicator.classList.add('is-visible');
   };
 
-  if (getReduceMotion()) {
-    reveal();
-  } else {
-    window.setTimeout(reveal, 1500);
-  }
+  window.setTimeout(reveal, 1500);
 
   scrollIndicator.addEventListener('click', () => {
     goToRelative(1, { source: 'hero-arrow' });

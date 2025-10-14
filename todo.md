@@ -1,14 +1,47 @@
-- [ ] scrolling the slides with a mouse scroll wheel is laggy, especially on chrome, a bit better on firefox. Keyboard navigation and scrolling on touchscreen works properly 
-    - [ ] mouse scroll wheel navigation - still laggy on chrome, on firefox does multiple slides on a super slow and deliberate one click scroll
-- [ ] Red banner doesn't appear on the slide - slide completely empty
-- [ ] hero page animated navigation arrow never appears
-- [ ] none of the popup triggers work
-- [ ] Data > Oil
-    - [ ] none of the data is loading 
-    - [ ] button calculations do not work
-    - [ ] the location button doesn't work
-- [ ] comments slide button activation doesn't work
-- [ ] A/B testing buttons not working
+- [x] hero page animated navigation should be delayed even when the reduce motion is enabled
+- [x] Copy the hero slide scroll indicator but without the delay and animation (position should be fixed to the bottom of the animation range) and add that for all the pages except red banner and second CTA
+- [ ] Persuasion tricks in plain sight: copy
+    - [ ] Remove doubt. Spike emotion
+    - [ ] 
+
+
+$99 not $100	Looks cheaper	Brain rounds down
+Was $500, now $99	Anchor high, discount hard	Feels like a steal
+Money-back guarantee	Kill risk	(You won't refund anyway)
+Testimonials	Prove it works	Herd mentality
+FAQ	Preempt objections	Smooth to "yes"
+Progress bar	Keep you moving	Sunk cost fallacy
+Scarcity	Panic buy	FOMO kicks in
+Timer	Decide now	Urgency shorts logic
+
+
+Element	Goal	Why it works
+Charm pricing (.99/.97)	Make it feel cheaper	Left-digit bias
+Anchor + big discount	Make the deal look huge	Anchoring, contrast
+Decoy pricing (bad middle plan)	Steer you to the “right” plan	Asymmetric dominance
+Free shipping threshold	Upsize your cart	Goal-gradient, mental accounting
+BNPL/installments	Lower purchase pain	Present bias, partitioned pricing
+Money-back guarantee	Remove risk	Risk reversal, loss aversion
+Trust badges (SSL, logos)	Calm checkout anxiety	Authority signals, uncertainty reduction
+Testimonials/ratings	Borrow credibility	Social proof, herd behavior
+FAQ	Kill objections fast	Cognitive fluency, clarity
+Scarcity/urgency (countdowns, low stock)	Force “now,” prevent delay	FOMO, scarcity heuristic
+Progress meters (forms/checkout)	Keep you finishing	Goal-gradient, endowed progress
+One clear CTA	Direct your click	Choice overload reduction, salience
+Exit‑intent pop-up	Catch last‑chance conversions	Interruption, loss aversion
+Retargeting (ads/emails)	Pull you back	Mere exposure, Zeigarnik effect
+
+
+- [ ] Who am I?: copy
+- [ ] What is gadgetTaming?: copy
+- [ ] Recap: copy
+- [ ] Hooked: interaction
+- [ ] Hooked: copy
+- [ ] Data > Oil: button click counter positioning
+- [ ] Data > Oil: 
+- [ ] CTA slideouts
+
+
 
 
 
@@ -86,35 +119,6 @@ loneliness
 
 I've experienced the highest peaks and the lowerst black holes. Hence I'm a Technophile and a Tehnocritic (Technosceptic)
 
-------------
-
-Reorder slides:
-
-Hero / Welcome — header#heroSlide
-Why Similar — section#whySimilar
-Special Offer — section#bannerSlide
-Slow Down — section#redBannerSlide
-Personal Note — section#personalNoteSection
-Call to Action — section#callToActionSection
-Free Materials — section#freeMaterialsSlide
-Tricks — section#tricksSection - add this
-Data Trail — section#dataTrailSection
-Cookies — section#cookiesSection
-A/B Testing — section#abTestingSection
-Recap — section#recapSection
-About gadgetTaming — section#aboutGadgetTamingSection
-About Me — section#aboutMeSection
-
-
-remove these:
-
-Why Pop-Up — section#whyPopupSection
-Hooked Model Exercise — section#hookedModelSlide
-Social Trust — section#trustSection
-FAQ — section#faqSection
-Pricing — section#pricingSection
-Footer — footer.slide
-
 
 -----------------------
 
@@ -163,8 +167,10 @@ Pricing
 - 99 97 let's be honest it's a 100
 - 
 Money back guarantee
-Testimonials
+Testimonials / social proof
 FAQ
+progress meters
+
 
 ----
 
