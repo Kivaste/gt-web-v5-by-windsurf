@@ -5,7 +5,9 @@
       "loading": "loading…",
       "countdownFormat": "{{years}}y {{days}}d {{hours}}h {{minutes}}m {{seconds}}s"
     },
-    "yellow": {}
+    "yellow": {
+      "message": "🚨 Special Offer Banner - creates urgency, pushes you to act fast! 🚨"
+    }
   },
   "hero": {
     "title": "why is this page so weird",
@@ -127,13 +129,13 @@
     "callToAction": {
       "title": "<em>\"Sooo ... what do you want me to buy?\"</em>",
       "body": "Every page funnels to one thing: the CTA (Call To Action). Order. Buy. Subscribe. Book. Sign up. Send inquiry.<br><strong>Just one attention grabbing coloful button with a single goal.</strong> (<em>Yeah, I broke that rule too</em>)",
-      "offer": "Good instinct! Always be skeptical! You've now become a <strong>Level 1 gadgetTamer</strong>.",
+      "offer": "Good instinct! Always be skeptical! You've now become a <strong>Level 1 <u>gadgetTamer</u></strong>.",
       "notReady": "<strong>Not ready yet?</strong><br>Just scroll down to learn more about me, gadgetTaming and the tricks used against you."
     },
     "callToActionSecondary": {
       "title": "Almost level 2 gadgetTamer",
       "body": "Any of these will get you there and beyond. This is either the end of the road or the beginning of redefining how you use your gadgets - your choice."
-    },
+    }
   },
   "popups": {
     "dialog": {
@@ -181,7 +183,8 @@
     "form": {
       "error": "Please write something first!",
       "success": "Comment posted! (Not really, but visually it works 😉)",
-      "invalidEmail": "Please enter a valid email address."
+      "invalidEmail": "Please enter a valid email address.",
+      "errorEmail": "Please enter a valid email address."
     }
   },
   "footer": {

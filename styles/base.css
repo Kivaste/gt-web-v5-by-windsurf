@@ -1,0 +1,87 @@
+:root {
+  --text: #333;
+  --text-strong: #111;
+  --bg: #fff;
+  --hero-bg: #f6f7f9;
+  --yellow: #f8b400;
+  --green: #28a745;
+  --red: #d32f2f;
+  --banner-height: 72px;
+  --ease-smooth: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur-fade: 3500ms;
+  --banner-fixed-offset: 0px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+html {
+  scroll-snap-type: y mandatory;
+  scroll-padding-top: var(--banner-fixed-offset, 0px);
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+html::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: var(--text);
+  background: var(--bg);
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+body.red-banner-visible {
+  --banner-fixed-offset: 64px;
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
+body.scrolling {
+  scroll-snap-type: none;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .banner,
+  .banner::after,
+  .banner-layer,
+  .popup,
+  .popup-scaler,
+  .dot-nav button {
+    transition: none !important;
+  }
+}
