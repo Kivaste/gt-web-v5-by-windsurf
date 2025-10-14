@@ -6,6 +6,7 @@ import { initPersonalNote } from './personalNote.js';
 import { initPopup } from './popup.js';
 import { initSlides } from './slides.js';
 import { initComments } from './comments.js';
+import { initHooked } from './hooked.js';
 
 async function bootstrap() {
   try {
@@ -21,6 +22,7 @@ async function bootstrap() {
   initPersonalNote();
   initDataTrail();
   initComments();
+  initHooked();
 }
 
 if (document.readyState === 'loading') {

@@ -1,9 +1,38 @@
 - [x] hero page animated navigation should be delayed even when the reduce motion is enabled
 - [x] Copy the hero slide scroll indicator but without the delay and animation (position should be fixed to the bottom of the animation range) and add that for all the pages except red banner and second CTA
 - [ ] Persuasion tricks in plain sight: copy
-    - [ ] Remove doubt. Spike emotion
-    - [ ] 
+- [ ] yellow banner - on mobile: add 10% of height, add a bit of white space to the sides
+- [ ] hooked slide - Select the stage to place in this slot: this selector should act more like a popup or a dropdown menu that comes on top of the other content, rather than an extra container that is hidden and shown on click.
 
+
+
+- [ ] Who am I?: copy
+- [ ] What is gadgetTaming?: copy
+- [ ] Recap: copy
+- [ ] Hooked: interaction
+- [ ] Hooked: copy
+- [ ] Data > Oil: button click counter positioning
+- [ ] Data > Oil: 
+- [ ] CTA slideouts
+
+
+
+
+
+
+
+
+------------
+
+- [ ] hosting
+    - [ ] cloudflare worker
+- [ ] posthog for analyticsz
+
+
+
+
+
+-----------
 
 $99 not $100	Looks cheaper	Brain rounds down
 Was $500, now $99	Anchor high, discount hard	Feels like a steal
@@ -32,14 +61,9 @@ Exit‑intent pop-up	Catch last‑chance conversions	Interruption, loss aversion
 Retargeting (ads/emails)	Pull you back	Mere exposure, Zeigarnik effect
 
 
-- [ ] Who am I?: copy
-- [ ] What is gadgetTaming?: copy
-- [ ] Recap: copy
-- [ ] Hooked: interaction
-- [ ] Hooked: copy
-- [ ] Data > Oil: button click counter positioning
-- [ ] Data > Oil: 
-- [ ] CTA slideouts
+
+
+These tools are too powerful - you have no chance against them. 
 
 
 
@@ -47,51 +71,6 @@ Retargeting (ads/emails)	Pull you back	Mere exposure, Zeigarnik effect
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
---------
-- [ ] hosting
-    - [ ] cloudflare worker
-- [ ] posthog for analytics
 --------
 
 ----

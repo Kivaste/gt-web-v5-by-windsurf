@@ -71,7 +71,7 @@
     },
     "freeMaterials": {
       "title": "Free* materials",
-      "body": "*Price: email and attention. Can't convert you now? We'll try again tomorrow in your inbox.",
+      "body": "*Price: your email and attention. Can't convert you now? We'll try again tomorrow through your inbox.",
       "body2": "Except here. No email. No asterisk. Just keep scrolling for your free materials ;)"
     },
     "tricks": {
@@ -80,7 +80,7 @@
       "body2": "Spot scarcity timers, risk-free guarantees, checkout microcopy, unstoppable autoplay. Once you see them, you can't unsee them."
     },
     "hooked": {
-      "title": "Hooked",
+      "title": "Holy grail of Silicon Valley",
       "body": "Tech isn't neutral. It's engineered to trigger craving loops with every notification, feed refresh, and streak counter.",
       "body2": "Once you name the trigger-action-reward cycles, you can break them on purpose — and build healthier ones instead."
     },
@@ -103,7 +103,7 @@
       ]
     },
     "comments": {
-      "title": "Comments",
+      "title": "These tools are too powerful!",
       "commentHeading": "You must be furious - I got the math wrong!",
       "commentPlaceholder": "99.99% DOES NOT EQUAL ONE IN A MILLION! IDIOT!\n\n(gotcha - got the engagement I was looking for)",
       "commentEmailLabel": "if you wish to get a reply then leave your email",
@@ -119,7 +119,7 @@
       "body": "gadgetTaming is about understanding how websites really work, beyond templates, and using that knowledge to stand out. Yes, the end goal is sales, but done in a way that respects human attention."
     },
     "recap": {
-      "title": "Which of these has influenced you negatively?",
+      "title": "Which of these have influenced you negatively?",
       "patterns": "Websites reuse proven persuasion patterns because they consistently guide visitors toward action.",
       "data": "Your browser leaks a data trail—browser, device, referrer, even rough location—before you click anything.",
       "popups": "Pop-ups are timed nudges; annoying, yes, but effective when matched to behavior.",
@@ -128,7 +128,7 @@
     },
     "callToAction": {
       "title": "<em>\"Sooo ... what do you want me to buy?\"</em>",
-      "body": "Every page funnels to one thing: the CTA (Call To Action). Order. Buy. Subscribe. Book. Sign up. Send inquiry.<br><strong>Just one attention grabbing coloful button with a single goal.</strong> (<em>Yeah, I broke that rule too</em>)",
+      "body": "Every page funnels to the CTA (Call To Action). Order. Buy. Subscribe. Book. Become a gadgetTamer. Sign up. Send inquiry. <strong>Just one attention grabbing coloful button with a single goal.</strong> (<em>Yeah, I broke that rule too</em>)",
       "offer": "Good instinct! Always be skeptical! You've now become a <strong>Level 1 <u>gadgetTamer</u></strong>.",
       "notReady": "<strong>Not ready yet?</strong><br>Just scroll down to learn more about me, gadgetTaming and the tricks used against you."
     },
