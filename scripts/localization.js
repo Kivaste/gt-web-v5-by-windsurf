@@ -79,6 +79,32 @@ function applyTranslations() {
     }
   });
 
+  document.querySelectorAll('[data-i18n-attr]').forEach((el) => {
+    const mapping = el.dataset.i18nAttr;
+    if (!mapping) return;
+    mapping.split(';').forEach((entry) => {
+      const [attr, key] = entry.split(':').map((part) => part && part.trim()).filter(Boolean);
+      if (!attr || !key) return;
+      const value = t(key);
+      if (value === undefined || value === null) return;
+      if (attr === 'textContent') {
+        el.textContent = value;
+        return;
+      }
+      el.setAttribute(attr, value);
+      if (attr.startsWith('data-')) {
+        const dataKey = attr
+          .slice(5)
+          .split('-')
+          .map((segment, index) => (index === 0 ? segment : segment.charAt(0).toUpperCase() + segment.slice(1)))
+          .join('');
+        if (dataKey) {
+          el.dataset[dataKey] = value;
+        }
+      }
+    });
+  });
+
   notifyTranslationsApplied();
 }
 
@@ -111,9 +137,50 @@ function deriveLocaleFromPath() {
   return AVAILABLE_LOCALES.includes(last) ? last : null;
 }
 
+function resolveContentUrl(locale) {
+  const directoryUrl = new URL('.', window.location.href);
+  return new URL(`content/${locale}.json`, directoryUrl).href;
+}
+
+function updateLocaleInUrl(locale) {
+  if (!window.history || typeof window.history.replaceState !== 'function') {
+    return;
+  }
+
+  const url = new URL(window.location.href);
+  const segments = url.pathname.split('/').filter(Boolean);
+  const lastSegment = segments[segments.length - 1];
+  const hasFileExtension = lastSegment && lastSegment.includes('.') && !AVAILABLE_LOCALES.includes(lastSegment);
+
+  if (hasFileExtension) {
+    return;
+  }
+
+  if (segments.length && AVAILABLE_LOCALES.includes(lastSegment)) {
+    segments.pop();
+  }
+
+  if (locale !== DEFAULT_LOCALE) {
+    segments.push(locale);
+  }
+
+  const hadTrailingSlash = url.pathname.endsWith('/') && url.pathname !== '/';
+  let newPathname = segments.length ? `/${segments.join('/')}` : '/';
+  if (hadTrailingSlash && !newPathname.endsWith('/')) {
+    newPathname += '/';
+  }
+
+  if (newPathname === url.pathname) {
+    return;
+  }
+
+  const newUrl = `${newPathname}${url.search}${url.hash}`;
+  window.history.replaceState(null, '', newUrl);
+}
+
 async function loadLocaleData(locale) {
   const candidate = AVAILABLE_LOCALES.includes(locale) ? locale : DEFAULT_LOCALE;
-  const response = await fetch(`content/${candidate}.json`, { cache: 'no-store' });
+  const response = await fetch(resolveContentUrl(candidate), { cache: 'no-store' });
   if (!response.ok) throw new Error(`Failed to load locale: ${candidate}`);
   return { data: await response.json(), locale: candidate };
 }
@@ -123,6 +190,7 @@ async function setLocale(locale) {
   translations = data;
   currentLocale = resolved;
   localStorage.setItem(LOCALE_STORAGE_KEY, currentLocale);
+  updateLocaleInUrl(resolved);
   applyTranslations();
   notifyLocaleChanged();
 }

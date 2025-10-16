@@ -1,0 +1,325 @@
+{
+  "document": {
+    "title": "gadgetTamer - miks tehnoloogia võtab ohjad ja kuidas need tagasi saada?"
+  },
+  "banner": {
+    "red": {
+      "message": "<s>Tegutse kohe</s> Võta aega, lõpeb:",
+      "loading": "laadimine…",
+      "countdownFormat": "{{years}}a {{days}}p {{hours}}t {{minutes}}m {{seconds}}s"
+    },
+    "yellow": {
+      "message": "🚨 Eripakkumise bänner - tekitab kiirustamist ja sunnib tegutsema! 🚨"
+    }
+  },
+  "slidePanels": {
+    "defaultTitle": "Paneel",
+    "close": "← Tagasi"
+  },
+  "hero": {
+    "title": "miks see leht nii veider on",
+    "titleDefault": "miks see leht nii veider on",
+    "titlePhone": "miks see leht nii veider on",
+    "subtitle": "sinu esimene treening oma {{target}} taltsutamiseks algab nüüd",
+    "scrollLabel": "Kerige edasi"
+  },
+  "slides": {
+    "hero": {
+      "slideTitle": "Tere tulemast"
+    },
+    "whySimilar": {
+      "title": "Enamik veebilehti näevad ühesugused välja",
+      "paragraph1": "Nende töö pole informeerida, vaid timmitud masinad, mis suunavad sind pangakaarti sisestama.",
+      "paragraph2": "See kiire vajadus ja surve? Pole elevuse märk! Lihtsalt konversioonioptimiseerimine, mis surub su kaardi andma.",
+      "paragraph3": "Sukeldume sügavamale?"
+    },
+    "specialOffer": {
+      "title": "Eripakkumine",
+      "copy": "🚨 Eripakkumise bänner - tekitab kiirustamist ja sunnib tegutsema! 🚨"
+    },
+    "dataTrail": {
+      "title": "Andmed > Nafta",
+      "browserLabel": "Brauser",
+      "osLabel": "Operatsioonisüsteem",
+      "deviceLabel": "Seade",
+      "referrerLabel": "Viitaja",
+      "refreshButton": "Värskenda",
+      "timeLabel": "Veebilehel veedetud aeg",
+      "popupsSeenLabel": "Hüpikuid nähtud",
+      "popupSeen": "nähtud",
+      "popupNotSeen": "pole nähtud",
+      "summaryDevice": "Seade:",
+      "summaryReferrer": "Siia jõudsid:",
+      "summaryTime": "Aeg lehel:",
+      "summaryPopups": "Hüpik:",
+      "statsTitle": "Statistika",
+      "buttonsClickedLabel": "Klikid",
+      "guessButton": "Kas arvan su asukoha ära?*",
+      "guessLocationLabel": "Arva asukoht",
+      "guessLocationLoading": "...",
+      "noneYet": "Veel pole",
+      "note": "* Tõmban umbkaudse IP-aadressil põhineva asukoha (GPS-i pole)",
+      "referrerDirect": "otse"
+    },
+    "cookies": {
+      "title": "Küpsised - magusad või klammerduvad?",
+      "paragraph1": "Sinu barista mäletab su lattet ja nime. Armas!<br>Esimese osapoole küpsised teevad sama – sisselogimine, eelistused, kas nägid A-d või B-d ning see ostukorv, mille pooleli jätsid.",
+      "paragraph2": "Kuudi kõrval passiv tüüp? Teine tunne.<br>Kolmanda osapoole küpsised jälitavad sind kõikjal, logivad kõik üles, annavad reklaamijatele aru. See jäetud ostukorv, mis kummitab igal lehel? See on nemad.",
+      "firstParty": "<strong>Esimese osapoole küpsised:</strong> seab see sait, kus oled — sisselogimised, ostukorvid, "mäleta mind", seesama kasulik kraam.",
+      "sessionPersistent": "<strong>Seansi vs püsiküpsised:</strong> seansiküpsised kaovad, kui kaardi sulged; püsiküpsised jäävad päevadeks või kuudeks, nagu litrid pärast käsitööd.",
+      "retargTitle": "Retargeting 4 sammuga (ehk \"miks ma näen täpselt neid kingi?\")",
+      "retargStep1": "Külastad toodet X saidil A. AdCo väike \"reklaamipiksel\" laeb end.",
+      "retargStep2": "AdCo jätab <em>kolmanda osapoole</em> küpsise: \"Kasutaja vaatas toodet X.\"",
+      "retargStep3": "Hiljem saidil B (kus AdCo samuti sees) esitab sinu brauser selle küpsise AdCo-le.",
+      "retargStep4": "AdCo tunneb su ära ja näitab toote X reklaami igal pool, igavesti. Või vähemalt kuni küpsis aegub.",
+      "thirdPartyLabel": "Kolmanda osapoole küpsised",
+      "retestButton": "Testi uuesti",
+      "externalLink": "Väline test",
+      "clearDataButton": "Kustuta saidi andmed",
+      "note": "Märkus: paljud brauserid blokeerivad nüüd vaikimisi kolmanda osapoole küpsiseid. Retargeting toimub endiselt uute nippidega (esimese osapoole jälgimine, serveripoolne sidumine, räsitud e-postid). Mäng areneb."
+    },
+    "abTesting": {
+      "title": "Vali A või B",
+      "optionA": "A. Arvamused on tunded, käive otsustab",
+      "optionB": "B. Kõhutunne on odav, andmed on tõde",
+      "copyA": "Jaga 100 000 külastajat kaheks – pooled näevad A-d, pooled B-d. Las rahakotid hääletavad.<br>Seda nimetatakse A/B testimiseks.",
+      "copyB": "Näita juhuslikult poolele külastajatest A-d ja ülejäänutele B-d. Mis tekst rohkem müüb, jääb ellu. Digitaalne looduslik valik ehk A/B testimine."
+    },
+    "freeMaterials": {
+      "title": "Tasuta* materjalid",
+      "body": "*Hind: sinu e-post ja tähelepanu. Ei õnnestu praegu? Homme proovime su postkasti kaudu uuesti.",
+      "body2": "Siin aga mitte. Pole e-posti. Pole tärni. Lihtsalt keri allapoole ja võta oma tasuta kraam ;)"
+    },
+    "tricks": {
+      "title": "Veel mõned nähtavad mõjutusvõtted",
+      "body": "Liides pole neutraalne. Sisemised juhised, progressiribad, sotsiaalne tõestus — iga mikrotekst lükkab sind edasi.",
+      "body2": "Pane tähele nappuse taimerid, riskivabad garantiid, kassamaja mikrotekst, peatamatu automängimine. Kui korra näed, enam ei unusta.",
+      "table": {
+        "label": "Mõjutusvõtete näited",
+        "headers": {
+          "element": "Element",
+          "goal": "Eesmärk",
+          "why": "Miks toimib"
+        },
+        "rows": [
+          {
+            "element": "$99 või $97, mitte $100",
+            "goal": "Näib odavam",
+            "why": "Aju ümardab alla"
+          },
+          {
+            "element": "Koguväärtus $469 => $97",
+            "goal": "Ankurda kõrgele, allahindlus tappev",
+            "why": "Tundub superdiil"
+          },
+          {
+            "element": "Rahahulga tagastusgarantii",
+            "goal": "Võta risk maha",
+            "why": "(Sa niikuinii ei tagasta)"
+          },
+          {
+            "element": "Pidevalt tunnistusi",
+            "goal": "Tõesta, et toimib",
+            "why": "Karjainstinkt"
+          },
+          {
+            "element": "KKK",
+            "goal": "Enneta vastuväiteid",
+            "why": "Sujuv tee \"jah\"-ni"
+          },
+          {
+            "element": "Edenemiseriba",
+            "goal": "Hoia liikumises",
+            "why": "Vajunud kulu efekt"
+          },
+          {
+            "element": "Vaid 2 alles",
+            "goal": "Tekita paaniline ost",
+            "why": "FOMO lööb välja"
+          },
+          {
+            "element": "Taimer",
+            "goal": "Otsusta kohe",
+            "why": "Kiirus lühistab loogika"
+          }
+        ]
+      }
+    },
+    "hooked": {
+      "title": "Silicon Valley püha graal",
+      "body": "Tehnoloogia pole neutraalne. See on kujundatud tekitama ihalus-tsükleid iga teavituse, värskenduse ja järjestusloendiga.",
+      "body2": "Kui nimetad päästik-tegevus-tasu tsüklid, saad need teadlikult katkestada – ja ehitada tervemaid harjumusi.",
+      "intro": "Täida iga tühi pesa Hooked-mudeli õige etapiga. Puuduta pesa, et valikuid näha, siis vali sobiv kirjeldus. Must näitab õiget etappi. Täida kõik, et video avaneks.",
+      "pickerTitle": "Vali etapp",
+      "pickerCloseAria": "Sulge valik",
+      "videoTrigger": "Vaata video seletust",
+      "videoTitle": "Video seletus",
+      "videoCloseAria": "Sulge video",
+      "videoPlaceholder": "Video kohatäide",
+      "slotLabels": [
+        "1. etapi koht",
+        "2. etapi koht",
+        "3. etapi koht",
+        "4. etapi koht"
+      ],
+      "stages": [
+        {
+          "id": "trigger",
+          "title": "Päästik",
+          "summary": "Impulss, mis paneb tegutsema",
+          "examples": [
+            "Push-teavitus",
+            "Postkasti märge",
+            "Igavuse-scroll"
+          ]
+        },
+        {
+          "id": "action",
+          "title": "Tegevus",
+          "summary": "Lihtne käitumine tasu ootuses",
+          "examples": [
+            "Ava rakendus",
+            "Tõmba värskendamiseks",
+            "Vajuta esitusnuppu"
+          ]
+        },
+        {
+          "id": "variable-reward",
+          "title": "Muutev tasu",
+          "summary": "Ettearvamatu preemia, mis haakib tähelepanu",
+          "examples": [
+            "Uued laigid või kommentaarid",
+            "Saagisaak mängus",
+            "Värske sisu"
+          ]
+        },
+        {
+          "id": "investment",
+          "title": "Panus",
+          "summary": "Pingutus, mis tõstab toote väärtust tulevikus",
+          "examples": [
+            "Lae foto üles",
+            "Jälgi sõpru",
+            "Salvesta eelistused"
+          ]
+        }
+      ]
+    },
+    "personalNote": {
+      "title": "Isiklik märkus",
+      "paragraph1": "Turundajad ütlevad, et teen kõike valesti; see sait rikub kõiki reegleid.",
+      "paragraph2": "Suurepärane! Need reeglid hoidsid mind aastateks konksus – mängud, videod, sotsiaalmeedia, porno, hasartmängud, doomscroll'i uudised. Rikuti uni, füüsiline ja vaimne tervis, suhted.",
+      "paragraph3": "Ma pole tehnoloogiavastane. Mulle mu vidinad tegelikult meeldivad! Ma olen lihtsalt <em>reklaamijuhitud-manipulatiivse disaini vastu</em> ja <em>ei taha, et meie tähelepanu müüdaks</em> sendi eest.",
+      "paragraph4": "Sa pole katki. Sinu ajju on sisse häkitud. Võtame selle tagasi, <strong>taltsutades sinu <span class=\"personal-note-rotator\">telefoni</span></strong>",
+      "rotatingItems": [
+        "vidinad",
+        "telefon",
+        "tähelepanu",
+        "sotsiaalmeedia",
+        "arvuti",
+        "e-kirjad",
+        "tehnika",
+        "uudised",
+        "reklaamid"
+      ]
+    },
+    "comments": {
+      "title": "Lootusetu!",
+      "intro": "Need võtted on liiga võimsad. Sul pole nende vastu võimalust. Anna lihtsalt alla!",
+      "commentHeading": "Ma ei usu, et suudad vastupidist tõestada",
+      "commentPlaceholder": "99,99% EI VÕRDU ÜKS MILJONIS! IDIOOT!\n\n(saidid teavad, kuidas kaasatust saada)",
+      "commentEmailLabel": "kui tahad vastust, jäta oma e-post",
+      "commentEmailPlaceholder": "pole uudiskirja",
+      "commentButton": "Postita kommentaar",
+      "prefill": "SA OLED TÄIELIK LOLL! MUIDUGI MA ... oih, nii nad kaasatust saavad"
+    },
+    "aboutMe": {
+      "title": "Kes ma olen?",
+      "body": "Ehitan seda lähenemist, sest isikupära lööb ilmetust. Usklikuks saab siis, kui näed, et ma ei peida end ühesuguste mallide taha. See olen mina."
+    },
+    "aboutGadgetTaming": {
+      "title": "<u>gadgetTamer</u> – 7 sammast",
+      "body": "<ol><li>Mõista disaini (eesmärgid ja põhimõtted)</li><li>Mõõda, märka, otsusta oma kasutuse üle</li><li>Eemalda päästikud</li><li>Kujunda digikeskkond: lisa soovimatule hõõrdumist</li><li>Eemalda tagasilangused: kohanda ligipääsu</li><li>Kuratori infodieet: kes, millal ja kuidas sinuni jõuab?</li><li>Mis on asendus: võta oma eesmärkidelt hõõrdumine maha</li></ol>"
+    },
+    "recap": {
+      "title": "Millised võtted sind puudutasid?",
+      "patterns": "Veebilehed kordavad tõestatud mõjutusmustrid, sest need juhivad külastajaid järjepidevalt tegevuseni.",
+      "data": "Su brauser lekkib andmeraja — brauser, seade, viitaja, isegi umbkaudne asukoht — enne kui midagi klikid.",
+      "popups": "Hüpikud on ajastatud nügimised; tüütud, jah, kuid tõhusad, kui käitumisega haakuvad.",
+      "trust": "Usaldus tuleb tõenditest: tagasiside, kogemus ja läbipaistev jutustamine.",
+      "ready": "Valmis järgmisele gadgetTameri tasemele?"
+    },
+    "callToAction": {
+      "title": "<em>\"Nii... mida sa tahad, et ma ostaks?\"</em>",
+      "body": "Iga leht suunab CTA-ni (Call To Action). Tellitud. Osta. Liitu. Broneeri. Saa gadgetTameriks. Registreeru. Esita päring. <strong>Ainult üks pilkupüüdev värviline nupp ühe eesmärgiga.</strong> (<em>Jah, ma rikkusin ka seda reeglit</em>)",
+      "offer": "Hea refleks! Õpi alati kahtlema! Oled nüüd <strong>1. taseme <u>gadgetTamer</u></strong>.",
+      "notReady": "<strong>Veel pole valmis?</strong><br>Lihtsalt keri alla, et teada saada minust, gadgetTaltsutamisest ja trikkidest, mida sinu vastu kasutatakse."
+    },
+    "callToActionSecondary": {
+      "title": "Peaaegu 2. taseme <u>gadgetTamer</u>",
+      "body": "Kõik need variandid viivad sind edasi. See on kas tee lõpp või algus sellele, kuidas sa oma vidinaid kasutad – valik on sinu."
+    }
+  },
+  "popups": {
+    "dialog": {
+      "closeAria": "Sulge hüpik"
+    },
+    "shared": {
+      "title": "Miks hüpik?",
+      "desc": "Viimase hetke süütunne. Aeg saab otsa või proovid lahkuda.<br>Sa vihkad seda. Ometi töötab.",
+      "primary": "Saan aru, mis toimub!",
+      "secondary": "Mis siin toimub?"
+    }
+  },
+  "buttons": {
+    "ctaPrimary": "👉 Asu tegutsema",
+    "ctaWebinar": "Tasuta <br>veebiseminar",
+    "ctaCourseSelf": "Kursus: <br>iseseisev",
+    "ctaCourseLive": "Kursus: <br>otsegrupp",
+    "ctaTeamTraining": "Tiimi <br>koolitus",
+    "ctaScheduleCall": "Tutvumis- <br>kõne",
+    "ctaDonate": "Anneta",
+    "noThanks": "Ei, aitäh"
+  },
+  "stats": {
+    "referrer": {
+      "direct": "Otsene"
+    },
+    "location": {
+      "loading": "Laadin…",
+      "unknown": "Tundmatu",
+      "unavailable": "Asukohta ei õnnestu leida – kahjuks alati ei tööta",
+      "detecting": "Tuvastan…"
+    }
+  },
+  "cookies": {
+    "status": {
+      "checking": "Kontrollin…",
+      "allowed": "Lubatud",
+      "blocked": "Blokeeritud",
+      "likelyBlocked": "Tõenäoliselt blokeeritud",
+      "cleared": "✓ Puhastatud",
+      "failed": "✗ Ebaõnnestus"
+    }
+  },
+  "comment": {
+    "form": {
+      "error": "Kirjuta kõigepealt midagi!",
+      "success": "Kommentaar postitatud! (Niisama visuaalne trikk 😉)",
+      "invalidEmail": "Sisesta kehtiv e-posti aadress.",
+      "errorEmail": "Sisesta kehtiv e-posti aadress."
+    }
+  },
+  "footer": {
+    "copy": "© 2024 gadgetTamer. Ausad veebid. Parem uni. Rohkem usaldust."
+  },
+  "ui": {
+    "language": {
+      "label": "Keel",
+      "options": {
+        "en": "Inglise",
+        "et": "Eesti"
+      }
+    }
+  }
+}

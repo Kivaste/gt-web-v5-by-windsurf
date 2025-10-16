@@ -1,3 +1,4 @@
+import { onTranslationsApplied, t } from './localization.js';
 import { onSlideChange, setNavigationBlocked } from './slides.js';
 const PANEL_SELECTOR = '[data-slide-panel]';
 const PANEL_DRAWER_SELECTOR = '[data-slide-panel-drawer]';
@@ -142,6 +143,15 @@ function initSlidePanel() {
       windowWheelSuppressTimeout = null;
     }, WHEEL_RELEASE_DELAY);
   }
+
+  function updateCloseButtonLabel() {
+    const closeLabel = t('slidePanels.close', '← Back');
+    closeButton.textContent = closeLabel;
+    closeButton.setAttribute('aria-label', closeLabel);
+  }
+
+  updateCloseButtonLabel();
+  onTranslationsApplied(updateCloseButtonLabel);
 
   function closePanel() {
     if (!isOpen) return;

@@ -1,4 +1,7 @@
 {
+  "document": {
+    "title": "gadgetTamer - why tech takes control of you and how to get it back?"
+  },
   "banner": {
     "red": {
       "message": "<s>Act fast</s> Take your time, ends in:",
@@ -9,12 +12,21 @@
       "message": "🚨 Special Offer Banner - creates urgency, pushes you to act fast! 🚨"
     }
   },
+  "slidePanels": {
+    "defaultTitle": "Panel",
+    "close": "← Back"
+  },
   "hero": {
     "title": "why is this page so weird",
     "titleDefault": "why is this page so weird",
-    "titlePhone": "why is this page so weird"
+    "titlePhone": "why is this page so weird",
+    "subtitle": "your first training on taming your {{target}} starts now",
+    "scrollLabel": "Scroll next"
   },
   "slides": {
+    "hero": {
+      "slideTitle": "Welcome"
+    },
     "whySimilar": {
       "title": "Most websites look the same",
       "paragraph1": "Their job is not to inform you, they're fine-tuned machines guiding you to enter your credit card.",
@@ -46,7 +58,8 @@
       "guessLocationLabel": "Guess location",
       "guessLocationLoading": "...",
       "noneYet": "None yet",
-      "note": "* Fetching a rough, IP address based location (no GPS)"
+      "note": "* Fetching a rough, IP address based location (no GPS)",
+      "referrerDirect": "directly"
     },
     "cookies": {
       "title": "Cookies - sweet or clingy?",
@@ -80,12 +93,117 @@
     "tricks": {
       "title": "Persuasion tricks in plain sight",
       "body": "Your interface isn't neutral. Inline prompts, progress meters, social proof — every microcopy push keeps you moving forward.",
-      "body2": "Spot scarcity timers, risk-free guarantees, checkout microcopy, unstoppable autoplay. Once you see them, you can't unsee them."
+      "body2": "Spot scarcity timers, risk-free guarantees, checkout microcopy, unstoppable autoplay. Once you see them, you can't unsee them.",
+      "table": {
+        "label": "Persuasion tricks examples",
+        "headers": {
+          "element": "Element",
+          "goal": "Goal",
+          "why": "Why it works"
+        },
+        "rows": [
+          {
+            "element": "$99 or $97 not $100",
+            "goal": "Looks cheaper",
+            "why": "Brain rounds down"
+          },
+          {
+            "element": "Total value $469 => $97",
+            "goal": "Anchor high, discount hard",
+            "why": "Feels like a steal"
+          },
+          {
+            "element": "Money-back guarantee",
+            "goal": "Kill risk",
+            "why": "(You won't refund anyway)"
+          },
+          {
+            "element": "Testimonials",
+            "goal": "Prove it works",
+            "why": "Herd mentality"
+          },
+          {
+            "element": "FAQ",
+            "goal": "Preempt objections",
+            "why": "Smooth to \"yes\""
+          },
+          {
+            "element": "Progress bar",
+            "goal": "Keep you moving",
+            "why": "Sunk cost fallacy"
+          },
+          {
+            "element": "Just 2 left",
+            "goal": "Panic buy",
+            "why": "FOMO kicks in"
+          },
+          {
+            "element": "Timer",
+            "goal": "Decide now",
+            "why": "Urgency shorts logic"
+          }
+        ]
+      }
     },
     "hooked": {
       "title": "Holy grail of Silicon Valley",
       "body": "Tech isn't neutral. It's engineered to trigger craving loops with every notification, feed refresh, and streak counter.",
-      "body2": "Once you name the trigger-action-reward cycles, you can break them on purpose — and build healthier ones instead."
+      "body2": "Once you name the trigger-action-reward cycles, you can break them on purpose — and build healthier ones instead.",
+      "intro": "Fill each blank slot with the correct stage of the Hooked model. Tap a slot to see the options, then pick the description that fits. Black indicates correct stage. Fill all in to open up the video.",
+      "pickerTitle": "Select the stage",
+      "pickerCloseAria": "Close picker",
+      "videoTrigger": "Watch video explainer",
+      "videoTitle": "Video explainer",
+      "videoCloseAria": "Close video",
+      "videoPlaceholder": "Video placeholder",
+      "slotLabels": [
+        "Stage 1 slot",
+        "Stage 2 slot",
+        "Stage 3 slot",
+        "Stage 4 slot"
+      ],
+      "stages": [
+        {
+          "id": "trigger",
+          "title": "Trigger",
+          "summary": "Cue that prompts you to act",
+          "examples": [
+            "Push notification",
+            "Inbox badge",
+            "Boredom scroll"
+          ]
+        },
+        {
+          "id": "action",
+          "title": "Action",
+          "summary": "Simple behavior in anticipation of reward",
+          "examples": [
+            "Open the app",
+            "Swipe to refresh",
+            "Tap the play button"
+          ]
+        },
+        {
+          "id": "variable-reward",
+          "title": "Variable Reward",
+          "summary": "Unpredictable payoff that hooks attention",
+          "examples": [
+            "New likes or comments",
+            "Loot drop",
+            "Fresh content"
+          ]
+        },
+        {
+          "id": "investment",
+          "title": "Investment",
+          "summary": "Effort that increases the product’s future value",
+          "examples": [
+            "Upload a photo",
+            "Follow friends",
+            "Save preferences"
+          ]
+        }
+      ]
     },
     "personalNote": {
       "title": "Personal Note",

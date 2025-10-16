@@ -1,6 +1,7 @@
+import { getLocalizedArray, onTranslationsApplied, t } from './localization.js';
 import { setNavigationBlocked } from './slides.js';
 
-const HOOKED_STAGES = [
+const FALLBACK_HOOKED_STAGES = [
   {
     id: 'trigger',
     title: 'Trigger',
@@ -27,6 +28,43 @@ const HOOKED_STAGES = [
   }
 ];
 
+function normalizeStages(raw) {
+  if (!Array.isArray(raw) || !raw.length) {
+    return FALLBACK_HOOKED_STAGES;
+  }
+
+  return raw
+    .map((item) => {
+      if (!item || typeof item !== 'object') return null;
+      const { id, title, summary, examples } = item;
+      if (!id || typeof id !== 'string') return null;
+      const safeTitle = typeof title === 'string' ? title : '';
+      const safeSummary = typeof summary === 'string' ? summary : '';
+      const safeExamples = Array.isArray(examples) && examples.length
+        ? examples.filter((example) => typeof example === 'string')
+        : [];
+      return {
+        id,
+        title: safeTitle || FALLBACK_HOOKED_STAGES.find((stage) => stage.id === id)?.title || id,
+        summary: safeSummary || FALLBACK_HOOKED_STAGES.find((stage) => stage.id === id)?.summary || '',
+        examples: safeExamples.length
+          ? safeExamples
+          : FALLBACK_HOOKED_STAGES.find((stage) => stage.id === id)?.examples || []
+      };
+    })
+    .filter(Boolean);
+}
+
+function loadHookedStages() {
+  const localized = getLocalizedArray('slides.hooked.stages', FALLBACK_HOOKED_STAGES);
+  const normalised = normalizeStages(localized);
+  return normalised.length ? normalised : FALLBACK_HOOKED_STAGES;
+}
+
+function getSlotLabel(index) {
+  return t(`slides.hooked.slotLabels.${index}`, `Stage ${index + 1} slot`);
+}
+
 function shuffle(items) {
   const list = items.slice();
   for (let i = list.length - 1; i > 0; i -= 1) {
@@ -42,6 +80,7 @@ function initHooked() {
     return;
   }
 
+  let hookedStages = loadHookedStages();
   const slotButtons = Array.from(root.querySelectorAll('[data-slot]'));
   const overlay = root.querySelector('[data-stage-overlay]');
   const picker = overlay?.querySelector('.hooked-picker');
@@ -62,7 +101,7 @@ function initHooked() {
   let overlayOpen = false;
 
   function findStage(stageId) {
-    return HOOKED_STAGES.find((stage) => stage.id === stageId) || null;
+    return hookedStages.find((stage) => stage.id === stageId) || null;
   }
 
   function updateSlotDisplay(slotIndex) {
@@ -80,7 +119,7 @@ function initHooked() {
       slot.classList.remove('is-correct', 'is-incorrect');
       slot.disabled = false;
       slot.removeAttribute('aria-disabled');
-      valueEl.textContent = `Stage ${slotIndex + 1} slot`;
+      valueEl.textContent = getSlotLabel(slotIndex);
       if (descEl) {
         descEl.textContent = '';
       }
@@ -192,7 +231,7 @@ function initHooked() {
     const available = [];
     const used = [];
 
-    HOOKED_STAGES.forEach((stage) => {
+    hookedStages.forEach((stage) => {
       if (lockedStages.has(stage.id)) {
         return;
       }
