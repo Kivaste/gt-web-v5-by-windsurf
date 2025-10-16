@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8" />
   <title>gadgetTamer – Estonian</title>
-  <meta http-equiv="refresh" content="0; url=../index.html"/>
   <script>
     (function () {
       try {
@@ -11,7 +10,12 @@
       } catch (err) {
         console.warn('Failed to persist locale preference', err);
       }
-      const target = new URL('../', window.location.href);
+      let target;
+      try {
+        target = new URL('../', window.location.href);
+      } catch (err) {
+        target = { href: '../' };
+      }
       window.location.replace(target.href);
     })();
   </script>
