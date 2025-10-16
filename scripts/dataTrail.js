@@ -16,6 +16,7 @@ let defaultLocationButtonText = '';
 let loadingLocationButtonText = '';
 const GUESS_LOCATION_LABEL_KEY = 'slides.dataTrail.guessLocationLabel';
 const GUESS_LOCATION_LABEL_FALLBACK = 'Guess location';
+const LOCATION_RESOLVED_CLASS = 'data-trail-location--resolved';
 
 let selectedAbVariant = null;
 let sessionStart = Date.now();
@@ -151,12 +152,14 @@ function setLocationDisplay(place, connector, isp) {
   const hasContent = Boolean(place) || Boolean(isp);
   if (!hasContent) {
     btnFetchIP.textContent = defaultLocationButtonText;
+    btnFetchIP.classList.remove(LOCATION_RESOLVED_CLASS);
     return;
   }
 
   const connectionPart = connector && isp ? `${connector}${isp}` : '';
   const displayText = [place, connectionPart].filter(Boolean).join('');
   btnFetchIP.textContent = displayText || defaultLocationButtonText;
+  btnFetchIP.classList.add(LOCATION_RESOLVED_CLASS);
 }
 
 function resetLocationDisplay() {
@@ -184,6 +187,7 @@ async function fetchIpLocation() {
   try {
     btnFetchIP.disabled = true;
     btnFetchIP.textContent = loadingLocationButtonText;
+    btnFetchIP.classList.add('is-loading');
     const res = await fetch('https://ipapi.co/json/');
     if (!res.ok) throw new Error('IP service unavailable');
     const data = await res.json();
@@ -200,6 +204,11 @@ async function fetchIpLocation() {
   } finally {
     if (btnFetchIP) {
       btnFetchIP.disabled = false;
+      btnFetchIP.classList.remove('is-loading');
+      if (!btnFetchIP.textContent) {
+        btnFetchIP.textContent = defaultLocationButtonText;
+        btnFetchIP.classList.remove(LOCATION_RESOLVED_CLASS);
+      }
     }
   }
 }
@@ -339,7 +348,7 @@ function initDataTrail() {
   }
 
   defaultLocationButtonText = btnFetchIP?.dataset.defaultText || 'Want me to guess your location?*';
-  loadingLocationButtonText = btnFetchIP?.dataset.loadingText || 'Guess location';
+  loadingLocationButtonText = btnFetchIP?.dataset.loadingText || t('slides.dataTrail.guessLocationLoading', '...');
 
   sessionStart = Date.now();
   buttonClicks = Object.create(null);

@@ -95,7 +95,7 @@
 
     <section id="hookedSection" class="slide" data-slide-title="Holy grail of Silicon Valley">
       <h2 data-i18n="slides.hooked.title">Holy grail of Silicon Valley</h2>
-      <p class="hooked-intro">Match each blank to a stage of the Hooked model. Tap a slot to see the options, then pick the description that fits.</p>
+      <p class="hooked-intro">Fill each blank slot with the correct stage of the Hooked model. Tap a slot to see the options, then pick the description that fits. Black indicates correct stage. Fill all in to open up the video.</p>
       <div class="hooked-exercise" data-hooked-exercise>
         <div class="hooked-slots" role="list">
           <button type="button" class="hooked-slot" data-slot="0" data-correct-stage="trigger" role="listitem">
@@ -122,6 +122,20 @@
               <button type="button" class="hooked-picker__close" data-stage-close aria-label="Close picker">×</button>
             </div>
             <ul class="hooked-stage-list" data-stage-list></ul>
+          </div>
+        </div>
+      </div>
+      <div class="hooked-explainer">
+        <button type="button" class="hooked-explainer-button" data-video-trigger disabled aria-disabled="true">Watch video explainer</button>
+      </div>
+      <div class="hooked-video-overlay" data-video-overlay hidden>
+        <div class="hooked-video-modal" role="dialog" aria-modal="true" aria-labelledby="hookedVideoTitle">
+          <div class="hooked-video-modal__header">
+            <h3 id="hookedVideoTitle">Video explainer</h3>
+            <button type="button" class="hooked-video-modal__close" data-video-close aria-label="Close video">×</button>
+          </div>
+          <div class="hooked-video-modal__body">
+            <p>Video placeholder</p>
           </div>
         </div>
       </div>
@@ -217,7 +231,7 @@
     </section>
 
     <section id="recapSection" class="slide" data-slide-title="Recap">
-      <h2 data-i18n="slides.recap.title">Which of these have influenced you negatively?</h2>
+      <h2 data-i18n="slides.recap.title">Which tricks have gotten you?</h2>
     </section>
 
     <section id="commentsSection" class="slide" data-slide-title="It's hopeless!">

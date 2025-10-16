@@ -1,4 +1,4 @@
-import { setNavigationBlocked } from './slides.js';
+import { onSlideChange, setNavigationBlocked } from './slides.js';
 const PANEL_SELECTOR = '[data-slide-panel]';
 const PANEL_DRAWER_SELECTOR = '[data-slide-panel-drawer]';
 const PANEL_BACKDROP_SELECTOR = '[data-slide-panel-backdrop]';
@@ -222,6 +222,20 @@ function initSlidePanel() {
   closeButton.addEventListener('click', closePanel);
   backdrop.addEventListener('click', closePanel);
   document.addEventListener('keydown', handleKeydown);
+
+  onSlideChange(() => {
+    if (isOpen) {
+      closePanel();
+    }
+  });
+
+  document.addEventListener('slide-navigation-blocked', (event) => {
+    if (!isOpen) return;
+    const source = event?.detail?.source;
+    if (source === 'history' || source === 'generic') {
+      closePanel();
+    }
+  });
 
   panel.addEventListener('transitionend', (event) => {
     if (event.target !== panel) return;

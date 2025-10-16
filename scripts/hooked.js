@@ -48,6 +48,9 @@ function initHooked() {
   const stageList = overlay?.querySelector('[data-stage-list]');
   const closeButton = overlay?.querySelector('[data-stage-close]');
   const docEl = document.documentElement;
+  const videoTrigger = root.parentElement?.querySelector('[data-video-trigger]');
+  const videoOverlay = root.parentElement?.querySelector('[data-video-overlay]');
+  const videoCloseBtn = videoOverlay?.querySelector('[data-video-close]');
 
   if (!slotButtons.length || !overlay || !picker || !stageList) {
     return;
@@ -105,6 +108,8 @@ function initHooked() {
     if (descEl) {
       descEl.textContent = stage.examples.join(', ');
     }
+
+    updateVideoTriggerState();
   }
 
   function closePicker() {
@@ -122,6 +127,27 @@ function initHooked() {
     if (lastActiveElement) {
       lastActiveElement.focus({ preventScroll: true });
       lastActiveElement = null;
+    }
+  }
+
+  function allSlotsCorrect() {
+    return assignments.every((stageId, idx) => {
+      if (!stageId) return false;
+      const slot = slotButtons[idx];
+      return slot?.classList.contains('is-correct');
+    });
+  }
+
+  function updateVideoTriggerState() {
+    if (!videoTrigger) {
+      return;
+    }
+    const unlocked = allSlotsCorrect();
+    videoTrigger.disabled = !unlocked;
+    if (unlocked) {
+      videoTrigger.removeAttribute('aria-disabled');
+    } else {
+      videoTrigger.setAttribute('aria-disabled', 'true');
     }
   }
 
@@ -237,6 +263,47 @@ function initHooked() {
     });
   });
 
+  function closeVideoOverlay() {
+    if (!videoOverlay) return;
+    videoOverlay.classList.remove('is-active');
+    videoOverlay.hidden = true;
+    document.body.classList.remove('hooked-modal-open', 'slide-panel-open');
+    docEl.classList.remove('hooked-modal-open', 'slide-panel-open');
+    setNavigationBlocked(false);
+  }
+
+  if (videoTrigger && videoOverlay) {
+    videoTrigger.addEventListener('click', () => {
+      if (videoTrigger.disabled) {
+        return;
+      }
+      videoOverlay.hidden = false;
+      videoOverlay.classList.add('is-active');
+      document.body.classList.add('hooked-modal-open', 'slide-panel-open');
+      docEl.classList.add('hooked-modal-open', 'slide-panel-open');
+      setNavigationBlocked(true);
+      videoOverlay.querySelector('button, [href], [tabindex]:not([tabindex="-1"])')?.focus();
+    });
+
+    if (videoCloseBtn) {
+      videoCloseBtn.addEventListener('click', () => {
+        closeVideoOverlay();
+      });
+    }
+
+    videoOverlay.addEventListener('click', (event) => {
+      if (event.target === videoOverlay) {
+        closeVideoOverlay();
+      }
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && !videoOverlay.hidden) {
+        closeVideoOverlay();
+      }
+    });
+  }
+
   if (closeButton) {
     closeButton.addEventListener('click', () => {
       closePicker();
@@ -262,6 +329,8 @@ function initHooked() {
       closePicker();
     }
   });
+
+  updateVideoTriggerState();
 }
 
 export { initHooked };

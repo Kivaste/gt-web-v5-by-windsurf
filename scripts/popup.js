@@ -158,16 +158,27 @@ function onBackdropClick(e) {
   if (e.target === popup) hidePopup();
 }
 
+function shouldAdvanceAfterPopup() {
+  const controller = slideController;
+  if (!controller) return false;
+  const index = controller.index ?? 0;
+  return index >= 0 && index <= 4;
+}
+
 function onPopupPrimaryClick() {
   if (!popupOpen) return;
   hidePopup();
-  slideController?.goNext?.({ source: 'popup-primary' });
+  if (shouldAdvanceAfterPopup()) {
+    slideController?.goNext?.({ source: 'popup-primary' });
+  }
 }
 
 function onPopupSecondaryClick() {
   if (!popupOpen) return;
   hidePopup();
-  slideController?.goNext?.({ source: 'popup-secondary' });
+  if (shouldAdvanceAfterPopup()) {
+    slideController?.goNext?.({ source: 'popup-secondary' });
+  }
 }
 
 function showPopup(reason, originRect = null) {

@@ -44,6 +44,7 @@
       "buttonsClickedLabel": "Clicks",
       "guessButton": "Want me to guess your location?*",
       "guessLocationLabel": "Guess location",
+      "guessLocationLoading": "...",
       "noneYet": "None yet",
       "note": "* Fetching a rough, IP address based location (no GPS)"
     },
@@ -123,7 +124,7 @@
       "body": "<ol><li>Understand the design (goals and principles)</li><li>Measure, notice, decide on your usage</li><li>Remove triggers</li><li>Design your digital environment: add friction to the undesirable</li><li>Eliminate slip-ups: adjust access</li><li>Curate info diet: who, when and how is able to reach you?</li><li>What's the replacement: remove friction from your goals</li></ol>"
     },
     "recap": {
-      "title": "Which of these have influenced you negatively?",
+      "title": "Which tricks have gotten you?",
       "patterns": "Websites reuse proven persuasion patterns because they consistently guide visitors toward action.",
       "data": "Your browser leaks a data trail—browser, device, referrer, even rough location—before you click anything.",
       "popups": "Pop-ups are timed nudges; annoying, yes, but effective when matched to behavior.",

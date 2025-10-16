@@ -7,6 +7,9 @@ const redBannerListeners = new Set();
 
 let reduceMotion = getReduceMotion();
 let navigationBlocked = false;
+let historySetup = false;
+let ignoreHistoryUpdate = false;
+let lastHistoryIndex = null;
 
 onMotionPreferenceChange((value) => {
   reduceMotion = value;
@@ -34,6 +37,11 @@ function getFreeMaterialsSlide() {
 
 function getDataTrailSection() {
   return document.getElementById('dataTrailSection');
+}
+
+function getSlideHash(index) {
+  const id = slideIdByIndex[index];
+  return id ? `#${id}` : '';
 }
 
 function setupStaticScrollIndicators() {
@@ -354,6 +362,7 @@ function initSlides() {
   slideController.refresh();
   slideController.setupObserver();
   setupStaticScrollIndicators();
+  setupHistoryNavigation();
 }
 
 function onSlideChange(fn) {
@@ -376,6 +385,61 @@ function onRedBannerEvent(fn) {
 
 function setNavigationBlocked(value) {
   navigationBlocked = Boolean(value);
+}
+
+function setupHistoryNavigation() {
+  if (historySetup) return;
+  if (!('history' in window) || typeof window.history.pushState !== 'function') return;
+
+  historySetup = true;
+  lastHistoryIndex = slideController.index;
+
+  const initialHash = getSlideHash(lastHistoryIndex);
+  const currentState = window.history.state;
+  if (!currentState || typeof currentState.slideIndex !== 'number') {
+    window.history.replaceState({ slideIndex: lastHistoryIndex }, '', initialHash || window.location.pathname);
+  }
+
+  window.addEventListener('popstate', (event) => {
+    const targetIndex = typeof event.state?.slideIndex === 'number' ? event.state.slideIndex : null;
+    if (navigationBlocked) {
+      const direction = targetIndex !== null
+        ? (targetIndex < slideController.index ? 'back' : 'forward')
+        : 'unknown';
+      document.dispatchEvent(new CustomEvent('slide-navigation-blocked', {
+        detail: {
+          source: 'history',
+          direction,
+          targetIndex,
+        }
+      }));
+      queueMicrotask(() => {
+        window.history.go(1);
+      });
+      return;
+    }
+    if (targetIndex === null || targetIndex === slideController.index) {
+      return;
+    }
+    ignoreHistoryUpdate = true;
+    slideController.goTo(targetIndex, { source: 'history' });
+  });
+
+  onSlideChange((index) => {
+    if (!historySetup) return;
+    if (ignoreHistoryUpdate) {
+      ignoreHistoryUpdate = false;
+      lastHistoryIndex = index;
+      return;
+    }
+    if (index === lastHistoryIndex) {
+      return;
+    }
+
+    const hash = getSlideHash(index);
+    window.history.pushState({ slideIndex: index }, '', hash || window.location.pathname);
+    lastHistoryIndex = index;
+  });
 }
 
 export {

@@ -1,32 +1,31 @@
 - [x] hero page animated navigation should be delayed even when the reduce motion is enabled
 - [x] Copy the hero slide scroll indicator but without the delay and animation (position should be fixed to the bottom of the animation range) and add that for all the pages except red banner and second CTA
 - [x] yellow banner - fix mobile: add 10% of height, add a bit of white space to the sides
-- [ ] hooked slide - Select the stage to place in this slot: this selector should act more like a popup or a dropdown menu that comes on top of the other content, rather than an extra container that is hidden and shown on click.
-- [ ] Persuasion tricks in plain sight: copy
-- [ ] Data > Oil: put the button click counters to the second column, right to the device info
-- [ ] comments/These tools are too powerful!: fix the comments box to have the same font, text size etc like the email box'
+- [x] hooked slide - Select the stage to place in this slot: this selector should act more like a popup or a dropdown menu that comes on top of the other content, rather than an extra container that is hidden and shown on click.
+- [x] Data > Oil: put the button click counters to the second column, right to the device info
+- [x] comments/These tools are too powerful!: fix the comments box to have the same font, text size etc like the email box'
+- [x] What is gadgetTaming?: copy
+- [x] Hooked: interaction
+- [x] Which of these have influenced you negatively? => Which tricks have gotten you?
 
-- [ ] copy changes
-    - [ ] These tools are too powerful! => It's hopeless!
-    - [ ] These methods are too powerful. You have no chance against them. Just give up!
-    - [ ] These could be some of the wrong arguments 
-    - [ ] you're an absolute arse! Of course I ... ooh, that's how they got the engagement!
 
+
+- [ ] Data > Oil: when pressing the button don't show "Guess location" during the loading animation
+- [ ] Data > Oil: add to the end: Spooky? Sum everything up and multiply by 100,000,000 users = beyond spooky!
+- [ ] CTA panels: when clicking a mouse or keyboard back button or doing a back swipe gesture then it should close the panel not go to the previous browser page or slide
+- [ ] mouse or keyboard back button or doing a back swipe gesture be going to previous slide instead of previous browser page?
+- [x] make the popup buttons go to next slide only when the popup appears within the first 5 slides (hero, whysimilar, yellow banner, red banner, personal note), after that the buttons should just close the popup and remain in the same slide
 
 
 - [ ] Who am I?: copy
-- [ ] What is gadgetTaming?: copy
 - [ ] Recap: copy
-- [ ] Hooked: interaction
 - [ ] Hooked: copy
-- [ ] Data > Oil: 
 - [ ] CTA slideouts
+- [ ] Persuasion tricks in plain sight: copy
 
 
 
-- [ ] Which of these have influenced you negatively? => Which have you felt?
-- [ ] Data > Oil: when pressing the button don't show "Guess location" during the loading animation
-- [ ] Data > Oil: add to the end: Spooky? Add everything else and multiply by 100,000,000 users = beyond spooky!
+
 
 
 
