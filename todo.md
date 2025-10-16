@@ -24,7 +24,9 @@
 
 
 
-
+- [ ] Which of these have influenced you negatively? => Which have you felt?
+- [ ] Data > Oil: when pressing the button don't show "Guess location" during the loading animation
+- [ ] Data > Oil: add to the end: Spooky? Add everything else and multiply by 100,000,000 users = beyond spooky!
 
 
 
@@ -248,3 +250,72 @@ Examples: New likes or comments, Loot drop, Fresh content.
 Investment (scripts/hooked.js:20-25)
 Effort that increases the product’s future value. 
 Examples: Upload a photo, Follow friends, Save preferences.
+
+
+------------
+
+
+gadgetTamer 7 Pillars:
+
+1. Understand the design (goals and principles)
+
+a) Profit maximization through selling your time and attention
+b) Hook model, Skinner box, friction as growth brake
+
+2. Measure, become aware, decide on your usage
+a) Screen time is just one number—what's behind it?
+b) Phone unlocks, usage times, app categorization
+
+3. Remove triggers
+a) Notifications, Modes/Focus Modes
+
+4. Design your digital environment: add friction to the undesirable
+a) Make automatic behavior conscious and harder; bring attention back
+
+5. Eliminate slip-ups: design access
+a) Does everything need 24/7 access from every device?
+b) Access based on device, account, time, usage limit, or location
+
+6. Curate your info diet: who, when, and how should reach you?
+a) Email, newsletters, social media feeds
+
+7. What to replace it with: remove friction from real goals
+
+
+----
+
+gadgetTamer’s 7 pillars:
+
+1. Understand design (goals and principles)
+
+    Increasing profit by selling your time and attention
+    The Hook Model, Skinner box, friction as a brake on growth
+
+2. Measure, notice, and decide on your usage (now vs. future self)
+
+    Screen time is just one number—what’s behind it?
+    Phone unlock count, times of use, app categorization
+
+3. Remove triggers
+
+    Notifications, Modes/Focus Modes
+
+4. Build your own digital environment—add friction to the undesirable
+
+    Surface and hinder automatic behavior; bring your attention back
+
+5. Eliminate chances to slip—design access
+
+    Do you need 24/7 access to everything from every device?
+    Gate access by device, account, time of day, usage amount, or location
+
+6. Curate your information diet—who, when, and how should be able to reach you?
+
+    Email, newsletters, social feeds
+
+7. What will you replace it with—in other words, remove friction from your real goals
+
+
+
+-------
+

@@ -1,3 +1,5 @@
+import { setNavigationBlocked } from './slides.js';
+
 const HOOKED_STAGES = [
   {
     id: 'trigger',
@@ -45,6 +47,7 @@ function initHooked() {
   const picker = overlay?.querySelector('.hooked-picker');
   const stageList = overlay?.querySelector('[data-stage-list]');
   const closeButton = overlay?.querySelector('[data-stage-close]');
+  const docEl = document.documentElement;
 
   if (!slotButtons.length || !overlay || !picker || !stageList) {
     return;
@@ -53,6 +56,7 @@ function initHooked() {
   const assignments = new Array(slotButtons.length).fill(null);
   let activeSlotIndex = null;
   let lastActiveElement = null;
+  let overlayOpen = false;
 
   function findStage(stageId) {
     return HOOKED_STAGES.find((stage) => stage.id === stageId) || null;
@@ -65,10 +69,14 @@ function initHooked() {
     const stageId = assignments[slotIndex];
     const valueEl = slot.querySelector('[data-slot-value]');
     const descEl = slot.querySelector('[data-slot-desc]');
+    const correctStage = slot.dataset.correctStage || null;
 
     if (!stageId) {
       slot.classList.remove('is-filled');
       slot.removeAttribute('data-stage');
+      slot.classList.remove('is-correct', 'is-incorrect');
+      slot.disabled = false;
+      slot.removeAttribute('aria-disabled');
       valueEl.textContent = `Stage ${slotIndex + 1} slot`;
       if (descEl) {
         descEl.textContent = '';
@@ -83,6 +91,16 @@ function initHooked() {
 
     slot.classList.add('is-filled');
     slot.setAttribute('data-stage', stage.id);
+    const isCorrect = correctStage && stage.id === correctStage;
+    slot.classList.toggle('is-correct', Boolean(isCorrect));
+    slot.classList.toggle('is-incorrect', !isCorrect);
+    if (isCorrect) {
+      slot.disabled = true;
+      slot.setAttribute('aria-disabled', 'true');
+    } else {
+      slot.disabled = false;
+      slot.removeAttribute('aria-disabled');
+    }
     valueEl.textContent = stage.title;
     if (descEl) {
       descEl.textContent = stage.examples.join(', ');
@@ -93,7 +111,12 @@ function initHooked() {
     if (!overlay) return;
     overlay.classList.remove('is-active');
     overlay.hidden = true;
-    document.body.classList.remove('hooked-modal-open');
+    if (overlayOpen) {
+      document.body.classList.remove('hooked-modal-open', 'slide-panel-open');
+      docEl.classList.remove('hooked-modal-open', 'slide-panel-open');
+      setNavigationBlocked(false);
+      overlayOpen = false;
+    }
     activeSlotIndex = null;
     slotButtons.forEach((slot) => slot.classList.remove('is-active'));
     if (lastActiveElement) {
@@ -109,6 +132,11 @@ function initHooked() {
 
     const existingIndex = assignments.findIndex((assigned, idx) => assigned === stageId && idx !== activeSlotIndex);
     if (existingIndex !== -1) {
+      const existingSlot = slotButtons[existingIndex];
+      if (existingSlot?.classList.contains('is-correct')) {
+        closePicker();
+        return;
+      }
       assignments[existingIndex] = null;
       updateSlotDisplay(existingIndex);
     }
@@ -120,12 +148,28 @@ function initHooked() {
 
   function renderStageList() {
     const activeStageId = assignments[activeSlotIndex] || null;
-    const usedElsewhere = new Set(assignments.filter((stageId, idx) => stageId && idx !== activeSlotIndex));
+    const lockedStages = new Set();
+    const usedElsewhere = new Set();
+
+    assignments.forEach((stageId, idx) => {
+      if (!stageId || idx === activeSlotIndex) {
+        return;
+      }
+      const slot = slotButtons[idx];
+      if (slot?.classList.contains('is-correct')) {
+        lockedStages.add(stageId);
+        return;
+      }
+      usedElsewhere.add(stageId);
+    });
 
     const available = [];
     const used = [];
 
     HOOKED_STAGES.forEach((stage) => {
+      if (lockedStages.has(stage.id)) {
+        return;
+      }
       const isCurrent = stage.id === activeStageId;
       const isUsed = usedElsewhere.has(stage.id);
       const bucket = (isUsed && !isCurrent) ? used : available;
@@ -172,7 +216,10 @@ function initHooked() {
     renderStageList();
     overlay.hidden = false;
     overlay.classList.add('is-active');
-    document.body.classList.add('hooked-modal-open');
+    document.body.classList.add('hooked-modal-open', 'slide-panel-open');
+    docEl.classList.add('hooked-modal-open', 'slide-panel-open');
+    setNavigationBlocked(true);
+    overlayOpen = true;
     lastActiveElement = slotButtons[slotIndex];
 
     requestAnimationFrame(() => {
@@ -183,6 +230,9 @@ function initHooked() {
 
   slotButtons.forEach((slot, index) => {
     slot.addEventListener('click', () => {
+      if (slot.disabled || slot.classList.contains('is-correct')) {
+        return;
+      }
       openPickerForSlot(index);
     });
   });

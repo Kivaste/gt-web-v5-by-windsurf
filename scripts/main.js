@@ -4,6 +4,7 @@ import { initHero } from './hero.js';
 import { initializeLocalization } from './localization.js';
 import { initPersonalNote } from './personalNote.js';
 import { initPopup } from './popup.js';
+import { initSlidePanel } from './slidePanel.js';
 import { initSlides } from './slides.js';
 import { initComments } from './comments.js';
 import { initHooked } from './hooked.js';
@@ -19,6 +20,7 @@ async function bootstrap() {
   initSlides();
   initCountdown();
   initPopup();
+  initSlidePanel();
   initPersonalNote();
   initDataTrail();
   initComments();
