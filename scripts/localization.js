@@ -52,10 +52,16 @@ function notifyLocaleChanged() {
   });
 }
 
-function applyTranslations() {
-  document.documentElement.lang = currentLocale;
+function translateSubtree(root) {
+  const scope = root || document;
+  const targets = [];
 
-  document.querySelectorAll('[data-i18n]').forEach((el) => {
+  if (scope.matches && scope.matches('[data-i18n]')) {
+    targets.push(scope);
+  }
+  scope.querySelectorAll?.('[data-i18n]').forEach((el) => targets.push(el));
+
+  targets.forEach((el) => {
     const key = el.dataset.i18n;
     const value = t(key);
     if (value !== undefined && value !== null) {
@@ -63,7 +69,13 @@ function applyTranslations() {
     }
   });
 
-  document.querySelectorAll('[data-i18n-placeholder]').forEach((el) => {
+  const placeholderTargets = [];
+  if (scope.matches && scope.matches('[data-i18n-placeholder]')) {
+    placeholderTargets.push(scope);
+  }
+  scope.querySelectorAll?.('[data-i18n-placeholder]').forEach((el) => placeholderTargets.push(el));
+
+  placeholderTargets.forEach((el) => {
     const key = el.dataset.i18nPlaceholder;
     const value = t(key);
     if (value !== undefined && value !== null) {
@@ -71,7 +83,13 @@ function applyTranslations() {
     }
   });
 
-  document.querySelectorAll('[data-i18n-aria-label]').forEach((el) => {
+  const ariaTargets = [];
+  if (scope.matches && scope.matches('[data-i18n-aria-label]')) {
+    ariaTargets.push(scope);
+  }
+  scope.querySelectorAll?.('[data-i18n-aria-label]').forEach((el) => ariaTargets.push(el));
+
+  ariaTargets.forEach((el) => {
     const key = el.dataset.i18nAriaLabel;
     const value = t(key);
     if (value !== undefined && value !== null) {
@@ -79,7 +97,13 @@ function applyTranslations() {
     }
   });
 
-  document.querySelectorAll('[data-i18n-attr]').forEach((el) => {
+  const attrTargets = [];
+  if (scope.matches && scope.matches('[data-i18n-attr]')) {
+    attrTargets.push(scope);
+  }
+  scope.querySelectorAll?.('[data-i18n-attr]').forEach((el) => attrTargets.push(el));
+
+  attrTargets.forEach((el) => {
     const mapping = el.dataset.i18nAttr;
     if (!mapping) return;
     mapping.split(';').forEach((entry) => {
@@ -104,7 +128,11 @@ function applyTranslations() {
       }
     });
   });
+}
 
+function applyTranslations() {
+  document.documentElement.lang = currentLocale;
+  translateSubtree(document);
   notifyTranslationsApplied();
 }
 
@@ -239,5 +267,6 @@ export {
   onLocaleChanged,
   onTranslationsApplied,
   setLocale,
+  translateSubtree,
   t
 };

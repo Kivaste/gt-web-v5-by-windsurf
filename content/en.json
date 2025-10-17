@@ -14,7 +14,25 @@
   },
   "slidePanels": {
     "defaultTitle": "Panel",
-    "close": "← Back"
+    "close": "← Back",
+    "webinar": {
+      "body": "Join the live webinar to walk through real-world tactics and see how gadgetTaming works in practice."
+    },
+    "courseSelf": {
+      "body": "Move at your own pace with video lessons, worksheets, and exercises designed to help you reclaim your focus."
+    },
+    "courseLive": {
+      "body": "Take part in a facilitated cohort with weekly sessions, accountability, and guided implementation support."
+    },
+    "teamTraining": {
+      "body": "Equip your team with workshops and toolkits tailored to your organization’s culture and attention challenges."
+    },
+    "scheduleCall": {
+      "body": "Book a call to discuss your goals, current roadblocks, and the best path toward a calmer, more intentional workflow."
+    },
+    "donate": {
+      "body": "Your support keeps these educational resources free and helps more people escape manipulative design."
+    }
   },
   "hero": {
     "title": "why is this page so weird",
@@ -34,20 +52,10 @@
       "paragraph3": "Let's dig deeper?"
     },
     "specialOffer": {
-      "title": "Special Offer",
-      "copy": "🚨 Special Offer Banner - creates urgency, pushes you to act fast! 🚨"
+      "title": "Special Offer"
     },
     "dataTrail": {
       "title": "Data > Oil",
-      "browserLabel": "Browser",
-      "osLabel": "OS",
-      "deviceLabel": "Device",
-      "referrerLabel": "Referrer",
-      "refreshButton": "Refresh",
-      "timeLabel": "Time on site",
-      "popupsSeenLabel": "Pop-ups seen",
-      "popupSeen": "seen",
-      "popupNotSeen": "not seen",
       "summaryDevice": "Device:",
       "summaryReferrer": "Got here:",
       "summaryTime": "Time on site:",
@@ -55,7 +63,6 @@
       "statsTitle": "Stats",
       "buttonsClickedLabel": "Clicks",
       "guessButton": "Want me to guess your location?*",
-      "guessLocationLabel": "Guess location",
       "guessLocationLoading": "...",
       "noneYet": "None yet",
       "note": "* Fetching a rough, IP address based location (no GPS)",
@@ -64,19 +71,7 @@
     "cookies": {
       "title": "Cookies - sweet or clingy?",
       "paragraph1": "Your barista remembers your latte and your name. Sweet!<br>First-party cookies do that - login, preferences, did you see A or B, and that shopping cart you abandoned.",
-      "paragraph2": "Guy in a van? Different vibe.<br>Third-party cookies follow you everywhere, log everything, report to advertisers. That abandoned cart haunting every page? That's them.",
-      "firstParty": "<strong>First-party cookies:</strong> set by the site you're on — logins, carts, \"remember me,\" that sort of useful stuff.",
-      "sessionPersistent": "<strong>Session vs. persistent:</strong> session cookies vanish when you close the tab; persistent cookies stick around for days or months, like glitter after a craft accident.",
-      "retargTitle": "Retargeting in 4 steps (aka \"why am I seeing those exact shoes?\")",
-      "retargStep1": "You check out Product X on Site A. A tiny \"ad pixel\" from AdCo loads.",
-      "retargStep2": "AdCo drops a <em>third‑party</em> cookie: \"User looked at Product X.\"",
-      "retargStep3": "Later on Site B (also running AdCo), your browser presents that cookie to AdCo.",
-      "retargStep4": "AdCo recognizes you and serves an ad for Product X everywhere, forever. Or at least until the cookie expires.",
-      "thirdPartyLabel": "Third-party cookies",
-      "retestButton": "Re-test",
-      "externalLink": "External test",
-      "clearDataButton": "Clear site data",
-      "note": "Note: Many browsers now block third-party cookies by default. Retargeting still happens via newer tricks (first-party tracking, server-side stitching, hashed emails). The game evolves."
+      "paragraph2": "Guy in a van? Different vibe.<br>Third-party cookies follow you everywhere, log everything, report to advertisers. That abandoned cart haunting every page? That's them."
     },
     "abTesting": {
       "title": "Choose A or B",
@@ -91,9 +86,7 @@
       "body2": "Except here. No email. No asterisk. Just keep scrolling for your free materials ;)"
     },
     "tricks": {
-      "title": "Persuasion tricks in plain sight",
-      "body": "Your interface isn't neutral. Inline prompts, progress meters, social proof — every microcopy push keeps you moving forward.",
-      "body2": "Spot scarcity timers, risk-free guarantees, checkout microcopy, unstoppable autoplay. Once you see them, you can't unsee them.",
+      "title": "Some more persuasion tricks in plain sight",
       "table": {
         "label": "Persuasion tricks examples",
         "headers": {
@@ -147,8 +140,6 @@
     },
     "hooked": {
       "title": "Holy grail of Silicon Valley",
-      "body": "Tech isn't neutral. It's engineered to trigger craving loops with every notification, feed refresh, and streak counter.",
-      "body2": "Once you name the trigger-action-reward cycles, you can break them on purpose — and build healthier ones instead.",
       "intro": "Fill each blank slot with the correct stage of the Hooked model. Tap a slot to see the options, then pick the description that fits. Black indicates correct stage. Fill all in to open up the video.",
       "pickerTitle": "Select the stage",
       "pickerCloseAria": "Close picker",
@@ -227,7 +218,6 @@
       "title": "It's hopeless!",
       "intro": "These methods are too powerful. You have no chance against them. Just give up!",
       "commentHeading": "I don't think you can prove me wrong",
-      "commentPlaceholder": "99.99% DOES NOT EQUAL ONE IN A MILLION! IDIOT!\n\n(gotcha - got the engagement I was looking for)",
       "commentEmailLabel": "if you wish to get a reply then leave your email",
       "commentEmailPlaceholder": "not a newsletter signup",
       "commentButton": "Post comment",
@@ -238,8 +228,8 @@
       "body": "I'm building this approach because personality beats blandness. I believe trust grows when you see I'm not hiding behind cookie-cutter methods. This is who I am."
     },
     "aboutGadgetTaming": {
-      "title": "<u>gadgetTamer</u> - 7 Pillars",
-      "body": "<ol><li>Understand the design (goals and principles)</li><li>Measure, notice, decide on your usage</li><li>Remove triggers</li><li>Design your digital environment: add friction to the undesirable</li><li>Eliminate slip-ups: adjust access</li><li>Curate info diet: who, when and how is able to reach you?</li><li>What's the replacement: remove friction from your goals</li></ol>"
+      "title": "What is <u>gadgetTaming</u>?",
+      "body": "gadgetTaming is about understanding how websites really work, beyond templates, and using that knowledge to stand out. Yes, the end goal is sales, but done in a way that respects human attention."
     },
     "recap": {
       "title": "Which tricks have gotten you?",
@@ -256,8 +246,8 @@
       "notReady": "<strong>Not ready yet?</strong><br>Just scroll down to learn more about me, gadgetTaming and the tricks used against you."
     },
     "callToActionSecondary": {
-      "title": "Almost a level 2 <u>gadgetTamer</u>",
-      "body": "Any of these will get you there and beyond. This is either the end of the road or the beginning of redefining how you use your gadgets - your choice."
+      "title": "Almost level 2 gadgetTamer",
+      "body": "Any of these will get you there and beyond. This is either the end of the road or the beginning of something new - your choice."
     }
   },
   "popups": {
@@ -272,7 +262,6 @@
     }
   },
   "buttons": {
-    "ctaPrimary": "👉 Take Action Now",
     "ctaWebinar": "Free <br>webinar",
     "ctaCourseSelf": "Course: <br>self-paced",
     "ctaCourseLive": "Course: <br>live cohort",
@@ -282,14 +271,9 @@
     "noThanks": "No thanks"
   },
   "stats": {
-    "referrer": {
-      "direct": "Direct"
-    },
     "location": {
-      "loading": "Loading…",
-      "unknown": "Unknown",
-      "unavailable": "Location unavailable - sorry, doesn't always work:(",
-      "detecting": "Detecting…"
+      "unknown": "Unknown location",
+      "unavailable": "Location unavailable - sorry, doesn't always work:("
     }
   },
   "cookies": {
@@ -306,7 +290,6 @@
     "form": {
       "error": "Please write something first!",
       "success": "Comment posted! (Not really, but visually it works 😉)",
-      "invalidEmail": "Please enter a valid email address.",
       "errorEmail": "Please enter a valid email address."
     }
   },

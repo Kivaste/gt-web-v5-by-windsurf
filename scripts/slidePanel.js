@@ -1,4 +1,4 @@
-import { onTranslationsApplied, t } from './localization.js';
+import { onTranslationsApplied, t, translateSubtree } from './localization.js';
 import { onSlideChange, setNavigationBlocked } from './slides.js';
 const PANEL_SELECTOR = '[data-slide-panel]';
 const PANEL_DRAWER_SELECTOR = '[data-slide-panel-drawer]';
@@ -153,6 +153,14 @@ function initSlidePanel() {
   updateCloseButtonLabel();
   onTranslationsApplied(updateCloseButtonLabel);
 
+  const retranslatePanelBody = () => {
+    if (body.childElementCount) {
+      translateSubtree(body);
+    }
+  };
+
+  onTranslationsApplied(retranslatePanelBody);
+
   function closePanel() {
     if (!isOpen) return;
     panel.classList.remove('is-visible');
@@ -181,7 +189,9 @@ function initSlidePanel() {
 
     const template = templates.get(panelId);
     body.innerHTML = '';
-    body.appendChild(template.content.cloneNode(true));
+    const fragment = template.content.cloneNode(true);
+    body.appendChild(fragment);
+    translateSubtree(body);
     body.scrollTop = 0;
     drawer.scrollTop = 0;
     focusTrap.refresh();

@@ -318,3 +318,16 @@ gadgetTamer’s 7 pillars:
 
 -------
 
+ET
+
+ 🚨 Eripakkumise bänner - tekitab kiirustamist ja sunnib tegutsema! 🚨 
+ => 
+ 🚨 Eripakkumise bänner sunnib kiirustades tegutsema! 🚨 
+
+Tegutse kohe Võta aega, lõpeb:
+=>
+ Kiirusta! Võta vabalt, aega lõpuni:
+
+
+
+ Nende eesmärk pole sind informeerida - need on häälestatud masinad, mis juhivad sind pangakaarti sisestama.
